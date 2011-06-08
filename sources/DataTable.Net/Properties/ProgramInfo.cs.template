@@ -1,0 +1,15 @@
+namespace DataTable.Net.Properties
+{
+	/// <summary>
+	/// ProgramInfo.cs is regenerated on every build. Use ProgramInfo.cs.template.
+	/// </summary>
+	public static class ProgramInfo
+	{
+		#region Constants
+
+		public static readonly string Version = "1.0.$WCREV$";
+		public static readonly string BuildDate = "$WCNOW$";
+
+		#endregion Constants
+	}
+}

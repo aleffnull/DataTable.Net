@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<project default="build_delivery">
+
+	<target name="init">
+		<property name="msbuild" value="MSBuild.exe" />
+		<property name="dir_src" value="${directory::get-current-directory()}" />
+		<property name="configuration" value="Release" />
+		<property name="project_name" value="DataTable.Net" />
+		<property name="project_path" value="${dir_src}\${project_name}" />
+		<property name="project" value="${project_path}\${project_name}.csproj" />
+		<property name="program_info_cs" value="${project_path}\Properties\ProgramInfo.cs" />
+		<property name="binaries_dir" value="${dir_src}\${project_name}\bin\${configuration}" />
+		<property name="samples_dir" value="${dir_src}\Samples" />
+		<property name="distr_dir" value="${dir_src}\Distr" />
+		<property name="documents_dir" value="${dir_src}\Documents" />
+		<property name="readme" value="${documents_dir}\Readme.txt" />
+		<property name="delivery_dir_min" value="${dir_src}\_delivery\min" />
+		<property name="delivery_dir_full" value="${dir_src}\_delivery\full" />
+		<property name="delivery_build_dir" value="${delivery_dir_min}\build" />
+		<property name="delivery_build_dir_binaries" value="${delivery_build_dir}\Binaries" />
+		<property name="delivery_build_dir_samples" value="${delivery_build_dir}\Samples" />
+	</target>
+	
+	<target name="clean" depends="init">
+		<delete>
+			<fileset basedir="${project_path}" >
+				<include name="**\${configuration}\*" />
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="build" depends="clean">
+		<exec program="${msbuild}" workingdir="${dir_src}" commandline="${project} /t:Rebuild /property:Configuration=${configuration}" />
+	</target>
+	
+	<target name="prepare_build_directories" depends="init">
+		<if test="${not directory::exists(delivery_dir_min)}">
+			<mkdir dir="${delivery_dir_min}" />
+		</if>
+		<if test="${directory::exists(delivery_build_dir)}">
+			<delete dir="${delivery_build_dir}" />
+		</if>
+		<mkdir dir="${delivery_build_dir}" />
+		<mkdir dir="${delivery_build_dir_binaries}" />
+		<mkdir dir="${delivery_build_dir_samples}" />
+	</target>
+	
+	<target name="deliver_binaries" depends="prepare_build_directories, build">
+		<copy todir="${delivery_build_dir_binaries}">
+			<fileset basedir="${binaries_dir}">
+				<include name="*.*" />
+				<exclude name="*.pdb" />
+				<exclude name="*.xml" />
+				<exclude name="*vshost*.*" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="deliver_samples" depends="prepare_build_directories">
+		<copy todir="${delivery_build_dir_samples}">
+			<fileset basedir="${samples_dir}">
+				<include name="*.*" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="get_version" depends="build" >
+		<loadfile file="${program_info_cs}" property="program_info_file_contents" />
+		<regex pattern="(?&lt;=public static readonly string Version = &quot;)(?'version'.*)(?=&quot;)"
+		       options="Multiline" input="${program_info_file_contents}" />
+	</target>
+	
+	<target name="build_delivery_min" depends="prepare_build_directories, get_version, deliver_binaries, deliver_samples">
+		<property name="delivery_zip" value="${project_name}_${version}.zip" />
+		<zip zipfile="${delivery_dir_min}\${delivery_zip}" >
+			<fileset basedir="${delivery_build_dir}">
+				<include name="**"/>
+			</fileset>
+		</zip>
+		
+		<delete dir="${delivery_build_dir}" />
+	</target>
+
+	<target name="prepare_full_delivery_directories" depends="get_version" >
+		<if test="${not directory::exists(delivery_dir_full)}">
+			<mkdir dir="${delivery_dir_full}" />
+		</if>
+		<property name="delivery_dir_full_current" value="${delivery_dir_full}\${project_name}_${version}" />
+		<property name="delivery_dir_full_current_distr" value="${delivery_dir_full_current}\Distr" />
+		<if test="${directory::exists(delivery_dir_full_current)}">
+			<delete dir="${delivery_dir_full_current}" />
+		</if>
+		<mkdir dir="${delivery_dir_full_current}" />
+		<mkdir dir="${delivery_dir_full_current_distr}" />
+	</target>
+	
+	<target name="build_delivery_full" depends="prepare_full_delivery_directories, build_delivery_min">
+		<copy file="${delivery_dir_min}\${delivery_zip}" tofile="${delivery_dir_full_current}\${delivery_zip}" />
+		<copy todir="${delivery_dir_full_current_distr}" >
+			<fileset basedir="${distr_dir}">
+				<include name="*.*" />
+			</fileset>
+		</copy>
+		<copy todir="${delivery_dir_full_current}" >
+			<fileset basedir="${documents_dir}">
+				<include name="${readme}" />
+			</fileset>
+		</copy>
+	</target>
+
+</project>
