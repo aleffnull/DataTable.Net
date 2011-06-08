@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ArithmeticTypeUnknownMember" xml:space="preserve">
+    <value>Unknown ArithmeticType member: {0}.</value>
+    <comment>0 is enumeration value</comment>
+  </data>
+  <data name="BytesCountNotSpecified" xml:space="preserve">
+    <value>BytesCount is not specified.</value>
+  </data>
+  <data name="InitializingProgram" xml:space="preserve">
+    <value>Initializing program</value>
+  </data>
+  <data name="OpeningFile" xml:space="preserve">
+    <value>Opening file '{0}'</value>
+    <comment>0 is file path</comment>
+  </data>
+  <data name="NoDataPropertiesOpeningCanceled" xml:space="preserve">
+    <value>No data properties. Opening was canceled.</value>
+  </data>
+  <data name="GotDataProperties" xml:space="preserve">
+    <value>Got data properties: {0}</value>
+    <comment>0 is data properties string</comment>
+  </data>
+  <data name="ExportingToFile" xml:space="preserve">
+    <value>Exporting to file '{0}'</value>
+    <comment>0 is file path</comment>
+  </data>
+  <data name="ReloadingFileWithNewDataProperties" xml:space="preserve">
+    <value>Reloading file '{0}' with new data properties '{1}'</value>
+    <comment>0 is file path, 1 is data properties string
+		</comment>
+  </data>
+  <data name="ChangingSettingsFromTo" xml:space="preserve">
+    <value>Changing settings from '{0}' to '{1}'</value>
+    <comment>0 is old settings string, 1 is new settings string</comment>
+  </data>
+  <data name="DataError" xml:space="preserve">
+    <value>Data error</value>
+  </data>
+  <data name="InitializationFinished" xml:space="preserve">
+    <value>Initialization finished</value>
+  </data>
+  <data name="DataWasLoadedSuccessfully" xml:space="preserve">
+    <value>Data was loaded successfully</value>
+  </data>
+  <data name="ExportToFileWasFinishedSuccessfully" xml:space="preserve">
+    <value>Export to file was finished successfully</value>
+  </data>
+  <data name="ReloadingFileWithDataPropertiesModel" xml:space="preserve">
+    <value>Reloading file '{0}' with data properties model: {1}</value>
+    <comment>0 is file path, 1 is data properties model string</comment>
+  </data>
+  <data name="MachineArgumentSingleColumnTitle" xml:space="preserve">
+    <value>[X]</value>
+  </data>
+  <data name="MachineArgumentMultipleColumnTitle" xml:space="preserve">
+    <value>[X{0}]</value>
+    <comment>0 is argument number</comment>
+  </data>
+  <data name="MachineFunctionSingleColumnTitle" xml:space="preserve">
+    <value>[Y]</value>
+  </data>
+  <data name="MachineFunctionMultipleColumnTitle" xml:space="preserve">
+    <value>[Y{0}]</value>
+  </data>
+  <data name="HumanArgumentSingleColumnTitle" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="HumanArgumentMultipleColumnTitle" xml:space="preserve">
+    <value>X{0}</value>
+    <comment>0 is column number</comment>
+  </data>
+  <data name="HumanFunctiontSingleColumnTitle" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="HumanFunctionMultipleColumnTitle" xml:space="preserve">
+    <value>Y{0}</value>
+  </data>
+  <data name="ScaleDtoValueMember" xml:space="preserve">
+    <value>Scale</value>
+  </data>
+  <data name="ScaleDtoDisplayMember" xml:space="preserve">
+    <value>ScaleString</value>
+  </data>
+  <data name="FileDoesNotExist" xml:space="preserve">
+    <value>File '{0}' doesn't exist</value>
+    <comment>0 is file path</comment>
+  </data>
+  <data name="ApplicationStarted" xml:space="preserve">
+    <value>Application started</value>
+  </data>
+  <data name="ApplicationClosed" xml:space="preserve">
+    <value>Application closed</value>
+  </data>
+  <data name="ApplicationTerminated" xml:space="preserve">
+    <value>Application terminated</value>
+  </data>
+  <data name="FailedToShowExceptionWindow" xml:space="preserve">
+    <value>Failed to show exception window</value>
+  </data>
+  <data name="SettingsStorageToStringFormat" xml:space="preserve">
+    <value>MaxAbsoluteScalePower = {0}, ExportValuesSeparator = "{1}"</value>
+  </data>
+  <data name="DataPropertiesDtoToStringFormat" xml:space="preserve">
+    <value>Number of arguments: {0}, number of functions: {1}, agruments type: {2}, functions type: {3}, arithmetic type: {4}</value>
+  </data>
+  <data name="ScaleDtoScaleStringFormat" xml:space="preserve">
+    <value>2^{0}</value>
+    <comment>0 is power index</comment>
+  </data>
+  <data name="ByteToHexFormat" xml:space="preserve">
+    <value>X2</value>
+  </data>
+  <data name="SyncContextControlToSendToField" xml:space="preserve">
+    <value>controlToSendTo</value>
+  </data>
+  <data name="DataTypeUnknownMember" xml:space="preserve">
+    <value>Unknown DataType member: {0}</value>
+    <comment>0 is enumeration value</comment>
+  </data>
+  <data name="InsufficientBytesRead" xml:space="preserve">
+    <value>Read {0} bytes while {1} was expected</value>
+    <comment>0 is actual read bytes count, 1 is expected bytes count.</comment>
+  </data>
+  <data name="ExportingToExcel" xml:space="preserve">
+    <value>Exporting to Excel</value>
+  </data>
+  <data name="ExportToExcelWasFinishedSuccessfully" xml:space="preserve">
+    <value>Export to Excel was finished successfully</value>
+  </data>
+  <data name="DataLineItemsCountDoesNotMatchColumnCount" xml:space="preserve">
+    <value>Data line items count {0} doesn't match column count {1}</value>
+    <comment>0 is data line items count, 1 is column count</comment>
+  </data>
+  <data name="CurrentRowIndexIsTooBigForRowCount" xml:space="preserve">
+    <value>Current row index {0} is too big for row count {1}</value>
+    <comment>0 is current row index, 1 is row count.</comment>
+  </data>
+  <data name="ContactEmailLink" xml:space="preserve">
+    <value>mailto:datatable.net@blackbox82.org</value>
+  </data>
+</root>

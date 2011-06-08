@@ -1,0 +1,339 @@
+using System;
+using System.Collections.Generic;
+using DataTable.Net.Dtos;
+using DataTable.Net.Models;
+using DataTable.Net.Properties;
+using DataTable.Net.Services;
+using DataTable.Net.Services.Common;
+using DataTable.Net.Services.Impl;
+using DataTable.Net.Views;
+using log4net;
+
+namespace DataTable.Net.Presenters.Impl
+{
+	public class MainPresenter : IMainPresenter
+	{
+		#region Fields
+
+		private readonly ILog log = LogManager.GetLogger(typeof(MainPresenter));
+		private readonly IMainView view;
+		private readonly ServiceLocator serviceLocator;
+		private DataModel currentDataModel;
+		private SettingsStorage currentSettings;
+
+		#endregion Fields
+
+		#region Properties
+
+		private IInitializationService InitializationService
+		{
+			get { return serviceLocator.Resolve<IInitializationService>(); }
+		}
+
+		private ISettingsService SettingsService
+		{
+			get { return serviceLocator.Resolve<ISettingsService>(); }
+		}
+
+		private IMathService MathService
+		{
+			get { return serviceLocator.Resolve<IMathService>(); }
+		}
+
+		private IDataService DataService
+		{
+			get { return serviceLocator.Resolve<IDataService>(); }
+		}
+
+		#endregion Properties
+
+		#region Constructors
+
+		public MainPresenter(IMainView view)
+		{
+			this.view = view;
+			serviceLocator = CreateServiceLocator();
+		}
+
+		#endregion Constructors
+
+		#region IMainPresenter implementation
+
+		public void OnLoad()
+		{
+			view.DisableInitializationDependentControls();
+			view.DisableFileDependentControls();
+
+			log.Info(InternalResources.InitializingProgram);
+			view.SetStatus(Resources.InitializingStatus);
+			InitializationService.BeginInitializing(
+				() =>
+				{
+					currentSettings = SettingsService.LoadSettings();
+					MathService.PrecalculatePowerTable(currentSettings.MaxAbsoluteScalePower);
+				},
+				InitializationSuccessCallback, InitializationErrorCallback);
+		}
+
+		public void OnOpenFile()
+		{
+			var filePath = view.AskUserForFileToOpen();
+			if (string.IsNullOrEmpty(filePath))
+			{
+				return;
+			}
+
+			log.InfoFormat(InternalResources.OpeningFile, filePath);
+
+			var dataPropertiesDto = view.AskUserForDataPropertiesDto();
+			if (dataPropertiesDto == null)
+			{
+				log.Info(InternalResources.NoDataPropertiesOpeningCanceled);
+				return;
+			}
+
+			log.InfoFormat(InternalResources.GotDataProperties, dataPropertiesDto);
+			LoadFile(filePath, dataPropertiesDto);
+		}
+
+		public void OnReloadFile()
+		{
+			ReloadFile();
+		}
+
+		public void OnExportToFile()
+		{
+			var filePath = view.AskUserForFileToExportTo();
+			if (string.IsNullOrEmpty(filePath))
+			{
+				return;
+			}
+
+			log.InfoFormat(InternalResources.ExportingToFile, filePath);
+			view.SetStatus(Resources.ExportingToFileStatus);
+			view.GoToWaitMode();
+			DataService.BeginExportingDataToFile(
+				filePath, currentDataModel, currentSettings.ExportValuesSeparator,
+				ExportDataToFileSuccessCallback, ExportDataToFileErrorCallback);
+		}
+
+		public void OnExportToExcel()
+		{
+			log.Info(InternalResources.ExportingToExcel);
+			view.SetStatus(Resources.ExportingToExcelStatus);
+
+			view.GoToWaitMode();
+			DataService.BeginExportingDataToExcel(currentDataModel, ExportToExcelSuccessCallback, ExportToExcelErrorCallback);
+		}
+
+		public void OnChangeDataProperties()
+		{
+			var newDataPropertiesDto = view.AskUserForDataPropertiesDto(currentDataModel.GetDataPropertiesDto());
+			if (newDataPropertiesDto == null)
+			{
+				return;
+			}
+
+			log.InfoFormat(
+				InternalResources.ReloadingFileWithNewDataProperties,
+				currentDataModel.FilePath, newDataPropertiesDto);
+			LoadFile(currentDataModel.FilePath, newDataPropertiesDto);
+		}
+
+		public void OnChangeSettings()
+		{
+			var newSettings = view.AskUserForSettings(currentSettings);
+			if (newSettings == null)
+			{
+				return;
+			}
+
+			log.InfoFormat(InternalResources.ChangingSettingsFromTo, currentSettings, newSettings);
+			currentSettings = newSettings;
+			SettingsService.SaveSettings(currentSettings);
+			if (currentDataModel != null)
+			{
+				ReloadFile();
+			}
+		}
+
+		public void OnAbout()
+		{
+			view.ShowAboutForm();
+		}
+
+		public string OnMachineArgumentNeeded(int argumentIndex, int rowIndex)
+		{
+			return currentDataModel.GetMachineArgument(argumentIndex, rowIndex);
+		}
+
+		public string OnMachineFunctionNeeded(int functionIndex, int rowIndex)
+		{
+			return currentDataModel.GetMachineFunction(functionIndex, rowIndex);
+		}
+
+		public int OnArgumentScaleNeeded(int agrumentIndex)
+		{
+			return currentDataModel.GetArgumentScale(agrumentIndex);
+		}
+
+		public int OnFunctionScaleNeeded(int functionIndex)
+		{
+			return currentDataModel.GetFunctionScale(functionIndex);
+		}
+
+		public decimal OnHumanArgumentNeeded(int argumentIndex, int rowIndex)
+		{
+			return currentDataModel.GetHumanArgument(argumentIndex, rowIndex);
+		}
+
+		public decimal OnHumanFunctionNeeded(int functionIndex, int rowIndex)
+		{
+			return currentDataModel.GetHumanFunction(functionIndex, rowIndex);
+		}
+
+		public void StoreArgumentScale(int argumentIndex, int scale)
+		{
+			currentDataModel.SetArgumentScale(argumentIndex, scale);
+		}
+
+		public void StoreFunctionScale(int functionIndex, int scale)
+		{
+			currentDataModel.SetFunctionScale(functionIndex, scale);
+		}
+
+		public void OnDataError(Exception exception)
+		{
+			log.Error(InternalResources.DataError, exception);
+			view.ShowError(string.Format(Resources.DataErrorMessage, exception.Message));
+		}
+
+		#endregion IMainPresenter implementation
+
+		#region Service callbacks
+
+		private void InitializationSuccessCallback()
+		{
+			log.Info(InternalResources.InitializationFinished);
+			view.SetStatus(Resources.ReadyStatus);
+			view.EnableInitializationDependentControls();
+		}
+
+		private void InitializationErrorCallback(Exception exception)
+		{
+			log.Warn(exception);
+
+			var message = string.Format(Resources.InitializationFailedMessage, exception.Message);
+			view.ShowWarning(message);
+			view.SetStatus(Resources.ReadyStatus);
+			view.EnableInitializationDependentControls();
+		}
+
+		private void LoadDataSuccessCallback(DataModel model)
+		{
+			log.Info(InternalResources.DataWasLoadedSuccessfully);
+			currentDataModel = model;
+
+			view.CreateColumns(
+				model.NumberOfArguments, model.NumberOfFunctions,
+				GetScaleDtos(model.CreateArgumentScales(currentSettings.MaxAbsoluteScalePower)),
+				GetScaleDtos(model.CreateFunctionScales(currentSettings.MaxAbsoluteScalePower)));
+			view.SetDataRowsCount(model.DataEntriesCount);
+			view.ShowFilePath(model.FilePath);
+			view.SetStatus(Resources.ReadyStatus);
+			view.GoToNormalMode();
+			view.EnableFileDependentControls();
+		}
+
+		private void LoadDataErrorCallback(Exception exception)
+		{
+			log.Error(exception);
+			currentDataModel = null;
+
+			var message = string.Format(Resources.DataLoadingFailedMessage, exception.Message);
+			view.ShowError(message);
+			view.SetStatus(Resources.ReadyStatus);
+			view.GoToNormalMode();
+		}
+
+		private void ExportDataToFileSuccessCallback()
+		{
+			log.Info(InternalResources.ExportToFileWasFinishedSuccessfully);
+
+			view.ShowInformation(Resources.ExportToFileSucceededMessage);
+			view.SetStatus(Resources.ReadyStatus);
+			view.GoToNormalMode();
+		}
+
+		private void ExportDataToFileErrorCallback(Exception exception)
+		{
+			log.Error(exception);
+
+			var message = string.Format(Resources.ExportToFileFailedMessage, exception.Message);
+			view.ShowError(message);
+			view.SetStatus(Resources.ReadyStatus);
+			view.GoToNormalMode();
+		}
+
+		private void ExportToExcelSuccessCallback()
+		{
+			log.Info(InternalResources.ExportToExcelWasFinishedSuccessfully);
+			view.SetStatus(Resources.ReadyStatus);
+			view.GoToNormalMode();
+		}
+
+		private void ExportToExcelErrorCallback(Exception exception)
+		{
+			log.Error(exception);
+
+			var message = string.Format(Resources.ExportToExcelFailedMessage, exception.Message);
+			view.ShowError(message);
+			view.SetStatus(Resources.ReadyStatus);
+			view.GoToNormalMode();
+		}
+
+		#endregion Service callbacks
+
+		#region Helpers
+
+		private static ServiceLocator CreateServiceLocator()
+		{
+			var locator = new ServiceLocator();
+			locator.RegisterService<IInitializationService>(new InitializationService());
+			locator.RegisterService<ISettingsService>(new SettingsService());
+			locator.RegisterService<IMathService>(new MathService());
+			locator.RegisterService<IDataService>(new DataService(locator));
+
+			return locator;
+		}
+
+		private static IEnumerable<ScaleDto> GetScaleDtos(IEnumerable<int> scales)
+		{
+			var dtos = new List<ScaleDto>();
+			foreach (var scale in scales)
+			{
+				var dto = new ScaleDto(scale);
+				dtos.Add(dto);
+			}
+
+			return dtos;
+		}
+
+		private void LoadFile(string filePath, DataPropertiesDto dataPropertiesDto)
+		{
+			view.SetStatus(Resources.LoadingFileStatus);
+			view.GoToWaitMode();
+			DataService.BeginLoadingData(filePath, dataPropertiesDto, LoadDataSuccessCallback, LoadDataErrorCallback);
+		}
+
+		private void ReloadFile()
+		{
+			log.InfoFormat(
+				InternalResources.ReloadingFileWithDataPropertiesModel,
+				currentDataModel.FilePath, currentDataModel.GetDataPropertiesDto());
+			LoadFile(currentDataModel.FilePath, currentDataModel.GetDataPropertiesDto());
+		}
+
+		#endregion Helpers
+	}
+}
