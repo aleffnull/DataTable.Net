@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project default="build_delivery">
+<project default="build_delivery_min">
 
 	<target name="init">
 		<property name="msbuild" value="MSBuild.exe" />
