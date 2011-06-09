@@ -23,7 +23,7 @@
 	
 	<target name="clean" depends="init">
 		<delete>
-			<fileset basedir="${project_path}" >
+			<fileset basedir="${project_path}">
 				<include name="**\${configuration}\*" />
 			</fileset>
 		</delete>
@@ -47,7 +47,7 @@
 
 	<target name="deliver_binaries" depends="prepare_build_directories, build">
 		<copy todir="${delivery_build_dir_binaries}">
-			<fileset basedir="${binaries_dir}">
+			<fileset basedir="${binaries_dir}" failonempty="true">
 				<include name="*.*" />
 				<exclude name="*.pdb" />
 				<exclude name="*.xml" />
@@ -73,7 +73,7 @@
 	<target name="build_delivery_min" depends="prepare_build_directories, get_version, deliver_binaries, deliver_samples">
 		<property name="delivery_zip" value="${project_name}_${version}.zip" />
 		<zip zipfile="${delivery_dir_min}\${delivery_zip}" >
-			<fileset basedir="${delivery_build_dir}">
+			<fileset basedir="${delivery_build_dir}" failonempty="true">
 				<include name="**"/>
 			</fileset>
 		</zip>
