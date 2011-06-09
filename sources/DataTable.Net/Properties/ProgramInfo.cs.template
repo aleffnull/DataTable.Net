@@ -7,7 +7,7 @@ namespace DataTable.Net.Properties
 	{
 		#region Constants
 
-		public static readonly string Version = "1.0.$WCREV$";
+		public static readonly string Version = "1.1.$WCREV$";
 		public static readonly string BuildDate = "$WCNOW$";
 
 		#endregion Constants
