@@ -345,6 +345,16 @@ namespace DataTable.Net.Forms
 			presenter.OnDataError(e.Exception);
 		}
 
+		private void DataGridView_DragEnter(object sender, DragEventArgs e)
+		{
+			e.Effect = presenter.OnDragEnter(e.Data);
+		}
+
+		private void DataGridView_DragDrop(object sender, DragEventArgs e)
+		{
+			presenter.OnDragDrop(e.Data);
+		}
+
 		#endregion Event handlers
 	}
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Windows.Forms;
 
 namespace DataTable.Net.Presenters
 {
@@ -23,5 +24,8 @@ namespace DataTable.Net.Presenters
 		void StoreFunctionScale(int functionIndex, int scale);
 
 		void OnDataError(Exception exception);
+
+		DragDropEffects OnDragEnter(IDataObject dataObject);
+		void OnDragDrop(IDataObject dataObject);
 	}
 }

@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Windows.Forms;
 using DataTable.Net.Dtos;
 using DataTable.Net.Models;
 using DataTable.Net.Properties;
@@ -83,17 +85,7 @@ namespace DataTable.Net.Presenters.Impl
 				return;
 			}
 
-			log.InfoFormat(InternalResources.OpeningFile, filePath);
-
-			var dataPropertiesDto = view.AskUserForDataPropertiesDto();
-			if (dataPropertiesDto == null)
-			{
-				log.Info(InternalResources.NoDataPropertiesOpeningCanceled);
-				return;
-			}
-
-			log.InfoFormat(InternalResources.GotDataProperties, dataPropertiesDto);
-			LoadFile(filePath, dataPropertiesDto);
+			OpenFile(filePath);
 		}
 
 		public void OnReloadFile()
@@ -208,6 +200,35 @@ namespace DataTable.Net.Presenters.Impl
 			view.ShowError(string.Format(Resources.DataErrorMessage, exception.Message));
 		}
 
+		public DragDropEffects OnDragEnter(IDataObject dataObject)
+		{
+			if (!dataObject.GetDataPresent(DataFormats.FileDrop))
+			{
+				return DragDropEffects.None;
+			}
+
+			var paths = (string[])dataObject.GetData(DataFormats.FileDrop);
+			if (paths.Length != 1)
+			{
+				return DragDropEffects.None;
+			}
+
+			var attributes = File.GetAttributes(paths[0]);
+			var isFolder = (attributes & FileAttributes.Directory) == FileAttributes.Directory;
+			if (isFolder)
+			{
+				return DragDropEffects.None;
+			}
+
+			return DragDropEffects.Copy;
+		}
+
+		public void OnDragDrop(IDataObject dataObject)
+		{
+			var filePath = ((string[])dataObject.GetData(DataFormats.FileDrop))[0];
+			OpenFile(filePath);
+		}
+
 		#endregion IMainPresenter implementation
 
 		#region Service callbacks
@@ -317,6 +338,21 @@ namespace DataTable.Net.Presenters.Impl
 			}
 
 			return dtos;
+		}
+
+		private void OpenFile(string filePath)
+		{
+			log.InfoFormat(InternalResources.OpeningFile, filePath);
+
+			var dataPropertiesDto = view.AskUserForDataPropertiesDto();
+			if (dataPropertiesDto == null)
+			{
+				log.Info(InternalResources.NoDataPropertiesOpeningCanceled);
+				return;
+			}
+
+			log.InfoFormat(InternalResources.GotDataProperties, dataPropertiesDto);
+			LoadFile(filePath, dataPropertiesDto);
 		}
 
 		private void LoadFile(string filePath, DataPropertiesDto dataPropertiesDto)

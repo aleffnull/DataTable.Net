@@ -191,6 +191,7 @@
 			// 
 			// DataGridView
 			// 
+			this.DataGridView.AllowDrop = true;
 			this.DataGridView.AllowUserToAddRows = false;
 			this.DataGridView.AllowUserToDeleteRows = false;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -229,6 +230,8 @@
 			this.DataGridView.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.DataGridView_CellValueNeeded);
 			this.DataGridView.CellValuePushed += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.DataGridView_CellValuePushed);
 			this.DataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGridView_DataError);
+			this.DataGridView.DragDrop += new System.Windows.Forms.DragEventHandler(this.DataGridView_DragDrop);
+			this.DataGridView.DragEnter += new System.Windows.Forms.DragEventHandler(this.DataGridView_DragEnter);
 			// 
 			// ExportFileDialog
 			// 
