@@ -13,7 +13,7 @@
 		<property name="samples_dir" value="${dir_src}\..\Samples" />
 		<property name="distr_dir" value="${dir_src}\..\Distr" />
 		<property name="documents_dir" value="${dir_src}\..\Documents" />
-		<property name="readme" value="${documents_dir}\Readme.txt" />
+		<property name="readme" value="Readme.txt" />
 		<property name="delivery_dir_min" value="${dir_src}\_delivery\min" />
 		<property name="delivery_dir_full" value="${dir_src}\_delivery\full" />
 		<property name="delivery_build_dir" value="${delivery_dir_min}\build" />
@@ -64,13 +64,23 @@
 		</copy>
 	</target>
 
+	<target name="deliver_documents" depends="prepare_build_directories">
+		<copy todir="${delivery_build_dir}">
+			<fileset basedir="${documents_dir}" failonempty="true">
+				<include name="*.*" />
+				<exclude name="${readme}" />
+			</fileset>
+		</copy>
+	</target>
+
 	<target name="get_version" depends="build" >
 		<loadfile file="${program_info_cs}" property="program_info_file_contents" />
 		<regex pattern="(?&lt;=public static readonly string Version = &quot;)(?'version'.*)(?=&quot;)"
 		       options="Multiline" input="${program_info_file_contents}" />
 	</target>
 	
-	<target name="build_delivery_min" depends="prepare_build_directories, get_version, deliver_binaries, deliver_samples">
+	<target name="build_delivery_min"
+	 depends="prepare_build_directories, get_version, deliver_binaries, deliver_samples, deliver_documents">
 		<property name="delivery_zip" value="${project_name}_${version}.zip" />
 		<zip zipfile="${delivery_dir_min}\${delivery_zip}" >
 			<fileset basedir="${delivery_build_dir}" failonempty="true">
