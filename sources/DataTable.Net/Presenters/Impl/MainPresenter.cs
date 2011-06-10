@@ -226,7 +226,14 @@ namespace DataTable.Net.Presenters.Impl
 		public void OnDragDrop(IDataObject dataObject)
 		{
 			var filePath = ((string[])dataObject.GetData(DataFormats.FileDrop))[0];
-			OpenFile(filePath);
+
+			/*
+			 * We need to leave current thread to free the application,
+			 * that was the source of drag-n-drop operation. So we do a dummy action
+			 * in a separate thread and open file in callback executed in the UI thread.
+			 */
+			log.InfoFormat(InternalResources.OpenningDrapDroppedFile, filePath);
+			GenericService.BeginDoingAction(delegate { }, () => OpenFile(filePath), DragDropOpenFileErrorCallback);
 		}
 
 		#endregion IMainPresenter implementation
@@ -311,6 +318,15 @@ namespace DataTable.Net.Presenters.Impl
 			view.ShowError(message);
 			view.SetStatus(Resources.ReadyStatus);
 			view.GoToNormalMode();
+		}
+
+		private void DragDropOpenFileErrorCallback(Exception exception)
+		{
+			log.Error(exception);
+
+			var message = string.Format(Resources.FailedToOpenDragDroppedFile, exception.Message);
+			view.ShowError(message);
+			view.SetStatus(Resources.ReadyStatus);
 		}
 
 		#endregion Service callbacks

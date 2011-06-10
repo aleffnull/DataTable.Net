@@ -182,4 +182,10 @@
     <value>Версия: {1}{0}Дата сборки: {2}</value>
     <comment>0 is new line sequence, 1 is version, 2 is build date.</comment>
   </data>
+  <data name="FailedToOpenDragDroppedFile" xml:space="preserve">
+    <value>Открытие файла не удалось: {0}</value>
+    <comment>
+			0 is exception message
+		</comment>
+  </data>
 </root>

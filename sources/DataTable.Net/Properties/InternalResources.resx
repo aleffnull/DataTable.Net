@@ -256,4 +256,8 @@
   <data name="ContactEmailLink" xml:space="preserve">
     <value>mailto:datatable.net@blackbox82.org</value>
   </data>
+  <data name="OpenningDrapDroppedFile" xml:space="preserve">
+    <value>Opening drag-n-dropped file '{0}'.</value>
+    <comment>0 is file path</comment>
+  </data>
 </root>

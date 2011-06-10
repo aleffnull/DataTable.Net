@@ -151,6 +151,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Открытие файла не удалось: {0}.
+        /// </summary>
+        internal static string FailedToOpenDragDroppedFile {
+            get {
+                return ResourceManager.GetString("FailedToOpenDragDroppedFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Файл &apos;{0}&apos; не существует..
         /// </summary>
         internal static string FileNotExistsExceptionMessage {
