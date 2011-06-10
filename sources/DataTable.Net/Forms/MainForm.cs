@@ -158,6 +158,7 @@ namespace DataTable.Net.Forms
 
 			// Row with comboboxes cannot be scrolled.
 			DataGridView.Rows[0].Frozen = true;
+			DataGridView.Rows[0].DefaultCellStyle = DataGridView.RowHeadersDefaultCellStyle;
 
 			((ISupportInitialize)DataGridView).EndInit();
 		}
