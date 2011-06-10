@@ -64,6 +64,7 @@
             this.HelpToolStripMenuItem});
 			this.MainMenu.Location = new System.Drawing.Point(0, 0);
 			this.MainMenu.Name = "MainMenu";
+			this.MainMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
 			this.MainMenu.Size = new System.Drawing.Size(617, 24);
 			this.MainMenu.TabIndex = 0;
 			this.MainMenu.Text = "menuStrip1";
