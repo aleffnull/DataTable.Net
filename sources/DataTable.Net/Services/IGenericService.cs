@@ -2,9 +2,9 @@ using DataTable.Net.Services.Common;
 
 namespace DataTable.Net.Services
 {
-	public interface IInitializationService
+	public interface IGenericService
 	{
-		void BeginInitializing(
+		void BeginDoingAction(
 			Action action, ServiceSuccessCallback successCallback, ServiceErrorCallback errorCallback);
 	}
 }

@@ -27,9 +27,9 @@ namespace DataTable.Net.Presenters.Impl
 
 		#region Properties
 
-		private IInitializationService InitializationService
+		private IGenericService GenericService
 		{
-			get { return serviceLocator.Resolve<IInitializationService>(); }
+			get { return serviceLocator.Resolve<IGenericService>(); }
 		}
 
 		private ISettingsService SettingsService
@@ -68,7 +68,7 @@ namespace DataTable.Net.Presenters.Impl
 
 			log.Info(InternalResources.InitializingProgram);
 			view.SetStatus(Resources.InitializingStatus);
-			InitializationService.BeginInitializing(
+			GenericService.BeginDoingAction(
 				() =>
 				{
 					currentSettings = SettingsService.LoadSettings();
@@ -320,7 +320,7 @@ namespace DataTable.Net.Presenters.Impl
 		private static ServiceLocator CreateServiceLocator()
 		{
 			var locator = new ServiceLocator();
-			locator.RegisterService<IInitializationService>(new InitializationService());
+			locator.RegisterService<IGenericService>(new GenericService());
 			locator.RegisterService<ISettingsService>(new SettingsService());
 			locator.RegisterService<IMathService>(new MathService());
 			locator.RegisterService<IDataService>(new DataService(locator));
@@ -355,19 +355,19 @@ namespace DataTable.Net.Presenters.Impl
 			LoadFile(filePath, dataPropertiesDto);
 		}
 
-		private void LoadFile(string filePath, DataPropertiesDto dataPropertiesDto)
-		{
-			view.SetStatus(Resources.LoadingFileStatus);
-			view.GoToWaitMode();
-			DataService.BeginLoadingData(filePath, dataPropertiesDto, LoadDataSuccessCallback, LoadDataErrorCallback);
-		}
-
 		private void ReloadFile()
 		{
 			log.InfoFormat(
 				InternalResources.ReloadingFileWithDataPropertiesModel,
 				currentDataModel.FilePath, currentDataModel.GetDataPropertiesDto());
 			LoadFile(currentDataModel.FilePath, currentDataModel.GetDataPropertiesDto());
+		}
+
+		private void LoadFile(string filePath, DataPropertiesDto dataPropertiesDto)
+		{
+			view.SetStatus(Resources.LoadingFileStatus);
+			view.GoToWaitMode();
+			DataService.BeginLoadingData(filePath, dataPropertiesDto, LoadDataSuccessCallback, LoadDataErrorCallback);
 		}
 
 		#endregion Helpers

@@ -2,11 +2,11 @@ using DataTable.Net.Services.Common;
 
 namespace DataTable.Net.Services.Impl
 {
-	public class InitializationService : AbstractAsyncService, IInitializationService
+	public class GenericService : AbstractAsyncService, IGenericService
 	{
 		#region IInitializationService implementation
 
-		public void BeginInitializing(
+		public void BeginDoingAction(
 			Action action, ServiceSuccessCallback successCallback, ServiceErrorCallback errorCallback)
 		{
 			DoRequest(() => action(), successCallback, errorCallback);
