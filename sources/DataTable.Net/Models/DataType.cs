@@ -4,6 +4,7 @@ namespace DataTable.Net.Models
 	{
 		Byte,
 		Word,
-		Dword
+		Dword,
+		Qword
 	}
 }

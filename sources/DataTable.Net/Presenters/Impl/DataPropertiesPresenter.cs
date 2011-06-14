@@ -52,7 +52,7 @@ namespace DataTable.Net.Presenters.Impl
 
 		private void FillTypeLists()
 		{
-			var dataTypes = new[] {DataType.Byte, DataType.Word, DataType.Dword};
+			var dataTypes = new[] {DataType.Byte, DataType.Word, DataType.Dword, DataType.Qword};
 			var dataTypeDtos = new List<DataTypeDto>();
 			foreach (var dataType in dataTypes)
 			{

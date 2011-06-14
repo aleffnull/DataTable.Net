@@ -173,6 +173,8 @@ namespace DataTable.Net.Services.Impl
 					return 2;
 				case DataType.Dword:
 					return 4;
+				case DataType.Qword:
+					return 8;
 				default:
 					throw new ArgumentException(string.Format(InternalResources.DataTypeUnknownMember, dataType));
 			}
