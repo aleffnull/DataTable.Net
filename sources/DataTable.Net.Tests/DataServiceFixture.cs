@@ -136,6 +136,41 @@ namespace DataTable.Net.Tests
 		}
 
 		[Test]
+		public void LoadData_OneQwordArgument_OneDataEntry()
+		{
+			var dataPropertiesDto = new DataPropertiesDto(1, 0, DataType.Qword, DataType.Byte, ArithmeticType.Integer);
+			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
+			var data = new byte[] {0x42, 0x35, 0xAB, 0xCD, 0xEF, 0xFF, 0x11, 0x22};
+			using (var stream = new MemoryStream(data))
+			{
+				dataService.LoadData(stream, model);
+			}
+
+			Assert.That(model.DataEntriesCount, Is.EqualTo(1));
+			Assert.That(model.GetMachineArgument(0, 0), Is.EqualTo("2211FFEFCDAB3542"));
+		}
+
+		[Test]
+		public void LoadData_OneQwordArgument_TwoDataEntries()
+		{
+			var dataPropertiesDto = new DataPropertiesDto(1, 0, DataType.Qword, DataType.Byte, ArithmeticType.Integer);
+			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
+			var data = new byte[]
+			           {
+			           	0x42, 0x35, 0xAB, 0xCD, 0x01, 0x23, 0x45, 0x67,
+			           	0x89, 0x9A, 0xBC, 0xDE, 0xFF, 0x00, 0x11, 0x22
+			           };
+			using (var stream = new MemoryStream(data))
+			{
+				dataService.LoadData(stream, model);
+			}
+
+			Assert.That(model.DataEntriesCount, Is.EqualTo(2));
+			Assert.That(model.GetMachineArgument(0, 0), Is.EqualTo("67452301CDAB3542"));
+			Assert.That(model.GetMachineArgument(0, 1), Is.EqualTo("221100FFDEBC9A89"));
+		}
+
+		[Test]
 		public void LoadData_OneByteFunction_OneDataEntry()
 		{
 			var dataPropertiesDto = new DataPropertiesDto(0, 1, DataType.Byte, DataType.Byte, ArithmeticType.Integer);
@@ -226,6 +261,41 @@ namespace DataTable.Net.Tests
 			Assert.That(model.DataEntriesCount, Is.EqualTo(2));
 			Assert.That(model.GetMachineFunction(0, 0), Is.EqualTo("CDAB3542"));
 			Assert.That(model.GetMachineFunction(0, 1), Is.EqualTo("67452301"));
+		}
+
+		[Test]
+		public void LoadData_OneQwordFunction_OneDataEntry()
+		{
+			var dataPropertiesDto = new DataPropertiesDto(0, 1, DataType.Byte, DataType.Qword, ArithmeticType.Integer);
+			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
+			var data = new byte[] {0x42, 0x35, 0xAB, 0xCD, 0xEF, 0xFF, 0x11, 0x22};
+			using (var stream = new MemoryStream(data))
+			{
+				dataService.LoadData(stream, model);
+			}
+
+			Assert.That(model.DataEntriesCount, Is.EqualTo(1));
+			Assert.That(model.GetMachineFunction(0, 0), Is.EqualTo("2211FFEFCDAB3542"));
+		}
+
+		[Test]
+		public void LoadData_OneQwordFunction_TwoDataEntries()
+		{
+			var dataPropertiesDto = new DataPropertiesDto(0, 1, DataType.Byte, DataType.Qword, ArithmeticType.Integer);
+			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
+			var data = new byte[]
+			           {
+			           	0x42, 0x35, 0xAB, 0xCD, 0x01, 0x23, 0x45, 0x67,
+			           	0x89, 0x9A, 0xBC, 0xDE, 0xFF, 0x00, 0x11, 0x22
+			           };
+			using (var stream = new MemoryStream(data))
+			{
+				dataService.LoadData(stream, model);
+			}
+
+			Assert.That(model.DataEntriesCount, Is.EqualTo(2));
+			Assert.That(model.GetMachineFunction(0, 0), Is.EqualTo("67452301CDAB3542"));
+			Assert.That(model.GetMachineFunction(0, 1), Is.EqualTo("221100FFDEBC9A89"));
 		}
 
 		[Test]
@@ -332,6 +402,50 @@ namespace DataTable.Net.Tests
 		}
 
 		[Test]
+		public void LoadData_TwoQwordArguments_OneDataEntry()
+		{
+			var dataPropertiesDto = new DataPropertiesDto(2, 0, DataType.Qword, DataType.Byte, ArithmeticType.Integer);
+			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
+			var data = new byte[]
+			           {
+			           	0x42, 0x35, 0xAB, 0xCD, 0x01, 0x23, 0x45, 0x67,
+			           	0x89, 0x9A, 0xBC, 0xDE, 0xFF, 0x00, 0x11, 0x22
+			           };
+			using (var stream = new MemoryStream(data))
+			{
+				dataService.LoadData(stream, model);
+			}
+
+			Assert.That(model.DataEntriesCount, Is.EqualTo(1));
+			Assert.That(model.GetMachineArgument(0, 0), Is.EqualTo("67452301CDAB3542"));
+			Assert.That(model.GetMachineArgument(1, 0), Is.EqualTo("221100FFDEBC9A89"));
+		}
+
+		[Test]
+		public void LoadData_TwoQwordArguments_TwoDataEntries()
+		{
+			var dataPropertiesDto = new DataPropertiesDto(2, 0, DataType.Qword, DataType.Byte, ArithmeticType.Integer);
+			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
+			var data = new byte[]
+			           {
+			           	0x42, 0x35, 0xAB, 0xCD, 0x01, 0x23, 0x45, 0x67,
+			           	0x89, 0x9A, 0xBC, 0xDE, 0xFF, 0x00, 0x11, 0x22,
+			           	0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99, 0xAA,
+			           	0xBB, 0xCC, 0xDD, 0xEE, 0xFF, 0x00, 0x01, 0x02
+			           };
+			using (var stream = new MemoryStream(data))
+			{
+				dataService.LoadData(stream, model);
+			}
+
+			Assert.That(model.DataEntriesCount, Is.EqualTo(2));
+			Assert.That(model.GetMachineArgument(0, 0), Is.EqualTo("67452301CDAB3542"));
+			Assert.That(model.GetMachineArgument(1, 0), Is.EqualTo("221100FFDEBC9A89"));
+			Assert.That(model.GetMachineArgument(0, 1), Is.EqualTo("AA99887766554433"));
+			Assert.That(model.GetMachineArgument(1, 1), Is.EqualTo("020100FFEEDDCCBB"));
+		}
+
+		[Test]
 		public void LoadData_TwoByteFunctions_OneDataEntry()
 		{
 			var dataPropertiesDto = new DataPropertiesDto(0, 2, DataType.Byte, DataType.Byte, ArithmeticType.Integer);
@@ -432,6 +546,50 @@ namespace DataTable.Net.Tests
 			Assert.That(model.GetMachineFunction(1, 0), Is.EqualTo("BC9A7856"));
 			Assert.That(model.GetMachineFunction(0, 1), Is.EqualTo("1100FFDE"));
 			Assert.That(model.GetMachineFunction(1, 1), Is.EqualTo("55443322"));
+		}
+
+		[Test]
+		public void LoadData_TwoQwordFunction_OneDataEntry()
+		{
+			var dataPropertiesDto = new DataPropertiesDto(0, 2, DataType.Byte, DataType.Qword, ArithmeticType.Integer);
+			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
+			var data = new byte[]
+			           {
+			           	0x42, 0x35, 0xAB, 0xCD, 0x01, 0x23, 0x45, 0x67,
+			           	0x89, 0x9A, 0xBC, 0xDE, 0xFF, 0x00, 0x11, 0x22
+			           };
+			using (var stream = new MemoryStream(data))
+			{
+				dataService.LoadData(stream, model);
+			}
+
+			Assert.That(model.DataEntriesCount, Is.EqualTo(1));
+			Assert.That(model.GetMachineFunction(0, 0), Is.EqualTo("67452301CDAB3542"));
+			Assert.That(model.GetMachineFunction(1, 0), Is.EqualTo("221100FFDEBC9A89"));
+		}
+
+		[Test]
+		public void LoadData_TwoQwordFunctions_TwoDataEntries()
+		{
+			var dataPropertiesDto = new DataPropertiesDto(0, 2, DataType.Byte, DataType.Qword, ArithmeticType.Integer);
+			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
+			var data = new byte[]
+			           {
+			           	0x42, 0x35, 0xAB, 0xCD, 0x01, 0x23, 0x45, 0x67,
+			           	0x89, 0x9A, 0xBC, 0xDE, 0xFF, 0x00, 0x11, 0x22,
+			           	0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99, 0xAA,
+			           	0xBB, 0xCC, 0xDD, 0xEE, 0xFF, 0x00, 0x01, 0x02
+			           };
+			using (var stream = new MemoryStream(data))
+			{
+				dataService.LoadData(stream, model);
+			}
+
+			Assert.That(model.DataEntriesCount, Is.EqualTo(2));
+			Assert.That(model.GetMachineFunction(0, 0), Is.EqualTo("67452301CDAB3542"));
+			Assert.That(model.GetMachineFunction(1, 0), Is.EqualTo("221100FFDEBC9A89"));
+			Assert.That(model.GetMachineFunction(0, 1), Is.EqualTo("AA99887766554433"));
+			Assert.That(model.GetMachineFunction(1, 1), Is.EqualTo("020100FFEEDDCCBB"));
 		}
 
 		#endregion Tests
