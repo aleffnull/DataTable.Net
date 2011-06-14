@@ -120,6 +120,24 @@ namespace DataTable.Net.Tests
 		}
 
 		[Test]
+		public void GetValue_One_ZeroScale_Integer_Qword()
+		{
+			byte[] rawValue = {0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+			var value = mathService.GetValue(rawValue, ArithmeticType.Integer, 0);
+
+			Assert.That(value, Is.EqualTo(1.0));
+		}
+
+		[Test]
+		public void GetValue_MinusOne_ZeroScale_Integer_Qword()
+		{
+			byte[] rawValue = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
+			var value = mathService.GetValue(rawValue, ArithmeticType.Integer, 0);
+
+			Assert.That(value, Is.EqualTo(-1.0));
+		}
+
+		[Test]
 		public void GetValue_One_ZeroScale_Fractional_Byte()
 		{
 			byte[] rawValue = {0x01};
@@ -174,6 +192,24 @@ namespace DataTable.Net.Tests
 		}
 
 		[Test]
+		public void GetValue_One_ZeroScale_Fractional_Qword()
+		{
+			byte[] rawValue = {0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+			var value = mathService.GetValue(rawValue, ArithmeticType.Fractional, 0);
+
+			Assert.That(value, Is.EqualTo((decimal)Math.Pow(2, -63)));
+		}
+
+		[Test]
+		public void GetValue_MinusOne_ZeroScale_Fractional_Qword()
+		{
+			byte[] rawValue = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
+			var value = mathService.GetValue(rawValue, ArithmeticType.Fractional, 0);
+
+			Assert.That(value, Is.EqualTo(-((decimal)Math.Pow(2, -63))));
+		}
+
+		[Test]
 		public void GetValue_Somevalue_1_Integer_Byte()
 		{
 			byte[] rawValue = {0x5F};
@@ -201,6 +237,24 @@ namespace DataTable.Net.Tests
 		}
 
 		[Test]
+		public void GetValue_Somevalue_1_Integer_Qword()
+		{
+			byte[] rawValue = {0x00, 0x00, 0x31, 0x5F, 0x64, 0x86, 0x01, 0x00};
+			var value = mathService.GetValue(rawValue, ArithmeticType.Integer, 28);
+
+			Assert.That(value, Is.EqualTo(1599045.949462890625m));
+		}
+
+		[Test]
+		public void GetValue_Somevalue_1_Fractional_Byte()
+		{
+			byte[] rawValue = { 0x5F };
+			var value = mathService.GetValue(rawValue, ArithmeticType.Fractional, -3);
+
+			Assert.That(value, Is.EqualTo(5.9375));
+		}
+
+		[Test]
 		public void GetValue_Somevalue_1_Fractional_Word()
 		{
 			byte[] rawValue = {0x33, 0x5F};
@@ -219,12 +273,12 @@ namespace DataTable.Net.Tests
 		}
 
 		[Test]
-		public void GetValue_Somevalue_1_Fractional_Byte()
+		public void GetValue_Somevalue_1_Fractional_Qword()
 		{
-			byte[] rawValue = { 0x5F };
-			var value = mathService.GetValue(rawValue, ArithmeticType.Fractional, -3);
+			byte[] rawValue = {0x00, 0x00, 0x31, 0x5F, 0x64, 0x86, 0x01, 0x00};
+			var value = mathService.GetValue(rawValue, ArithmeticType.Fractional, -35);
 
-			Assert.That(value, Is.EqualTo(5.9375));
+			Assert.That(value, Is.EqualTo(1599045.949462890625m));
 		}
 
 		#endregion GetValue
@@ -429,6 +483,88 @@ namespace DataTable.Net.Tests
 			CollectionAssert.AreEqual(expectedResult, result);
 		}
 
+		[Test]
+		public void ConvertToPositiveIfNeeded_Zero_Qword()
+		{
+			var rawValues = new byte[] {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+			bool wasNegative;
+			var result = mathService.ConvertToPositiveIfNeeded(rawValues, out wasNegative);
+
+			Assert.That(wasNegative, Is.False);
+			CollectionAssert.AreEqual(rawValues, result);
+		}
+
+		[Test]
+		public void ConvertToPositiveIfNeeded_Positive_Qword()
+		{
+			var rawValues = new byte[] {0x77, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+			bool wasNegative;
+			var result = mathService.ConvertToPositiveIfNeeded(rawValues, out wasNegative);
+
+			Assert.That(wasNegative, Is.False);
+			CollectionAssert.AreEqual(rawValues, result);
+		}
+
+		[Test]
+		public void ConvertToPositiveIfNeeded_Negative_Qword_NoCarry()
+		{
+			var rawValues = new byte[] {0x89, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
+			var expectedResult = new byte[] {0x77, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+			bool wasNegative;
+			var result = mathService.ConvertToPositiveIfNeeded(rawValues, out wasNegative);
+
+			Assert.That(wasNegative, Is.True);
+			CollectionAssert.AreEqual(expectedResult, result);
+		}
+
+		[Test]
+		public void ConvertToPositiveIfNeeded_Negative_Qword_Carry()
+		{
+			var rawValues = new byte[] {0x00, 0x00, 0x00, 0x00, 0xFF, 0xFF, 0xFF, 0xFF};
+			var expectedResult = new byte[] {0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00};
+			bool wasNegative;
+			var result = mathService.ConvertToPositiveIfNeeded(rawValues, out wasNegative);
+
+			Assert.That(wasNegative, Is.True);
+			CollectionAssert.AreEqual(expectedResult, result);
+		}
+
+		[Test]
+		public void ConvertToPositiveIfNeeded_Negative_Qword_Carry_1()
+		{
+			var rawValues = new byte[] { 0x00, 0x00, 0x00, 0x00, 0xFE, 0xFF, 0xFF, 0xFF };
+			var expectedResult = new byte[] {0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00};
+			bool wasNegative;
+			var result = mathService.ConvertToPositiveIfNeeded(rawValues, out wasNegative);
+
+			Assert.That(wasNegative, Is.True);
+			CollectionAssert.AreEqual(expectedResult, result);
+		}
+
+		[Test]
+		public void ConvertToPositiveIfNeeded_Negative_Qword_Carry_2()
+		{
+			var rawValues = new byte[] {0x00, 0x00, 0x00, 0x00, 0x00, 0xFE, 0xFF, 0xFF};
+			var expectedResult = new byte[] {0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00};
+			bool wasNegative;
+			var result = mathService.ConvertToPositiveIfNeeded(rawValues, out wasNegative);
+
+			Assert.That(wasNegative, Is.True);
+			CollectionAssert.AreEqual(expectedResult, result);
+		}
+
+		[Test]
+		public void ConvertToPositiveIfNeeded_ZeroOne_Qword()
+		{
+			var rawValues = new byte[] {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
+			var expectedResult = new byte[] {0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+			bool wasNegative;
+			var result = mathService.ConvertToPositiveIfNeeded(rawValues, out wasNegative);
+
+			Assert.That(wasNegative, Is.True);
+			CollectionAssert.AreEqual(expectedResult, result);
+		}
+
 		#endregion ConvertToPositiveIfNeeded
 
 		#region GetPowerIndex
@@ -484,6 +620,37 @@ namespace DataTable.Net.Tests
 			Assert.That(mathService.GetPowerIndex(3, 0, ArithmeticType.Fractional, 4), Is.EqualTo(-7));
 			Assert.That(mathService.GetPowerIndex(3, 3, ArithmeticType.Fractional, 4), Is.EqualTo(-4));
 			Assert.That(mathService.GetPowerIndex(3, 6, ArithmeticType.Fractional, 4), Is.EqualTo(-1));
+		}
+
+		[Test]
+		public void GetPowerIndex_Fractional_Qword()
+		{
+			Assert.That(mathService.GetPowerIndex(0, 0, ArithmeticType.Fractional, 8), Is.EqualTo(-63));
+			Assert.That(mathService.GetPowerIndex(0, 3, ArithmeticType.Fractional, 8), Is.EqualTo(-60));
+			Assert.That(mathService.GetPowerIndex(0, 7, ArithmeticType.Fractional, 8), Is.EqualTo(-56));
+			Assert.That(mathService.GetPowerIndex(1, 0, ArithmeticType.Fractional, 8), Is.EqualTo(-55));
+			Assert.That(mathService.GetPowerIndex(1, 3, ArithmeticType.Fractional, 8), Is.EqualTo(-52));
+			Assert.That(mathService.GetPowerIndex(1, 7, ArithmeticType.Fractional, 8), Is.EqualTo(-48));
+			Assert.That(mathService.GetPowerIndex(2, 0, ArithmeticType.Fractional, 8), Is.EqualTo(-47));
+			Assert.That(mathService.GetPowerIndex(2, 3, ArithmeticType.Fractional, 8), Is.EqualTo(-44));
+			Assert.That(mathService.GetPowerIndex(2, 7, ArithmeticType.Fractional, 8), Is.EqualTo(-40));
+			Assert.That(mathService.GetPowerIndex(3, 0, ArithmeticType.Fractional, 8), Is.EqualTo(-39));
+			Assert.That(mathService.GetPowerIndex(3, 3, ArithmeticType.Fractional, 8), Is.EqualTo(-36));
+			Assert.That(mathService.GetPowerIndex(3, 7, ArithmeticType.Fractional, 8), Is.EqualTo(-32));
+
+			Assert.That(mathService.GetPowerIndex(4, 0, ArithmeticType.Fractional, 8), Is.EqualTo(-31));
+			Assert.That(mathService.GetPowerIndex(4, 3, ArithmeticType.Fractional, 8), Is.EqualTo(-28));
+			Assert.That(mathService.GetPowerIndex(4, 7, ArithmeticType.Fractional, 8), Is.EqualTo(-24));
+			Assert.That(mathService.GetPowerIndex(5, 0, ArithmeticType.Fractional, 8), Is.EqualTo(-23));
+			Assert.That(mathService.GetPowerIndex(5, 3, ArithmeticType.Fractional, 8), Is.EqualTo(-20));
+			Assert.That(mathService.GetPowerIndex(5, 7, ArithmeticType.Fractional, 8), Is.EqualTo(-16));
+			Assert.That(mathService.GetPowerIndex(6, 0, ArithmeticType.Fractional, 8), Is.EqualTo(-15));
+			Assert.That(mathService.GetPowerIndex(6, 3, ArithmeticType.Fractional, 8), Is.EqualTo(-12));
+			Assert.That(mathService.GetPowerIndex(6, 7, ArithmeticType.Fractional, 8), Is.EqualTo(-8));
+			Assert.That(mathService.GetPowerIndex(7, 0, ArithmeticType.Fractional, 8), Is.EqualTo(-7));
+			Assert.That(mathService.GetPowerIndex(7, 3, ArithmeticType.Fractional, 8), Is.EqualTo(-4));
+			Assert.That(mathService.GetPowerIndex(7, 6, ArithmeticType.Fractional, 8), Is.EqualTo(-1));
+
 		}
 
 		[Test]
