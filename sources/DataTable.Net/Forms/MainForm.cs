@@ -36,23 +36,31 @@ namespace DataTable.Net.Forms
 		void IMainView.DisableFileDependentControls()
 		{
 			ReloadToolStripMenuItem.Enabled = DataPropertiesToolStripMenuItem.Enabled = ExportToolStripMenuItem.Enabled = false;
-			ReloadToolStripButton.Enabled = ExportToFileToolStripButton.Enabled = ExportToExcelToolStripButton.Enabled = false;
+			ReloadToolStripButton.Enabled =
+				ExportToFileToolStripButton.Enabled =
+				ExportToExcelToolStripButton.Enabled =
+				DataPropertiesToolStripButton.Enabled = false;
 		}
 
 		void IMainView.EnableFileDependentControls()
 		{
 			ReloadToolStripMenuItem.Enabled = DataPropertiesToolStripMenuItem.Enabled = ExportToolStripMenuItem.Enabled = true;
-			ReloadToolStripButton.Enabled = ExportToFileToolStripButton.Enabled = ExportToExcelToolStripButton.Enabled = true;
+			ReloadToolStripButton.Enabled =
+				ExportToFileToolStripButton.Enabled =
+				ExportToExcelToolStripButton.Enabled =
+				DataPropertiesToolStripButton.Enabled = true;
 		}
 
 		void IMainView.DisableInitializationDependentControls()
 		{
 			OpenToolStripMenuItem.Enabled = false;
+			OpenToolStripButton.Enabled = false;
 		}
 
 		void IMainView.EnableInitializationDependentControls()
 		{
 			OpenToolStripMenuItem.Enabled = true;
+			OpenToolStripButton.Enabled = true;
 		}
 
 		string IMainView.AskUserForFileToOpen()
@@ -290,6 +298,21 @@ namespace DataTable.Net.Forms
 		private void ExportToExcelToolStripButton_Click(object sender, EventArgs e)
 		{
 			presenter.OnExportToExcel();
+		}
+
+		private void DataPropertiesToolStripButton_Click(object sender, EventArgs e)
+		{
+			presenter.OnChangeDataProperties();
+		}
+
+		private void SettingsToolStripButton_Click(object sender, EventArgs e)
+		{
+			presenter.OnChangeSettings();
+		}
+
+		private void AboutToolStripButton_Click(object sender, EventArgs e)
+		{
+			presenter.OnAbout();
 		}
 
 		#endregion Toolbar

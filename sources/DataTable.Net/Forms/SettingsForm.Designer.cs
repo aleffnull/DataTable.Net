@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
 			this.MaxAbsoluteScalePowerLabel = new System.Windows.Forms.Label();
 			this.MaxAbsoluteScalePowerUpDown = new System.Windows.Forms.NumericUpDown();
 			this.OkButton = new System.Windows.Forms.Button();
@@ -110,6 +111,7 @@
 			this.Controls.Add(this.OkButton);
 			this.Controls.Add(this.MaxAbsoluteScalePowerUpDown);
 			this.Controls.Add(this.MaxAbsoluteScalePowerLabel);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(360, 180);

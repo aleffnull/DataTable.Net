@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataPropertiesForm));
 			this.NumberOfArgumentsLabel = new System.Windows.Forms.Label();
 			this.NumberOfArgumentsComboBox = new System.Windows.Forms.ComboBox();
 			this.NumberOfFunctionsLabel = new System.Windows.Forms.Label();
@@ -53,8 +54,8 @@
 			// 
 			// NumberOfArgumentsComboBox
 			// 
-			this.NumberOfArgumentsComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-									| System.Windows.Forms.AnchorStyles.Right)));
+			this.NumberOfArgumentsComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.NumberOfArgumentsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.NumberOfArgumentsComboBox.FormattingEnabled = true;
 			this.NumberOfArgumentsComboBox.Location = new System.Drawing.Point(195, 6);
@@ -73,8 +74,8 @@
 			// 
 			// NumberOfFuntionsComboBox
 			// 
-			this.NumberOfFuntionsComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-									| System.Windows.Forms.AnchorStyles.Right)));
+			this.NumberOfFuntionsComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.NumberOfFuntionsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.NumberOfFuntionsComboBox.FormattingEnabled = true;
 			this.NumberOfFuntionsComboBox.Location = new System.Drawing.Point(195, 33);
@@ -93,8 +94,8 @@
 			// 
 			// ArgumentsTypeComboBox
 			// 
-			this.ArgumentsTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-									| System.Windows.Forms.AnchorStyles.Right)));
+			this.ArgumentsTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.ArgumentsTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.ArgumentsTypeComboBox.FormattingEnabled = true;
 			this.ArgumentsTypeComboBox.Location = new System.Drawing.Point(195, 61);
@@ -113,8 +114,8 @@
 			// 
 			// FunctionsTypeComboBox
 			// 
-			this.FunctionsTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-									| System.Windows.Forms.AnchorStyles.Right)));
+			this.FunctionsTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.FunctionsTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.FunctionsTypeComboBox.FormattingEnabled = true;
 			this.FunctionsTypeComboBox.Location = new System.Drawing.Point(195, 89);
@@ -146,8 +147,8 @@
 			// 
 			// ArithmeticTypeComboBox
 			// 
-			this.ArithmeticTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-									| System.Windows.Forms.AnchorStyles.Right)));
+			this.ArithmeticTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.ArithmeticTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.ArithmeticTypeComboBox.FormattingEnabled = true;
 			this.ArithmeticTypeComboBox.Location = new System.Drawing.Point(195, 116);
@@ -182,6 +183,7 @@
 			this.Controls.Add(this.NumberOfFunctionsLabel);
 			this.Controls.Add(this.NumberOfArgumentsComboBox);
 			this.Controls.Add(this.NumberOfArgumentsLabel);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "DataPropertiesForm";

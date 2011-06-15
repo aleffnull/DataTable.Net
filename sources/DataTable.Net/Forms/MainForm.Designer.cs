@@ -58,6 +58,10 @@
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.ExportToExcelToolStripButton = new System.Windows.Forms.ToolStripButton();
 			this.ExportToFileToolStripButton = new System.Windows.Forms.ToolStripButton();
+			this.DataPropertiesToolStripButton = new System.Windows.Forms.ToolStripButton();
+			this.SettingsToolStripButton = new System.Windows.Forms.ToolStripButton();
+			this.AboutToolStripButton = new System.Windows.Forms.ToolStripButton();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.MainMenu.SuspendLayout();
 			this.StatusStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
@@ -153,6 +157,7 @@
 			// 
 			// DataPropertiesToolStripMenuItem
 			// 
+			this.DataPropertiesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("DataPropertiesToolStripMenuItem.Image")));
 			this.DataPropertiesToolStripMenuItem.Name = "DataPropertiesToolStripMenuItem";
 			this.DataPropertiesToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
 			this.DataPropertiesToolStripMenuItem.Text = "&Свойства данных...";
@@ -160,6 +165,7 @@
 			// 
 			// SettingsToolStripMenuItem
 			// 
+			this.SettingsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("SettingsToolStripMenuItem.Image")));
 			this.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem";
 			this.SettingsToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
 			this.SettingsToolStripMenuItem.Text = "&Настройки...";
@@ -175,6 +181,7 @@
 			// 
 			// AboutToolStripMenuItem
 			// 
+			this.AboutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AboutToolStripMenuItem.Image")));
 			this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
 			this.AboutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
 			this.AboutToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
@@ -262,10 +269,14 @@
             this.ReloadToolStripButton,
             this.toolStripSeparator1,
             this.ExportToFileToolStripButton,
-            this.ExportToExcelToolStripButton});
+            this.ExportToExcelToolStripButton,
+            this.DataPropertiesToolStripButton,
+            this.SettingsToolStripButton,
+            this.toolStripSeparator2,
+            this.AboutToolStripButton});
 			this.MainToolBar.Location = new System.Drawing.Point(3, 0);
 			this.MainToolBar.Name = "MainToolBar";
-			this.MainToolBar.Size = new System.Drawing.Size(141, 25);
+			this.MainToolBar.Size = new System.Drawing.Size(216, 25);
 			this.MainToolBar.TabIndex = 3;
 			// 
 			// OpenToolStripButton
@@ -318,7 +329,7 @@
 			this.ExportToExcelToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.ExportToExcelToolStripButton.Name = "ExportToExcelToolStripButton";
 			this.ExportToExcelToolStripButton.Size = new System.Drawing.Size(23, 22);
-			this.ExportToExcelToolStripButton.ToolTipText = "Экспортировать в Excel";
+			this.ExportToExcelToolStripButton.ToolTipText = "Экспорт в Excel";
 			this.ExportToExcelToolStripButton.Click += new System.EventHandler(this.ExportToExcelToolStripButton_Click);
 			// 
 			// ExportToFileToolStripButton
@@ -328,8 +339,43 @@
 			this.ExportToFileToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.ExportToFileToolStripButton.Name = "ExportToFileToolStripButton";
 			this.ExportToFileToolStripButton.Size = new System.Drawing.Size(23, 22);
-			this.ExportToFileToolStripButton.ToolTipText = "Экспортировать в файл";
+			this.ExportToFileToolStripButton.ToolTipText = "Экспорт в файл";
 			this.ExportToFileToolStripButton.Click += new System.EventHandler(this.ExportToFileToolStripButton_Click);
+			// 
+			// DataPropertiesToolStripButton
+			// 
+			this.DataPropertiesToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.DataPropertiesToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("DataPropertiesToolStripButton.Image")));
+			this.DataPropertiesToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.DataPropertiesToolStripButton.Name = "DataPropertiesToolStripButton";
+			this.DataPropertiesToolStripButton.Size = new System.Drawing.Size(23, 22);
+			this.DataPropertiesToolStripButton.ToolTipText = "Свойства данных";
+			this.DataPropertiesToolStripButton.Click += new System.EventHandler(this.DataPropertiesToolStripButton_Click);
+			// 
+			// SettingsToolStripButton
+			// 
+			this.SettingsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.SettingsToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("SettingsToolStripButton.Image")));
+			this.SettingsToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.SettingsToolStripButton.Name = "SettingsToolStripButton";
+			this.SettingsToolStripButton.Size = new System.Drawing.Size(23, 22);
+			this.SettingsToolStripButton.ToolTipText = "Настройки";
+			this.SettingsToolStripButton.Click += new System.EventHandler(this.SettingsToolStripButton_Click);
+			// 
+			// AboutToolStripButton
+			// 
+			this.AboutToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.AboutToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("AboutToolStripButton.Image")));
+			this.AboutToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.AboutToolStripButton.Name = "AboutToolStripButton";
+			this.AboutToolStripButton.Size = new System.Drawing.Size(23, 22);
+			this.AboutToolStripButton.ToolTipText = "О программе";
+			this.AboutToolStripButton.Click += new System.EventHandler(this.AboutToolStripButton_Click);
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
 			// 
 			// MainForm
 			// 
@@ -388,6 +434,10 @@
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripButton ExportToExcelToolStripButton;
 		private System.Windows.Forms.ToolStripButton ExportToFileToolStripButton;
+		private System.Windows.Forms.ToolStripButton DataPropertiesToolStripButton;
+		private System.Windows.Forms.ToolStripButton SettingsToolStripButton;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+		private System.Windows.Forms.ToolStripButton AboutToolStripButton;
 	}
 }
 
