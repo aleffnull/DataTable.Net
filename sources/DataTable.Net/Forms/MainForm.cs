@@ -36,11 +36,13 @@ namespace DataTable.Net.Forms
 		void IMainView.DisableFileDependentControls()
 		{
 			ReloadToolStripMenuItem.Enabled = DataPropertiesToolStripMenuItem.Enabled = ExportToolStripMenuItem.Enabled = false;
+			ReloadToolStripButton.Enabled = false;
 		}
 
 		void IMainView.EnableFileDependentControls()
 		{
 			ReloadToolStripMenuItem.Enabled = DataPropertiesToolStripMenuItem.Enabled = ExportToolStripMenuItem.Enabled = true;
+			ReloadToolStripButton.Enabled = true;
 		}
 
 		void IMainView.DisableInitializationDependentControls()
@@ -220,10 +222,16 @@ namespace DataTable.Net.Forms
 
 		#region Event handlers
 
+		#region Form
+
 		private void MainForm_Load(object sender, EventArgs e)
 		{
 			presenter.OnLoad();
 		}
+
+		#endregion Form
+
+		#region Menu
 
 		private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -259,6 +267,24 @@ namespace DataTable.Net.Forms
 		{
 			presenter.OnAbout();
 		}
+
+		#endregion Menu
+
+		#region Toolbar
+
+		private void OpenToolStripButton_Click(object sender, EventArgs e)
+		{
+			presenter.OnOpenFile();
+		}
+
+		private void ReloadToolStripButton_Click(object sender, EventArgs e)
+		{
+			presenter.OnReloadFile();
+		}
+
+		#endregion Toolbar
+
+		#region Grid
 
 		private void DataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
 		{
@@ -355,6 +381,8 @@ namespace DataTable.Net.Forms
 		{
 			presenter.OnDragDrop(e.Data);
 		}
+
+		#endregion Grid
 
 		#endregion Event handlers
 	}

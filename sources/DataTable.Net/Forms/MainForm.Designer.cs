@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -50,9 +51,17 @@
 			this.FilePathStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.DataGridView = new System.Windows.Forms.DataGridView();
 			this.ExportFileDialog = new System.Windows.Forms.SaveFileDialog();
+			this.MainToolBar = new System.Windows.Forms.ToolStrip();
+			this.OpenToolStripButton = new System.Windows.Forms.ToolStripButton();
+			this.ReloadToolStripButton = new System.Windows.Forms.ToolStripButton();
+			this.MainToolStripContainer = new System.Windows.Forms.ToolStripContainer();
 			this.MainMenu.SuspendLayout();
 			this.StatusStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
+			this.MainToolBar.SuspendLayout();
+			this.MainToolStripContainer.ContentPanel.SuspendLayout();
+			this.MainToolStripContainer.TopToolStripPanel.SuspendLayout();
+			this.MainToolStripContainer.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// MainMenu
@@ -80,6 +89,7 @@
 			// 
 			// OpenToolStripMenuItem
 			// 
+			this.OpenToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("OpenToolStripMenuItem.Image")));
 			this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
 			this.OpenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
 			this.OpenToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
@@ -88,6 +98,7 @@
 			// 
 			// ReloadToolStripMenuItem
 			// 
+			this.ReloadToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ReloadToolStripMenuItem.Image")));
 			this.ReloadToolStripMenuItem.Name = "ReloadToolStripMenuItem";
 			this.ReloadToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
 			this.ReloadToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
@@ -214,7 +225,7 @@
 			this.DataGridView.DefaultCellStyle = dataGridViewCellStyle2;
 			this.DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.DataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-			this.DataGridView.Location = new System.Drawing.Point(0, 24);
+			this.DataGridView.Location = new System.Drawing.Point(0, 0);
 			this.DataGridView.Name = "DataGridView";
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -224,7 +235,7 @@
 			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.DataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-			this.DataGridView.Size = new System.Drawing.Size(617, 379);
+			this.DataGridView.Size = new System.Drawing.Size(617, 354);
 			this.DataGridView.TabIndex = 2;
 			this.DataGridView.VirtualMode = true;
 			this.DataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.DataGridView_CellBeginEdit);
@@ -238,14 +249,64 @@
 			// 
 			this.ExportFileDialog.Filter = "CSV файлы|*.csv|Все файлы|*.*";
 			// 
+			// MainToolBar
+			// 
+			this.MainToolBar.Dock = System.Windows.Forms.DockStyle.None;
+			this.MainToolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.OpenToolStripButton,
+            this.ReloadToolStripButton});
+			this.MainToolBar.Location = new System.Drawing.Point(3, 0);
+			this.MainToolBar.Name = "MainToolBar";
+			this.MainToolBar.Size = new System.Drawing.Size(89, 25);
+			this.MainToolBar.TabIndex = 3;
+			// 
+			// OpenToolStripButton
+			// 
+			this.OpenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.OpenToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("OpenToolStripButton.Image")));
+			this.OpenToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.OpenToolStripButton.Name = "OpenToolStripButton";
+			this.OpenToolStripButton.Size = new System.Drawing.Size(23, 22);
+			this.OpenToolStripButton.ToolTipText = "Открыть";
+			this.OpenToolStripButton.Click += new System.EventHandler(this.OpenToolStripButton_Click);
+			// 
+			// ReloadToolStripButton
+			// 
+			this.ReloadToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.ReloadToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("ReloadToolStripButton.Image")));
+			this.ReloadToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.ReloadToolStripButton.Name = "ReloadToolStripButton";
+			this.ReloadToolStripButton.Size = new System.Drawing.Size(23, 22);
+			this.ReloadToolStripButton.ToolTipText = "Перезагрузить";
+			this.ReloadToolStripButton.Click += new System.EventHandler(this.ReloadToolStripButton_Click);
+			// 
+			// MainToolStripContainer
+			// 
+			// 
+			// MainToolStripContainer.ContentPanel
+			// 
+			this.MainToolStripContainer.ContentPanel.Controls.Add(this.DataGridView);
+			this.MainToolStripContainer.ContentPanel.Size = new System.Drawing.Size(617, 354);
+			this.MainToolStripContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.MainToolStripContainer.Location = new System.Drawing.Point(0, 24);
+			this.MainToolStripContainer.Name = "MainToolStripContainer";
+			this.MainToolStripContainer.Size = new System.Drawing.Size(617, 379);
+			this.MainToolStripContainer.TabIndex = 4;
+			this.MainToolStripContainer.Text = "toolStripContainer1";
+			// 
+			// MainToolStripContainer.TopToolStripPanel
+			// 
+			this.MainToolStripContainer.TopToolStripPanel.Controls.Add(this.MainToolBar);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(617, 425);
-			this.Controls.Add(this.DataGridView);
+			this.Controls.Add(this.MainToolStripContainer);
 			this.Controls.Add(this.StatusStrip);
 			this.Controls.Add(this.MainMenu);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "MainForm";
 			this.Text = "DataTable.Net";
 			this.Load += new System.EventHandler(this.MainForm_Load);
@@ -254,6 +315,13 @@
 			this.StatusStrip.ResumeLayout(false);
 			this.StatusStrip.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
+			this.MainToolBar.ResumeLayout(false);
+			this.MainToolBar.PerformLayout();
+			this.MainToolStripContainer.ContentPanel.ResumeLayout(false);
+			this.MainToolStripContainer.TopToolStripPanel.ResumeLayout(false);
+			this.MainToolStripContainer.TopToolStripPanel.PerformLayout();
+			this.MainToolStripContainer.ResumeLayout(false);
+			this.MainToolStripContainer.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -280,6 +348,10 @@
 		private System.Windows.Forms.ToolStripMenuItem ExportToExcelToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem HelpToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem;
+		private System.Windows.Forms.ToolStrip MainToolBar;
+		private System.Windows.Forms.ToolStripButton OpenToolStripButton;
+		private System.Windows.Forms.ToolStripButton ReloadToolStripButton;
+		private System.Windows.Forms.ToolStripContainer MainToolStripContainer;
 	}
 }
 
