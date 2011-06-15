@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DataTable.Net.Dtos;
 using DataTable.Net.Models;
@@ -52,11 +53,11 @@ namespace DataTable.Net.Presenters.Impl
 
 		private void FillTypeLists()
 		{
-			var dataTypes = new[] {DataType.Byte, DataType.Word, DataType.Dword, DataType.Qword};
+			var dataTypes = Enum.GetValues(typeof(DataType));
 			var dataTypeDtos = new List<DataTypeDto>();
 			foreach (var dataType in dataTypes)
 			{
-				dataTypeDtos.Add(new DataTypeDto {DataType = dataType});
+				dataTypeDtos.Add(new DataTypeDto {DataType = (DataType)dataType});
 			}
 
 			view.SetArgumentsTypeList(dataTypeDtos);
