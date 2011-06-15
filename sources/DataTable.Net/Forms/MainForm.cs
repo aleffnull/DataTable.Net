@@ -36,13 +36,13 @@ namespace DataTable.Net.Forms
 		void IMainView.DisableFileDependentControls()
 		{
 			ReloadToolStripMenuItem.Enabled = DataPropertiesToolStripMenuItem.Enabled = ExportToolStripMenuItem.Enabled = false;
-			ReloadToolStripButton.Enabled = false;
+			ReloadToolStripButton.Enabled = ExportToFileToolStripButton.Enabled = ExportToExcelToolStripButton.Enabled = false;
 		}
 
 		void IMainView.EnableFileDependentControls()
 		{
 			ReloadToolStripMenuItem.Enabled = DataPropertiesToolStripMenuItem.Enabled = ExportToolStripMenuItem.Enabled = true;
-			ReloadToolStripButton.Enabled = true;
+			ReloadToolStripButton.Enabled = ExportToFileToolStripButton.Enabled = ExportToExcelToolStripButton.Enabled = true;
 		}
 
 		void IMainView.DisableInitializationDependentControls()
@@ -280,6 +280,16 @@ namespace DataTable.Net.Forms
 		private void ReloadToolStripButton_Click(object sender, EventArgs e)
 		{
 			presenter.OnReloadFile();
+		}
+
+		private void ExportToFileToolStripButton_Click(object sender, EventArgs e)
+		{
+			presenter.OnExportToFile();
+		}
+
+		private void ExportToExcelToolStripButton_Click(object sender, EventArgs e)
+		{
+			presenter.OnExportToExcel();
 		}
 
 		#endregion Toolbar
