@@ -34,7 +34,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_EmptyStream()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(0, 0, DataType.Byte, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(0, 0, DataType.Byte, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			using (var stream = new MemoryStream())
 			{
@@ -45,7 +46,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_OneByteArgument_OneDataEntry()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(1, 0, DataType.Byte, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(1, 0, DataType.Byte, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42};
 			using (var stream = new MemoryStream(data))
@@ -60,7 +62,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_OneByteArgument_TwoDataEntries()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(1, 0, DataType.Byte, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(1, 0, DataType.Byte, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x54};
 			using (var stream = new MemoryStream(data))
@@ -76,7 +79,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_OneWordArgument_OneDataEntry()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(1, 0, DataType.Word, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(1, 0, DataType.Word, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x35};
 			using (var stream = new MemoryStream(data))
@@ -91,7 +95,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_OneWordArgument_TwoDataEntries()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(1, 0, DataType.Word, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(1, 0, DataType.Word, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x35, 0x12, 0x78};
 			using (var stream = new MemoryStream(data))
@@ -107,7 +112,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_OneDwordArgument_OneDataEntry()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(1, 0, DataType.Dword, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(1, 0, DataType.Dword, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x35, 0xAB, 0xCD};
 			using (var stream = new MemoryStream(data))
@@ -122,7 +128,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_OneDwordArgument_TwoDataEntries()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(1, 0, DataType.Dword, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(1, 0, DataType.Dword, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x35, 0xAB, 0xCD, 0x01, 0x23, 0x45, 0x67};
 			using (var stream = new MemoryStream(data))
@@ -138,7 +145,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_OneQwordArgument_OneDataEntry()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(1, 0, DataType.Qword, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(1, 0, DataType.Qword, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x35, 0xAB, 0xCD, 0xEF, 0xFF, 0x11, 0x22};
 			using (var stream = new MemoryStream(data))
@@ -153,7 +161,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_OneQwordArgument_TwoDataEntries()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(1, 0, DataType.Qword, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(1, 0, DataType.Qword, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[]
 			           {
@@ -173,7 +182,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_OneByteFunction_OneDataEntry()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(0, 1, DataType.Byte, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(0, 1, DataType.Byte, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42};
 			using (var stream = new MemoryStream(data))
@@ -188,7 +198,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_OneByteFunction_TwoDataEntries()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(0, 1, DataType.Byte, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(0, 1, DataType.Byte, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x54};
 			using (var stream = new MemoryStream(data))
@@ -204,7 +215,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_OneWordFunction_OneDataEntry()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(0, 1, DataType.Byte, DataType.Word, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(0, 1, DataType.Byte, DataType.Word, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x35};
 			using (var stream = new MemoryStream(data))
@@ -219,7 +231,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_OneWordFunction_TwoDataEntries()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(0, 1, DataType.Byte, DataType.Word, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(0, 1, DataType.Byte, DataType.Word, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x35, 0x12, 0x78};
 			using (var stream = new MemoryStream(data))
@@ -235,7 +248,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_OneDwordFunction_OneDataEntry()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(0, 1, DataType.Byte, DataType.Dword, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(0, 1, DataType.Byte, DataType.Dword, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x35, 0xAB, 0xCD};
 			using (var stream = new MemoryStream(data))
@@ -250,7 +264,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_OneDwordFunction_TwoDataEntries()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(0, 1, DataType.Byte, DataType.Dword, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(0, 1, DataType.Byte, DataType.Dword, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x35, 0xAB, 0xCD, 0x01, 0x23, 0x45, 0x67};
 			using (var stream = new MemoryStream(data))
@@ -266,7 +281,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_OneQwordFunction_OneDataEntry()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(0, 1, DataType.Byte, DataType.Qword, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(0, 1, DataType.Byte, DataType.Qword, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x35, 0xAB, 0xCD, 0xEF, 0xFF, 0x11, 0x22};
 			using (var stream = new MemoryStream(data))
@@ -281,7 +297,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_OneQwordFunction_TwoDataEntries()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(0, 1, DataType.Byte, DataType.Qword, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(0, 1, DataType.Byte, DataType.Qword, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[]
 			           {
@@ -301,7 +318,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_TwoByteArguments_OneDataEntry()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(2, 0, DataType.Byte, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(2, 0, DataType.Byte, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x34};
 			using (var stream = new MemoryStream(data))
@@ -317,7 +335,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_TwoByteArguments_TwoDataEntries()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(2, 0, DataType.Byte, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(2, 0, DataType.Byte, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x54, 0x12, 0x34};
 			using (var stream = new MemoryStream(data))
@@ -335,7 +354,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_TwoWordArguments_OneDataEntry()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(2, 0, DataType.Word, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(2, 0, DataType.Word, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x54, 0x12, 0x34};
 			using (var stream = new MemoryStream(data))
@@ -351,7 +371,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_TwoWordArguments_TwoDataEntries()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(2, 0, DataType.Word, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(2, 0, DataType.Word, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x54, 0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC};
 			using (var stream = new MemoryStream(data))
@@ -369,7 +390,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_TwoDwordArguments_OneDataEntry()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(2, 0, DataType.Dword, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(2, 0, DataType.Dword, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x54, 0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC};
 			using (var stream = new MemoryStream(data))
@@ -385,7 +407,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_TwoDwordArguments_TwoDataEntries()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(2, 0, DataType.Dword, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(2, 0, DataType.Dword, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[]
 			           {0x42, 0x54, 0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC, 0xDE, 0xFF, 0x00, 0x11, 0x22, 0x33, 0x44, 0x55};
@@ -404,7 +427,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_TwoQwordArguments_OneDataEntry()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(2, 0, DataType.Qword, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(2, 0, DataType.Qword, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[]
 			           {
@@ -424,7 +448,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_TwoQwordArguments_TwoDataEntries()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(2, 0, DataType.Qword, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(2, 0, DataType.Qword, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[]
 			           {
@@ -448,7 +473,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_TwoByteFunctions_OneDataEntry()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(0, 2, DataType.Byte, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(0, 2, DataType.Byte, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x34};
 			using (var stream = new MemoryStream(data))
@@ -464,7 +490,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_TwoByteFunctions_TwoDataEntries()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(0, 2, DataType.Byte, DataType.Byte, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(0, 2, DataType.Byte, DataType.Byte, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x54, 0x12, 0x34};
 			using (var stream = new MemoryStream(data))
@@ -482,7 +509,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_TwoWordFunctions_OneDataEntry()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(0, 2, DataType.Byte, DataType.Word, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(0, 2, DataType.Byte, DataType.Word, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x54, 0x12, 0x34};
 			using (var stream = new MemoryStream(data))
@@ -498,7 +526,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_TwoWordFunctions_TwoDataEntries()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(0, 2, DataType.Byte, DataType.Word, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(0, 2, DataType.Byte, DataType.Word, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x54, 0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC};
 			using (var stream = new MemoryStream(data))
@@ -516,7 +545,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_TwoDwordFunction_OneDataEntry()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(0, 2, DataType.Byte, DataType.Dword, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(0, 2, DataType.Byte, DataType.Dword, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[] {0x42, 0x54, 0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC};
 			using (var stream = new MemoryStream(data))
@@ -532,7 +562,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_TwoDwordFunctions_TwoDataEntries()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(0, 2, DataType.Byte, DataType.Dword, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(0, 2, DataType.Byte, DataType.Dword, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[]
 			           {0x42, 0x54, 0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC, 0xDE, 0xFF, 0x00, 0x11, 0x22, 0x33, 0x44, 0x55};
@@ -551,7 +582,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_TwoQwordFunction_OneDataEntry()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(0, 2, DataType.Byte, DataType.Qword, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(0, 2, DataType.Byte, DataType.Qword, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[]
 			           {
@@ -571,7 +603,8 @@ namespace DataTable.Net.Tests
 		[Test]
 		public void LoadData_TwoQwordFunctions_TwoDataEntries()
 		{
-			var dataPropertiesDto = new DataPropertiesDto(0, 2, DataType.Byte, DataType.Qword, ArithmeticType.Integer);
+			var dataPropertiesDto = new FullDataPropertiesDto(
+				new CoreDataPropertiesDto(0, 2, DataType.Byte, DataType.Qword, ArithmeticType.Integer));
 			var model = new DataModel(string.Empty, dataPropertiesDto, serviceLocator);
 			var data = new byte[]
 			           {

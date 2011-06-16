@@ -14,8 +14,8 @@ namespace DataTable.Net.Models
 
 		#region Constructors
 
-		public CachingDataModel(string filePath, DataPropertiesDto dataPropertiesDto, ServiceLocator serviceLocator)
-			: base(filePath, dataPropertiesDto, serviceLocator)
+		public CachingDataModel(string filePath, FullDataPropertiesDto fullDataPropertiesDto, ServiceLocator serviceLocator)
+			: base(filePath, fullDataPropertiesDto, serviceLocator)
 		{
 			//
 		}

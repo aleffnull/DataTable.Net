@@ -55,10 +55,10 @@ namespace DataTable.Net.Models
 
 		#region Constructors
 
-		public DataModel(string filePath, DataPropertiesDto dataPropertiesDto, ServiceLocator serviceLocator)
+		public DataModel(string filePath, FullDataPropertiesDto fullDataPropertiesDto, ServiceLocator serviceLocator)
 		{
 			FilePath = filePath;
-			dataPropertiesModel = GetDataPropertiesModel(dataPropertiesDto);
+			dataPropertiesModel = GetDataPropertiesModel(fullDataPropertiesDto);
 			this.serviceLocator = serviceLocator;
 		}
 
@@ -135,19 +135,21 @@ namespace DataTable.Net.Models
 			return function;
 		}
 
-		public DataPropertiesDto GetDataPropertiesDto()
+		public CoreDataPropertiesDto GetCoreDataPropertiesDto()
 		{
-			var dto = new DataPropertiesDto(
-				dataPropertiesModel.NumberOfArguments, dataPropertiesModel.NumberOfFunctions,
-				dataPropertiesModel.ArgumentsType, dataPropertiesModel.FunctionsType, dataPropertiesModel.ArithmeticType);
-			return dto;
+			return dataPropertiesModel.GetCoreDto();
+		}
+
+		public FullDataPropertiesDto GetFullDataPropertiesDto()
+		{
+			return dataPropertiesModel.GetFullDto();
 		}
 
 		#endregion Methods
 
 		#region Helpers
 
-		private static DataPropertiesModel GetDataPropertiesModel(DataPropertiesDto dto)
+		private static DataPropertiesModel GetDataPropertiesModel(FullDataPropertiesDto dto)
 		{
 			var model = new DataPropertiesModel(
 				dto.NumberOfArguments, dto.NumberOfFunctions,

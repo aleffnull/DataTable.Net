@@ -220,6 +220,7 @@
   </data>
   <data name="DataPropertiesDtoToStringFormat" xml:space="preserve">
     <value>Number of arguments: {0}, number of functions: {1}, agruments type: {2}, functions type: {3}, arithmetic type: {4}</value>
+    <comment>0 is number of arguments, 1 is number of fuctions, 2 is arguments type, 3 is functions type, 4 is arithmetic type</comment>
   </data>
   <data name="ScaleDtoScaleStringFormat" xml:space="preserve">
     <value>2^{0}</value>
@@ -259,5 +260,9 @@
   <data name="OpenningDrapDroppedFile" xml:space="preserve">
     <value>Opening drag-n-dropped file '{0}'.</value>
     <comment>0 is file path</comment>
+  </data>
+  <data name="DataPropertiesDtoScalesToStringFormat" xml:space="preserve">
+    <value>Number of arguments: {0}, number of functions: {1}, agruments type: {2}, functions type: {3}, arithmetic type: {4}, argument scales: {5}, function scales: {6}</value>
+    <comment>0 is number of arguments, 1 is number of fuctions, 2 is arguments type, 3 is functions type, 4 is arithmetic type, 5 is argument scales string, 6 is fuction scales string</comment>
   </data>
 </root>

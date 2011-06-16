@@ -160,6 +160,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Number of arguments: {0}, number of functions: {1}, agruments type: {2}, functions type: {3}, arithmetic type: {4}, argument scales: {5}, function scales: {6}.
+        /// </summary>
+        internal static string DataPropertiesDtoScalesToStringFormat {
+            get {
+                return ResourceManager.GetString("DataPropertiesDtoScalesToStringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number of arguments: {0}, number of functions: {1}, agruments type: {2}, functions type: {3}, arithmetic type: {4}.
         /// </summary>
         internal static string DataPropertiesDtoToStringFormat {

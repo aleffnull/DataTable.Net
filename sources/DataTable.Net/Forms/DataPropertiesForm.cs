@@ -19,10 +19,10 @@ namespace DataTable.Net.Forms
 
 		#region Constructors
 
-		public DataPropertiesForm(DataPropertiesDto dataPropertiesDto)
+		public DataPropertiesForm(CoreDataPropertiesDto coreDataPropertiesDto)
 		{
 			InitializeComponent();
-			presenter = new DataPropertiesPresenter(this, dataPropertiesDto);
+			presenter = new DataPropertiesPresenter(this, coreDataPropertiesDto);
 		}
 
 		#endregion Constructors
@@ -143,9 +143,9 @@ namespace DataTable.Net.Forms
 
 		#region Methods
 
-		public DataPropertiesDto GetDataPropertiesDto()
+		public CoreDataPropertiesDto GetCoreDataPropertiesDto()
 		{
-			return presenter.GetDataPropertiesDto();
+			return presenter.GetDto();
 		}
 
 		#endregion Methods

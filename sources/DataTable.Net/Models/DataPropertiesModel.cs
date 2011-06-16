@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DataTable.Net.Dtos;
 
 namespace DataTable.Net.Models
 {
@@ -101,6 +102,23 @@ namespace DataTable.Net.Models
 		public void SetFunctionScale(int index, int scale)
 		{
 			functionScales[index] = scale;
+		}
+
+		public CoreDataPropertiesDto GetCoreDto()
+		{
+			var dto = new CoreDataPropertiesDto(
+				NumberOfArguments, NumberOfFunctions,
+				ArgumentsType, FunctionsType, ArithmeticType);
+			return dto;
+		}
+
+		public FullDataPropertiesDto GetFullDto()
+		{
+			var dto = new FullDataPropertiesDto(
+				NumberOfArguments, NumberOfFunctions,
+				ArgumentsType, FunctionsType, ArithmeticType,
+				argumentScales, functionScales);
+			return dto;
 		}
 
 		#endregion Methods

@@ -120,16 +120,16 @@ namespace DataTable.Net.Presenters.Impl
 
 		public void OnChangeDataProperties()
 		{
-			var newDataPropertiesDto = view.AskUserForDataPropertiesDto(currentDataModel.GetDataPropertiesDto());
-			if (newDataPropertiesDto == null)
+			var newCoreDataPropertiesDto = view.AskUserForDataPropertiesDto(currentDataModel.GetCoreDataPropertiesDto());
+			if (newCoreDataPropertiesDto == null)
 			{
 				return;
 			}
 
 			log.InfoFormat(
 				InternalResources.ReloadingFileWithNewDataProperties,
-				currentDataModel.FilePath, newDataPropertiesDto);
-			LoadFile(currentDataModel.FilePath, newDataPropertiesDto);
+				currentDataModel.FilePath, newCoreDataPropertiesDto);
+			LoadFile(currentDataModel.FilePath, newCoreDataPropertiesDto);
 		}
 
 		public void OnChangeSettings()
@@ -360,30 +360,38 @@ namespace DataTable.Net.Presenters.Impl
 		{
 			log.InfoFormat(InternalResources.OpeningFile, filePath);
 
-			var dataPropertiesDto = view.AskUserForDataPropertiesDto();
-			if (dataPropertiesDto == null)
+			var coreDataPropertiesDto = view.AskUserForDataPropertiesDto();
+			if (coreDataPropertiesDto == null)
 			{
 				log.Info(InternalResources.NoDataPropertiesOpeningCanceled);
 				return;
 			}
 
-			log.InfoFormat(InternalResources.GotDataProperties, dataPropertiesDto);
-			LoadFile(filePath, dataPropertiesDto);
+			log.InfoFormat(InternalResources.GotDataProperties, coreDataPropertiesDto);
+			LoadFile(filePath, coreDataPropertiesDto);
 		}
 
 		private void ReloadFile()
 		{
+			var fullDataPropertiesDto = currentDataModel.GetFullDataPropertiesDto();
+
 			log.InfoFormat(
 				InternalResources.ReloadingFileWithDataPropertiesModel,
-				currentDataModel.FilePath, currentDataModel.GetDataPropertiesDto());
-			LoadFile(currentDataModel.FilePath, currentDataModel.GetDataPropertiesDto());
+				currentDataModel.FilePath, fullDataPropertiesDto);
+			LoadFile(currentDataModel.FilePath, fullDataPropertiesDto);
 		}
 
-		private void LoadFile(string filePath, DataPropertiesDto dataPropertiesDto)
+		private void LoadFile(string filePath, CoreDataPropertiesDto coreDataPropertiesDto)
+		{
+			var fullDataPropertiesDto = new FullDataPropertiesDto(coreDataPropertiesDto);
+			LoadFile(filePath, fullDataPropertiesDto);
+		}
+
+		private void LoadFile(string filePath, FullDataPropertiesDto fullDataPropertiesDto)
 		{
 			view.SetStatus(Resources.LoadingFileStatus);
 			view.GoToWaitMode();
-			DataService.BeginLoadingData(filePath, dataPropertiesDto, LoadDataSuccessCallback, LoadDataErrorCallback);
+			DataService.BeginLoadingData(filePath, fullDataPropertiesDto, LoadDataSuccessCallback, LoadDataErrorCallback);
 		}
 
 		#endregion Helpers

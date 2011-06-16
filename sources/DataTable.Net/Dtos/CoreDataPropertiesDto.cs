@@ -3,7 +3,7 @@ using DataTable.Net.Properties;
 
 namespace DataTable.Net.Dtos
 {
-	public class DataPropertiesDto
+	public class CoreDataPropertiesDto
 	{
 		#region Properties
 
@@ -17,7 +17,7 @@ namespace DataTable.Net.Dtos
 
 		#region Constructors
 
-		public DataPropertiesDto(
+		public CoreDataPropertiesDto(
 			int numberOfArguments, int numberOfFunctions,
 			DataType argumentsType, DataType functionsType, ArithmeticType arithmeticType)
 		{

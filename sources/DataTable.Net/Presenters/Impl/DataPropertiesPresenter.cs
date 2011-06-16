@@ -11,13 +11,13 @@ namespace DataTable.Net.Presenters.Impl
 		#region Fields
 
 		private readonly IDataPropertiesView view;
-		private readonly DataPropertiesDto dtoToLoad;
+		private readonly CoreDataPropertiesDto dtoToLoad;
 
 		#endregion Fields
 
 		#region Constructors
 
-		public DataPropertiesPresenter(IDataPropertiesView view, DataPropertiesDto dtoToLoad)
+		public DataPropertiesPresenter(IDataPropertiesView view, CoreDataPropertiesDto dtoToLoad)
 		{
 			this.view = view;
 			this.dtoToLoad = dtoToLoad;
@@ -27,12 +27,12 @@ namespace DataTable.Net.Presenters.Impl
 
 		#region IDataPropertiesPresenter implementation
 
-		public DataPropertiesDto GetDataPropertiesDto()
+		public CoreDataPropertiesDto GetDto()
 		{
-			var model = new DataPropertiesDto(
+			var dto = new CoreDataPropertiesDto(
 				view.NumberOfArguments, view.NumberOfFunctions,
 				view.ArgumentsType, view.FunctionsType, view.ArithmeticType);
-			return model;
+			return dto;
 		}
 
 		public void OnLoad()
@@ -89,7 +89,7 @@ namespace DataTable.Net.Presenters.Impl
 			view.SetArithmeticTypeList(arithmeticTypeDtos);
 		}
 		
-		private void LoadDto(DataPropertiesDto dto)
+		private void LoadDto(CoreDataPropertiesDto dto)
 		{
 			view.NumberOfArguments = dto.NumberOfArguments;
 			view.NumberOfFunctions = dto.NumberOfFunctions;

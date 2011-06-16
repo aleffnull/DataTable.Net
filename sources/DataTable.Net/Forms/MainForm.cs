@@ -71,12 +71,12 @@ namespace DataTable.Net.Forms
 			       	: string.Empty;
 		}
 
-		DataPropertiesDto IMainView.AskUserForDataPropertiesDto(DataPropertiesDto currentDataProperties)
+		CoreDataPropertiesDto IMainView.AskUserForDataPropertiesDto(CoreDataPropertiesDto currentDataProperties)
 		{
 			var dataPropertiesForm = new DataPropertiesForm(currentDataProperties);
 			var result = dataPropertiesForm.ShowDialog(this);
 			var model = result == DialogResult.OK
-			            	? dataPropertiesForm.GetDataPropertiesDto()
+			            	? dataPropertiesForm.GetCoreDataPropertiesDto()
 			            	: null;
 
 			return model;

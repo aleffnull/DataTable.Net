@@ -8,7 +8,7 @@ namespace DataTable.Net.Services
 	public interface IDataService
 	{
 		void BeginLoadingData(
-			string filePath, DataPropertiesDto dataPropertiesDto,
+			string filePath, FullDataPropertiesDto fullDataPropertiesDto,
 			ServiceSuccessCallback<DataModel> successCallback, ServiceErrorCallback errorCallback);
 
 		void BeginExportingDataToFile(

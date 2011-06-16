@@ -4,7 +4,7 @@ namespace DataTable.Net.Presenters
 {
 	public interface IDataPropertiesPresenter
 	{
-		DataPropertiesDto GetDataPropertiesDto();
+		CoreDataPropertiesDto GetDto();
 		void OnLoad();
 	}
 }

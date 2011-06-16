@@ -32,10 +32,10 @@ namespace DataTable.Net.Services.Impl
 		#region IDataService implementation
 
 		public void BeginLoadingData(
-			string filePath, DataPropertiesDto dataPropertiesDto,
+			string filePath, FullDataPropertiesDto fullDataPropertiesDto,
 			ServiceSuccessCallback<DataModel> successCallback, ServiceErrorCallback errorCallback)
 		{
-			DoRequest(() => LoadData(filePath, dataPropertiesDto), successCallback, errorCallback);
+			DoRequest(() => LoadData(filePath, fullDataPropertiesDto), successCallback, errorCallback);
 		}
 
 		public void BeginExportingDataToFile(
@@ -61,7 +61,7 @@ namespace DataTable.Net.Services.Impl
 
 		#region Service actions
 
-		private DataModel LoadData(string filePath, DataPropertiesDto dataPropertiesDto)
+		private DataModel LoadData(string filePath, FullDataPropertiesDto fullDataPropertiesDto)
 		{
 			if (!File.Exists(filePath))
 			{
@@ -69,7 +69,7 @@ namespace DataTable.Net.Services.Impl
 				throw new FileNotExistsException(filePath);
 			}
 
-			var dataModel = new CachingDataModel(filePath, dataPropertiesDto, serviceLocator);
+			var dataModel = new CachingDataModel(filePath, fullDataPropertiesDto, serviceLocator);
 			using (var stream = File.OpenRead(filePath))
 			{
 				LoadDataImpl(stream, dataModel);

@@ -12,7 +12,7 @@ namespace DataTable.Net.Views
 		void EnableInitializationDependentControls();
 
 		string AskUserForFileToOpen();
-		DataPropertiesDto AskUserForDataPropertiesDto(DataPropertiesDto currentDataProperties = null);
+		CoreDataPropertiesDto AskUserForDataPropertiesDto(CoreDataPropertiesDto currentDataProperties = null);
 		string AskUserForFileToExportTo();
 		SettingsStorage AskUserForSettings(SettingsStorage currentSettings);
 

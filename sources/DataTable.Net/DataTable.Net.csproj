@@ -70,7 +70,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dtos\ArithmeticTypeDto.cs" />
-    <Compile Include="Dtos\DataPropertiesDto.cs" />
+    <Compile Include="Dtos\CoreDataPropertiesDto.cs" />
+    <Compile Include="Dtos\FullDataPropertiesDto.cs" />
     <Compile Include="Dtos\DataTypeDto.cs" />
     <Compile Include="Dtos\NumberOfItemsDto.cs" />
     <Compile Include="Dtos\ScaleDto.cs" />
