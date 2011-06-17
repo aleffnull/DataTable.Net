@@ -188,4 +188,10 @@
 			0 is exception message
 		</comment>
   </data>
+  <data name="ArgumentScalesCountMismatch" xml:space="preserve">
+    <value>Количество масштабов аргументов не соответствует количеству аргументов</value>
+  </data>
+  <data name="FunctionScalesCountMismatch" xml:space="preserve">
+    <value>Количество масштабов функции не соответствует количеству функций</value>
+  </data>
 </root>

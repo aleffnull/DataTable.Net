@@ -71,7 +71,7 @@ namespace DataTable.Net.Models
 			{
 				if (argumentScales.Length != numberOfArguments)
 				{
-					throw new ArgumentException(InternalResources.ArgumentScalesCountMismatch);
+					throw new ArgumentException(Resources.ArgumentScalesCountMismatch);
 				}
 
 				this.argumentScales = new int[argumentScales.Length];
@@ -83,7 +83,7 @@ namespace DataTable.Net.Models
 			{
 				if (functionScales.Length != numberOfFunctions)
 				{
-					throw new ArgumentException(InternalResources.FunctionScalesCountMismatch);
+					throw new ArgumentException(Resources.FunctionScalesCountMismatch);
 				}
 
 				this.functionScales = new int[functionScales.Length];
