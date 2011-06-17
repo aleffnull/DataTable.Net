@@ -44,17 +44,12 @@
 			this.MaxAbsoluteScalePowerLabel.Name = "MaxAbsoluteScalePowerLabel";
 			this.MaxAbsoluteScalePowerLabel.Size = new System.Drawing.Size(185, 30);
 			this.MaxAbsoluteScalePowerLabel.TabIndex = 0;
-			this.MaxAbsoluteScalePowerLabel.Text = "Максимально возможный модуль показателя степени масштаба:";
+			this.MaxAbsoluteScalePowerLabel.Text = "Модуль максимально возможного показателя степени масштаба:";
 			// 
 			// MaxAbsoluteScalePowerUpDown
 			// 
 			this.MaxAbsoluteScalePowerUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.MaxAbsoluteScalePowerUpDown.Location = new System.Drawing.Point(215, 12);
-			this.MaxAbsoluteScalePowerUpDown.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
 			this.MaxAbsoluteScalePowerUpDown.Name = "MaxAbsoluteScalePowerUpDown";
 			this.MaxAbsoluteScalePowerUpDown.Size = new System.Drawing.Size(120, 20);
 			this.MaxAbsoluteScalePowerUpDown.TabIndex = 1;
