@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using DataTable.Net.Dtos;
+using DataTable.Net.Properties;
 
 namespace DataTable.Net.Models
 {
@@ -13,6 +15,9 @@ namespace DataTable.Net.Models
 		private int[] argumentScales;
 		private int[] functionScales;
 
+		private readonly bool argumentScalesInitialized;
+		private readonly bool functionScalesInitialized;
+
 		#endregion Fields
 
 		#region Properties
@@ -23,7 +28,10 @@ namespace DataTable.Net.Models
 			private set
 			{
 				numberOfArguments = value;
-				argumentScales = new int[value];
+				if (argumentScales == null)
+				{
+					argumentScales = new int[value];
+				}
 			}
 		}
 
@@ -33,7 +41,10 @@ namespace DataTable.Net.Models
 			private set
 			{
 				numberOfFunctions = value;
-				functionScales = new int[value];
+				if (functionScales == null)
+				{
+					functionScales = new int[value];
+				}
 			}
 		}
 
@@ -47,13 +58,38 @@ namespace DataTable.Net.Models
 
 		public DataPropertiesModel(
 			int numberOfArguments, int numberOfFunctions,
-			DataType argumentsType, DataType functionsType, ArithmeticType arithmeticType)
+			DataType argumentsType, DataType functionsType, ArithmeticType arithmeticType,
+			int[] argumentScales, int[] functionScales)
 		{
 			NumberOfArguments = numberOfArguments;
 			NumberOfFunctions = numberOfFunctions;
 			ArgumentsType = argumentsType;
 			FunctionsType = functionsType;
 			ArithmeticType = arithmeticType;
+
+			if (argumentScales != null)
+			{
+				if (argumentScales.Length != numberOfArguments)
+				{
+					throw new ArgumentException(InternalResources.ArgumentScalesCountMismatch);
+				}
+
+				this.argumentScales = new int[argumentScales.Length];
+				argumentScales.CopyTo(this.argumentScales, 0);
+				argumentScalesInitialized = true;
+			}
+
+			if (functionScales != null)
+			{
+				if (functionScales.Length != numberOfFunctions)
+				{
+					throw new ArgumentException(InternalResources.FunctionScalesCountMismatch);
+				}
+
+				this.functionScales = new int[functionScales.Length];
+				functionScales.CopyTo(this.functionScales, 0);
+				functionScalesInitialized = true;
+			}
 		}
 
 		#endregion Constructors
@@ -62,14 +98,7 @@ namespace DataTable.Net.Models
 
 		public IEnumerable<int> CreateArgumentScales(int maxAbsolutePower)
 		{
-			var scales = GetScales(maxAbsolutePower);
-			var middleScale = scales[scales.Count/2];
-			for (var i = 0; i < argumentScales.Length; i++)
-			{
-				argumentScales[i] = middleScale;
-			}
-
-			return scales;
+			return CreateScales(argumentScales, argumentScalesInitialized, maxAbsolutePower);
 		}
 
 		public int GetArgumentScale(int index)
@@ -84,14 +113,7 @@ namespace DataTable.Net.Models
 
 		public IEnumerable<int> CreateFunctionScales(int maxAbsolutePower)
 		{
-			var scales = GetScales(maxAbsolutePower);
-			var middleScale = scales[scales.Count / 2];
-			for (var i = 0; i < functionScales.Length; i++)
-			{
-				functionScales[i] = middleScale;
-			}
-
-			return scales;
+			return CreateScales(functionScales, functionScalesInitialized, maxAbsolutePower);
 		}
 
 		public int GetFunctionScale(int index)
@@ -134,6 +156,38 @@ namespace DataTable.Net.Models
 			}
 
 			return scales;
+		}
+
+		private static IEnumerable<int> CreateScales(IList<int> scalesArray, bool initialized, int maxAbsolutePower)
+		{
+			var newScales = GetScales(maxAbsolutePower);
+			var reinitialize = false;
+			if (initialized)
+			{
+				foreach (var scale in scalesArray)
+				{
+					if (Math.Abs(scale) > maxAbsolutePower)
+					{
+						reinitialize = true;
+						break;
+					}
+				}
+			}
+			else
+			{
+				reinitialize = true;
+			}
+
+			if (reinitialize)
+			{
+				var middleScale = newScales[newScales.Count / 2];
+				for (var i = 0; i < scalesArray.Count; i++)
+				{
+					scalesArray[i] = middleScale;
+				}
+			}
+
+			return newScales;
 		}
 
 		#endregion Helpers

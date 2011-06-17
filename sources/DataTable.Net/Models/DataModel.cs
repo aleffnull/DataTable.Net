@@ -153,7 +153,8 @@ namespace DataTable.Net.Models
 		{
 			var model = new DataPropertiesModel(
 				dto.NumberOfArguments, dto.NumberOfFunctions,
-				dto.ArgumentsType, dto.FunctionsType, dto.ArithmeticType);
+				dto.ArgumentsType, dto.FunctionsType, dto.ArithmeticType,
+				dto.ArgumentScales, dto.FunctionScales);
 			return model;
 		}
 

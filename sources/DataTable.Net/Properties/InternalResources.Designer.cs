@@ -88,6 +88,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Количество масштабов аргументов не соответствует количеству аргументов.
+        /// </summary>
+        internal static string ArgumentScalesCountMismatch {
+            get {
+                return ResourceManager.GetString("ArgumentScalesCountMismatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unknown ArithmeticType member: {0}..
         /// </summary>
         internal static string ArithmeticTypeUnknownMember {
@@ -246,6 +255,15 @@ namespace DataTable.Net.Properties {
         internal static string FileDoesNotExist {
             get {
                 return ResourceManager.GetString("FileDoesNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Количество масштабов функции не соответствует количеству функций.
+        /// </summary>
+        internal static string FunctionScalesCountMismatch {
+            get {
+                return ResourceManager.GetString("FunctionScalesCountMismatch", resourceCulture);
             }
         }
         

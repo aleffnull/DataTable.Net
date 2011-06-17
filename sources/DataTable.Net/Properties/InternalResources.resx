@@ -265,4 +265,10 @@
     <value>Number of arguments: {0}, number of functions: {1}, agruments type: {2}, functions type: {3}, arithmetic type: {4}, argument scales: {5}, function scales: {6}</value>
     <comment>0 is number of arguments, 1 is number of fuctions, 2 is arguments type, 3 is functions type, 4 is arithmetic type, 5 is argument scales string, 6 is fuction scales string</comment>
   </data>
+	<data name="ArgumentScalesCountMismatch">
+		<value xml:space="preserve">Количество масштабов аргументов не соответствует количеству аргументов</value>
+	</data>
+	<data name="FunctionScalesCountMismatch">
+		<value xml:space="preserve">Количество масштабов функции не соответствует количеству функций</value>
+	</data>
 </root>
