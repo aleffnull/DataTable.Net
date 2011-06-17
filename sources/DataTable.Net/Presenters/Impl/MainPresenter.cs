@@ -85,6 +85,7 @@ namespace DataTable.Net.Presenters.Impl
 				return;
 			}
 
+			log.InfoFormat(InternalResources.OpeningFile, filePath);
 			OpenFile(filePath);
 		}
 
@@ -358,8 +359,6 @@ namespace DataTable.Net.Presenters.Impl
 
 		private void OpenFile(string filePath)
 		{
-			log.InfoFormat(InternalResources.OpeningFile, filePath);
-
 			var coreDataPropertiesDto = view.AskUserForDataPropertiesDto();
 			if (coreDataPropertiesDto == null)
 			{
