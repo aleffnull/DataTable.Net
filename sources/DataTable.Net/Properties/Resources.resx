@@ -194,4 +194,13 @@
   <data name="FunctionScalesCountMismatch" xml:space="preserve">
     <value>Количество масштабов функции не соответствует количеству функций</value>
   </data>
+  <data name="SavingSettingsStatus" xml:space="preserve">
+    <value>Сохранение настроек</value>
+  </data>
+  <data name="SaveSettingsFailed" xml:space="preserve">
+    <value>Не удалось сохранить настройки: {0}</value>
+    <comment>
+			0 is exception message
+		</comment>
+  </data>
 </root>

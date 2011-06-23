@@ -8,6 +8,7 @@ using DataTable.Net.Properties;
 using DataTable.Net.Services;
 using DataTable.Net.Services.Common;
 using DataTable.Net.Services.Impl;
+using DataTable.Net.Services.Settings;
 using DataTable.Net.Views;
 using log4net;
 
@@ -143,11 +144,10 @@ namespace DataTable.Net.Presenters.Impl
 
 			log.InfoFormat(InternalResources.ChangingSettingsFromTo, currentSettings, newSettings);
 			currentSettings = newSettings;
-			SettingsService.SaveSettings(currentSettings);
-			if (currentDataModel != null)
-			{
-				ReloadFile();
-			}
+
+			view.SetStatus(Resources.SavingSettingsStatus);
+			view.GoToWaitMode();
+			SettingsService.BeginSavingSettings(currentSettings, SaveSettingsSuccessCallback, SaveSettingErrorCallback);
 		}
 
 		public void OnAbout()
@@ -256,6 +256,27 @@ namespace DataTable.Net.Presenters.Impl
 			view.ShowWarning(message);
 			view.SetStatus(Resources.ReadyStatus);
 			view.EnableInitializationDependentControls();
+		}
+
+		private void SaveSettingsSuccessCallback()
+		{
+			view.SetStatus(Resources.ReadyStatus);
+			view.GoToNormalMode();
+
+			if (currentDataModel != null)
+			{
+				ReloadFile();
+			}
+		}
+
+		private void SaveSettingErrorCallback(Exception exception)
+		{
+			log.Error(exception);
+
+			var message = string.Format(Resources.SaveSettingsFailed, exception.Message);
+			view.ShowError(message);
+			view.SetStatus(Resources.ReadyStatus);
+			view.GoToNormalMode();
 		}
 
 		private void LoadDataSuccessCallback(DataModel model)

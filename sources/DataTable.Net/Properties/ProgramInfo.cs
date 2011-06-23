@@ -7,8 +7,8 @@ namespace DataTable.Net.Properties
 	{
 		#region Constants
 
-		public static readonly string Version = "1.0.554";
-		public static readonly string BuildDate = "2011/05/15 22:37:25";
+		public static readonly string Version = "1.1.58";
+		public static readonly string BuildDate = "2011/06/23 23:31:28";
 
 		#endregion Constants
 	}

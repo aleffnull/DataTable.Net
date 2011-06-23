@@ -241,6 +241,24 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Не удалось сохранить настройки: {0}.
+        /// </summary>
+        internal static string SaveSettingsFailed {
+            get {
+                return ResourceManager.GetString("SaveSettingsFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сохранение настроек.
+        /// </summary>
+        internal static string SavingSettingsStatus {
+            get {
+                return ResourceManager.GetString("SavingSettingsStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Версия: {1}{0}Дата сборки: {2}.
         /// </summary>
         internal static string VersionInfoFormat {

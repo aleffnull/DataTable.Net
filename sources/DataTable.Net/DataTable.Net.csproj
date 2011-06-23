@@ -136,7 +136,9 @@
     <Compile Include="Services\Common\Delegates.cs" />
     <Compile Include="Services\Common\ErrorOccurredEventArgs.cs" />
     <Compile Include="Services\Common\ServiceLocator.cs" />
-    <Compile Include="Services\Common\SettingsStorage.cs" />
+    <Compile Include="Services\Settings\ConfigFileSettings.cs" />
+    <Compile Include="Services\Settings\RegistrySettings.cs" />
+    <Compile Include="Services\Settings\SettingsStorage.cs" />
     <Compile Include="Services\Common\UnhandledExceptionManager.cs" />
     <Compile Include="Services\IDataService.cs" />
     <Compile Include="Services\IMathService.cs" />

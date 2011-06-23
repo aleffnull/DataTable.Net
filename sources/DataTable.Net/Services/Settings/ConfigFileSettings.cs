@@ -1,8 +1,8 @@
 using DataTable.Net.Properties;
 
-namespace DataTable.Net.Services.Common
+namespace DataTable.Net.Services.Settings
 {
-	public class SettingsStorage
+	public class ConfigFileSettings
 	{
 		#region Properties
 
@@ -13,7 +13,7 @@ namespace DataTable.Net.Services.Common
 
 		#region Constructors
 
-		public SettingsStorage(int maxAbsoluteScalePower, string exportValuesSeparator)
+		public ConfigFileSettings(int maxAbsoluteScalePower, string exportValuesSeparator)
 		{
 			MaxAbsoluteScalePower = maxAbsoluteScalePower;
 			ExportValuesSeparator = exportValuesSeparator;
@@ -26,7 +26,7 @@ namespace DataTable.Net.Services.Common
 		public override string ToString()
 		{
 			return string.Format(
-				InternalResources.SettingsStorageToStringFormat,
+				InternalResources.ConfigFileSettingsToStringFormat,
 				MaxAbsoluteScalePower, ExportValuesSeparator);
 		}
 

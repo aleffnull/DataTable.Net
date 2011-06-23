@@ -124,6 +124,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MaxAbsoluteScalePower = {0}, ExportValuesSeparator = &quot;{1}&quot;.
+        /// </summary>
+        internal static string ConfigFileSettingsToStringFormat {
+            get {
+                return ResourceManager.GetString("ConfigFileSettingsToStringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to mailto:datatable.net@blackbox82.org.
         /// </summary>
         internal static string ContactEmailLink {
@@ -228,6 +237,15 @@ namespace DataTable.Net.Properties {
         internal static string ExportToFileWasFinishedSuccessfully {
             get {
                 return ResourceManager.GetString("ExportToFileWasFinishedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to , .
+        /// </summary>
+        internal static string ExtensionsSeparator {
+            get {
+                return ResourceManager.GetString("ExtensionsSeparator", resourceCulture);
             }
         }
         
@@ -385,6 +403,24 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to no extensions.
+        /// </summary>
+        internal static string RegistrySettingsNoExtensions {
+            get {
+                return ResourceManager.GetString("RegistrySettingsNoExtensions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RegisteredExtensions = {0}.
+        /// </summary>
+        internal static string RegistrySettingsToStringFormat {
+            get {
+                return ResourceManager.GetString("RegistrySettingsToStringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reloading file &apos;{0}&apos; with data properties model: {1}.
         /// </summary>
         internal static string ReloadingFileWithDataPropertiesModel {
@@ -430,7 +466,7 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MaxAbsoluteScalePower = {0}, ExportValuesSeparator = &quot;{1}&quot;.
+        ///   Looks up a localized string similar to ConfigFileSettings: {0}, RegistrySettings: {1}.
         /// </summary>
         internal static string SettingsStorageToStringFormat {
             get {

@@ -38,11 +38,11 @@
 			this.SettingsTabControl = new System.Windows.Forms.TabControl();
 			this.GeneralTabPage = new System.Windows.Forms.TabPage();
 			this.IntegrationTabPage = new System.Windows.Forms.TabPage();
-			this.FileTypesLabel = new System.Windows.Forms.Label();
-			this.DatFileTypeCheckBox = new System.Windows.Forms.CheckBox();
-			this.HexFileTypeCheckBox = new System.Windows.Forms.CheckBox();
-			this.BinFileTypeCheckBox = new System.Windows.Forms.CheckBox();
 			this.SelectAllFileTypesButton = new System.Windows.Forms.Button();
+			this.BinFileTypeCheckBox = new System.Windows.Forms.CheckBox();
+			this.HexFileTypeCheckBox = new System.Windows.Forms.CheckBox();
+			this.DatFileTypeCheckBox = new System.Windows.Forms.CheckBox();
+			this.FileTypesLabel = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.MaxAbsoluteScalePowerUpDown)).BeginInit();
 			this.SettingsTabControl.SuspendLayout();
 			this.GeneralTabPage.SuspendLayout();
@@ -127,7 +127,7 @@
 			this.GeneralTabPage.Location = new System.Drawing.Point(4, 22);
 			this.GeneralTabPage.Name = "GeneralTabPage";
 			this.GeneralTabPage.Padding = new System.Windows.Forms.Padding(3);
-			this.GeneralTabPage.Size = new System.Drawing.Size(399, 142);
+			this.GeneralTabPage.Size = new System.Drawing.Size(372, 142);
 			this.GeneralTabPage.TabIndex = 0;
 			this.GeneralTabPage.Text = "Общие";
 			this.GeneralTabPage.UseVisualStyleBackColor = true;
@@ -147,45 +147,6 @@
 			this.IntegrationTabPage.Text = "Интеграция";
 			this.IntegrationTabPage.UseVisualStyleBackColor = true;
 			// 
-			// FileTypesLabel
-			// 
-			this.FileTypesLabel.AutoSize = true;
-			this.FileTypesLabel.Location = new System.Drawing.Point(6, 3);
-			this.FileTypesLabel.Name = "FileTypesLabel";
-			this.FileTypesLabel.Size = new System.Drawing.Size(195, 13);
-			this.FileTypesLabel.TabIndex = 0;
-			this.FileTypesLabel.Text = "Открывать файлы следующих типов:";
-			// 
-			// DatFileTypeCheckBox
-			// 
-			this.DatFileTypeCheckBox.AutoSize = true;
-			this.DatFileTypeCheckBox.Location = new System.Drawing.Point(9, 19);
-			this.DatFileTypeCheckBox.Name = "DatFileTypeCheckBox";
-			this.DatFileTypeCheckBox.Size = new System.Drawing.Size(48, 17);
-			this.DatFileTypeCheckBox.TabIndex = 1;
-			this.DatFileTypeCheckBox.Text = "DAT";
-			this.DatFileTypeCheckBox.UseVisualStyleBackColor = true;
-			// 
-			// HexFileTypeCheckBox
-			// 
-			this.HexFileTypeCheckBox.AutoSize = true;
-			this.HexFileTypeCheckBox.Location = new System.Drawing.Point(9, 42);
-			this.HexFileTypeCheckBox.Name = "HexFileTypeCheckBox";
-			this.HexFileTypeCheckBox.Size = new System.Drawing.Size(48, 17);
-			this.HexFileTypeCheckBox.TabIndex = 2;
-			this.HexFileTypeCheckBox.Text = "HEX";
-			this.HexFileTypeCheckBox.UseVisualStyleBackColor = true;
-			// 
-			// BinFileTypeCheckBox
-			// 
-			this.BinFileTypeCheckBox.AutoSize = true;
-			this.BinFileTypeCheckBox.Location = new System.Drawing.Point(9, 65);
-			this.BinFileTypeCheckBox.Name = "BinFileTypeCheckBox";
-			this.BinFileTypeCheckBox.Size = new System.Drawing.Size(44, 17);
-			this.BinFileTypeCheckBox.TabIndex = 3;
-			this.BinFileTypeCheckBox.Text = "BIN";
-			this.BinFileTypeCheckBox.UseVisualStyleBackColor = true;
-			// 
 			// SelectAllFileTypesButton
 			// 
 			this.SelectAllFileTypesButton.Location = new System.Drawing.Point(9, 88);
@@ -195,6 +156,48 @@
 			this.SelectAllFileTypesButton.Text = "Выбрать &все";
 			this.SelectAllFileTypesButton.UseVisualStyleBackColor = true;
 			this.SelectAllFileTypesButton.Click += new System.EventHandler(this.SelectAllFileTypesButton_Click);
+			// 
+			// BinFileTypeCheckBox
+			// 
+			this.BinFileTypeCheckBox.AutoSize = true;
+			this.BinFileTypeCheckBox.Location = new System.Drawing.Point(9, 65);
+			this.BinFileTypeCheckBox.Name = "BinFileTypeCheckBox";
+			this.BinFileTypeCheckBox.Size = new System.Drawing.Size(44, 17);
+			this.BinFileTypeCheckBox.TabIndex = 3;
+			this.BinFileTypeCheckBox.Tag = "bin";
+			this.BinFileTypeCheckBox.Text = "BIN";
+			this.BinFileTypeCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// HexFileTypeCheckBox
+			// 
+			this.HexFileTypeCheckBox.AutoSize = true;
+			this.HexFileTypeCheckBox.Location = new System.Drawing.Point(9, 42);
+			this.HexFileTypeCheckBox.Name = "HexFileTypeCheckBox";
+			this.HexFileTypeCheckBox.Size = new System.Drawing.Size(48, 17);
+			this.HexFileTypeCheckBox.TabIndex = 2;
+			this.HexFileTypeCheckBox.Tag = "hex";
+			this.HexFileTypeCheckBox.Text = "HEX";
+			this.HexFileTypeCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// DatFileTypeCheckBox
+			// 
+			this.DatFileTypeCheckBox.AutoSize = true;
+			this.DatFileTypeCheckBox.Location = new System.Drawing.Point(9, 19);
+			this.DatFileTypeCheckBox.Name = "DatFileTypeCheckBox";
+			this.DatFileTypeCheckBox.Size = new System.Drawing.Size(48, 17);
+			this.DatFileTypeCheckBox.TabIndex = 1;
+			this.DatFileTypeCheckBox.Tag = "dat";
+			this.DatFileTypeCheckBox.Text = "DAT";
+			this.DatFileTypeCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// FileTypesLabel
+			// 
+			this.FileTypesLabel.AutoSize = true;
+			this.FileTypesLabel.Location = new System.Drawing.Point(6, 3);
+			this.FileTypesLabel.Name = "FileTypesLabel";
+			this.FileTypesLabel.Size = new System.Drawing.Size(195, 13);
+			this.FileTypesLabel.TabIndex = 0;
+			this.FileTypesLabel.Text = "Открывать файлы следующих типов:";
 			// 
 			// SettingsForm
 			// 
