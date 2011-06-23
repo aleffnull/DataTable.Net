@@ -194,6 +194,7 @@
 			this.SelectAllFileTypesButton.TabIndex = 4;
 			this.SelectAllFileTypesButton.Text = "Выбрать &все";
 			this.SelectAllFileTypesButton.UseVisualStyleBackColor = true;
+			this.SelectAllFileTypesButton.Click += new System.EventHandler(this.SelectAllFileTypesButton_Click);
 			// 
 			// SettingsForm
 			// 

@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using DataTable.Net.Services.Common;
 
 namespace DataTable.Net.Forms
@@ -25,5 +26,14 @@ namespace DataTable.Net.Forms
 		}
 
 		#endregion Methods
+
+		#region Event handlers
+
+		private void SelectAllFileTypesButton_Click(object sender, EventArgs e)
+		{
+			DatFileTypeCheckBox.Checked = HexFileTypeCheckBox.Checked = BinFileTypeCheckBox.Checked = true;
+		}
+
+		#endregion Event handlers
 	}
 }
