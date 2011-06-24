@@ -33,14 +33,9 @@ namespace DataTable.Net.Presenters.Impl
 			get { return serviceLocator.Resolve<IGenericService>(); }
 		}
 
-		private ISettingsService SettingsService
+		private IConfigFileSettingsService ConfigFileSettingsService
 		{
-			get { return serviceLocator.Resolve<ISettingsService>(); }
-		}
-
-		private IMathService MathService
-		{
-			get { return serviceLocator.Resolve<IMathService>(); }
+			get { return serviceLocator.Resolve<IConfigFileSettingsService>(); }
 		}
 
 		private IDataService DataService
@@ -72,8 +67,7 @@ namespace DataTable.Net.Presenters.Impl
 			GenericService.BeginDoingAction(
 				() =>
 				{
-					currentSettings = SettingsService.LoadSettings();
-					MathService.PrecalculatePowerTable(currentSettings.MaxAbsoluteScalePower);
+					currentSettings = ConfigFileSettingsService.LoadSettings();
 				},
 				InitializationSuccessCallback, InitializationErrorCallback);
 		}
@@ -147,7 +141,7 @@ namespace DataTable.Net.Presenters.Impl
 
 			view.SetStatus(Resources.SavingSettingsStatus);
 			view.GoToWaitMode();
-			SettingsService.BeginSavingSettings(currentSettings, SaveSettingsSuccessCallback, SaveSettingErrorCallback);
+			ConfigFileSettingsService.BeginSavingSettings(currentSettings, SaveSettingsSuccessCallback, SaveSettingErrorCallback);
 		}
 
 		public void OnAbout()
@@ -359,7 +353,7 @@ namespace DataTable.Net.Presenters.Impl
 		{
 			var locator = new ServiceLocator();
 			locator.RegisterService<IGenericService>(new GenericService());
-			locator.RegisterService<ISettingsService>(new SettingsService());
+			locator.RegisterService<IConfigFileSettingsService>(new ConfigFileSettingsService());
 			locator.RegisterService<IMathService>(new MathService());
 			locator.RegisterService<IDataService>(new DataService(locator));
 

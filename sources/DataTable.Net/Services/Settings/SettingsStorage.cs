@@ -1,4 +1,3 @@
-using System;
 using DataTable.Net.Properties;
 
 namespace DataTable.Net.Services.Settings

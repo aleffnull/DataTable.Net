@@ -1,35 +1,30 @@
-using System.Collections.Generic;
 using DataTable.Net.Services.Common;
 using DataTable.Net.Services.Settings;
 using ApplicationSettings = DataTable.Net.Properties.Settings;
 
 namespace DataTable.Net.Services.Impl
 {
-	public class SettingsService : AbstractAsyncService, ISettingsService
+	public class ConfigFileSettingsService : AbstractAsyncService, IConfigFileSettingsService
 	{
-		#region ISettingsService implementation
+		#region IConfigFileSettingsService implementation
 
-		public SettingsStorage LoadSettings()
+		public ConfigFileSettings LoadSettings()
 		{
-			var configFileSettings = new ConfigFileSettings(
+			return new ConfigFileSettings(
 				ApplicationSettings.Default.MaxAbsoluteScalePower, ApplicationSettings.Default.ExportValuesSeparator);
-			var registrySettings = new RegistrySettings(new List<string>());
-			var settings = new SettingsStorage(configFileSettings, registrySettings);
-
-			return settings;
 		}
 
 		public void BeginSavingSettings(
-			SettingsStorage settings, ServiceSuccessCallback successCallback, ServiceErrorCallback errorCallback)
+			ConfigFileSettings settings, ServiceSuccessCallback successCallback, ServiceErrorCallback errorCallback)
 		{
 			DoRequest(() => SaveSettings(settings), successCallback, errorCallback);
 		}
 
-		#endregion ISettingsService implementation
+		#endregion IConfigFileSettingsService implementation
 
 		#region Service actions
 
-		private static void SaveSettings(SettingsStorage settings)
+		private static void SaveSettings(ConfigFileSettings settings)
 		{
 			ApplicationSettings.Default.MaxAbsoluteScalePower = settings.MaxAbsoluteScalePower;
 			ApplicationSettings.Default.ExportValuesSeparator = settings.ExportValuesSeparator;

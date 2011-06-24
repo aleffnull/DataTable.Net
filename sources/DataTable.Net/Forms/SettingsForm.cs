@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using DataTable.Net.Services.Settings;
+using DataTable.Net.Dtos;
 
 namespace DataTable.Net.Forms
 {
@@ -9,20 +9,20 @@ namespace DataTable.Net.Forms
 	{
 		#region Constructors
 
-		public SettingsForm(SettingsStorage settings)
+		public SettingsForm(SettingsDto settings)
 		{
 			InitializeComponent();
-			LoadConfigFileSettings(settings.ConfigFileSettings);
-			LoadRegistrySettings(settings.RegistrySettings);
+			LoadSettings(settings);
 		}
 
 		#endregion Constructors
 
 		#region Methods
 
-		public SettingsStorage GetSettings()
+		public SettingsDto GetSettings()
 		{
-			return new SettingsStorage(SaveConfigFileSettings(), SaveRegistrySettings());
+			return new SettingsDto(
+				(int)MaxAbsoluteScalePowerUpDown.Value, ExportValuesSeparatorTextBox.Text, GetRegisteredExtensions());
 		}
 
 		#endregion Methods
@@ -38,15 +38,12 @@ namespace DataTable.Net.Forms
 
 		#region Helpers
 
-		private void LoadConfigFileSettings(ConfigFileSettings settings)
+		private void LoadSettings(SettingsDto settings)
 		{
 			MaxAbsoluteScalePowerUpDown.Value = settings.MaxAbsoluteScalePower;
 			ExportValuesSeparatorTextBox.Text = settings.ExportValuesSeparator;
-		}
 
-		private void LoadRegistrySettings(RegistrySettings registrySettings)
-		{
-			foreach (var extension in registrySettings.RegisteredExtensions)
+			foreach (var extension in settings.RegisteredExtensions)
 			{
 				var checkbox = GetCheckBoxByTag(extension);
 				if (checkbox != null)
@@ -56,15 +53,18 @@ namespace DataTable.Net.Forms
 			}
 		}
 
-		private ConfigFileSettings SaveConfigFileSettings()
+		private CheckBox GetCheckBoxByTag(string tagValue)
 		{
-			return new ConfigFileSettings(
-				(int)MaxAbsoluteScalePowerUpDown.Value, ExportValuesSeparatorTextBox.Text);
-		}
+			foreach (var checkbox in new[] { DatFileTypeCheckBox, HexFileTypeCheckBox, BinFileTypeCheckBox })
+			{
+				var tag = (string)checkbox.Tag;
+				if (string.Equals(tag, tagValue, StringComparison.OrdinalIgnoreCase))
+				{
+					return checkbox;
+				}
+			}
 
-		private RegistrySettings SaveRegistrySettings()
-		{
-			return new RegistrySettings(GetRegisteredExtensions());
+			return null;
 		}
 
 		private IEnumerable<string> GetRegisteredExtensions()
@@ -80,20 +80,6 @@ namespace DataTable.Net.Forms
 			}
 
 			return extensions;
-		}
-
-		private CheckBox GetCheckBoxByTag(string tagValue)
-		{
-			foreach (var checkbox in new[] {DatFileTypeCheckBox, HexFileTypeCheckBox, BinFileTypeCheckBox})
-			{
-				var tag = (string)checkbox.Tag;
-				if (string.Equals(tag, tagValue, StringComparison.OrdinalIgnoreCase))
-				{
-					return checkbox;
-				}
-			}
-
-			return null;
 		}
 
 		#endregion Helpers

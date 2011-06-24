@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using DataTable.Net.Dtos;
-using DataTable.Net.Services.Common;
-using DataTable.Net.Services.Settings;
 
 namespace DataTable.Net.Views
 {
@@ -15,7 +13,7 @@ namespace DataTable.Net.Views
 		string AskUserForFileToOpen();
 		CoreDataPropertiesDto AskUserForDataPropertiesDto(CoreDataPropertiesDto currentDataProperties = null);
 		string AskUserForFileToExportTo();
-		SettingsStorage AskUserForSettings(SettingsStorage currentSettings);
+		SettingsDto AskUserForSettings(SettingsDto currentSettings);
 
 		void CreateColumns(
 			int argumentsCount, int functionsCount,

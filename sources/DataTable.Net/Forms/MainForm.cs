@@ -7,8 +7,6 @@ using DataTable.Net.Models;
 using DataTable.Net.Presenters;
 using DataTable.Net.Presenters.Impl;
 using DataTable.Net.Properties;
-using DataTable.Net.Services.Common;
-using DataTable.Net.Services.Settings;
 using DataTable.Net.Views;
 
 namespace DataTable.Net.Forms
@@ -91,7 +89,7 @@ namespace DataTable.Net.Forms
 			       	: string.Empty;
 		}
 
-		SettingsStorage IMainView.AskUserForSettings(SettingsStorage currentSettings)
+		SettingsDto IMainView.AskUserForSettings(SettingsDto currentSettings)
 		{
 			var settingsForm = new SettingsForm(currentSettings);
 			var result = settingsForm.ShowDialog(this);

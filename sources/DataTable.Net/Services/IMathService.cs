@@ -4,8 +4,6 @@ namespace DataTable.Net.Services
 {
 	public interface IMathService
 	{
-		void PrecalculatePowerTable(int maxAbsolutePower);
-
 		/// <summary>
 		/// Little-endian is used in sake of performance, cause we receive data from file in this form.
 		/// </summary>

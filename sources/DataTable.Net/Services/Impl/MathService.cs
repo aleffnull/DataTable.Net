@@ -15,14 +15,6 @@ namespace DataTable.Net.Services.Impl
 
 		#region IMathService implementation
 
-		public void PrecalculatePowerTable(int maxAbsolutePower)
-		{
-			for (var power = -maxAbsolutePower; power <= maxAbsolutePower; power++)
-			{
-				powerTable[power] = (decimal)Math.Pow(2, power);
-			}
-		}
-
 		public decimal GetValue(byte[] rawValue, ArithmeticType arithmeticType, int scalePowerIndex)
 		{
 			bool wasNegative;
