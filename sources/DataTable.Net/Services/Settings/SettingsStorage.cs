@@ -6,28 +6,21 @@ namespace DataTable.Net.Services.Settings
 	{
 		#region Properties
 
+		public int MaxAbsoluteScalePower { get; set; }
+		public string ExportValuesSeparator { get; set; }
+
 		public ConfigFileSettings ConfigFileSettings { get; private set; }
 		public RegistrySettings RegistrySettings { get; private set; }
-
-		public int MaxAbsoluteScalePower
-		{
-			get { return ConfigFileSettings.MaxAbsoluteScalePower; }
-		}
-
-		public string ExportValuesSeparator
-		{
-			get { return ConfigFileSettings.ExportValuesSeparator; }
-		}
 
 		#endregion Properties
 
 		#region Constructors
 
-		public SettingsStorage(ConfigFileSettings configFileSettings, RegistrySettings registrySettings)
-		{
-			ConfigFileSettings = configFileSettings;
-			RegistrySettings = registrySettings;
-		}
+		//public SettingsStorage(ConfigFileSettings configFileSettings, RegistrySettings registrySettings)
+		//{
+		//  ConfigFileSettings = configFileSettings;
+		//  RegistrySettings = registrySettings;
+		//}
 
 		#endregion Constructors
 

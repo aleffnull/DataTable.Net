@@ -33,9 +33,9 @@ namespace DataTable.Net.Presenters.Impl
 			get { return serviceLocator.Resolve<IGenericService>(); }
 		}
 
-		private IConfigFileSettingsService ConfigFileSettingsService
+		private ISettingsService SettingsService
 		{
-			get { return serviceLocator.Resolve<IConfigFileSettingsService>(); }
+			get { return serviceLocator.Resolve<ISettingsService>(); }
 		}
 
 		private IDataService DataService
@@ -67,7 +67,7 @@ namespace DataTable.Net.Presenters.Impl
 			GenericService.BeginDoingAction(
 				() =>
 				{
-					currentSettings = ConfigFileSettingsService.LoadSettings();
+					currentSettings = SettingsService.LoadSettings();
 				},
 				InitializationSuccessCallback, InitializationErrorCallback);
 		}
@@ -141,7 +141,7 @@ namespace DataTable.Net.Presenters.Impl
 
 			view.SetStatus(Resources.SavingSettingsStatus);
 			view.GoToWaitMode();
-			ConfigFileSettingsService.BeginSavingSettings(currentSettings, SaveSettingsSuccessCallback, SaveSettingErrorCallback);
+			SettingsService.BeginSavingSettings(currentSettings, SaveSettingsSuccessCallback, SaveSettingErrorCallback);
 		}
 
 		public void OnAbout()
@@ -353,7 +353,7 @@ namespace DataTable.Net.Presenters.Impl
 		{
 			var locator = new ServiceLocator();
 			locator.RegisterService<IGenericService>(new GenericService());
-			locator.RegisterService<IConfigFileSettingsService>(new ConfigFileSettingsService());
+			locator.RegisterService<ISettingsService>(new SettingsService());
 			locator.RegisterService<IMathService>(new MathService());
 			locator.RegisterService<IDataService>(new DataService(locator));
 
