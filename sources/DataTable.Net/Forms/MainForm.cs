@@ -50,13 +50,13 @@ namespace DataTable.Net.Forms
 				DataPropertiesToolStripButton.Enabled = true;
 		}
 
-		void IMainView.DisableInitializationDependentControls()
+		void IMainView.DisableSettingsDependentControls()
 		{
 			OpenToolStripMenuItem.Enabled = false;
 			OpenToolStripButton.Enabled = false;
 		}
 
-		void IMainView.EnableInitializationDependentControls()
+		void IMainView.EnableSettingsDependentControls()
 		{
 			OpenToolStripMenuItem.Enabled = true;
 			OpenToolStripButton.Enabled = true;
@@ -207,11 +207,6 @@ namespace DataTable.Net.Forms
 		void IMainView.ShowInformation(string message)
 		{
 			MessageBox.Show(message, Resources.InformationMessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-		}
-
-		void IMainView.ShowWarning(string message)
-		{
-			MessageBox.Show(message, Resources.WarningMessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 		}
 
 		void IMainView.ShowError(string message)

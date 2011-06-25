@@ -196,29 +196,20 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Инициализация не удалась: {0}.
-        /// </summary>
-        internal static string InitializationFailedMessage {
-            get {
-                return ResourceManager.GetString("InitializationFailedMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Инициализация....
-        /// </summary>
-        internal static string InitializingStatus {
-            get {
-                return ResourceManager.GetString("InitializingStatus", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Загрузка файла....
         /// </summary>
         internal static string LoadingFileStatus {
             get {
                 return ResourceManager.GetString("LoadingFileStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Загрузка настроек....
+        /// </summary>
+        internal static string LoadingSettingsStatus {
+            get {
+                return ResourceManager.GetString("LoadingSettingsStatus", resourceCulture);
             }
         }
         
@@ -259,20 +250,20 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Загрузка настроек не удалась: {0}.
+        /// </summary>
+        internal static string SettingsLoadingFailedMessage {
+            get {
+                return ResourceManager.GetString("SettingsLoadingFailedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Версия: {1}{0}Дата сборки: {2}.
         /// </summary>
         internal static string VersionInfoFormat {
             get {
                 return ResourceManager.GetString("VersionInfoFormat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Предупреждение.
-        /// </summary>
-        internal static string WarningMessageTitle {
-            get {
-                return ResourceManager.GetString("WarningMessageTitle", resourceCulture);
             }
         }
     }

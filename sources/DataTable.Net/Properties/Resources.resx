@@ -138,14 +138,14 @@
     <value>Файл '{0}' не существует.</value>
     <comment>0 is file path</comment>
   </data>
-  <data name="InitializingStatus" xml:space="preserve">
-    <value>Инициализация...</value>
+  <data name="LoadingSettingsStatus" xml:space="preserve">
+    <value>Загрузка настроек...</value>
   </data>
   <data name="LoadingFileStatus" xml:space="preserve">
     <value>Загрузка файла...</value>
   </data>
-  <data name="InitializationFailedMessage" xml:space="preserve">
-    <value>Инициализация не удалась: {0}</value>
+  <data name="SettingsLoadingFailedMessage" xml:space="preserve">
+    <value>Загрузка настроек не удалась: {0}</value>
     <comment>0 is error message</comment>
   </data>
   <data name="ReadFromFileExceptionMessage" xml:space="preserve">
@@ -155,10 +155,7 @@
   <data name="ReadyStatus" xml:space="preserve">
     <value>Готово</value>
   </data>
-  <data name="WarningMessageTitle" xml:space="preserve">
-    <value>Предупреждение</value>
-  </data>
-  <data name="ExportingToFileStatus" xml:space="preserve">
+	<data name="ExportingToFileStatus" xml:space="preserve">
     <value>Экспорт в файл...</value>
   </data>
   <data name="ExportToFileFailedMessage" xml:space="preserve">
@@ -184,9 +181,7 @@
   </data>
   <data name="FailedToOpenDragDroppedFile" xml:space="preserve">
     <value>Открытие файла не удалось: {0}</value>
-    <comment>
-			0 is exception message
-		</comment>
+    <comment>0 is exception message</comment>
   </data>
   <data name="ArgumentScalesCountMismatch" xml:space="preserve">
     <value>Количество масштабов аргументов не соответствует количеству аргументов</value>

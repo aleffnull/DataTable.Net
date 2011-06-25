@@ -8,7 +8,6 @@ using DataTable.Net.Properties;
 using DataTable.Net.Services;
 using DataTable.Net.Services.Common;
 using DataTable.Net.Services.Impl;
-using DataTable.Net.Services.Settings;
 using DataTable.Net.Views;
 using log4net;
 
@@ -59,17 +58,12 @@ namespace DataTable.Net.Presenters.Impl
 
 		public void OnLoad()
 		{
-			view.DisableInitializationDependentControls();
+			view.DisableSettingsDependentControls();
 			view.DisableFileDependentControls();
 
-			log.Info(InternalResources.InitializingProgram);
-			view.SetStatus(Resources.InitializingStatus);
-			GenericService.BeginDoingAction(
-				() =>
-				{
-					currentSettings = SettingsService.LoadSettings();
-				},
-				InitializationSuccessCallback, InitializationErrorCallback);
+			log.Info(InternalResources.LoadingSettings);
+			view.SetStatus(Resources.LoadingSettingsStatus);
+			SettingsService.BeginLoadingSettings(LoadSettingsSuccessCallback, LoadSettingsErrorCallback);
 		}
 
 		public void OnOpenFile()
@@ -130,18 +124,21 @@ namespace DataTable.Net.Presenters.Impl
 
 		public void OnChangeSettings()
 		{
-			var newSettings = view.AskUserForSettings(currentSettings);
-			if (newSettings == null)
+			var currentSettingsDto = GetSettingsDto(currentSettings);
+			var newSettingsDto = view.AskUserForSettings(currentSettingsDto);
+			if (newSettingsDto == null)
 			{
 				return;
 			}
 
-			log.InfoFormat(InternalResources.ChangingSettingsFromTo, currentSettings, newSettings);
-			currentSettings = newSettings;
+			var newSettings = GetSettingsStorage(newSettingsDto);
 
+			log.InfoFormat(InternalResources.ChangingSettingsFromTo, currentSettings, newSettings);
 			view.SetStatus(Resources.SavingSettingsStatus);
 			view.GoToWaitMode();
-			SettingsService.BeginSavingSettings(currentSettings, SaveSettingsSuccessCallback, SaveSettingErrorCallback);
+			SettingsService.BeginSavingSettings(
+				currentSettings, newSettings,
+				SaveSettingsSuccessCallback, SaveSettingErrorCallback);
 		}
 
 		public void OnAbout()
@@ -235,28 +232,31 @@ namespace DataTable.Net.Presenters.Impl
 
 		#region Service callbacks
 
-		private void InitializationSuccessCallback()
+		private void LoadSettingsSuccessCallback(SettingsStorage loadedSettings)
 		{
-			log.Info(InternalResources.InitializationFinished);
+			currentSettings = loadedSettings;
+
+			log.Info(InternalResources.SettingsLoadingFinished);
 			view.SetStatus(Resources.ReadyStatus);
-			view.EnableInitializationDependentControls();
+			view.EnableSettingsDependentControls();
 		}
 
-		private void InitializationErrorCallback(Exception exception)
+		private void LoadSettingsErrorCallback(Exception exception)
 		{
-			log.Warn(exception);
+			log.Error(exception);
 
-			var message = string.Format(Resources.InitializationFailedMessage, exception.Message);
-			view.ShowWarning(message);
+			var message = string.Format(Resources.SettingsLoadingFailedMessage, exception.Message);
+			view.ShowError(message);
 			view.SetStatus(Resources.ReadyStatus);
-			view.EnableInitializationDependentControls();
+			view.EnableSettingsDependentControls();
 		}
 
-		private void SaveSettingsSuccessCallback()
+		private void SaveSettingsSuccessCallback(SettingsStorage savedSettings)
 		{
 			view.SetStatus(Resources.ReadyStatus);
 			view.GoToNormalMode();
 
+			currentSettings = savedSettings;
 			if (currentDataModel != null)
 			{
 				ReloadFile();
@@ -406,6 +406,20 @@ namespace DataTable.Net.Presenters.Impl
 			view.SetStatus(Resources.LoadingFileStatus);
 			view.GoToWaitMode();
 			DataService.BeginLoadingData(filePath, fullDataPropertiesDto, LoadDataSuccessCallback, LoadDataErrorCallback);
+		}
+
+		private static SettingsDto GetSettingsDto(SettingsStorage settingsStorage)
+		{
+			return new SettingsDto(
+				settingsStorage.MaxAbsoluteScalePower, settingsStorage.ExportValuesSeparator,
+				settingsStorage.RegisteredExtensions);
+		}
+
+		private static SettingsStorage GetSettingsStorage(SettingsDto settingsDto)
+		{
+			return new SettingsStorage(
+				settingsDto.MaxAbsoluteScalePower, settingsDto.ExportValuesSeparator,
+				settingsDto.RegisteredExtensions);
 		}
 
 		#endregion Helpers

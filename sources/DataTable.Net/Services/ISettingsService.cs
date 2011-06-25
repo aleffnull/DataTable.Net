@@ -1,5 +1,4 @@
 using DataTable.Net.Services.Common;
-using DataTable.Net.Services.Settings;
 
 namespace DataTable.Net.Services
 {
@@ -10,6 +9,6 @@ namespace DataTable.Net.Services
 
 		void BeginSavingSettings(
 			SettingsStorage oldSettings, SettingsStorage newSettings,
-			ServiceSuccessCallback successCallback, ServiceErrorCallback errorCallback);
+			ServiceSuccessCallback<SettingsStorage> successCallback, ServiceErrorCallback errorCallback);
 	}
 }

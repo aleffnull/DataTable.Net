@@ -124,8 +124,8 @@
   <data name="BytesCountNotSpecified" xml:space="preserve">
     <value>BytesCount is not specified.</value>
   </data>
-  <data name="InitializingProgram" xml:space="preserve">
-    <value>Initializing program</value>
+  <data name="LoadingSettings" xml:space="preserve">
+    <value>Loading settings</value>
   </data>
   <data name="OpeningFile" xml:space="preserve">
     <value>Opening file '{0}'</value>
@@ -154,8 +154,8 @@
   <data name="DataError" xml:space="preserve">
     <value>Data error</value>
   </data>
-  <data name="InitializationFinished" xml:space="preserve">
-    <value>Initialization finished</value>
+  <data name="SettingsLoadingFinished" xml:space="preserve">
+    <value>Settings loading finished</value>
   </data>
   <data name="DataWasLoadedSuccessfully" xml:space="preserve">
     <value>Data was loaded successfully</value>
@@ -216,7 +216,7 @@
     <value>Failed to show exception window</value>
   </data>
   <data name="SettingsStorageToStringFormat" xml:space="preserve">
-    <value>ConfigFileSettings: {0}, RegistrySettings: {1}</value>
+    <value>MaxAbsoluteScalePower = {0}, ExportValuesSeparator = "{1}", RegisteredExtensions = {2}</value>
   </data>
   <data name="DataPropertiesDtoToStringFormat" xml:space="preserve">
     <value>Number of arguments: {0}, number of functions: {1}, agruments type: {2}, functions type: {3}, arithmetic type: {4}</value>
@@ -265,16 +265,10 @@
     <value>Number of arguments: {0}, number of functions: {1}, agruments type: {2}, functions type: {3}, arithmetic type: {4}, argument scales: {5}, function scales: {6}</value>
     <comment>0 is number of arguments, 1 is number of fuctions, 2 is arguments type, 3 is functions type, 4 is arithmetic type, 5 is argument scales string, 6 is fuction scales string</comment>
   </data>
-  <data name="RegistrySettingsToStringFormat" xml:space="preserve">
-    <value>RegisteredExtensions = {0}</value>
+  <data name="RegistrySettingsNoExtensions" xml:space="preserve">
+    <value>no extensions</value>
   </data>
-  <data name="ConfigFileSettingsToStringFormat" xml:space="preserve">
-    <value>MaxAbsoluteScalePower = {0}, ExportValuesSeparator = "{1}"</value>
+  <data name="ExtensionsSeparator" xml:space="preserve">
+    <value>, </value>
   </data>
-	<data name="RegistrySettingsNoExtensions">
-		<value xml:space="preserve">no extensions</value>
-	</data>
-	<data name="ExtensionsSeparator">
-		<value><![CDATA[, ]]></value>
-	</data>
 </root>

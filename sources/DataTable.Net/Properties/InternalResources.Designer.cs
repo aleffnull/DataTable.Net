@@ -124,15 +124,6 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MaxAbsoluteScalePower = {0}, ExportValuesSeparator = &quot;{1}&quot;.
-        /// </summary>
-        internal static string ConfigFileSettingsToStringFormat {
-            get {
-                return ResourceManager.GetString("ConfigFileSettingsToStringFormat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to mailto:datatable.net@blackbox82.org.
         /// </summary>
         internal static string ContactEmailLink {
@@ -313,29 +304,20 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Initialization finished.
-        /// </summary>
-        internal static string InitializationFinished {
-            get {
-                return ResourceManager.GetString("InitializationFinished", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Initializing program.
-        /// </summary>
-        internal static string InitializingProgram {
-            get {
-                return ResourceManager.GetString("InitializingProgram", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Read {0} bytes while {1} was expected.
         /// </summary>
         internal static string InsufficientBytesRead {
             get {
                 return ResourceManager.GetString("InsufficientBytesRead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading settings.
+        /// </summary>
+        internal static string LoadingSettings {
+            get {
+                return ResourceManager.GetString("LoadingSettings", resourceCulture);
             }
         }
         
@@ -412,15 +394,6 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to RegisteredExtensions = {0}.
-        /// </summary>
-        internal static string RegistrySettingsToStringFormat {
-            get {
-                return ResourceManager.GetString("RegistrySettingsToStringFormat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Reloading file &apos;{0}&apos; with data properties model: {1}.
         /// </summary>
         internal static string ReloadingFileWithDataPropertiesModel {
@@ -466,7 +439,16 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ConfigFileSettings: {0}, RegistrySettings: {1}.
+        ///   Looks up a localized string similar to Settings loading finished.
+        /// </summary>
+        internal static string SettingsLoadingFinished {
+            get {
+                return ResourceManager.GetString("SettingsLoadingFinished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MaxAbsoluteScalePower = {0}, ExportValuesSeparator = &quot;{1}&quot;, RegisteredExtensions = {2}.
         /// </summary>
         internal static string SettingsStorageToStringFormat {
             get {

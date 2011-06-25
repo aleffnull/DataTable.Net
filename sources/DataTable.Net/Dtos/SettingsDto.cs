@@ -4,11 +4,21 @@ namespace DataTable.Net.Dtos
 {
 	public class SettingsDto
 	{
+		#region Fields
+
+		private readonly List<string> registeredExtensions = new List<string>();
+
+		#endregion Fields
+
 		#region Properties
 
 		public int MaxAbsoluteScalePower { get; private set; }
 		public string ExportValuesSeparator { get; private set; }
-		public IEnumerable<string> RegisteredExtensions { get; private set; }
+
+		public IEnumerable<string> RegisteredExtensions
+		{
+			get { return registeredExtensions; }
+		}
 
 		#endregion Properties
 
@@ -19,7 +29,7 @@ namespace DataTable.Net.Dtos
 		{
 			MaxAbsoluteScalePower = maxAbsoluteScalePower;
 			ExportValuesSeparator = exportValuesSeparator;
-			RegisteredExtensions = registeredExtensions;
+			this.registeredExtensions.AddRange(registeredExtensions);
 		}
 
 		#endregion Constructors

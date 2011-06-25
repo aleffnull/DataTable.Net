@@ -7,8 +7,8 @@ namespace DataTable.Net.Views
 	{
 		void DisableFileDependentControls();
 		void EnableFileDependentControls();
-		void DisableInitializationDependentControls();
-		void EnableInitializationDependentControls();
+		void DisableSettingsDependentControls();
+		void EnableSettingsDependentControls();
 
 		string AskUserForFileToOpen();
 		CoreDataPropertiesDto AskUserForDataPropertiesDto(CoreDataPropertiesDto currentDataProperties = null);
@@ -25,7 +25,6 @@ namespace DataTable.Net.Views
 		void SetStatus(string status);
 		void ShowFilePath(string filePath);
 		void ShowInformation(string message);
-		void ShowWarning(string message);
 		void ShowError(string message);
 		void ShowAboutForm();
 	}

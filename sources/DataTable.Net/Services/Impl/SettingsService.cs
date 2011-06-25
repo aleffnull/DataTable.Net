@@ -1,6 +1,5 @@
+using DataTable.Net.Properties;
 using DataTable.Net.Services.Common;
-using DataTable.Net.Services.Settings;
-using ApplicationSettings = DataTable.Net.Properties.Settings;
 
 namespace DataTable.Net.Services.Impl
 {
@@ -16,7 +15,7 @@ namespace DataTable.Net.Services.Impl
 
 		public void BeginSavingSettings(
 			SettingsStorage oldSettings, SettingsStorage newSettings,
-			ServiceSuccessCallback successCallback, ServiceErrorCallback errorCallback)
+			ServiceSuccessCallback<SettingsStorage> successCallback, ServiceErrorCallback errorCallback)
 		{
 			DoRequest(() => SaveSettings(oldSettings, newSettings), successCallback, errorCallback);
 		}
@@ -33,9 +32,10 @@ namespace DataTable.Net.Services.Impl
 			return settings;
 		}
 
-		private static void SaveSettings(SettingsStorage oldSettings, SettingsStorage newSettings)
+		private static SettingsStorage SaveSettings(SettingsStorage oldSettings, SettingsStorage newSettings)
 		{
 			SaveConfigFileSettings(newSettings);
+			return newSettings;
 		}
 
 		#endregion ServiceActions
@@ -44,15 +44,15 @@ namespace DataTable.Net.Services.Impl
 
 		private static void LoadConfigFileSettings(SettingsStorage settings)
 		{
-			settings.MaxAbsoluteScalePower = ApplicationSettings.Default.MaxAbsoluteScalePower;
-			settings.ExportValuesSeparator = ApplicationSettings.Default.ExportValuesSeparator;
+			settings.MaxAbsoluteScalePower = Settings.Default.MaxAbsoluteScalePower;
+			settings.ExportValuesSeparator = Settings.Default.ExportValuesSeparator;
 		}
 
 		private static void SaveConfigFileSettings(SettingsStorage settings)
 		{
-			ApplicationSettings.Default.MaxAbsoluteScalePower = settings.MaxAbsoluteScalePower;
-			ApplicationSettings.Default.ExportValuesSeparator = settings.ExportValuesSeparator;
-			ApplicationSettings.Default.Save();
+			Settings.Default.MaxAbsoluteScalePower = settings.MaxAbsoluteScalePower;
+			Settings.Default.ExportValuesSeparator = settings.ExportValuesSeparator;
+			Settings.Default.Save();
 		}
 
 		#endregion Helpers
