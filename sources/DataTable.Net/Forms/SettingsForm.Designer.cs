@@ -60,7 +60,7 @@
 			// MaxAbsoluteScalePowerUpDown
 			// 
 			this.MaxAbsoluteScalePowerUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.MaxAbsoluteScalePowerUpDown.Location = new System.Drawing.Point(257, 8);
+			this.MaxAbsoluteScalePowerUpDown.Location = new System.Drawing.Point(245, 8);
 			this.MaxAbsoluteScalePowerUpDown.Name = "MaxAbsoluteScalePowerUpDown";
 			this.MaxAbsoluteScalePowerUpDown.Size = new System.Drawing.Size(120, 20);
 			this.MaxAbsoluteScalePowerUpDown.TabIndex = 1;
@@ -99,7 +99,7 @@
 			// ExportValuesSeparatorTextBox
 			// 
 			this.ExportValuesSeparatorTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.ExportValuesSeparatorTextBox.Location = new System.Drawing.Point(257, 34);
+			this.ExportValuesSeparatorTextBox.Location = new System.Drawing.Point(245, 34);
 			this.ExportValuesSeparatorTextBox.Name = "ExportValuesSeparatorTextBox";
 			this.ExportValuesSeparatorTextBox.Size = new System.Drawing.Size(120, 20);
 			this.ExportValuesSeparatorTextBox.TabIndex = 5;
