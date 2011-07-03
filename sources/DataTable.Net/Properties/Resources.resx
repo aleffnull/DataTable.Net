@@ -155,7 +155,7 @@
   <data name="ReadyStatus" xml:space="preserve">
     <value>Готово</value>
   </data>
-	<data name="ExportingToFileStatus" xml:space="preserve">
+  <data name="ExportingToFileStatus" xml:space="preserve">
     <value>Экспорт в файл...</value>
   </data>
   <data name="ExportToFileFailedMessage" xml:space="preserve">

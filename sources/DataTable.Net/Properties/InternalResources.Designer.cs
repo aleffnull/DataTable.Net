@@ -97,6 +97,24 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Association exists.
+        /// </summary>
+        internal static string AssociationExists {
+            get {
+                return ResourceManager.GetString("AssociationExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Association doesn&apos;t exist.
+        /// </summary>
+        internal static string AssociationNotExists {
+            get {
+                return ResourceManager.GetString("AssociationNotExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to bin.
         /// </summary>
         internal static string BinExtension {
@@ -138,6 +156,15 @@ namespace DataTable.Net.Properties {
         internal static string ContactEmailLink {
             get {
                 return ResourceManager.GetString("ContactEmailLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Created FileAssociation object for &apos;{0}&apos; extension.
+        /// </summary>
+        internal static string CreatedFileAssociation {
+            get {
+                return ResourceManager.GetString("CreatedFileAssociation", resourceCulture);
             }
         }
         
@@ -259,6 +286,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to create &apos;{0}&apos; type key.
+        /// </summary>
+        internal static string FailedToCreateTypeKey {
+            get {
+                return ResourceManager.GetString("FailedToCreateTypeKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed to show exception window.
         /// </summary>
         internal static string FailedToShowExceptionWindow {
@@ -340,6 +376,24 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Key &apos;{0}&apos; doesn&apos;t exist.
+        /// </summary>
+        internal static string KeyNotExists {
+            get {
+                return ResourceManager.GetString("KeyNotExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value of key &apos;{0}&apos; is null or empty.
+        /// </summary>
+        internal static string KeyValueIsNullOrEmpty {
+            get {
+                return ResourceManager.GetString("KeyValueIsNullOrEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Loading settings.
         /// </summary>
         internal static string LoadingSettings {
@@ -390,6 +444,15 @@ namespace DataTable.Net.Properties {
         internal static string NoDataPropertiesOpeningCanceled {
             get {
                 return ResourceManager.GetString("NoDataPropertiesOpeningCanceled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open command is &apos;{0}&apos;.
+        /// </summary>
+        internal static string OpenCommandIs {
+            get {
+                return ResourceManager.GetString("OpenCommandIs", resourceCulture);
             }
         }
         
@@ -480,6 +543,24 @@ namespace DataTable.Net.Properties {
         internal static string SettingsStorageToStringFormat {
             get {
                 return ResourceManager.GetString("SettingsStorageToStringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Software\Classes\{0}.
+        /// </summary>
+        internal static string SoftwareClasses {
+            get {
+                return ResourceManager.GetString("SoftwareClasses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Software\Classes\{0}\shell\open\command.
+        /// </summary>
+        internal static string SoftwareClassesOpenCommand {
+            get {
+                return ResourceManager.GetString("SoftwareClassesOpenCommand", resourceCulture);
             }
         }
         

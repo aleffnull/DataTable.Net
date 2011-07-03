@@ -271,13 +271,47 @@
   <data name="ExtensionsSeparator" xml:space="preserve">
     <value>, </value>
   </data>
-	<data name="DatExtension">
-		<value xml:space="preserve">dat</value>
-	</data>
-	<data name="HexExtension">
-		<value xml:space="preserve">hex</value>
-	</data>
-	<data name="BinExtension">
-		<value xml:space="preserve">bin</value>
-	</data>
+  <data name="DatExtension" xml:space="preserve">
+    <value>dat</value>
+  </data>
+  <data name="HexExtension" xml:space="preserve">
+    <value>hex</value>
+  </data>
+  <data name="BinExtension" xml:space="preserve">
+    <value>bin</value>
+  </data>
+  <data name="CreatedFileAssociation" xml:space="preserve">
+    <value>Created FileAssociation object for '{0}' extension</value>
+    <comment>0 is dotted extension</comment>
+  </data>
+  <data name="FailedToCreateTypeKey" xml:space="preserve">
+    <value>Failed to create '{0}' type key</value>
+    <comment>0 is dotted extension</comment>
+  </data>
+  <data name="SoftwareClasses" xml:space="preserve">
+    <value>Software\Classes\{0}</value>
+    <comment>0 is key name</comment>
+  </data>
+  <data name="SoftwareClassesOpenCommand" xml:space="preserve">
+    <value>Software\Classes\{0}\shell\open\command</value>
+    <comment>0 is type name</comment>
+  </data>
+  <data name="KeyNotExists" xml:space="preserve">
+    <value>Key '{0}' doesn't exist</value>
+    <comment>0 is key path</comment>
+  </data>
+  <data name="KeyValueIsNullOrEmpty" xml:space="preserve">
+    <value>Value of key '{0}' is null or empty</value>
+    <comment>0 is key path</comment>
+  </data>
+  <data name="OpenCommandIs" xml:space="preserve">
+    <value>Open command is '{0}'</value>
+    <comment>0 is Open command</comment>
+  </data>
+  <data name="AssociationExists" xml:space="preserve">
+    <value>Association exists</value>
+  </data>
+  <data name="AssociationNotExists" xml:space="preserve">
+    <value>Association doesn't exist</value>
+  </data>
 </root>
