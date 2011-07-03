@@ -40,6 +40,15 @@ namespace DataTable.Net.Services.Common
 
 		#endregion Constructors
 
+		#region Methods
+
+		public void AddRegisteredExtension(string extension)
+		{
+			registeredExtensions.Add(extension);
+		}
+
+		#endregion Methods
+
 		#region Object overrides
 
 		public override string ToString()

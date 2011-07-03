@@ -39,10 +39,8 @@
 			this.GeneralTabPage = new System.Windows.Forms.TabPage();
 			this.IntegrationTabPage = new System.Windows.Forms.TabPage();
 			this.SelectAllFileTypesButton = new System.Windows.Forms.Button();
-			this.BinFileTypeCheckBox = new System.Windows.Forms.CheckBox();
-			this.HexFileTypeCheckBox = new System.Windows.Forms.CheckBox();
-			this.DatFileTypeCheckBox = new System.Windows.Forms.CheckBox();
 			this.FileTypesLabel = new System.Windows.Forms.Label();
+			this.FileTypeCheckBoxesLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
 			((System.ComponentModel.ISupportInitialize)(this.MaxAbsoluteScalePowerUpDown)).BeginInit();
 			this.SettingsTabControl.SuspendLayout();
 			this.GeneralTabPage.SuspendLayout();
@@ -134,10 +132,8 @@
 			// 
 			// IntegrationTabPage
 			// 
+			this.IntegrationTabPage.Controls.Add(this.FileTypeCheckBoxesLayoutPanel);
 			this.IntegrationTabPage.Controls.Add(this.SelectAllFileTypesButton);
-			this.IntegrationTabPage.Controls.Add(this.BinFileTypeCheckBox);
-			this.IntegrationTabPage.Controls.Add(this.HexFileTypeCheckBox);
-			this.IntegrationTabPage.Controls.Add(this.DatFileTypeCheckBox);
 			this.IntegrationTabPage.Controls.Add(this.FileTypesLabel);
 			this.IntegrationTabPage.Location = new System.Drawing.Point(4, 22);
 			this.IntegrationTabPage.Name = "IntegrationTabPage";
@@ -149,46 +145,14 @@
 			// 
 			// SelectAllFileTypesButton
 			// 
-			this.SelectAllFileTypesButton.Location = new System.Drawing.Point(9, 88);
+			this.SelectAllFileTypesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.SelectAllFileTypesButton.Location = new System.Drawing.Point(6, 113);
 			this.SelectAllFileTypesButton.Name = "SelectAllFileTypesButton";
 			this.SelectAllFileTypesButton.Size = new System.Drawing.Size(105, 23);
 			this.SelectAllFileTypesButton.TabIndex = 4;
 			this.SelectAllFileTypesButton.Text = "Выбрать &все";
 			this.SelectAllFileTypesButton.UseVisualStyleBackColor = true;
 			this.SelectAllFileTypesButton.Click += new System.EventHandler(this.SelectAllFileTypesButton_Click);
-			// 
-			// BinFileTypeCheckBox
-			// 
-			this.BinFileTypeCheckBox.AutoSize = true;
-			this.BinFileTypeCheckBox.Location = new System.Drawing.Point(9, 65);
-			this.BinFileTypeCheckBox.Name = "BinFileTypeCheckBox";
-			this.BinFileTypeCheckBox.Size = new System.Drawing.Size(44, 17);
-			this.BinFileTypeCheckBox.TabIndex = 3;
-			this.BinFileTypeCheckBox.Tag = "bin";
-			this.BinFileTypeCheckBox.Text = "BIN";
-			this.BinFileTypeCheckBox.UseVisualStyleBackColor = true;
-			// 
-			// HexFileTypeCheckBox
-			// 
-			this.HexFileTypeCheckBox.AutoSize = true;
-			this.HexFileTypeCheckBox.Location = new System.Drawing.Point(9, 42);
-			this.HexFileTypeCheckBox.Name = "HexFileTypeCheckBox";
-			this.HexFileTypeCheckBox.Size = new System.Drawing.Size(48, 17);
-			this.HexFileTypeCheckBox.TabIndex = 2;
-			this.HexFileTypeCheckBox.Tag = "hex";
-			this.HexFileTypeCheckBox.Text = "HEX";
-			this.HexFileTypeCheckBox.UseVisualStyleBackColor = true;
-			// 
-			// DatFileTypeCheckBox
-			// 
-			this.DatFileTypeCheckBox.AutoSize = true;
-			this.DatFileTypeCheckBox.Location = new System.Drawing.Point(9, 19);
-			this.DatFileTypeCheckBox.Name = "DatFileTypeCheckBox";
-			this.DatFileTypeCheckBox.Size = new System.Drawing.Size(48, 17);
-			this.DatFileTypeCheckBox.TabIndex = 1;
-			this.DatFileTypeCheckBox.Tag = "dat";
-			this.DatFileTypeCheckBox.Text = "DAT";
-			this.DatFileTypeCheckBox.UseVisualStyleBackColor = true;
 			// 
 			// FileTypesLabel
 			// 
@@ -198,6 +162,16 @@
 			this.FileTypesLabel.Size = new System.Drawing.Size(195, 13);
 			this.FileTypesLabel.TabIndex = 0;
 			this.FileTypesLabel.Text = "Открывать файлы следующих типов:";
+			// 
+			// FileTypeCheckBoxesLayoutPanel
+			// 
+			this.FileTypeCheckBoxesLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.FileTypeCheckBoxesLayoutPanel.Location = new System.Drawing.Point(9, 19);
+			this.FileTypeCheckBoxesLayoutPanel.Name = "FileTypeCheckBoxesLayoutPanel";
+			this.FileTypeCheckBoxesLayoutPanel.Size = new System.Drawing.Size(356, 88);
+			this.FileTypeCheckBoxesLayoutPanel.TabIndex = 5;
 			// 
 			// SettingsForm
 			// 
@@ -235,10 +209,8 @@
 		private System.Windows.Forms.TabControl SettingsTabControl;
 		private System.Windows.Forms.TabPage GeneralTabPage;
 		private System.Windows.Forms.TabPage IntegrationTabPage;
-		private System.Windows.Forms.CheckBox BinFileTypeCheckBox;
-		private System.Windows.Forms.CheckBox HexFileTypeCheckBox;
-		private System.Windows.Forms.CheckBox DatFileTypeCheckBox;
 		private System.Windows.Forms.Label FileTypesLabel;
 		private System.Windows.Forms.Button SelectAllFileTypesButton;
+		private System.Windows.Forms.FlowLayoutPanel FileTypeCheckBoxesLayoutPanel;
 	}
 }

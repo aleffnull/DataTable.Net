@@ -271,4 +271,13 @@
   <data name="ExtensionsSeparator" xml:space="preserve">
     <value>, </value>
   </data>
+	<data name="DatExtension">
+		<value xml:space="preserve">dat</value>
+	</data>
+	<data name="HexExtension">
+		<value xml:space="preserve">hex</value>
+	</data>
+	<data name="BinExtension">
+		<value xml:space="preserve">bin</value>
+	</data>
 </root>

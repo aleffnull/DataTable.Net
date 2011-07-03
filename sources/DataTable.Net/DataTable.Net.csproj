@@ -136,8 +136,10 @@
     <Compile Include="Services\Common\CompletedEventArgs.cs" />
     <Compile Include="Services\Common\Delegates.cs" />
     <Compile Include="Services\Common\ErrorOccurredEventArgs.cs" />
+    <Compile Include="Services\Common\FileAssociation.cs" />
     <Compile Include="Services\Common\ServiceLocator.cs" />
     <Compile Include="Services\Common\SettingsStorage.cs" />
+    <Compile Include="Services\Common\PredefinedData.cs" />
     <Compile Include="Services\Common\UnhandledExceptionManager.cs" />
     <Compile Include="Services\IDataService.cs" />
     <Compile Include="Services\IMathService.cs" />

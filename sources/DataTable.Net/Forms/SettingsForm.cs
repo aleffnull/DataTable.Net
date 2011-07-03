@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using DataTable.Net.Dtos;
+using DataTable.Net.Services.Common;
 
 namespace DataTable.Net.Forms
 {
@@ -12,6 +13,7 @@ namespace DataTable.Net.Forms
 		public SettingsForm(SettingsDto settings)
 		{
 			InitializeComponent();
+			InitializeFileTypeCheckBoxes();
 			LoadSettings(settings);
 		}
 
@@ -31,12 +33,34 @@ namespace DataTable.Net.Forms
 
 		private void SelectAllFileTypesButton_Click(object sender, EventArgs e)
 		{
-			DatFileTypeCheckBox.Checked = HexFileTypeCheckBox.Checked = BinFileTypeCheckBox.Checked = true;
+			foreach (var control in FileTypeCheckBoxesLayoutPanel.Controls)
+			{
+				if (!(control is CheckBox))
+				{
+					continue;
+				}
+
+				var checkBox = control as CheckBox;
+				checkBox.Checked = true;
+			}
 		}
 
 		#endregion Event handlers
 
 		#region Helpers
+
+		private void InitializeFileTypeCheckBoxes()
+		{
+			foreach (var extension in PredefinedData.SupportedExtensions)
+			{
+				var checkBox = new CheckBox
+				               {
+				               	Text = extension,
+				               	Tag = extension,
+				               };
+				FileTypeCheckBoxesLayoutPanel.Controls.Add(checkBox);
+			}
+		}
 
 		private void LoadSettings(SettingsDto settings)
 		{
@@ -55,12 +79,18 @@ namespace DataTable.Net.Forms
 
 		private CheckBox GetCheckBoxByTag(string tagValue)
 		{
-			foreach (var checkbox in new[] { DatFileTypeCheckBox, HexFileTypeCheckBox, BinFileTypeCheckBox })
+			foreach (var control in FileTypeCheckBoxesLayoutPanel.Controls)
 			{
-				var tag = (string)checkbox.Tag;
+				if (!(control is CheckBox))
+				{
+					continue;
+				}
+
+				var checkBox = control as CheckBox;
+				var tag = (string)checkBox.Tag;
 				if (string.Equals(tag, tagValue, StringComparison.OrdinalIgnoreCase))
 				{
-					return checkbox;
+					return checkBox;
 				}
 			}
 
@@ -70,11 +100,17 @@ namespace DataTable.Net.Forms
 		private IEnumerable<string> GetRegisteredExtensions()
 		{
 			var extensions = new List<string>();
-			foreach (var checkbox in new[] { DatFileTypeCheckBox, HexFileTypeCheckBox, BinFileTypeCheckBox })
+			foreach (var control in FileTypeCheckBoxesLayoutPanel.Controls)
 			{
-				if (checkbox.Checked)
+				if (!(control is CheckBox))
 				{
-					var extension = (string)checkbox.Tag;
+					continue;
+				}
+
+				var checkBox = control as CheckBox;
+				if (checkBox.Checked)
+				{
+					var extension = (string)checkBox.Tag;
 					extensions.Add(extension);
 				}
 			}

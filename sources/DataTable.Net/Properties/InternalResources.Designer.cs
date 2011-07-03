@@ -97,6 +97,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to bin.
+        /// </summary>
+        internal static string BinExtension {
+            get {
+                return ResourceManager.GetString("BinExtension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BytesCount is not specified..
         /// </summary>
         internal static string BytesCountNotSpecified {
@@ -196,6 +205,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to dat.
+        /// </summary>
+        internal static string DatExtension {
+            get {
+                return ResourceManager.GetString("DatExtension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exporting to Excel.
         /// </summary>
         internal static string ExportingToExcel {
@@ -264,6 +282,15 @@ namespace DataTable.Net.Properties {
         internal static string GotDataProperties {
             get {
                 return ResourceManager.GetString("GotDataProperties", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to hex.
+        /// </summary>
+        internal static string HexExtension {
+            get {
+                return ResourceManager.GetString("HexExtension", resourceCulture);
             }
         }
         
