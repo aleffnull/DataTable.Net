@@ -328,4 +328,7 @@
     <value>Setting opening program to '{0}'</value>
     <comment>0 is path to executable</comment>
   </data>
+	<data name="SendingShellNotification">
+		<value xml:space="preserve">Sending notification to shell</value>
+	</data>
 </root>

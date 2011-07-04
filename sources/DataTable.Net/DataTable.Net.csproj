@@ -140,6 +140,9 @@
     <Compile Include="Services\Common\ServiceLocator.cs" />
     <Compile Include="Services\Common\SettingsStorage.cs" />
     <Compile Include="Services\Common\PredefinedData.cs" />
+    <Compile Include="Services\Common\ShellChangeNotificationEvents.cs" />
+    <Compile Include="Services\Common\ShellChangeNotificationFlags.cs" />
+    <Compile Include="Services\Common\ShellNotification.cs" />
     <Compile Include="Services\Common\UnhandledExceptionManager.cs" />
     <Compile Include="Services\IDataService.cs" />
     <Compile Include="Services\IMathService.cs" />

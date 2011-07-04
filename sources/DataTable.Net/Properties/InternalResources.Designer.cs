@@ -556,6 +556,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sending notification to shell.
+        /// </summary>
+        internal static string SendingShellNotification {
+            get {
+                return ResourceManager.GetString("SendingShellNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Setting opening program to &apos;{0}&apos;.
         /// </summary>
         internal static string SettingOpeningProgram {

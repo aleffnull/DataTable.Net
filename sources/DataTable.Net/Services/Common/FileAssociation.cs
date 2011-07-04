@@ -116,8 +116,12 @@ namespace DataTable.Net.Services.Common
 					Registry.CurrentUser.DeleteSubKey(typeKeyPath);
 				}
 			}
+
 			log.DebugFormat(InternalResources.DeletingKey, extensionKeyPath);
 			Registry.CurrentUser.DeleteSubKey(extensionKeyPath);
+
+			log.Debug(InternalResources.SendingShellNotification);
+			ShellNotification.NotifyOfChange();
 		}
 
 		#endregion Methods
