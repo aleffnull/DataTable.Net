@@ -160,6 +160,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Не удалось создать ключ &apos;{0}&apos;.
+        /// </summary>
+        internal static string FailedToCreateKey {
+            get {
+                return ResourceManager.GetString("FailedToCreateKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Открытие файла не удалось: {0}.
         /// </summary>
         internal static string FailedToOpenDragDroppedFile {

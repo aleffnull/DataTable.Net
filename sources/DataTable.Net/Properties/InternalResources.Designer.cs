@@ -178,6 +178,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Creating key &apos;{0}&apos;.
+        /// </summary>
+        internal static string CreatingKey {
+            get {
+                return ResourceManager.GetString("CreatingKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current row index {0} is too big for row count {1}.
         /// </summary>
         internal static string CurrentRowIndexIsTooBigForRowCount {
@@ -466,11 +475,29 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &quot;{0}&quot; &quot;%1&quot;.
+        /// </summary>
+        internal static string OpenCommandFormat {
+            get {
+                return ResourceManager.GetString("OpenCommandFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open command is &apos;{0}&apos;.
         /// </summary>
         internal static string OpenCommandIs {
             get {
                 return ResourceManager.GetString("OpenCommandIs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Software\Classes\{0}\shell\open\command.
+        /// </summary>
+        internal static string OpenCommandPath {
+            get {
+                return ResourceManager.GetString("OpenCommandPath", resourceCulture);
             }
         }
         
@@ -561,6 +588,15 @@ namespace DataTable.Net.Properties {
         internal static string SendingShellNotification {
             get {
                 return ResourceManager.GetString("SendingShellNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Setting value of key &apos;{0}&apos; to &apos;{1}&apos;.
+        /// </summary>
+        internal static string SettingKeyValue {
+            get {
+                return ResourceManager.GetString("SettingKeyValue", resourceCulture);
             }
         }
         

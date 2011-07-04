@@ -198,4 +198,8 @@
 			0 is exception message
 		</comment>
   </data>
+	<data name="FailedToCreateKey">
+		<value xml:space="preserve">Не удалось создать ключ '{0}'</value>
+		<comment>0 is key path</comment>
+	</data>
 </root>

@@ -331,4 +331,24 @@
 	<data name="SendingShellNotification">
 		<value xml:space="preserve">Sending notification to shell</value>
 	</data>
+	<data name="CreatingKey">
+		<value xml:space="preserve">Creating key '{0}'</value>
+		<comment>0 is key path</comment>
+	</data>
+	<data name="SettingKeyValue">
+		<value xml:space="preserve">Setting value of key '{0}' to '{1}'</value>
+		<comment>
+			0 is key path, 1 is key value
+		</comment>
+	</data>
+	<data name="OpenCommandPath">
+		<value xml:space="preserve">Software\Classes\{0}\shell\open\command</value>
+		<comment>0 is type name</comment>
+	</data>
+	<data name="OpenCommandFormat">
+		<value xml:space="preserve">"{0}" "%1"</value>
+		<comment>
+			0 is path to program executable
+		</comment>
+	</data>
 </root>

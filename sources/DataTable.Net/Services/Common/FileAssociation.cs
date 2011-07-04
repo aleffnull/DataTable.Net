@@ -1,3 +1,4 @@
+using System;
 using DataTable.Net.Properties;
 using Microsoft.Win32;
 using log4net;
@@ -6,6 +7,12 @@ namespace DataTable.Net.Services.Common
 {
 	public class FileAssociation
 	{
+		#region Constants
+
+		private const string TypePrefix = "DataTable.Net";
+
+		#endregion Constants
+
 		#region Fields
 
 		private static readonly ILog log = LogManager.GetLogger(typeof(FileAssociation));
@@ -52,7 +59,7 @@ namespace DataTable.Net.Services.Common
 				}
 				log.DebugFormat(InternalResources.OpenCommandIs, openCommand);
 
-				var exixts = openCommand.StartsWith(PredefinedData.ProgramExecutable);
+				var exixts = openCommand.Contains(PredefinedData.ProgramExecutable);
 				log.Debug(exixts ? InternalResources.AssociationExists : InternalResources.AssociationNotExists);
 
 				return exixts;
@@ -83,6 +90,33 @@ namespace DataTable.Net.Services.Common
 			Remove();
 
 			// And register new one.
+			var extensionKeyPath = GetExtensionKeyPath();
+			log.DebugFormat(InternalResources.CreatingKey, extensionKeyPath);
+			var extensionKey = Registry.CurrentUser.CreateSubKey(extensionKeyPath);
+			if (extensionKey == null)
+			{
+				throw new InvalidOperationException(string.Format(Resources.FailedToCreateKey, extensionKeyPath));
+			}
+
+			var typeName = GetTypeName();
+			log.DebugFormat(InternalResources.SettingKeyValue, extensionKeyPath, typeName);
+			extensionKey.SetValue(null, typeName);
+			extensionKey.Close();
+
+			var openCommandKeyPath = GetOpenCommandPath(typeName);
+			var openCommandKey = Registry.CurrentUser.CreateSubKey(openCommandKeyPath);
+			if (openCommandKey == null)
+			{
+				throw new InvalidOperationException(string.Format(Resources.FailedToCreateKey, openCommandKeyPath));
+			}
+
+			var openCommandValue = GetOpenCommandValue();
+			log.DebugFormat(InternalResources.SettingKeyValue, openCommandKeyPath, openCommandValue);
+			openCommandKey.SetValue(null, openCommandValue);
+			openCommandKey.Close();
+
+			log.Debug(InternalResources.SendingShellNotification);
+			ShellNotification.NotifyOfChange();
 		}
 
 		public void Remove()
@@ -133,9 +167,24 @@ namespace DataTable.Net.Services.Common
 			return string.Format(InternalResources.SoftwareClasses, extension);
 		}
 
+		private string GetTypeName()
+		{
+			return string.Concat(TypePrefix, extension);
+		}
+
 		private static string GetTypeKeyPath(string typeName)
 		{
 			return string.Format(InternalResources.SoftwareClassesOpenCommand, typeName);
+		}
+
+		private static string GetOpenCommandPath(string typeName)
+		{
+			return string.Format(InternalResources.OpenCommandPath, typeName);
+		}
+
+		private static string GetOpenCommandValue()
+		{
+			return string.Format(InternalResources.OpenCommandFormat, PredefinedData.ProgramExecutable);
 		}
 
 		#endregion Helpers
