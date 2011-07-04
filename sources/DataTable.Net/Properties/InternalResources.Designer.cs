@@ -151,6 +151,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Checking if association exists.
+        /// </summary>
+        internal static string CheckingIfAssociationExists {
+            get {
+                return ResourceManager.GetString("CheckingIfAssociationExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to mailto:datatable.net@blackbox82.org.
         /// </summary>
         internal static string ContactEmailLink {
@@ -237,6 +246,15 @@ namespace DataTable.Net.Properties {
         internal static string DatExtension {
             get {
                 return ResourceManager.GetString("DatExtension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deleting key &apos;{0}&apos;.
+        /// </summary>
+        internal static string DeletingKey {
+            get {
+                return ResourceManager.GetString("DeletingKey", resourceCulture);
             }
         }
         
@@ -502,6 +520,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Removing association.
+        /// </summary>
+        internal static string RemovingAssociation {
+            get {
+                return ResourceManager.GetString("RemovingAssociation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ScaleString.
         /// </summary>
         internal static string ScaleDtoDisplayMember {
@@ -525,6 +552,15 @@ namespace DataTable.Net.Properties {
         internal static string ScaleDtoValueMember {
             get {
                 return ResourceManager.GetString("ScaleDtoValueMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Setting opening program to &apos;{0}&apos;.
+        /// </summary>
+        internal static string SettingOpeningProgram {
+            get {
+                return ResourceManager.GetString("SettingOpeningProgram", resourceCulture);
             }
         }
         

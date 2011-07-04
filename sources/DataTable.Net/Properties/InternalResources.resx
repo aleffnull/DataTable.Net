@@ -314,4 +314,20 @@
   <data name="AssociationNotExists" xml:space="preserve">
     <value>Association doesn't exist</value>
   </data>
+	<data name="CheckingIfAssociationExists">
+		<value xml:space="preserve">Checking if association exists</value>
+	</data>
+	<data name="RemovingAssociation">
+		<value xml:space="preserve">Removing association</value>
+	</data>
+	<data name="DeletingKey">
+		<value xml:space="preserve">Deleting key '{0}'</value>
+		<comment>0 is key path</comment>
+	</data>
+	<data name="SettingOpeningProgram">
+		<value xml:space="preserve">Setting opening program to '{0}'</value>
+		<comment>
+			0 is path to executable
+		</comment>
+	</data>
 </root>

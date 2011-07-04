@@ -6,12 +6,6 @@ namespace DataTable.Net.Services.Common
 {
 	public class FileAssociation
 	{
-		#region Constants
-
-		private const string TypePrefix = "DataTable.Net";
-
-		#endregion Constants
-
 		#region Fields
 
 		private static readonly ILog log = LogManager.GetLogger(typeof(FileAssociation));
@@ -25,6 +19,8 @@ namespace DataTable.Net.Services.Common
 		{
 			get
 			{
+				log.Debug(InternalResources.CheckingIfAssociationExists);
+
 				var extensionKeyPath = GetExtensionKeyPath();
 				var extensionKey = Registry.CurrentUser.OpenSubKey(extensionKeyPath);
 				if (extensionKey == null)
@@ -81,12 +77,47 @@ namespace DataTable.Net.Services.Common
 
 		public void SetOpeningProgram(string pathToExecutable)
 		{
-			//
+			log.DebugFormat(InternalResources.SettingOpeningProgram, pathToExecutable);
+
+			// First, purge existing association data.
+			Remove();
+
+			// And register new one.
 		}
 
 		public void Remove()
 		{
-			//
+			log.Debug(InternalResources.RemovingAssociation);
+
+			var extensionKeyPath = GetExtensionKeyPath();
+			var extensionKey = Registry.CurrentUser.OpenSubKey(extensionKeyPath);
+			if (extensionKey == null)
+			{
+				log.DebugFormat(InternalResources.KeyNotExists, extensionKeyPath);
+				return;
+			}
+
+			var typeName = (string)extensionKey.GetValue(null);
+			if (string.IsNullOrEmpty(typeName))
+			{
+				log.DebugFormat(InternalResources.KeyValueIsNullOrEmpty, extensionKeyPath);
+			}
+			else
+			{
+				var typeKeyPath = GetTypeKeyPath(typeName);
+				var typeKey = Registry.CurrentUser.OpenSubKey(typeKeyPath);
+				if (typeKey == null)
+				{
+					log.DebugFormat(InternalResources.KeyNotExists, typeKeyPath);
+				}
+				else
+				{
+					log.DebugFormat(InternalResources.DeletingKey, typeKeyPath);
+					Registry.CurrentUser.DeleteSubKey(typeKeyPath);
+				}
+			}
+			log.DebugFormat(InternalResources.DeletingKey, extensionKeyPath);
+			Registry.CurrentUser.DeleteSubKey(extensionKeyPath);
 		}
 
 		#endregion Methods
@@ -98,17 +129,7 @@ namespace DataTable.Net.Services.Common
 			return string.Format(InternalResources.SoftwareClasses, extension);
 		}
 
-		private string GetTypeKeyName()
-		{
-			return string.Concat(TypePrefix, extension);
-		}
-
-		private string GetTypeKeyPath()
-		{
-			return string.Format(InternalResources.SoftwareClasses, GetTypeKeyName());
-		}
-
-		private string GetTypeKeyPath(string typeName)
+		private static string GetTypeKeyPath(string typeName)
 		{
 			return string.Format(InternalResources.SoftwareClassesOpenCommand, typeName);
 		}
