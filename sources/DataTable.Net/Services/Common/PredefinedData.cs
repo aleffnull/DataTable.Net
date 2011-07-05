@@ -33,9 +33,9 @@ namespace DataTable.Net.Services.Common
 		{
 			programExecutable = Assembly.GetExecutingAssembly().Location;
 
+			supportedExtensions.Add(InternalResources.BinExtension);
 			supportedExtensions.Add(InternalResources.DatExtension);
 			supportedExtensions.Add(InternalResources.HexExtension);
-			supportedExtensions.Add(InternalResources.BinExtension);
 		}
 
 		#endregion Constructors
