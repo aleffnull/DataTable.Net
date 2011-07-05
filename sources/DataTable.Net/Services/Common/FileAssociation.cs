@@ -89,33 +89,40 @@ namespace DataTable.Net.Services.Common
 			// First, purge existing association data.
 			Remove();
 
-			// And register new one.
+			// Create extension key.
 			var extensionKeyPath = GetExtensionKeyPath();
-			log.DebugFormat(InternalResources.CreatingKey, extensionKeyPath);
 			var extensionKey = Registry.CurrentUser.CreateSubKey(extensionKeyPath);
 			if (extensionKey == null)
 			{
 				throw new InvalidOperationException(string.Format(Resources.FailedToCreateKey, extensionKeyPath));
 			}
 
+			// Set extension key value (file type).
 			var typeName = GetTypeName();
-			log.DebugFormat(InternalResources.SettingKeyValue, extensionKeyPath, typeName);
 			extensionKey.SetValue(null, typeName);
 			extensionKey.Close();
 
-			var openCommandKeyPath = GetOpenCommandPath(typeName);
-			var openCommandKey = Registry.CurrentUser.CreateSubKey(openCommandKeyPath);
+			// Create file type key.
+			var typeKeyPath = GetTypeKeyPath(typeName);
+			var typeKey = Registry.CurrentUser.CreateSubKey(typeKeyPath);
+			if (typeKey == null)
+			{
+				throw new InvalidOperationException(string.Format(Resources.FailedToCreateKey, typeKeyPath));
+			}
+
+			// Set file type key values.
+			typeKey.SetValue(null, Resources.FileTypeDescription);
+			var openCommandKey = typeKey.CreateSubKey(InternalResources.OpenCommandPath);
 			if (openCommandKey == null)
 			{
-				throw new InvalidOperationException(string.Format(Resources.FailedToCreateKey, openCommandKeyPath));
+				throw new InvalidOperationException(string.Format(Resources.FailedToCreateKey, InternalResources.OpenCommandPath));
 			}
 
 			var openCommandValue = GetOpenCommandValue();
-			log.DebugFormat(InternalResources.SettingKeyValue, openCommandKeyPath, openCommandValue);
 			openCommandKey.SetValue(null, openCommandValue);
 			openCommandKey.Close();
+			typeKey.Close();
 
-			log.Debug(InternalResources.SendingShellNotification);
 			ShellNotification.NotifyOfChange();
 		}
 
@@ -154,7 +161,6 @@ namespace DataTable.Net.Services.Common
 			log.DebugFormat(InternalResources.DeletingKey, extensionKeyPath);
 			Registry.CurrentUser.DeleteSubKey(extensionKeyPath);
 
-			log.Debug(InternalResources.SendingShellNotification);
 			ShellNotification.NotifyOfChange();
 		}
 
@@ -179,7 +185,7 @@ namespace DataTable.Net.Services.Common
 
 		private static string GetOpenCommandPath(string typeName)
 		{
-			return string.Format(InternalResources.OpenCommandPath, typeName);
+			return string.Concat(GetTypeKeyPath(typeName), InternalResources.OpenCommandPath);
 		}
 
 		private static string GetOpenCommandValue()

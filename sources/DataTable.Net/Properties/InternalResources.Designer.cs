@@ -178,15 +178,6 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Creating key &apos;{0}&apos;.
-        /// </summary>
-        internal static string CreatingKey {
-            get {
-                return ResourceManager.GetString("CreatingKey", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Current row index {0} is too big for row count {1}.
         /// </summary>
         internal static string CurrentRowIndexIsTooBigForRowCount {
@@ -502,7 +493,7 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Software\Classes\{0}\shell\open\command.
+        ///   Looks up a localized string similar to shell\open\command.
         /// </summary>
         internal static string OpenCommandPath {
             get {
@@ -592,24 +583,6 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sending notification to shell.
-        /// </summary>
-        internal static string SendingShellNotification {
-            get {
-                return ResourceManager.GetString("SendingShellNotification", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Setting value of key &apos;{0}&apos; to &apos;{1}&apos;.
-        /// </summary>
-        internal static string SettingKeyValue {
-            get {
-                return ResourceManager.GetString("SettingKeyValue", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Setting opening program to &apos;{0}&apos;.
         /// </summary>
         internal static string SettingOpeningProgram {
@@ -637,7 +610,7 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Software\Classes\{0}.
+        ///   Looks up a localized string similar to Software\Classes\{0}\.
         /// </summary>
         internal static string SoftwareClasses {
             get {

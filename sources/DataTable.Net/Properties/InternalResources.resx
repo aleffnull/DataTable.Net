@@ -289,7 +289,7 @@
     <comment>0 is dotted extension</comment>
   </data>
   <data name="SoftwareClasses" xml:space="preserve">
-    <value>Software\Classes\{0}</value>
+    <value>Software\Classes\{0}\</value>
     <comment>0 is key name</comment>
   </data>
   <data name="KeyNotExists" xml:space="preserve">
@@ -324,27 +324,15 @@
     <value>Setting opening program to '{0}'</value>
     <comment>0 is path to executable</comment>
   </data>
-  <data name="SendingShellNotification" xml:space="preserve">
-    <value>Sending notification to shell</value>
-  </data>
-  <data name="CreatingKey" xml:space="preserve">
-    <value>Creating key '{0}'</value>
-    <comment>0 is key path</comment>
-  </data>
-  <data name="SettingKeyValue" xml:space="preserve">
-    <value>Setting value of key '{0}' to '{1}'</value>
-    <comment>0 is key path, 1 is key value</comment>
-  </data>
   <data name="OpenCommandPath" xml:space="preserve">
-    <value>Software\Classes\{0}\shell\open\command</value>
-    <comment>0 is type name</comment>
+    <value>shell\open\command</value>
   </data>
   <data name="OpenCommandFormat" xml:space="preserve">
     <value>"{0}" "%1"</value>
     <comment>0 is path to program executable	</comment>
   </data>
-	<data name="GotFileFromCommandLine">
-		<value xml:space="preserve">Got file '{0}' from command line</value>
-		<comment>0 is file path</comment>
-	</data>
+  <data name="GotFileFromCommandLine" xml:space="preserve">
+    <value>Got file '{0}' from command line</value>
+    <comment>0 is file path</comment>
+  </data>
 </root>

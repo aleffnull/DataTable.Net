@@ -198,4 +198,7 @@
     <value>Не удалось создать ключ '{0}'</value>
     <comment>0 is key path</comment>
   </data>
+  <data name="FileTypeDescription" xml:space="preserve">
+    <value>Бинарный файл DataTable.Net</value>
+  </data>
 </root>

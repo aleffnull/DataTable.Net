@@ -178,6 +178,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Бинарный файл DataTable.Net.
+        /// </summary>
+        internal static string FileTypeDescription {
+            get {
+                return ResourceManager.GetString("FileTypeDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Количество масштабов функции не соответствует количеству функций.
         /// </summary>
         internal static string FunctionScalesCountMismatch {
