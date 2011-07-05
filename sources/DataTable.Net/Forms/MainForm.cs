@@ -22,10 +22,10 @@ namespace DataTable.Net.Forms
 
 		#region Constructors
 
-		public MainForm()
+		public MainForm(string fileToOpen)
 		{
 			InitializeComponent();
-			presenter = new MainPresenter(this);
+			presenter = new MainPresenter(this, fileToOpen);
 		}
 
 		#endregion Constructors

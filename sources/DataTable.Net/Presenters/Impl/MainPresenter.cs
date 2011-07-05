@@ -19,6 +19,7 @@ namespace DataTable.Net.Presenters.Impl
 
 		private readonly ILog log = LogManager.GetLogger(typeof(MainPresenter));
 		private readonly IMainView view;
+		private readonly string fileToOpen;
 		private readonly ServiceLocator serviceLocator;
 		private DataModel currentDataModel;
 		private SettingsStorage currentSettings;
@@ -46,9 +47,10 @@ namespace DataTable.Net.Presenters.Impl
 
 		#region Constructors
 
-		public MainPresenter(IMainView view)
+		public MainPresenter(IMainView view, string fileToOpen)
 		{
 			this.view = view;
+			this.fileToOpen = fileToOpen;
 			serviceLocator = CreateServiceLocator();
 		}
 
@@ -239,6 +241,12 @@ namespace DataTable.Net.Presenters.Impl
 			log.Info(InternalResources.SettingsLoadingFinished);
 			view.SetStatus(Resources.ReadyStatus);
 			view.EnableSettingsDependentControls();
+
+			// Application is loaded. Open file, if needed.
+			if (!string.IsNullOrEmpty(fileToOpen))
+			{
+				OpenFile(fileToOpen);
+			}
 		}
 
 		private void LoadSettingsErrorCallback(Exception exception)

@@ -343,4 +343,8 @@
     <value>"{0}" "%1"</value>
     <comment>0 is path to program executable	</comment>
   </data>
+	<data name="GotFileFromCommandLine">
+		<value xml:space="preserve">Got file '{0}' from command line</value>
+		<comment>0 is file path</comment>
+	</data>
 </root>

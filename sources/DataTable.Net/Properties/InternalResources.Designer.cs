@@ -349,6 +349,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Got file &apos;{0}&apos; from command line.
+        /// </summary>
+        internal static string GotFileFromCommandLine {
+            get {
+                return ResourceManager.GetString("GotFileFromCommandLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to hex.
         /// </summary>
         internal static string HexExtension {

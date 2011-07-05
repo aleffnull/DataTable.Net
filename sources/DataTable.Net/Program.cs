@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 using DataTable.Net.Forms;
@@ -21,7 +22,7 @@ namespace DataTable.Net
 		#region Main
 
 		[STAThread]
-		static void Main()
+		static void Main(string[] args)
 		{
 			XmlConfigurator.Configure();
 			log.Info(InternalResources.ApplicationStarted);
@@ -30,7 +31,7 @@ namespace DataTable.Net
 			{
 				InitExceptionHandling();
 			}
-			RunApplication();
+			RunApplication(args);
 
 			log.Info(InternalResources.ApplicationClosed);
 		}
@@ -46,11 +47,18 @@ namespace DataTable.Net
 			AppDomain.CurrentDomain.UnhandledException += exceptionManager.CurrentDomain_UnhandledException;
 		}
 
-		private static void RunApplication()
+		private static void RunApplication(IList<string> args)
 		{
+			string fileToOpen = null;
+			if (args.Count >= 1)
+			{
+				fileToOpen = args[0];
+				log.InfoFormat(InternalResources.GotFileFromCommandLine, fileToOpen);
+			}
+
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MainForm());
+			Application.Run(new MainForm(fileToOpen));
 		}
 
 		#endregion Helpers
