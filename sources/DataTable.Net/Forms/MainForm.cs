@@ -184,6 +184,11 @@ namespace DataTable.Net.Forms
 			DataGridView.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
 		}
 
+		void IMainView.Activate()
+		{
+			Activate();
+		}
+
 		void IMainView.GoToWaitMode()
 		{
 			MainMenu.Enabled = DataGridView.Enabled = false;

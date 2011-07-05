@@ -20,6 +20,8 @@ namespace DataTable.Net.Views
 			IEnumerable<ScaleDto> argumentScales, IEnumerable<ScaleDto> functionScales);
 		void SetDataRowsCount(int rowsCount);
 
+		void Activate();
+
 		void GoToWaitMode();
 		void GoToNormalMode();
 		void SetStatus(string status);

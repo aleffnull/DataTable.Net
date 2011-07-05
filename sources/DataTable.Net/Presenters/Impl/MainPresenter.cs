@@ -227,7 +227,7 @@ namespace DataTable.Net.Presenters.Impl
 			 * in a separate thread and open file in callback executed in the UI thread.
 			 */
 			log.InfoFormat(InternalResources.OpenningDrapDroppedFile, filePath);
-			GenericService.BeginDoingAction(delegate { }, () => OpenFile(filePath), null);
+			GenericService.BeginDoingAction(delegate { }, () => OpenDragDroppedFile(filePath), null);
 		}
 
 		#endregion IMainPresenter implementation
@@ -382,6 +382,12 @@ namespace DataTable.Net.Presenters.Impl
 
 			log.InfoFormat(InternalResources.GotDataProperties, coreDataPropertiesDto);
 			LoadFile(filePath, coreDataPropertiesDto);
+		}
+
+		private void OpenDragDroppedFile(string filePath)
+		{
+			view.Activate();
+			OpenFile(filePath);
 		}
 
 		private void ReloadFile()
