@@ -227,7 +227,7 @@ namespace DataTable.Net.Presenters.Impl
 			 * in a separate thread and open file in callback executed in the UI thread.
 			 */
 			log.InfoFormat(InternalResources.OpenningDrapDroppedFile, filePath);
-			GenericService.BeginDoingAction(delegate { }, () => OpenFile(filePath), DragDropOpenFileErrorCallback);
+			GenericService.BeginDoingAction(delegate { }, () => OpenFile(filePath), null);
 		}
 
 		#endregion IMainPresenter implementation
@@ -342,15 +342,6 @@ namespace DataTable.Net.Presenters.Impl
 			view.ShowError(message);
 			view.SetStatus(Resources.ReadyStatus);
 			view.GoToNormalMode();
-		}
-
-		private void DragDropOpenFileErrorCallback(Exception exception)
-		{
-			log.Error(exception);
-
-			var message = string.Format(Resources.FailedToOpenDragDroppedFile, exception.Message);
-			view.ShowError(message);
-			view.SetStatus(Resources.ReadyStatus);
 		}
 
 		#endregion Service callbacks
