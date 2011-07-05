@@ -43,18 +43,18 @@ namespace DataTable.Net.Services.Common
 					return false;
 				}
 
-				var typeKeyPath = GetTypeKeyPath(typeName);
-				var typeKey = Registry.CurrentUser.OpenSubKey(typeKeyPath);
-				if (typeKey == null)
+				var openCommandPath = GetOpenCommandPath(typeName);
+				var openCommandKey = Registry.CurrentUser.OpenSubKey(openCommandPath);
+				if (openCommandKey == null)
 				{
-					log.DebugFormat(InternalResources.KeyNotExists, typeKeyPath);
+					log.DebugFormat(InternalResources.KeyNotExists, openCommandPath);
 					return false;
 				}
 
-				var openCommand = (string)typeKey.GetValue(null);
+				var openCommand = (string)openCommandKey.GetValue(null);
 				if (string.IsNullOrEmpty(openCommand))
 				{
-					log.DebugFormat(InternalResources.KeyValueIsNullOrEmpty, typeKeyPath);
+					log.DebugFormat(InternalResources.KeyValueIsNullOrEmpty, openCommandPath);
 					return false;
 				}
 				log.DebugFormat(InternalResources.OpenCommandIs, openCommand);
@@ -147,7 +147,7 @@ namespace DataTable.Net.Services.Common
 				else
 				{
 					log.DebugFormat(InternalResources.DeletingKey, typeKeyPath);
-					Registry.CurrentUser.DeleteSubKey(typeKeyPath);
+					Registry.CurrentUser.DeleteSubKeyTree(typeKeyPath);
 				}
 			}
 
@@ -174,7 +174,7 @@ namespace DataTable.Net.Services.Common
 
 		private static string GetTypeKeyPath(string typeName)
 		{
-			return string.Format(InternalResources.SoftwareClassesOpenCommand, typeName);
+			return string.Format(InternalResources.SoftwareClasses, typeName);
 		}
 
 		private static string GetOpenCommandPath(string typeName)

@@ -637,15 +637,6 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Software\Classes\{0}\shell\open\command.
-        /// </summary>
-        internal static string SoftwareClassesOpenCommand {
-            get {
-                return ResourceManager.GetString("SoftwareClassesOpenCommand", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to controlToSendTo.
         /// </summary>
         internal static string SyncContextControlToSendToField {

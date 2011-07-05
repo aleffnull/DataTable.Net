@@ -292,10 +292,6 @@
     <value>Software\Classes\{0}</value>
     <comment>0 is key name</comment>
   </data>
-  <data name="SoftwareClassesOpenCommand" xml:space="preserve">
-    <value>Software\Classes\{0}\shell\open\command</value>
-    <comment>0 is type name</comment>
-  </data>
   <data name="KeyNotExists" xml:space="preserve">
     <value>Key '{0}' doesn't exist</value>
     <comment>0 is key path</comment>
@@ -328,27 +324,23 @@
     <value>Setting opening program to '{0}'</value>
     <comment>0 is path to executable</comment>
   </data>
-	<data name="SendingShellNotification">
-		<value xml:space="preserve">Sending notification to shell</value>
-	</data>
-	<data name="CreatingKey">
-		<value xml:space="preserve">Creating key '{0}'</value>
-		<comment>0 is key path</comment>
-	</data>
-	<data name="SettingKeyValue">
-		<value xml:space="preserve">Setting value of key '{0}' to '{1}'</value>
-		<comment>
-			0 is key path, 1 is key value
-		</comment>
-	</data>
-	<data name="OpenCommandPath">
-		<value xml:space="preserve">Software\Classes\{0}\shell\open\command</value>
-		<comment>0 is type name</comment>
-	</data>
-	<data name="OpenCommandFormat">
-		<value xml:space="preserve">"{0}" "%1"</value>
-		<comment>
-			0 is path to program executable
-		</comment>
-	</data>
+  <data name="SendingShellNotification" xml:space="preserve">
+    <value>Sending notification to shell</value>
+  </data>
+  <data name="CreatingKey" xml:space="preserve">
+    <value>Creating key '{0}'</value>
+    <comment>0 is key path</comment>
+  </data>
+  <data name="SettingKeyValue" xml:space="preserve">
+    <value>Setting value of key '{0}' to '{1}'</value>
+    <comment>0 is key path, 1 is key value</comment>
+  </data>
+  <data name="OpenCommandPath" xml:space="preserve">
+    <value>Software\Classes\{0}\shell\open\command</value>
+    <comment>0 is type name</comment>
+  </data>
+  <data name="OpenCommandFormat" xml:space="preserve">
+    <value>"{0}" "%1"</value>
+    <comment>0 is path to program executable	</comment>
+  </data>
 </root>
