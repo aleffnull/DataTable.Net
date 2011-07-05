@@ -110,17 +110,29 @@ namespace DataTable.Net.Services.Common
 				throw new InvalidOperationException(string.Format(Resources.FailedToCreateKey, typeKeyPath));
 			}
 
-			// Set file type key values.
+			// Set open command.
 			typeKey.SetValue(null, Resources.FileTypeDescription);
 			var openCommandKey = typeKey.CreateSubKey(InternalResources.OpenCommandPath);
 			if (openCommandKey == null)
 			{
-				throw new InvalidOperationException(string.Format(Resources.FailedToCreateKey, InternalResources.OpenCommandPath));
+				throw new InvalidOperationException(
+					string.Format(Resources.FailedToCreateKey, InternalResources.OpenCommandPath));
 			}
 
 			var openCommandValue = GetOpenCommandValue();
 			openCommandKey.SetValue(null, openCommandValue);
 			openCommandKey.Close();
+
+			// Set file icon.
+			var defaultIconKey = typeKey.CreateSubKey(InternalResources.DefaultIcon);
+			if (defaultIconKey == null)
+			{
+				throw new InvalidOperationException(
+					string.Format(Resources.FailedToCreateKey, InternalResources.DefaultIcon));
+			}
+			defaultIconKey.SetValue(null, GetDefaultIconValue());
+			defaultIconKey.Close();
+
 			typeKey.Close();
 
 			ShellNotification.NotifyOfChange();
@@ -191,6 +203,11 @@ namespace DataTable.Net.Services.Common
 		private static string GetOpenCommandValue()
 		{
 			return string.Format(InternalResources.OpenCommandFormat, PredefinedData.ProgramExecutable);
+		}
+
+		private static string GetDefaultIconValue()
+		{
+			return string.Format(InternalResources.DefaultIconFormat, PredefinedData.FileIcon);
 		}
 
 		#endregion Helpers

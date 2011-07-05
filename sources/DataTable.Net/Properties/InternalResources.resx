@@ -335,4 +335,14 @@
     <value>Got file '{0}' from command line</value>
     <comment>0 is file path</comment>
   </data>
+  <data name="DefaultIcon" xml:space="preserve">
+    <value>DefaultIcon</value>
+  </data>
+  <data name="DefaultIconFormat" xml:space="preserve">
+    <value>"{0}"</value>
+    <comment>0 is path to icon</comment>
+  </data>
+  <data name="FileIcon" xml:space="preserve">
+    <value>file.ico</value>
+  </data>
 </root>

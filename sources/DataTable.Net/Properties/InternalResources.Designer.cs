@@ -250,6 +250,24 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DefaultIcon.
+        /// </summary>
+        internal static string DefaultIcon {
+            get {
+                return ResourceManager.GetString("DefaultIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;{0}&quot;.
+        /// </summary>
+        internal static string DefaultIconFormat {
+            get {
+                return ResourceManager.GetString("DefaultIconFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Deleting key &apos;{0}&apos;.
         /// </summary>
         internal static string DeletingKey {
@@ -327,6 +345,15 @@ namespace DataTable.Net.Properties {
         internal static string FileDoesNotExist {
             get {
                 return ResourceManager.GetString("FileDoesNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to file.ico.
+        /// </summary>
+        internal static string FileIcon {
+            get {
+                return ResourceManager.GetString("FileIcon", resourceCulture);
             }
         }
         
