@@ -54,14 +54,14 @@
 			this.MainToolBar = new System.Windows.Forms.ToolStrip();
 			this.OpenToolStripButton = new System.Windows.Forms.ToolStripButton();
 			this.ReloadToolStripButton = new System.Windows.Forms.ToolStripButton();
-			this.MainToolStripContainer = new System.Windows.Forms.ToolStripContainer();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.ExportToExcelToolStripButton = new System.Windows.Forms.ToolStripButton();
 			this.ExportToFileToolStripButton = new System.Windows.Forms.ToolStripButton();
+			this.ExportToExcelToolStripButton = new System.Windows.Forms.ToolStripButton();
 			this.DataPropertiesToolStripButton = new System.Windows.Forms.ToolStripButton();
 			this.SettingsToolStripButton = new System.Windows.Forms.ToolStripButton();
-			this.AboutToolStripButton = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.AboutToolStripButton = new System.Windows.Forms.ToolStripButton();
+			this.MainToolStripContainer = new System.Windows.Forms.ToolStripContainer();
 			this.MainMenu.SuspendLayout();
 			this.StatusStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
@@ -276,7 +276,8 @@
             this.AboutToolStripButton});
 			this.MainToolBar.Location = new System.Drawing.Point(3, 0);
 			this.MainToolBar.Name = "MainToolBar";
-			this.MainToolBar.Size = new System.Drawing.Size(216, 25);
+			this.MainToolBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+			this.MainToolBar.Size = new System.Drawing.Size(185, 25);
 			this.MainToolBar.TabIndex = 3;
 			// 
 			// OpenToolStripButton
@@ -299,38 +300,10 @@
 			this.ReloadToolStripButton.ToolTipText = "Перезагрузить";
 			this.ReloadToolStripButton.Click += new System.EventHandler(this.ReloadToolStripButton_Click);
 			// 
-			// MainToolStripContainer
-			// 
-			// 
-			// MainToolStripContainer.ContentPanel
-			// 
-			this.MainToolStripContainer.ContentPanel.Controls.Add(this.DataGridView);
-			this.MainToolStripContainer.ContentPanel.Size = new System.Drawing.Size(617, 354);
-			this.MainToolStripContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.MainToolStripContainer.Location = new System.Drawing.Point(0, 24);
-			this.MainToolStripContainer.Name = "MainToolStripContainer";
-			this.MainToolStripContainer.Size = new System.Drawing.Size(617, 379);
-			this.MainToolStripContainer.TabIndex = 4;
-			this.MainToolStripContainer.Text = "toolStripContainer1";
-			// 
-			// MainToolStripContainer.TopToolStripPanel
-			// 
-			this.MainToolStripContainer.TopToolStripPanel.Controls.Add(this.MainToolBar);
-			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
 			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-			// 
-			// ExportToExcelToolStripButton
-			// 
-			this.ExportToExcelToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.ExportToExcelToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("ExportToExcelToolStripButton.Image")));
-			this.ExportToExcelToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.ExportToExcelToolStripButton.Name = "ExportToExcelToolStripButton";
-			this.ExportToExcelToolStripButton.Size = new System.Drawing.Size(23, 22);
-			this.ExportToExcelToolStripButton.ToolTipText = "Экспорт в Excel";
-			this.ExportToExcelToolStripButton.Click += new System.EventHandler(this.ExportToExcelToolStripButton_Click);
 			// 
 			// ExportToFileToolStripButton
 			// 
@@ -341,6 +314,16 @@
 			this.ExportToFileToolStripButton.Size = new System.Drawing.Size(23, 22);
 			this.ExportToFileToolStripButton.ToolTipText = "Экспорт в файл";
 			this.ExportToFileToolStripButton.Click += new System.EventHandler(this.ExportToFileToolStripButton_Click);
+			// 
+			// ExportToExcelToolStripButton
+			// 
+			this.ExportToExcelToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.ExportToExcelToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("ExportToExcelToolStripButton.Image")));
+			this.ExportToExcelToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.ExportToExcelToolStripButton.Name = "ExportToExcelToolStripButton";
+			this.ExportToExcelToolStripButton.Size = new System.Drawing.Size(23, 22);
+			this.ExportToExcelToolStripButton.ToolTipText = "Экспорт в Excel";
+			this.ExportToExcelToolStripButton.Click += new System.EventHandler(this.ExportToExcelToolStripButton_Click);
 			// 
 			// DataPropertiesToolStripButton
 			// 
@@ -362,6 +345,11 @@
 			this.SettingsToolStripButton.ToolTipText = "Настройки";
 			this.SettingsToolStripButton.Click += new System.EventHandler(this.SettingsToolStripButton_Click);
 			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+			// 
 			// AboutToolStripButton
 			// 
 			this.AboutToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -372,10 +360,36 @@
 			this.AboutToolStripButton.ToolTipText = "О программе";
 			this.AboutToolStripButton.Click += new System.EventHandler(this.AboutToolStripButton_Click);
 			// 
-			// toolStripSeparator2
+			// MainToolStripContainer
 			// 
-			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+			// 
+			// MainToolStripContainer.BottomToolStripPanel
+			// 
+			this.MainToolStripContainer.BottomToolStripPanel.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+			// 
+			// MainToolStripContainer.ContentPanel
+			// 
+			this.MainToolStripContainer.ContentPanel.Controls.Add(this.DataGridView);
+			this.MainToolStripContainer.ContentPanel.Size = new System.Drawing.Size(617, 354);
+			this.MainToolStripContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+			// 
+			// MainToolStripContainer.LeftToolStripPanel
+			// 
+			this.MainToolStripContainer.LeftToolStripPanel.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+			this.MainToolStripContainer.Location = new System.Drawing.Point(0, 24);
+			this.MainToolStripContainer.Name = "MainToolStripContainer";
+			// 
+			// MainToolStripContainer.RightToolStripPanel
+			// 
+			this.MainToolStripContainer.RightToolStripPanel.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+			this.MainToolStripContainer.Size = new System.Drawing.Size(617, 379);
+			this.MainToolStripContainer.TabIndex = 4;
+			this.MainToolStripContainer.Text = "toolStripContainer1";
+			// 
+			// MainToolStripContainer.TopToolStripPanel
+			// 
+			this.MainToolStripContainer.TopToolStripPanel.Controls.Add(this.MainToolBar);
+			this.MainToolStripContainer.TopToolStripPanel.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
 			// 
 			// MainForm
 			// 
