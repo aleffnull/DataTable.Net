@@ -68,6 +68,7 @@
 		<copy todir="${delivery_build_dir}">
 			<fileset basedir="${documents_dir}" failonempty="true">
 				<include name="*.*" />
+				<exclude name="*.vsd" />
 				<exclude name="${readme}" />
 			</fileset>
 		</copy>
