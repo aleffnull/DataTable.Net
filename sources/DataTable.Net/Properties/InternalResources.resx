@@ -216,7 +216,7 @@
     <value>Failed to show exception window</value>
   </data>
   <data name="SettingsStorageToStringFormat" xml:space="preserve">
-    <value>MaxAbsoluteScalePower = {0}, ExportValuesSeparator = "{1}", RegisteredExtensions = {2}</value>
+    <value>MaxAbsoluteScalePower = {0}, ExportValuesSeparator = "{1}", RecentFilesCount = {2} RegisteredExtensions = {3}</value>
   </data>
   <data name="DataPropertiesDtoToStringFormat" xml:space="preserve">
     <value>Number of arguments: {0}, number of functions: {1}, agruments type: {2}, functions type: {3}, arithmetic type: {4}</value>

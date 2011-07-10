@@ -8,5 +8,8 @@
     <Setting Name="ExportValuesSeparator" Type="System.String" Scope="User">
       <Value Profile="(Default)">;</Value>
     </Setting>
+    <Setting Name="RecentFilesCount" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

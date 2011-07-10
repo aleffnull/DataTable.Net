@@ -50,6 +50,7 @@ namespace DataTable.Net.Services.Impl
 		{
 			settings.MaxAbsoluteScalePower = Settings.Default.MaxAbsoluteScalePower;
 			settings.ExportValuesSeparator = Settings.Default.ExportValuesSeparator;
+			settings.RecentFilesCount = Settings.Default.RecentFilesCount;
 		}
 
 		private static void LoadRegistrySettings(SettingsStorage settings)
@@ -68,6 +69,7 @@ namespace DataTable.Net.Services.Impl
 		{
 			Settings.Default.MaxAbsoluteScalePower = settings.MaxAbsoluteScalePower;
 			Settings.Default.ExportValuesSeparator = settings.ExportValuesSeparator;
+			Settings.Default.RecentFilesCount = settings.RecentFilesCount;
 			Settings.Default.Save();
 		}
 

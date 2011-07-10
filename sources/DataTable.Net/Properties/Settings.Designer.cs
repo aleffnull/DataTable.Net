@@ -46,5 +46,17 @@ namespace DataTable.Net.Properties {
                 this["ExportValuesSeparator"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public int RecentFilesCount {
+            get {
+                return ((int)(this["RecentFilesCount"]));
+            }
+            set {
+                this["RecentFilesCount"] = value;
+            }
+        }
     }
 }

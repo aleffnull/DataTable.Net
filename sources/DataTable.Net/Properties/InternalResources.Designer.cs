@@ -628,7 +628,7 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MaxAbsoluteScalePower = {0}, ExportValuesSeparator = &quot;{1}&quot;, RegisteredExtensions = {2}.
+        ///   Looks up a localized string similar to MaxAbsoluteScalePower = {0}, ExportValuesSeparator = &quot;{1}&quot;, RecentFilesCount = {2} RegisteredExtensions = {3}.
         /// </summary>
         internal static string SettingsStorageToStringFormat {
             get {

@@ -24,7 +24,8 @@ namespace DataTable.Net.Forms
 		public SettingsDto GetSettings()
 		{
 			return new SettingsDto(
-				(int)MaxAbsoluteScalePowerUpDown.Value, ExportValuesSeparatorTextBox.Text, GetRegisteredExtensions());
+				(int)MaxAbsoluteScalePowerUpDown.Value, ExportValuesSeparatorTextBox.Text,
+				(int)RecentFileCountUpDown.Value, GetRegisteredExtensions());
 		}
 
 		#endregion Methods
@@ -66,6 +67,7 @@ namespace DataTable.Net.Forms
 		{
 			MaxAbsoluteScalePowerUpDown.Value = settings.MaxAbsoluteScalePower;
 			ExportValuesSeparatorTextBox.Text = settings.ExportValuesSeparator;
+			RecentFileCountUpDown.Value = settings.RecentFilesCount;
 
 			foreach (var extension in settings.RegisteredExtensions)
 			{

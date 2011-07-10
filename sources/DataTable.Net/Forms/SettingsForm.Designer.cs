@@ -38,13 +38,16 @@
 			this.SettingsTabControl = new System.Windows.Forms.TabControl();
 			this.GeneralTabPage = new System.Windows.Forms.TabPage();
 			this.IntegrationTabPage = new System.Windows.Forms.TabPage();
+			this.FileTypeCheckBoxesLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
 			this.SelectAllFileTypesButton = new System.Windows.Forms.Button();
 			this.FileTypesLabel = new System.Windows.Forms.Label();
-			this.FileTypeCheckBoxesLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+			this.RecentFileCountLabel = new System.Windows.Forms.Label();
+			this.RecentFileCountUpDown = new System.Windows.Forms.NumericUpDown();
 			((System.ComponentModel.ISupportInitialize)(this.MaxAbsoluteScalePowerUpDown)).BeginInit();
 			this.SettingsTabControl.SuspendLayout();
 			this.GeneralTabPage.SuspendLayout();
 			this.IntegrationTabPage.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.RecentFileCountUpDown)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// MaxAbsoluteScalePowerLabel
@@ -118,6 +121,8 @@
 			// 
 			// GeneralTabPage
 			// 
+			this.GeneralTabPage.Controls.Add(this.RecentFileCountUpDown);
+			this.GeneralTabPage.Controls.Add(this.RecentFileCountLabel);
 			this.GeneralTabPage.Controls.Add(this.MaxAbsoluteScalePowerLabel);
 			this.GeneralTabPage.Controls.Add(this.ExportValuesSeparatorTextBox);
 			this.GeneralTabPage.Controls.Add(this.MaxAbsoluteScalePowerUpDown);
@@ -143,6 +148,16 @@
 			this.IntegrationTabPage.Text = "Интеграция";
 			this.IntegrationTabPage.UseVisualStyleBackColor = true;
 			// 
+			// FileTypeCheckBoxesLayoutPanel
+			// 
+			this.FileTypeCheckBoxesLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.FileTypeCheckBoxesLayoutPanel.Location = new System.Drawing.Point(9, 19);
+			this.FileTypeCheckBoxesLayoutPanel.Name = "FileTypeCheckBoxesLayoutPanel";
+			this.FileTypeCheckBoxesLayoutPanel.Size = new System.Drawing.Size(356, 88);
+			this.FileTypeCheckBoxesLayoutPanel.TabIndex = 5;
+			// 
 			// SelectAllFileTypesButton
 			// 
 			this.SelectAllFileTypesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -163,15 +178,21 @@
 			this.FileTypesLabel.TabIndex = 0;
 			this.FileTypesLabel.Text = "Открывать файлы следующих типов:";
 			// 
-			// FileTypeCheckBoxesLayoutPanel
+			// RecentFileCountLabel
 			// 
-			this.FileTypeCheckBoxesLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.FileTypeCheckBoxesLayoutPanel.Location = new System.Drawing.Point(9, 19);
-			this.FileTypeCheckBoxesLayoutPanel.Name = "FileTypeCheckBoxesLayoutPanel";
-			this.FileTypeCheckBoxesLayoutPanel.Size = new System.Drawing.Size(356, 88);
-			this.FileTypeCheckBoxesLayoutPanel.TabIndex = 5;
+			this.RecentFileCountLabel.Location = new System.Drawing.Point(6, 55);
+			this.RecentFileCountLabel.Name = "RecentFileCountLabel";
+			this.RecentFileCountLabel.Size = new System.Drawing.Size(197, 31);
+			this.RecentFileCountLabel.TabIndex = 6;
+			this.RecentFileCountLabel.Text = "Количество запоминаемых недавно открытых файлов:";
+			// 
+			// RecentFileCountUpDown
+			// 
+			this.RecentFileCountUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.RecentFileCountUpDown.Location = new System.Drawing.Point(245, 60);
+			this.RecentFileCountUpDown.Name = "RecentFileCountUpDown";
+			this.RecentFileCountUpDown.Size = new System.Drawing.Size(120, 20);
+			this.RecentFileCountUpDown.TabIndex = 7;
 			// 
 			// SettingsForm
 			// 
@@ -194,6 +215,7 @@
 			this.GeneralTabPage.PerformLayout();
 			this.IntegrationTabPage.ResumeLayout(false);
 			this.IntegrationTabPage.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.RecentFileCountUpDown)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -212,5 +234,7 @@
 		private System.Windows.Forms.Label FileTypesLabel;
 		private System.Windows.Forms.Button SelectAllFileTypesButton;
 		private System.Windows.Forms.FlowLayoutPanel FileTypeCheckBoxesLayoutPanel;
+		private System.Windows.Forms.NumericUpDown RecentFileCountUpDown;
+		private System.Windows.Forms.Label RecentFileCountLabel;
 	}
 }

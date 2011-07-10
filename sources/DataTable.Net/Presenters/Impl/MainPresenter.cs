@@ -417,14 +417,14 @@ namespace DataTable.Net.Presenters.Impl
 		{
 			return new SettingsDto(
 				settingsStorage.MaxAbsoluteScalePower, settingsStorage.ExportValuesSeparator,
-				settingsStorage.RegisteredExtensions);
+				settingsStorage.RecentFilesCount, settingsStorage.RegisteredExtensions);
 		}
 
 		private static SettingsStorage GetSettingsStorage(SettingsDto settingsDto)
 		{
 			return new SettingsStorage(
 				settingsDto.MaxAbsoluteScalePower, settingsDto.ExportValuesSeparator,
-				settingsDto.RegisteredExtensions);
+				settingsDto.RecentFilesCount, settingsDto.RegisteredExtensions);
 		}
 
 		#endregion Helpers
