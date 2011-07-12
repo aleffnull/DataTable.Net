@@ -5,6 +5,7 @@ namespace DataTable.Net.Services.Common
 	internal delegate void ActionPerformer(ActionArgs args);
 
 	public delegate void Action();
+	public delegate T Func<out T>();
 	public delegate void ServiceWorker();
 	public delegate T ServiceWorker<out T>();
 	public delegate void ServiceSuccessCallback();

@@ -9,6 +9,8 @@ namespace DataTable.Net.Views
 		void EnableFileDependentControls();
 		void DisableSettingsDependentControls();
 		void EnableSettingsDependentControls();
+		void DisableRecentFilesDependentControls();
+		void EnableRecentFilesDependentControls();
 
 		string AskUserForFileToOpen();
 		CoreDataPropertiesDto AskUserForDataPropertiesDto(CoreDataPropertiesDto currentDataProperties = null);
@@ -19,6 +21,7 @@ namespace DataTable.Net.Views
 			int argumentsCount, int functionsCount,
 			IEnumerable<ScaleDto> argumentScales, IEnumerable<ScaleDto> functionScales);
 		void SetDataRowsCount(int rowsCount);
+		void SetRecentFiles(IEnumerable<RecentFileDto> recentFiles);
 
 		void Activate();
 

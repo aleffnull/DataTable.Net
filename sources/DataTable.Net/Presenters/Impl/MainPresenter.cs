@@ -38,6 +38,11 @@ namespace DataTable.Net.Presenters.Impl
 			get { return serviceLocator.Resolve<ISettingsService>(); }
 		}
 
+		private IRecentFilesService RecentFilesService
+		{
+			get { return serviceLocator.Resolve<IRecentFilesService>(); }
+		}
+
 		private IDataService DataService
 		{
 			get { return serviceLocator.Resolve<IDataService>(); }
@@ -65,7 +70,11 @@ namespace DataTable.Net.Presenters.Impl
 
 			log.Info(InternalResources.LoadingSettings);
 			view.SetStatus(Resources.LoadingSettingsStatus);
-			SettingsService.BeginLoadingSettings(LoadSettingsSuccessCallback, LoadSettingsErrorCallback);
+			var loadRecentFilesTask = Task<IEnumerable<RecentFileDto>>.Create(RecentFilesService.GetRecentFiles)
+				.RunOnSuccess(LoadRecentFilesSuccessCallback).RunOnError(LoadRecentFilesErrorCallback);
+			Task<SettingsStorage>.Create(SettingsService.LoadSettings)
+				.RunOnSuccess(LoadSettingsSuccessCallback).RunOnError(LoadSettingsErrorCallback)
+				.WithContinuation(loadRecentFilesTask).Start();
 		}
 
 		public void OnOpenFile()
@@ -138,9 +147,11 @@ namespace DataTable.Net.Presenters.Impl
 			log.InfoFormat(InternalResources.ChangingSettingsFromTo, currentSettings, newSettings);
 			view.SetStatus(Resources.SavingSettingsStatus);
 			view.GoToWaitMode();
-			SettingsService.BeginSavingSettings(
-				currentSettings, newSettings,
-				SaveSettingsSuccessCallback, SaveSettingErrorCallback);
+			var loadRecentFilesTask = Task<IEnumerable<RecentFileDto>>.Create(RecentFilesService.GetRecentFiles)
+				.RunOnSuccess(LoadRecentFilesSuccessCallback).RunOnError(LoadRecentFilesErrorCallback);
+			Task<SettingsStorage>.Create(() => SettingsService.SaveSettings(currentSettings, newSettings))
+				.RunOnSuccess(SaveSettingsSuccessCallback).RunOnError(SaveSettingErrorCallback)
+				.WithContinuation(loadRecentFilesTask).Start();
 		}
 
 		public void OnAbout()
@@ -281,6 +292,22 @@ namespace DataTable.Net.Presenters.Impl
 			view.GoToNormalMode();
 		}
 
+		private void LoadRecentFilesSuccessCallback(IEnumerable<RecentFileDto> recentFiles)
+		{
+			view.SetRecentFiles(recentFiles);
+			view.EnableRecentFilesDependentControls();
+		}
+
+		private void LoadRecentFilesErrorCallback(Exception exception)
+		{
+			log.Error(exception);
+
+			var message = string.Format(Resources.FailedToLoadRecentFiles, exception.Message);
+			view.ShowError(message);
+			view.SetStatus(Resources.ReadyStatus);
+			view.EnableRecentFilesDependentControls();
+		}
+
 		private void LoadDataSuccessCallback(DataModel model)
 		{
 			log.Info(InternalResources.DataWasLoadedSuccessfully);
@@ -353,6 +380,7 @@ namespace DataTable.Net.Presenters.Impl
 			var locator = new ServiceLocator();
 			locator.RegisterService<IGenericService>(new GenericService());
 			locator.RegisterService<ISettingsService>(new SettingsService());
+			locator.RegisterService<IRecentFilesService>(new RecentFilesService());
 			locator.RegisterService<IMathService>(new MathService());
 			locator.RegisterService<IDataService>(new DataService(locator));
 

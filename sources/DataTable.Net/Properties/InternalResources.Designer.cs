@@ -547,6 +547,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} [{1}].
+        /// </summary>
+        internal static string RecentFileDtoToStringFormat {
+            get {
+                return ResourceManager.GetString("RecentFileDtoToStringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to no extensions.
         /// </summary>
         internal static string RegistrySettingsNoExtensions {

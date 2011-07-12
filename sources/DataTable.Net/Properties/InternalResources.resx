@@ -345,4 +345,10 @@
   <data name="FileIcon" xml:space="preserve">
     <value>file.ico</value>
   </data>
+	<data name="RecentFileDtoToStringFormat">
+		<value xml:space="preserve">{0} [{1}]</value>
+		<comment>
+			0 is file name. 1 is full path
+		</comment>
+	</data>
 </root>

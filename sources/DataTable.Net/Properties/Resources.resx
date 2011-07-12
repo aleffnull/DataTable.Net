@@ -190,9 +190,7 @@
   </data>
   <data name="SaveSettingsFailed" xml:space="preserve">
     <value>Не удалось сохранить настройки: {0}</value>
-    <comment>
-			0 is exception message
-		</comment>
+    <comment>0 is exception message</comment>
   </data>
   <data name="FailedToCreateKey" xml:space="preserve">
     <value>Не удалось создать ключ '{0}'</value>
@@ -201,4 +199,8 @@
   <data name="FileTypeDescription" xml:space="preserve">
     <value>Бинарный файл DataTable.Net</value>
   </data>
+	<data name="FailedToLoadRecentFiles">
+		<value xml:space="preserve">Не удалось загрузить список последних файлов: {0}</value>
+		<comment>0 is error message</comment>
+	</data>
 </root>

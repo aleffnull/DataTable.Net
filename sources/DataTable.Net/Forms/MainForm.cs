@@ -62,6 +62,18 @@ namespace DataTable.Net.Forms
 			OpenToolStripButton.Enabled = true;
 		}
 
+		void IMainView.DisableRecentFilesDependentControls()
+		{
+			OpenToolStripMenuItem.Enabled = false;
+			OpenToolStripButton.Enabled = false;
+		}
+
+		void IMainView.EnableRecentFilesDependentControls()
+		{
+			OpenToolStripMenuItem.Enabled = true;
+			OpenToolStripButton.Enabled = true;
+		}
+
 		string IMainView.AskUserForFileToOpen()
 		{
 			var result = OpenFileDialog.ShowDialog(this);
@@ -182,6 +194,11 @@ namespace DataTable.Net.Forms
 				DataGridView.Rows[i].HeaderCell.Value = i.ToString();
 			}
 			DataGridView.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
+		}
+
+		void IMainView.SetRecentFiles(IEnumerable<RecentFileDto> recentFiles)
+		{
+			//
 		}
 
 		void IMainView.Activate()

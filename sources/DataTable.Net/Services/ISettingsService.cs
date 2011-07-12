@@ -4,11 +4,7 @@ namespace DataTable.Net.Services
 {
 	public interface ISettingsService
 	{
-		void BeginLoadingSettings(
-			ServiceSuccessCallback<SettingsStorage> successCallback, ServiceErrorCallback errorCallback);
-
-		void BeginSavingSettings(
-			SettingsStorage oldSettings, SettingsStorage newSettings,
-			ServiceSuccessCallback<SettingsStorage> successCallback, ServiceErrorCallback errorCallback);
+		SettingsStorage LoadSettings();
+		SettingsStorage SaveSettings(SettingsStorage oldSettings, SettingsStorage newSettings);
 	}
 }

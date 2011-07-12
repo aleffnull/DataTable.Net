@@ -8,24 +8,7 @@ namespace DataTable.Net.Services.Impl
 	{
 		#region ISettingsService implementation
 
-		public void BeginLoadingSettings(
-			ServiceSuccessCallback<SettingsStorage> successCallback, ServiceErrorCallback errorCallback)
-		{
-			DoRequest(LoadSettings, successCallback, errorCallback);
-		}
-
-		public void BeginSavingSettings(
-			SettingsStorage oldSettings, SettingsStorage newSettings,
-			ServiceSuccessCallback<SettingsStorage> successCallback, ServiceErrorCallback errorCallback)
-		{
-			DoRequest(() => SaveSettings(oldSettings, newSettings), successCallback, errorCallback);
-		}
-
-		#endregion ISettingsService implementation
-
-		#region Service actions
-
-		private static SettingsStorage LoadSettings()
+		public SettingsStorage LoadSettings()
 		{
 			var settings = new SettingsStorage();
 			LoadConfigFileSettings(settings);
@@ -34,7 +17,7 @@ namespace DataTable.Net.Services.Impl
 			return settings;
 		}
 
-		private static SettingsStorage SaveSettings(SettingsStorage oldSettings, SettingsStorage newSettings)
+		public SettingsStorage SaveSettings(SettingsStorage oldSettings, SettingsStorage newSettings)
 		{
 			SaveConfigFileSettings(newSettings);
 			SaveRegistrySettings(oldSettings, newSettings);
@@ -42,7 +25,7 @@ namespace DataTable.Net.Services.Impl
 			return newSettings;
 		}
 
-		#endregion ServiceActions
+		#endregion ISettingsService implementation
 
 		#region Helpers
 

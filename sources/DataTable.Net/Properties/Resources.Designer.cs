@@ -169,6 +169,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Не удалось загрузить список последних файлов: {0}.
+        /// </summary>
+        internal static string FailedToLoadRecentFiles {
+            get {
+                return ResourceManager.GetString("FailedToLoadRecentFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Файл &apos;{0}&apos; не существует..
         /// </summary>
         internal static string FileNotExistsExceptionMessage {
