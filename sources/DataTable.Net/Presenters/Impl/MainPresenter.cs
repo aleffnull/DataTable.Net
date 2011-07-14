@@ -70,11 +70,27 @@ namespace DataTable.Net.Presenters.Impl
 
 			log.Info(InternalResources.LoadingSettings);
 			view.SetStatus(Resources.LoadingSettingsStatus);
-			var loadRecentFilesTask = Task<IEnumerable<RecentFileDto>>.Create(RecentFilesService.GetRecentFiles)
-				.RunOnSuccess(LoadRecentFilesSuccessCallback).RunOnError(LoadRecentFilesErrorCallback);
-			Task<SettingsStorage>.Create(SettingsService.LoadSettings)
+
+			var loadRecentFilesTask = Task<IEnumerable<RecentFileDto>>
+				.Create(RecentFilesService.GetRecentFiles)
+				.RunOnSuccess(recentFiles =>
+				              {
+				              	view.SetRecentFiles(recentFiles);
+				              	view.EnableRecentFilesDependentControls();
+				              })
+				.RunOnError(exception =>
+				            {
+				            	log.Error(exception);
+				            	var message = string.Format(Resources.FailedToLoadRecentFiles, exception.Message);
+				            	view.ShowError(message);
+				            	view.SetStatus(Resources.ReadyStatus);
+				            	view.EnableRecentFilesDependentControls();
+				            });
+			Task<SettingsStorage>
+				.Create(SettingsService.LoadSettings)
+				.WithContinuation(loadRecentFilesTask)
 				.RunOnSuccess(LoadSettingsSuccessCallback).RunOnError(LoadSettingsErrorCallback)
-				.WithContinuation(loadRecentFilesTask).Start();
+				.Start();
 		}
 
 		public void OnOpenFile()
@@ -147,11 +163,21 @@ namespace DataTable.Net.Presenters.Impl
 			log.InfoFormat(InternalResources.ChangingSettingsFromTo, currentSettings, newSettings);
 			view.SetStatus(Resources.SavingSettingsStatus);
 			view.GoToWaitMode();
-			var loadRecentFilesTask = Task<IEnumerable<RecentFileDto>>.Create(RecentFilesService.GetRecentFiles)
-				.RunOnSuccess(LoadRecentFilesSuccessCallback).RunOnError(LoadRecentFilesErrorCallback);
-			Task<SettingsStorage>.Create(() => SettingsService.SaveSettings(currentSettings, newSettings))
+
+			var loadRecentFilesTask = Task<IEnumerable<RecentFileDto>>
+				.Create(RecentFilesService.GetRecentFiles)
+				.RunOnSuccess(recentFiles => view.SetRecentFiles(recentFiles))
+				.RunOnError(exception =>
+				            {
+				            	log.Error(exception);
+				            	var message = string.Format(Resources.FailedToLoadRecentFiles, exception.Message);
+				            	view.ShowError(message);
+				            });
+			Task<SettingsStorage>
+				.Create(() => SettingsService.SaveSettings(currentSettings, newSettings))
+				.WithContinuation(loadRecentFilesTask)
 				.RunOnSuccess(SaveSettingsSuccessCallback).RunOnError(SaveSettingErrorCallback)
-				.WithContinuation(loadRecentFilesTask).Start();
+				.Start();
 		}
 
 		public void OnAbout()
@@ -290,22 +316,6 @@ namespace DataTable.Net.Presenters.Impl
 			view.ShowError(message);
 			view.SetStatus(Resources.ReadyStatus);
 			view.GoToNormalMode();
-		}
-
-		private void LoadRecentFilesSuccessCallback(IEnumerable<RecentFileDto> recentFiles)
-		{
-			view.SetRecentFiles(recentFiles);
-			view.EnableRecentFilesDependentControls();
-		}
-
-		private void LoadRecentFilesErrorCallback(Exception exception)
-		{
-			log.Error(exception);
-
-			var message = string.Format(Resources.FailedToLoadRecentFiles, exception.Message);
-			view.ShowError(message);
-			view.SetStatus(Resources.ReadyStatus);
-			view.EnableRecentFilesDependentControls();
 		}
 
 		private void LoadDataSuccessCallback(DataModel model)

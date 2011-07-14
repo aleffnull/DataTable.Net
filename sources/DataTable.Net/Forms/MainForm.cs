@@ -208,12 +208,12 @@ namespace DataTable.Net.Forms
 
 		void IMainView.GoToWaitMode()
 		{
-			MainMenu.Enabled = DataGridView.Enabled = false;
+			MainMenu.Enabled = MainToolBar.Enabled = DataGridView.Enabled = false;
 		}
 
 		void IMainView.GoToNormalMode()
 		{
-			MainMenu.Enabled = DataGridView.Enabled = true;
+			MainMenu.Enabled = MainToolBar.Enabled = DataGridView.Enabled = true;
 		}
 
 		void IMainView.SetStatus(string status)
