@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
@@ -12,6 +13,8 @@ namespace DataTable.Net.Services.Common
 
 		private readonly SynchronizationContext syncContext;
 		private readonly Thread thread;
+		private readonly List<BackgroundAction> continuationActions = new List<BackgroundAction>();
+		private ZeroWaitEvent syncEvent;
 
 		#endregion Fields
 
@@ -34,9 +37,21 @@ namespace DataTable.Net.Services.Common
 
 		#region Methods
 
+		public void AddContinuation(BackgroundAction action)
+		{
+			continuationActions.Add(action);
+		}
+
 		public void Perform()
 		{
 			thread.Start();
+		}
+
+		public void Perform(ZeroWaitEvent waitEvent)
+		{
+			syncEvent = waitEvent;
+			syncEvent.AddReference();
+			Perform();
 		}
 
 		#endregion Methods
@@ -49,12 +64,36 @@ namespace DataTable.Net.Services.Common
 			{
 				var args = new ActionArgs();
 				actionPerformer(args);
+				RunContinuations();
 				Post(state => OnCompleted(args.Result));
 			}
 			catch (Exception e)
 			{
 				Post(state => OnErrorOccurred(e));
 			}
+			finally
+			{
+				if (syncEvent != null)
+				{
+					syncEvent.Release();
+				}
+			}
+		}
+
+		private void RunContinuations()
+		{
+			if (continuationActions.Count == 0)
+			{
+				return;
+			}
+
+			var waitEvent = new ZeroWaitEvent(false);
+			foreach (var action in continuationActions)
+			{
+				action.Perform(waitEvent);
+			}
+			waitEvent.WaitZeroReferences();
+			waitEvent.Close();
 		}
 
 		private void Post(SendOrPostCallback callback)
