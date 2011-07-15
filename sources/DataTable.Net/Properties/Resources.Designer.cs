@@ -232,6 +232,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Невозможно освободить ссылку, поскольку счетчик равен нулю.
+        /// </summary>
+        internal static string NoReferencesToRelease {
+            get {
+                return ResourceManager.GetString("NoReferencesToRelease", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ошибка при: прочитано {0} байт, когда ожидалось {1}..
         /// </summary>
         internal static string ReadFromFileExceptionMessage {

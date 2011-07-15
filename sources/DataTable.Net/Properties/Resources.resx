@@ -203,4 +203,7 @@
 		<value xml:space="preserve">Не удалось загрузить список последних файлов: {0}</value>
 		<comment>0 is error message</comment>
 	</data>
+	<data name="NoReferencesToRelease">
+		<value xml:space="preserve">Невозможно освободить ссылку, поскольку счетчик равен нулю</value>
+	</data>
 </root>

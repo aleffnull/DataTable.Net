@@ -148,6 +148,7 @@
     <Compile Include="Services\Common\ShellNotification.cs" />
     <Compile Include="Services\Common\Task.cs" />
     <Compile Include="Services\Common\UnhandledExceptionManager.cs" />
+    <Compile Include="Services\Common\ZeroWaitEvent.cs" />
     <Compile Include="Services\IDataService.cs" />
     <Compile Include="Services\IMathService.cs" />
     <Compile Include="Services\Impl\DataService.cs" />
