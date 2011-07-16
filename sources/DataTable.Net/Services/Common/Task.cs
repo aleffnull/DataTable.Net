@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace DataTable.Net.Services.Common
 {
@@ -7,26 +6,15 @@ namespace DataTable.Net.Services.Common
 	{
 		#region Properties
 
-		protected BackgroundAction Action { get; set; }
+		public BackgroundAction Action { get; protected set; }
 
 		#endregion Properties
-
-		#region Methods
-
-		public virtual void Start(ZeroWaitEvent waitEvent)
-		{
-			//
-		}
-
-		#endregion Methods
 	}
 
 	internal class Task<T> : Task
 	{
 		#region Fields
 
-		private readonly List<Task> continuationTasks = new List<Task>();
-		private ZeroWaitEvent syncEvent;
 		private Action<T> completedDelegate;
 		private Action<Exception> errorDelegate;
 
@@ -55,16 +43,9 @@ namespace DataTable.Net.Services.Common
 			Action.Perform();
 		}
 
-		public override void Start(ZeroWaitEvent waitEvent)
-		{
-			syncEvent = waitEvent;
-			syncEvent.AddReference();
-			Start();
-		}
-
 		public Task<T> WithContinuation(Task task)
 		{
-			continuationTasks.Add(task);
+			Action.AddContinuation(task.Action);
 			return this;
 		}
 
@@ -86,21 +67,13 @@ namespace DataTable.Net.Services.Common
 
 		private void OnActionCompleted(object sender, CompletedEventArgs args)
 		{
-			if (continuationTasks.Count != 0)
+			if (completedDelegate == null)
 			{
-				ExecuteContinuationTasks();
+				return;
 			}
 
-			if (completedDelegate != null)
-			{
-				var result = (T)args.Result;
-				completedDelegate(result);
-			}
-
-			if (syncEvent != null)
-			{
-				syncEvent.Release();
-			}
+			var result = (T)args.Result;
+			completedDelegate(result);
 		}
 
 		private void OnActionErrorOccurred(object sender, ErrorOccurredEventArgs args)
@@ -109,22 +82,6 @@ namespace DataTable.Net.Services.Common
 			{
 				errorDelegate(args.Exception);
 			}
-
-			if (syncEvent != null)
-			{
-				syncEvent.Release();
-			}
-		}
-
-		private void ExecuteContinuationTasks()
-		{
-			var waitEvent = new ZeroWaitEvent(false);
-			foreach (var task in continuationTasks)
-			{
-				task.Start(waitEvent);
-			}
-			waitEvent.WaitZeroReferences();
-			waitEvent.Close();
 		}
 
 		#endregion Helpers

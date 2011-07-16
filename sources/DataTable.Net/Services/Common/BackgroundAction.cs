@@ -47,13 +47,6 @@ namespace DataTable.Net.Services.Common
 			thread.Start();
 		}
 
-		public void Perform(ZeroWaitEvent waitEvent)
-		{
-			syncEvent = waitEvent;
-			syncEvent.AddReference();
-			Perform();
-		}
-
 		#endregion Methods
 
 		#region Helpers
@@ -65,11 +58,11 @@ namespace DataTable.Net.Services.Common
 				var args = new ActionArgs();
 				actionPerformer(args);
 				RunContinuations();
-				Post(state => OnCompleted(args.Result));
+				Send(state => OnCompleted(args.Result));
 			}
 			catch (Exception e)
 			{
-				Post(state => OnErrorOccurred(e));
+				Send(state => OnErrorOccurred(e));
 			}
 			finally
 			{
@@ -96,11 +89,18 @@ namespace DataTable.Net.Services.Common
 			waitEvent.Close();
 		}
 
-		private void Post(SendOrPostCallback callback)
+		private void Perform(ZeroWaitEvent waitEvent)
+		{
+			syncEvent = waitEvent;
+			syncEvent.AddReference();
+			Perform();
+		}
+
+		private void Send(SendOrPostCallback callback)
 		{
 			if (syncContext != null && SyncContextIsValid())
 			{
-				syncContext.Post(callback, null);
+				syncContext.Send(callback, null);
 			}
 			else
 			{
