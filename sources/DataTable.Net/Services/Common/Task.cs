@@ -4,11 +4,80 @@ namespace DataTable.Net.Services.Common
 {
 	internal class Task
 	{
+		#region Fields
+
+		private Action completedDelegate;
+		private Action<Exception> errorDelegate;
+
+		#endregion Fields
+
 		#region Properties
 
 		public BackgroundAction Action { get; protected set; }
 
 		#endregion Properties
+
+		#region Constructors
+
+		public static Task Create(Action action)
+		{
+			return new Task(action);
+		}
+
+		private Task(Action action)
+		{
+			Action = new BackgroundAction(args => action());
+			Action.Completed += OnActionCompleted;
+			Action.ErrorOccurred += OnActionErrorOccurred;
+		}
+
+		protected Task()
+		{
+			//
+		}
+
+		#endregion Constructors
+
+		#region Methods
+
+		public virtual void Start()
+		{
+			Action.Perform();
+		}
+
+		public Task RunOnSuccess(Action successAction)
+		{
+			completedDelegate += successAction;
+			return this;
+		}
+
+		public Task RunOnError(Action<Exception> errorAction)
+		{
+			errorDelegate += errorAction;
+			return this;
+		}
+
+		#endregion Methods
+
+		#region Helpers
+
+		private void OnActionCompleted(object sender, CompletedEventArgs args)
+		{
+			if (completedDelegate != null)
+			{
+				completedDelegate();
+			}
+		}
+
+		protected void OnActionErrorOccurred(object sender, ErrorOccurredEventArgs args)
+		{
+			if (errorDelegate != null)
+			{
+				errorDelegate(args.Exception);
+			}
+		}
+
+		#endregion Helpers
 	}
 
 	internal class Task<T> : Task
@@ -16,7 +85,6 @@ namespace DataTable.Net.Services.Common
 		#region Fields
 
 		private Action<T> completedDelegate;
-		private Action<Exception> errorDelegate;
 
 		#endregion Fields
 
@@ -38,7 +106,7 @@ namespace DataTable.Net.Services.Common
 
 		#region Methods
 
-		public void Start()
+		public override void Start()
 		{
 			Action.Perform();
 		}
@@ -55,9 +123,9 @@ namespace DataTable.Net.Services.Common
 			return this;
 		}
 
-		public Task<T> RunOnError(Action<Exception> errorAction)
+		public new Task<T> RunOnError(Action<Exception> errorAction)
 		{
-			errorDelegate += errorAction;
+			base.RunOnError(errorAction);
 			return this;
 		}
 
@@ -74,14 +142,6 @@ namespace DataTable.Net.Services.Common
 
 			var result = (T)args.Result;
 			completedDelegate(result);
-		}
-
-		private void OnActionErrorOccurred(object sender, ErrorOccurredEventArgs args)
-		{
-			if (errorDelegate != null)
-			{
-				errorDelegate(args.Exception);
-			}
 		}
 
 		#endregion Helpers

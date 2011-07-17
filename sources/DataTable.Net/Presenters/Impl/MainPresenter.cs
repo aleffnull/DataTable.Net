@@ -28,11 +28,6 @@ namespace DataTable.Net.Presenters.Impl
 
 		#region Properties
 
-		private IGenericService GenericService
-		{
-			get { return serviceLocator.Resolve<IGenericService>(); }
-		}
-
 		private ISettingsService SettingsService
 		{
 			get { return serviceLocator.Resolve<ISettingsService>(); }
@@ -121,9 +116,11 @@ namespace DataTable.Net.Presenters.Impl
 			log.InfoFormat(InternalResources.ExportingToFile, filePath);
 			view.SetStatus(Resources.ExportingToFileStatus);
 			view.GoToWaitMode();
-			DataService.BeginExportingDataToFile(
-				filePath, currentDataModel, currentSettings.ExportValuesSeparator,
-				ExportDataToFileSuccessCallback, ExportDataToFileErrorCallback);
+			Task
+				.Create(() => DataService.ExportDataToFile(filePath, currentDataModel, currentSettings.ExportValuesSeparator))
+				.RunOnSuccess(ExportDataToFileSuccessCallback)
+				.RunOnError(ExportDataToFileErrorCallback)
+				.Start();
 		}
 
 		public void OnExportToExcel()
@@ -132,7 +129,11 @@ namespace DataTable.Net.Presenters.Impl
 			view.SetStatus(Resources.ExportingToExcelStatus);
 
 			view.GoToWaitMode();
-			DataService.BeginExportingDataToExcel(currentDataModel, ExportToExcelSuccessCallback, ExportToExcelErrorCallback);
+			Task
+				.Create(() => DataService.ExportToExcel(currentDataModel))
+				.RunOnSuccess(ExportToExcelSuccessCallback)
+				.RunOnError(ExportToExcelErrorCallback)
+				.Start();
 		}
 
 		public void OnChangeDataProperties()
@@ -264,7 +265,7 @@ namespace DataTable.Net.Presenters.Impl
 			 * in a separate thread and open file in callback executed in the UI thread.
 			 */
 			log.InfoFormat(InternalResources.OpenningDrapDroppedFile, filePath);
-			GenericService.BeginDoingAction(delegate { }, () => OpenDragDroppedFile(filePath), null);
+			Task.Create(delegate { }).RunOnSuccess(() => OpenDragDroppedFile(filePath)).Start();
 		}
 
 		#endregion IMainPresenter implementation
@@ -388,7 +389,6 @@ namespace DataTable.Net.Presenters.Impl
 		private static ServiceLocator CreateServiceLocator()
 		{
 			var locator = new ServiceLocator();
-			locator.RegisterService<IGenericService>(new GenericService());
 			locator.RegisterService<ISettingsService>(new SettingsService());
 			locator.RegisterService<IRecentFilesService>(new RecentFilesService());
 			locator.RegisterService<IMathService>(new MathService());
@@ -448,7 +448,11 @@ namespace DataTable.Net.Presenters.Impl
 		{
 			view.SetStatus(Resources.LoadingFileStatus);
 			view.GoToWaitMode();
-			DataService.BeginLoadingData(filePath, fullDataPropertiesDto, LoadDataSuccessCallback, LoadDataErrorCallback);
+			Task<DataModel>
+				.Create(() => DataService.LoadData(filePath, fullDataPropertiesDto))
+				.RunOnSuccess(LoadDataSuccessCallback)
+				.RunOnError(LoadDataErrorCallback)
+				.Start();
 		}
 
 		private static SettingsDto GetSettingsDto(SettingsStorage settingsStorage)

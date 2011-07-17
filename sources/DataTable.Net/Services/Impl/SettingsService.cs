@@ -4,7 +4,7 @@ using DataTable.Net.Services.Common;
 
 namespace DataTable.Net.Services.Impl
 {
-	public class SettingsService : AbstractAsyncService, ISettingsService
+	public class SettingsService : ISettingsService
 	{
 		#region ISettingsService implementation
 

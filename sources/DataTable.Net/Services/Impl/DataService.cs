@@ -11,7 +11,7 @@ using Microsoft.Office.Interop.Excel;
 
 namespace DataTable.Net.Services.Impl
 {
-	public class DataService : AbstractAsyncService, IDataService
+	public class DataService : IDataService
 	{
 		#region Fields
 
@@ -31,37 +31,7 @@ namespace DataTable.Net.Services.Impl
 
 		#region IDataService implementation
 
-		public void BeginLoadingData(
-			string filePath, FullDataPropertiesDto fullDataPropertiesDto,
-			ServiceSuccessCallback<DataModel> successCallback, ServiceErrorCallback errorCallback)
-		{
-			DoRequest(() => LoadData(filePath, fullDataPropertiesDto), successCallback, errorCallback);
-		}
-
-		public void BeginExportingDataToFile(
-			string filePath, DataModel dataModel, string valuesSeparator,
-			ServiceSuccessCallback successCallback, ServiceErrorCallback errorCallback)
-		{
-			DoRequest(() => ExportDataToFile(filePath, dataModel, valuesSeparator), successCallback, errorCallback);
-		}
-
-		public void BeginExportingDataToExcel(
-			DataModel dataModel,
-			ServiceSuccessCallback successCallback, ServiceErrorCallback errorCallback)
-		{
-			DoRequest(() => ExportToExcel(dataModel), successCallback, errorCallback);
-		}
-
-		public void LoadData(Stream stream, DataModel dataModel)
-		{
-			LoadDataImpl(stream, dataModel);
-		}
-
-		#endregion IDataService implementation
-
-		#region Service actions
-
-		private DataModel LoadData(string filePath, FullDataPropertiesDto fullDataPropertiesDto)
+		public DataModel LoadData(string filePath, FullDataPropertiesDto fullDataPropertiesDto)
 		{
 			if (!File.Exists(filePath))
 			{
@@ -78,7 +48,7 @@ namespace DataTable.Net.Services.Impl
 			return dataModel;
 		}
 
-		private static void ExportDataToFile(string filePath, DataModel dataModel, string valuesSeparator)
+		public void ExportDataToFile(string filePath, DataModel dataModel, string valuesSeparator)
 		{
 			using (var streamWriter = File.CreateText(filePath))
 			{
@@ -94,17 +64,22 @@ namespace DataTable.Net.Services.Impl
 			}
 		}
 
-		private static void ExportToExcel(DataModel dataModel)
+		public void ExportToExcel(DataModel dataModel)
 		{
 			var data = DoDataArray(dataModel);
-			var excel = new Application {Visible = true};
+			var excel = new Application { Visible = true };
 			var workbook = excel.Workbooks.Add();
 			var worksheet = (Worksheet)(workbook.Worksheets[1]);
 			var range = worksheet.Range["A1"].Resize[data.GetLength(0), data.GetLength(1)];
 			range.Value = data;
 		}
 
-		#endregion Service actions
+		public void LoadData(Stream stream, DataModel dataModel)
+		{
+			LoadDataImpl(stream, dataModel);
+		}
+
+		#endregion IDataService implementation
 
 		#region Helpers
 
