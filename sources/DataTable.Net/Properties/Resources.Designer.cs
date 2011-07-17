@@ -160,11 +160,11 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Не удалось создать ключ &apos;{0}&apos;.
+        ///   Looks up a localized string similar to Не удалось создать или открыть ключ &apos;{0}&apos;.
         /// </summary>
-        internal static string FailedToCreateKey {
+        internal static string FailedToCreateOrOpenKey {
             get {
-                return ResourceManager.GetString("FailedToCreateKey", resourceCulture);
+                return ResourceManager.GetString("FailedToCreateOrOpenKey", resourceCulture);
             }
         }
         
@@ -174,6 +174,15 @@ namespace DataTable.Net.Properties {
         internal static string FailedToLoadRecentFiles {
             get {
                 return ResourceManager.GetString("FailedToLoadRecentFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Не удалось сохранить файл в списке недавно открытых. {0}.
+        /// </summary>
+        internal static string FailedToSaveFileInRecentFilesList {
+            get {
+                return ResourceManager.GetString("FailedToSaveFileInRecentFilesList", resourceCulture);
             }
         }
         

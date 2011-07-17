@@ -22,7 +22,6 @@ namespace DataTable.Net.Presenters.Impl
 		private readonly string fileToOpen;
 		private readonly ServiceLocator serviceLocator;
 		private DataModel currentDataModel;
-		private SettingsStorage currentSettings;
 
 		#endregion Fields
 
@@ -67,7 +66,11 @@ namespace DataTable.Net.Presenters.Impl
 			view.SetStatus(Resources.LoadingSettingsStatus);
 
 			var loadRecentFilesTask = Task<IEnumerable<RecentFileDto>>
-				.Create(RecentFilesService.GetRecentFiles)
+				.Create(() =>
+				        {
+				        	RecentFilesService.SetSize(SettingsService.CurrentSettings.RecentFilesCount);
+				        	return RecentFilesService.GetRecentFiles();
+				        })
 				.RunOnSuccess(recentFiles =>
 				              {
 				              	view.SetRecentFiles(recentFiles);
@@ -81,10 +84,11 @@ namespace DataTable.Net.Presenters.Impl
 				            	view.SetStatus(Resources.ReadyStatus);
 				            	view.EnableRecentFilesDependentControls();
 				            });
-			Task<SettingsStorage>
+			Task
 				.Create(SettingsService.LoadSettings)
 				.WithContinuation(loadRecentFilesTask)
-				.RunOnSuccess(LoadSettingsSuccessCallback).RunOnError(LoadSettingsErrorCallback)
+				.RunOnSuccess(LoadSettingsSuccessCallback)
+				.RunOnError(LoadSettingsErrorCallback)
 				.Start();
 		}
 
@@ -117,7 +121,8 @@ namespace DataTable.Net.Presenters.Impl
 			view.SetStatus(Resources.ExportingToFileStatus);
 			view.GoToWaitMode();
 			Task
-				.Create(() => DataService.ExportDataToFile(filePath, currentDataModel, currentSettings.ExportValuesSeparator))
+				.Create(() => DataService.ExportDataToFile(
+					filePath, currentDataModel, SettingsService.CurrentSettings.ExportValuesSeparator))
 				.RunOnSuccess(ExportDataToFileSuccessCallback)
 				.RunOnError(ExportDataToFileErrorCallback)
 				.Start();
@@ -152,7 +157,7 @@ namespace DataTable.Net.Presenters.Impl
 
 		public void OnChangeSettings()
 		{
-			var currentSettingsDto = GetSettingsDto(currentSettings);
+			var currentSettingsDto = GetSettingsDto(SettingsService.CurrentSettings);
 			var newSettingsDto = view.AskUserForSettings(currentSettingsDto);
 			if (newSettingsDto == null)
 			{
@@ -161,12 +166,16 @@ namespace DataTable.Net.Presenters.Impl
 
 			var newSettings = GetSettingsStorage(newSettingsDto);
 
-			log.InfoFormat(InternalResources.ChangingSettingsFromTo, currentSettings, newSettings);
+			log.InfoFormat(InternalResources.ChangingSettingsFromTo, SettingsService.CurrentSettings, newSettings);
 			view.SetStatus(Resources.SavingSettingsStatus);
 			view.GoToWaitMode();
 
 			var loadRecentFilesTask = Task<IEnumerable<RecentFileDto>>
-				.Create(RecentFilesService.GetRecentFiles)
+				.Create(() =>
+				        {
+				        	RecentFilesService.SetSize(SettingsService.CurrentSettings.RecentFilesCount);
+				        	return RecentFilesService.GetRecentFiles();
+				        })
 				.RunOnSuccess(recentFiles => view.SetRecentFiles(recentFiles))
 				.RunOnError(exception =>
 				            {
@@ -174,8 +183,8 @@ namespace DataTable.Net.Presenters.Impl
 				            	var message = string.Format(Resources.FailedToLoadRecentFiles, exception.Message);
 				            	view.ShowError(message);
 				            });
-			Task<SettingsStorage>
-				.Create(() => SettingsService.SaveSettings(currentSettings, newSettings))
+			Task
+				.Create(() => SettingsService.SaveSettings(newSettings))
 				.WithContinuation(loadRecentFilesTask)
 				.RunOnSuccess(SaveSettingsSuccessCallback).RunOnError(SaveSettingErrorCallback)
 				.Start();
@@ -272,10 +281,8 @@ namespace DataTable.Net.Presenters.Impl
 
 		#region Service callbacks
 
-		private void LoadSettingsSuccessCallback(SettingsStorage loadedSettings)
+		private void LoadSettingsSuccessCallback()
 		{
-			currentSettings = loadedSettings;
-
 			log.Info(InternalResources.SettingsLoadingFinished);
 			view.SetStatus(Resources.ReadyStatus);
 			view.EnableSettingsDependentControls();
@@ -297,12 +304,11 @@ namespace DataTable.Net.Presenters.Impl
 			view.EnableSettingsDependentControls();
 		}
 
-		private void SaveSettingsSuccessCallback(SettingsStorage savedSettings)
+		private void SaveSettingsSuccessCallback()
 		{
 			view.SetStatus(Resources.ReadyStatus);
 			view.GoToNormalMode();
 
-			currentSettings = savedSettings;
 			if (currentDataModel != null)
 			{
 				ReloadFile();
@@ -326,8 +332,8 @@ namespace DataTable.Net.Presenters.Impl
 
 			view.CreateColumns(
 				model.NumberOfArguments, model.NumberOfFunctions,
-				GetScaleDtos(model.CreateArgumentScales(currentSettings.MaxAbsoluteScalePower)),
-				GetScaleDtos(model.CreateFunctionScales(currentSettings.MaxAbsoluteScalePower)));
+				GetScaleDtos(model.CreateArgumentScales(SettingsService.CurrentSettings.MaxAbsoluteScalePower)),
+				GetScaleDtos(model.CreateFunctionScales(SettingsService.CurrentSettings.MaxAbsoluteScalePower)));
 			view.SetDataRowsCount(model.DataEntriesCount);
 			view.ShowFilePath(model.FilePath);
 			view.SetStatus(Resources.ReadyStatus);
@@ -448,8 +454,18 @@ namespace DataTable.Net.Presenters.Impl
 		{
 			view.SetStatus(Resources.LoadingFileStatus);
 			view.GoToWaitMode();
+
+			var addFileTask = Task
+				.Create(() => RecentFilesService.AddFile(filePath))
+				.RunOnError(exception =>
+				            {
+				            	log.Error(exception);
+				            	var message = string.Format(Resources.FailedToSaveFileInRecentFilesList, exception.Message);
+				            	view.ShowError(message);
+				            });
 			Task<DataModel>
 				.Create(() => DataService.LoadData(filePath, fullDataPropertiesDto))
+				.WithContinuation(addFileTask)
 				.RunOnSuccess(LoadDataSuccessCallback)
 				.RunOnError(LoadDataErrorCallback)
 				.Start();

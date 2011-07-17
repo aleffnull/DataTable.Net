@@ -8,21 +8,23 @@ namespace DataTable.Net.Services.Impl
 	{
 		#region ISettingsService implementation
 
-		public SettingsStorage LoadSettings()
+		public SettingsStorage CurrentSettings { get; private set; }
+
+		public void LoadSettings()
 		{
 			var settings = new SettingsStorage();
 			LoadConfigFileSettings(settings);
 			LoadRegistrySettings(settings);
 
-			return settings;
+			CurrentSettings = settings;
 		}
 
-		public SettingsStorage SaveSettings(SettingsStorage oldSettings, SettingsStorage newSettings)
+		public void SaveSettings(SettingsStorage newSettings)
 		{
 			SaveConfigFileSettings(newSettings);
-			SaveRegistrySettings(oldSettings, newSettings);
+			SaveRegistrySettings(CurrentSettings, newSettings);
 
-			return newSettings;
+			CurrentSettings = newSettings;
 		}
 
 		#endregion ISettingsService implementation

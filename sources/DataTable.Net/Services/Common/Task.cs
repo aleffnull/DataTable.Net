@@ -78,6 +78,12 @@ namespace DataTable.Net.Services.Common
 		}
 
 		#endregion Helpers
+
+		public Task WithContinuation(Task task)
+		{
+			Action.AddContinuation(task.Action);
+			return this;
+		}
 	}
 
 	internal class Task<T> : Task
@@ -111,7 +117,7 @@ namespace DataTable.Net.Services.Common
 			Action.Perform();
 		}
 
-		public Task<T> WithContinuation(Task task)
+		public new Task<T> WithContinuation(Task task)
 		{
 			Action.AddContinuation(task.Action);
 			return this;

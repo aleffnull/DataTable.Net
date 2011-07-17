@@ -284,10 +284,6 @@
     <value>Created FileAssociation object for '{0}' extension</value>
     <comment>0 is dotted extension</comment>
   </data>
-  <data name="FailedToCreateTypeKey" xml:space="preserve">
-    <value>Failed to create '{0}' type key</value>
-    <comment>0 is dotted extension</comment>
-  </data>
   <data name="SoftwareClasses" xml:space="preserve">
     <value>Software\Classes\{0}\</value>
     <comment>0 is key name</comment>
@@ -345,10 +341,22 @@
   <data name="FileIcon" xml:space="preserve">
     <value>file.ico</value>
   </data>
-	<data name="RecentFileDtoToStringFormat">
-		<value xml:space="preserve">{0} [{1}]</value>
-		<comment>
-			0 is file name. 1 is full path
-		</comment>
+  <data name="RecentFileDtoToStringFormat" xml:space="preserve">
+    <value>{0} [{1}]</value>
+    <comment>0 is file name. 1 is full path</comment>
+  </data>
+  <data name="FailedToSaveFileInRecentFilesList" xml:space="preserve">
+    <value>Не удалось сохранить файл в списке недавно открытых. {0}</value>
+    <comment>0 is exception message</comment>
+  </data>
+  <data name="ProgramName" xml:space="preserve">
+    <value>DataTable.Net</value>
+  </data>
+  <data name="SoftwareRecentFiles" xml:space="preserve">
+    <value>Software\{0}\RecentFiles</value>
+    <comment>0 is program name</comment>
+  </data>
+	<data name="SizeValueName">
+		<value xml:space="preserve">Size</value>
 	</data>
 </root>

@@ -322,11 +322,11 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed to create &apos;{0}&apos; type key.
+        ///   Looks up a localized string similar to Не удалось сохранить файл в списке недавно открытых. {0}.
         /// </summary>
-        internal static string FailedToCreateTypeKey {
+        internal static string FailedToSaveFileInRecentFilesList {
             get {
-                return ResourceManager.GetString("FailedToCreateTypeKey", resourceCulture);
+                return ResourceManager.GetString("FailedToSaveFileInRecentFilesList", resourceCulture);
             }
         }
         
@@ -547,6 +547,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DataTable.Net.
+        /// </summary>
+        internal static string ProgramName {
+            get {
+                return ResourceManager.GetString("ProgramName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} [{1}].
         /// </summary>
         internal static string RecentFileDtoToStringFormat {
@@ -646,11 +655,29 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Size.
+        /// </summary>
+        internal static string SizeValueName {
+            get {
+                return ResourceManager.GetString("SizeValueName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Software\Classes\{0}\.
         /// </summary>
         internal static string SoftwareClasses {
             get {
                 return ResourceManager.GetString("SoftwareClasses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Software\{0}\RecentFiles.
+        /// </summary>
+        internal static string SoftwareRecentFiles {
+            get {
+                return ResourceManager.GetString("SoftwareRecentFiles", resourceCulture);
             }
         }
         

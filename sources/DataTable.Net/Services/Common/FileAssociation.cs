@@ -7,12 +7,6 @@ namespace DataTable.Net.Services.Common
 {
 	public class FileAssociation
 	{
-		#region Constants
-
-		private const string TypePrefix = "DataTable.Net";
-
-		#endregion Constants
-
 		#region Fields
 
 		private static readonly ILog log = LogManager.GetLogger(typeof(FileAssociation));
@@ -94,7 +88,7 @@ namespace DataTable.Net.Services.Common
 			var extensionKey = Registry.CurrentUser.CreateSubKey(extensionKeyPath);
 			if (extensionKey == null)
 			{
-				throw new InvalidOperationException(string.Format(Resources.FailedToCreateKey, extensionKeyPath));
+				throw new InvalidOperationException(string.Format(Resources.FailedToCreateOrOpenKey, extensionKeyPath));
 			}
 
 			// Set extension key value (file type).
@@ -107,7 +101,7 @@ namespace DataTable.Net.Services.Common
 			var typeKey = Registry.CurrentUser.CreateSubKey(typeKeyPath);
 			if (typeKey == null)
 			{
-				throw new InvalidOperationException(string.Format(Resources.FailedToCreateKey, typeKeyPath));
+				throw new InvalidOperationException(string.Format(Resources.FailedToCreateOrOpenKey, typeKeyPath));
 			}
 
 			// Set open command.
@@ -116,7 +110,7 @@ namespace DataTable.Net.Services.Common
 			if (openCommandKey == null)
 			{
 				throw new InvalidOperationException(
-					string.Format(Resources.FailedToCreateKey, InternalResources.OpenCommandPath));
+					string.Format(Resources.FailedToCreateOrOpenKey, InternalResources.OpenCommandPath));
 			}
 
 			var openCommandValue = GetOpenCommandValue();
@@ -128,7 +122,7 @@ namespace DataTable.Net.Services.Common
 			if (defaultIconKey == null)
 			{
 				throw new InvalidOperationException(
-					string.Format(Resources.FailedToCreateKey, InternalResources.DefaultIcon));
+					string.Format(Resources.FailedToCreateOrOpenKey, InternalResources.DefaultIcon));
 			}
 			defaultIconKey.SetValue(null, GetDefaultIconValue());
 			defaultIconKey.Close();
@@ -187,7 +181,7 @@ namespace DataTable.Net.Services.Common
 
 		private string GetTypeName()
 		{
-			return string.Concat(TypePrefix, extension);
+			return string.Concat(InternalResources.ProgramName, extension);
 		}
 
 		private static string GetTypeKeyPath(string typeName)

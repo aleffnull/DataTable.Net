@@ -192,18 +192,22 @@
     <value>Не удалось сохранить настройки: {0}</value>
     <comment>0 is exception message</comment>
   </data>
-  <data name="FailedToCreateKey" xml:space="preserve">
-    <value>Не удалось создать ключ '{0}'</value>
+  <data name="FailedToCreateOrOpenKey" xml:space="preserve">
+    <value>Не удалось создать или открыть ключ '{0}'</value>
     <comment>0 is key path</comment>
   </data>
   <data name="FileTypeDescription" xml:space="preserve">
     <value>Бинарный файл DataTable.Net</value>
   </data>
-	<data name="FailedToLoadRecentFiles">
-		<value xml:space="preserve">Не удалось загрузить список последних файлов: {0}</value>
-		<comment>0 is error message</comment>
-	</data>
-	<data name="NoReferencesToRelease">
-		<value xml:space="preserve">Невозможно освободить ссылку, поскольку счетчик равен нулю</value>
-	</data>
+  <data name="FailedToLoadRecentFiles" xml:space="preserve">
+    <value>Не удалось загрузить список последних файлов: {0}</value>
+    <comment>0 is error message</comment>
+  </data>
+  <data name="NoReferencesToRelease" xml:space="preserve">
+    <value>Невозможно освободить ссылку, поскольку счетчик равен нулю</value>
+  </data>
+  <data name="FailedToSaveFileInRecentFilesList" xml:space="preserve">
+    <value>Не удалось сохранить файл в списке недавно открытых. {0}</value>
+    <comment>0 is error message</comment>
+  </data>
 </root>

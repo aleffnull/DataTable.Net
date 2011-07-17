@@ -4,7 +4,9 @@ namespace DataTable.Net.Services
 {
 	public interface ISettingsService
 	{
-		SettingsStorage LoadSettings();
-		SettingsStorage SaveSettings(SettingsStorage oldSettings, SettingsStorage newSettings);
+		SettingsStorage CurrentSettings { get; }
+
+		void LoadSettings();
+		void SaveSettings(SettingsStorage newSettings);
 	}
 }
