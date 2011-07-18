@@ -359,10 +359,8 @@
   <data name="CountValueName" xml:space="preserve">
     <value>Count</value>
   </data>
-	<data name="ItemValueName">
-		<value xml:space="preserve">Item{0}</value>
-		<comment>
-			0 is current item index
-		</comment>
-	</data>
+  <data name="ItemValueName" xml:space="preserve">
+    <value>Item{0}</value>
+    <comment>0 is current item index</comment>
+  </data>
 </root>
