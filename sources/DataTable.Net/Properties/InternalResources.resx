@@ -356,7 +356,13 @@
     <value>Software\{0}\RecentFiles</value>
     <comment>0 is program name</comment>
   </data>
-	<data name="SizeValueName">
-		<value xml:space="preserve">Size</value>
+  <data name="CountValueName" xml:space="preserve">
+    <value>Count</value>
+  </data>
+	<data name="ItemValueName">
+		<value xml:space="preserve">Item{0}</value>
+		<comment>
+			0 is current item index
+		</comment>
 	</data>
 </root>

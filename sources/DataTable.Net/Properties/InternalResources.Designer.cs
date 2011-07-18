@@ -169,6 +169,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Count.
+        /// </summary>
+        internal static string CountValueName {
+            get {
+                return ResourceManager.GetString("CountValueName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Created FileAssociation object for &apos;{0}&apos; extension.
         /// </summary>
         internal static string CreatedFileAssociation {
@@ -430,6 +439,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Item{0}.
+        /// </summary>
+        internal static string ItemValueName {
+            get {
+                return ResourceManager.GetString("ItemValueName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Key &apos;{0}&apos; doesn&apos;t exist.
         /// </summary>
         internal static string KeyNotExists {
@@ -651,15 +669,6 @@ namespace DataTable.Net.Properties {
         internal static string SettingsStorageToStringFormat {
             get {
                 return ResourceManager.GetString("SettingsStorageToStringFormat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Size.
-        /// </summary>
-        internal static string SizeValueName {
-            get {
-                return ResourceManager.GetString("SizeValueName", resourceCulture);
             }
         }
         

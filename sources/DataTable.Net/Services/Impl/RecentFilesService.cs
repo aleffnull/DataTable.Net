@@ -22,7 +22,7 @@ namespace DataTable.Net.Services.Impl
 
 		public void AddFile(string filePath)
 		{
-			buffer.AddFile(filePath);
+			buffer.AddItem(filePath);
 		}
 
 		public void SetSize(int size)
