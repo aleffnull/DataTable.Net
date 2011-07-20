@@ -210,4 +210,7 @@
     <value>Не удалось сохранить файл в списке недавно открытых. {0}</value>
     <comment>0 is error message</comment>
   </data>
+	<data name="ImpossibleToShrinkListToBiggerSize">
+		<value xml:space="preserve">Не возможно уменьшить список до большего размера</value>
+	</data>
 </root>

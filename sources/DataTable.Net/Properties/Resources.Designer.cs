@@ -214,6 +214,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Не возможно уменьшить список до большего размера.
+        /// </summary>
+        internal static string ImpossibleToShrinkListToBiggerSize {
+            get {
+                return ResourceManager.GetString("ImpossibleToShrinkListToBiggerSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Информация.
         /// </summary>
         internal static string InformationMessageTitle {
