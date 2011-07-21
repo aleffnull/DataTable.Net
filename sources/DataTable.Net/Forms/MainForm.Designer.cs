@@ -29,9 +29,9 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.MainMenu = new System.Windows.Forms.MenuStrip();
 			this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.OpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,6 +53,7 @@
 			this.DataGridView = new System.Windows.Forms.DataGridView();
 			this.ExportFileDialog = new System.Windows.Forms.SaveFileDialog();
 			this.MainToolBar = new System.Windows.Forms.ToolStrip();
+			this.OpenToolStripSplitButton = new System.Windows.Forms.ToolStripSplitButton();
 			this.ReloadToolStripButton = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.ExportToFileToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -62,7 +63,6 @@
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.AboutToolStripButton = new System.Windows.Forms.ToolStripButton();
 			this.MainToolStripContainer = new System.Windows.Forms.ToolStripContainer();
-			this.OpenToolStripSplitButton = new System.Windows.Forms.ToolStripSplitButton();
 			this.MainMenu.SuspendLayout();
 			this.StatusStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
@@ -227,35 +227,35 @@
 			this.DataGridView.AllowDrop = true;
 			this.DataGridView.AllowUserToAddRows = false;
 			this.DataGridView.AllowUserToDeleteRows = false;
-			dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			this.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.DataGridView.DefaultCellStyle = dataGridViewCellStyle14;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.DataGridView.DefaultCellStyle = dataGridViewCellStyle5;
 			this.DataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.DataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
 			this.DataGridView.Location = new System.Drawing.Point(0, 0);
 			this.DataGridView.Name = "DataGridView";
-			dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.DataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.DataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
 			this.DataGridView.Size = new System.Drawing.Size(617, 354);
 			this.DataGridView.TabIndex = 2;
 			this.DataGridView.VirtualMode = true;
@@ -286,8 +286,17 @@
 			this.MainToolBar.Location = new System.Drawing.Point(3, 0);
 			this.MainToolBar.Name = "MainToolBar";
 			this.MainToolBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-			this.MainToolBar.Size = new System.Drawing.Size(225, 25);
+			this.MainToolBar.Size = new System.Drawing.Size(194, 25);
 			this.MainToolBar.TabIndex = 3;
+			// 
+			// OpenToolStripSplitButton
+			// 
+			this.OpenToolStripSplitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.OpenToolStripSplitButton.Image = ((System.Drawing.Image)(resources.GetObject("OpenToolStripSplitButton.Image")));
+			this.OpenToolStripSplitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.OpenToolStripSplitButton.Name = "OpenToolStripSplitButton";
+			this.OpenToolStripSplitButton.Size = new System.Drawing.Size(32, 22);
+			this.OpenToolStripSplitButton.Click += new System.EventHandler(this.OpenToolStripSplitButton_Click);
 			// 
 			// ReloadToolStripButton
 			// 
@@ -389,15 +398,6 @@
 			// 
 			this.MainToolStripContainer.TopToolStripPanel.Controls.Add(this.MainToolBar);
 			this.MainToolStripContainer.TopToolStripPanel.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-			// 
-			// OpenToolStripSplitButton
-			// 
-			this.OpenToolStripSplitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.OpenToolStripSplitButton.Image = ((System.Drawing.Image)(resources.GetObject("OpenToolStripSplitButton.Image")));
-			this.OpenToolStripSplitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.OpenToolStripSplitButton.Name = "OpenToolStripSplitButton";
-			this.OpenToolStripSplitButton.Size = new System.Drawing.Size(32, 22);
-			this.OpenToolStripSplitButton.Click += new System.EventHandler(this.OpenToolStripSplitButton_Click);
 			// 
 			// MainForm
 			// 

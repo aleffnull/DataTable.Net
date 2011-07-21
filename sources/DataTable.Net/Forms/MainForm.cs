@@ -507,7 +507,12 @@ namespace DataTable.Net.Forms
 
 		private ToolStripMenuItem GetClearRecentFilesListMenuItem()
 		{
-			var menuItem = new ToolStripMenuItem(Resources.ClearList);
+			var resources = new ComponentResourceManager(typeof(MainForm));
+			var menuItem = new ToolStripMenuItem(Resources.ClearList)
+			               {
+			               	Image = ((System.Drawing.Image)(resources.GetObject("ClearRecentFilesListToolStripMenuItem.Image"))),
+			               	ShortcutKeys = Keys.Control | Keys.Shift | Keys.D
+			               };
 			menuItem.Click += ClearRecentFilesListToolStripMenuItem_Click;
 
 			return menuItem;
