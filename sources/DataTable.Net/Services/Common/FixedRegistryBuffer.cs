@@ -75,6 +75,11 @@ namespace DataTable.Net.Services.Common
 			key.Close();
 		}
 
+		public void Clear()
+		{
+			Registry.CurrentUser.DeleteSubKeyTree(KeyPath);
+		}
+
 		public void SetSize(int size)
 		{
 			if (size < currentSize)
@@ -154,7 +159,7 @@ namespace DataTable.Net.Services.Common
 			key.Close();
 		}
 
-		private static void Shrink(int newSize)
+		private void Shrink(int newSize)
 		{
 			var keyExists = KeyExists();
 			if (!keyExists)
@@ -171,7 +176,7 @@ namespace DataTable.Net.Services.Common
 				throw new InvalidOperationException(Resources.ImpossibleToShrinkListToBiggerSize);
 			}
 
-			Registry.CurrentUser.DeleteSubKeyTree(KeyPath);
+			Clear();
 			if (newSize > 0)
 			{
 				var shrinkedItems = new string[newSize];

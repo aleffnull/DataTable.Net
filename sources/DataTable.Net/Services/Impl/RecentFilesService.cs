@@ -25,6 +25,11 @@ namespace DataTable.Net.Services.Impl
 			buffer.AddItem(filePath);
 		}
 
+		public void Clear()
+		{
+			buffer.Clear();
+		}
+
 		public void SetSize(int size)
 		{
 			buffer.SetSize(size);

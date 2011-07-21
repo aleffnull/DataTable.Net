@@ -7,6 +7,7 @@ namespace DataTable.Net.Services
 	{
 		ICollection<RecentFileDto> GetRecentFiles();
 		void AddFile(string filePath);
+		void Clear();
 
 		void SetSize(int size);
 	}

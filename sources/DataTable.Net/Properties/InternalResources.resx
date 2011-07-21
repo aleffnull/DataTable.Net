@@ -359,4 +359,11 @@
     <value>Item{0}</value>
     <comment>0 is current item index</comment>
   </data>
+  <data name="ClearingRecentFilesList" xml:space="preserve">
+    <value>Clearing recent files list</value>
+  </data>
+  <data name="FailedToClearRecentFilesList" xml:space="preserve">
+    <value>Не удалось очистить список последних файлов. {0}</value>
+    <comment>0 is exception message</comment>
+  </data>
 </root>

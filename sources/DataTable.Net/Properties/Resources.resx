@@ -213,4 +213,10 @@
     <value>Не удалось загрузить список недавно открытых файлов. {0}</value>
     <comment>0 is exception message</comment>
   </data>
+	<data name="ClearList">
+		<value xml:space="preserve">Очистить список</value>
+	</data>
+	<data name="ClearingRecentFilesList">
+		<value xml:space="preserve">Очистка списка недавних файлов</value>
+	</data>
 </root>

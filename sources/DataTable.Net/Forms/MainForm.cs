@@ -199,15 +199,18 @@ namespace DataTable.Net.Forms
 		void IMainView.SetRecentFiles(ICollection<RecentFileDto> recentFiles)
 		{
 			ClearRecentFilesMenu();
-
 			if (recentFiles.Count == 0)
 			{
-				RecentFilesToolStripMenuItem.Enabled = false;
 				return;
 			}
 
 			RecentFilesToolStripMenuItem.Enabled = true;
 			PopulateRecentFilesMenu(recentFiles);
+		}
+
+		void IMainView.ClearRecentFiles()
+		{
+			ClearRecentFilesMenu();
 		}
 
 		void IMainView.Activate()
@@ -277,6 +280,11 @@ namespace DataTable.Net.Forms
 			var recentFileDto = (RecentFileDto)menuItem.Tag;
 
 			presenter.OnOpenFile(recentFileDto.FullPath);
+		}
+
+		private void ClearRecentFilesListToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			presenter.OnClearRecentFilesList();
 		}
 
 		private void ReloadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -467,20 +475,42 @@ namespace DataTable.Net.Forms
 				menuItem.Click -= RecentFileToolStripMenuItem_Click;
 			}
 			OpenToolStripSplitButton.DropDownItems.Clear();
+
+			RecentFilesToolStripMenuItem.Enabled = false;
 		}
 
 		private void PopulateRecentFilesMenu(IEnumerable<RecentFileDto> recentFiles)
 		{
 			foreach (var file in recentFiles)
 			{
-				var menuItem = new ToolStripMenuItem(file.ToString()) { Tag = file };
-				menuItem.Click += RecentFileToolStripMenuItem_Click;
+				var menuItem = GetFileMenuItem(file);
 				RecentFilesToolStripMenuItem.DropDownItems.Add(menuItem);
 
-				menuItem = new ToolStripMenuItem(file.ToString()) {Tag = file};
-				menuItem.Click += RecentFileToolStripMenuItem_Click;
+				menuItem = GetFileMenuItem(file);
 				OpenToolStripSplitButton.DropDownItems.Add(menuItem);
 			}
+
+			RecentFilesToolStripMenuItem.DropDownItems.Add(new ToolStripSeparator());
+			RecentFilesToolStripMenuItem.DropDownItems.Add(GetClearRecentFilesListMenuItem());
+
+			OpenToolStripSplitButton.DropDownItems.Add(new ToolStripSeparator());
+			OpenToolStripSplitButton.DropDownItems.Add(GetClearRecentFilesListMenuItem());
+		}
+
+		private ToolStripMenuItem GetFileMenuItem(RecentFileDto file)
+		{
+			var menuItem = new ToolStripMenuItem(file.ToString()) {Tag = file};
+			menuItem.Click += RecentFileToolStripMenuItem_Click;
+
+			return menuItem;
+		}
+
+		private ToolStripMenuItem GetClearRecentFilesListMenuItem()
+		{
+			var menuItem = new ToolStripMenuItem(Resources.ClearList);
+			menuItem.Click += ClearRecentFilesListToolStripMenuItem_Click;
+
+			return menuItem;
 		}
 
 		#endregion Helpers

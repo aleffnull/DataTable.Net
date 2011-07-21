@@ -160,6 +160,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clearing recent files list.
+        /// </summary>
+        internal static string ClearingRecentFilesList {
+            get {
+                return ResourceManager.GetString("ClearingRecentFilesList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to mailto:datatable.net@blackbox82.org.
         /// </summary>
         internal static string ContactEmailLink {
@@ -327,6 +336,15 @@ namespace DataTable.Net.Properties {
         internal static string ExtensionsSeparator {
             get {
                 return ResourceManager.GetString("ExtensionsSeparator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Не удалось очистить список последних файлов. {0}.
+        /// </summary>
+        internal static string FailedToClearRecentFilesList {
+            get {
+                return ResourceManager.GetString("FailedToClearRecentFilesList", resourceCulture);
             }
         }
         

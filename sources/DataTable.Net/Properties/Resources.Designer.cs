@@ -88,6 +88,24 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Очистка списка недавних файлов.
+        /// </summary>
+        internal static string ClearingRecentFilesList {
+            get {
+                return ResourceManager.GetString("ClearingRecentFilesList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Очистить список.
+        /// </summary>
+        internal static string ClearList {
+            get {
+                return ResourceManager.GetString("ClearList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ошибка данных: {0}..
         /// </summary>
         internal static string DataErrorMessage {

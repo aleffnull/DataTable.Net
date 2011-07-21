@@ -59,10 +59,10 @@ namespace DataTable.Net.Presenters.Impl
 
 		public void OnLoad()
 		{
+			log.Info(InternalResources.LoadingSettings);
+
 			view.DisableSettingsDependentControls();
 			view.DisableFileDependentControls();
-
-			log.Info(InternalResources.LoadingSettings);
 			view.SetStatus(Resources.LoadingSettingsStatus);
 
 			var loadRecentFilesTask = Task<ICollection<RecentFileDto>>
@@ -116,6 +116,20 @@ namespace DataTable.Net.Presenters.Impl
 
 			log.InfoFormat(InternalResources.GotDataProperties, coreDataPropertiesDto);
 			LoadFile(filePath, coreDataPropertiesDto);
+		}
+
+		public void OnClearRecentFilesList()
+		{
+			log.Info(InternalResources.ClearingRecentFilesList);
+
+			view.GoToWaitMode();
+			view.SetStatus(Resources.ClearingRecentFilesList);
+
+			Task
+				.Create(() => RecentFilesService.Clear())
+				.RunOnSuccess(ClearRecentFilesSuccessCallback)
+				.RunOnError(ClearRecentFilesErrorCallback)
+				.Start();
 		}
 
 		public void OnReloadFile()
@@ -360,6 +374,23 @@ namespace DataTable.Net.Presenters.Impl
 			currentDataModel = null;
 
 			var message = string.Format(Resources.DataLoadingFailedMessage, exception.Message);
+			view.ShowError(message);
+			view.SetStatus(Resources.ReadyStatus);
+			view.GoToNormalMode();
+		}
+
+		private void ClearRecentFilesSuccessCallback()
+		{
+			view.ClearRecentFiles();
+			view.SetStatus(Resources.ReadyStatus);
+			view.GoToNormalMode();
+		}
+
+		private void ClearRecentFilesErrorCallback(Exception exception)
+		{
+			log.Error(exception);
+
+			var message = string.Format(InternalResources.FailedToClearRecentFilesList, exception.Message);
 			view.ShowError(message);
 			view.SetStatus(Resources.ReadyStatus);
 			view.GoToNormalMode();
