@@ -61,6 +61,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adding item &apos;{0}&apos;.
+        /// </summary>
+        internal static string AddingItem {
+            get {
+                return ResourceManager.GetString("AddingItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Application closed.
         /// </summary>
         internal static string ApplicationClosed {
@@ -124,6 +133,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Buffer will exceed its size (count: {0}, current size: {1}).
+        /// </summary>
+        internal static string BufferWillExceedItsSize {
+            get {
+                return ResourceManager.GetString("BufferWillExceedItsSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BytesCount is not specified..
         /// </summary>
         internal static string BytesCountNotSpecified {
@@ -142,6 +160,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Changing buffer size from {0} to {1}.
+        /// </summary>
+        internal static string ChangingBufferSize {
+            get {
+                return ResourceManager.GetString("ChangingBufferSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Changing settings from &apos;{0}&apos; to &apos;{1}&apos;.
         /// </summary>
         internal static string ChangingSettingsFromTo {
@@ -156,6 +183,24 @@ namespace DataTable.Net.Properties {
         internal static string CheckingIfAssociationExists {
             get {
                 return ResourceManager.GetString("CheckingIfAssociationExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Checking existance of key &apos;{0}&apos;.
+        /// </summary>
+        internal static string CheckingKeyExistance {
+            get {
+                return ResourceManager.GetString("CheckingKeyExistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clearing the buffer.
+        /// </summary>
+        internal static string ClearingBuffer {
+            get {
+                return ResourceManager.GetString("ClearingBuffer", resourceCulture);
             }
         }
         
@@ -300,6 +345,15 @@ namespace DataTable.Net.Properties {
         internal static string DeletingKey {
             get {
                 return ResourceManager.GetString("DeletingKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exists.
+        /// </summary>
+        internal static string Exists {
+            get {
+                return ResourceManager.GetString("Exists", resourceCulture);
             }
         }
         
@@ -484,6 +538,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Item &apos;{0}&apos; already exists in the buffer.
+        /// </summary>
+        internal static string ItemAlreadyExists {
+            get {
+                return ResourceManager.GetString("ItemAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Item{0}.
         /// </summary>
         internal static string ItemValueName {
@@ -556,11 +619,47 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Buffer needs to be shrunk.
+        /// </summary>
+        internal static string NeedToShrunkBuffer {
+            get {
+                return ResourceManager.GetString("NeedToShrunkBuffer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New item duplicates the last one in the buffer.
+        /// </summary>
+        internal static string NewItemDuplicatesTheLastOne {
+            get {
+                return ResourceManager.GetString("NewItemDuplicatesTheLastOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Buffer doesn&apos;t exist in the registry.
+        /// </summary>
+        internal static string NoBufferInRegistry {
+            get {
+                return ResourceManager.GetString("NoBufferInRegistry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No data properties. Opening was canceled..
         /// </summary>
         internal static string NoDataPropertiesOpeningCanceled {
             get {
                 return ResourceManager.GetString("NoDataPropertiesOpeningCanceled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Doesn&apos;t exist.
+        /// </summary>
+        internal static string NotExists {
+            get {
+                return ResourceManager.GetString("NotExists", resourceCulture);
             }
         }
         
@@ -664,6 +763,24 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Removing duplicated item.
+        /// </summary>
+        internal static string RemovingDuplicatedItem {
+            get {
+                return ResourceManager.GetString("RemovingDuplicatedItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saving item.
+        /// </summary>
+        internal static string SavingItem {
+            get {
+                return ResourceManager.GetString("SavingItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ScaleString.
         /// </summary>
         internal static string ScaleDtoDisplayMember {
@@ -687,6 +804,15 @@ namespace DataTable.Net.Properties {
         internal static string ScaleDtoValueMember {
             get {
                 return ResourceManager.GetString("ScaleDtoValueMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Setting list of items.
+        /// </summary>
+        internal static string SettingItems {
+            get {
+                return ResourceManager.GetString("SettingItems", resourceCulture);
             }
         }
         
@@ -727,6 +853,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shrinking buffer to {0} items.
+        /// </summary>
+        internal static string ShrinkingBuffer {
+            get {
+                return ResourceManager.GetString("ShrinkingBuffer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Software\Classes\{0}\.
         /// </summary>
         internal static string SoftwareClasses {
@@ -750,6 +885,15 @@ namespace DataTable.Net.Properties {
         internal static string SyncContextControlToSendToField {
             get {
                 return ResourceManager.GetString("SyncContextControlToSendToField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current buffer size is zero.
+        /// </summary>
+        internal static string ZeroBufferSize {
+            get {
+                return ResourceManager.GetString("ZeroBufferSize", resourceCulture);
             }
         }
     }

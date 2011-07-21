@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DataTable.Net.Properties;
 using Microsoft.Win32;
+using log4net;
 
 namespace DataTable.Net.Services.Common
 {
@@ -9,6 +10,7 @@ namespace DataTable.Net.Services.Common
 	{
 		#region Fields
 
+		private static readonly ILog log = LogManager.GetLogger(typeof(FixedRegistryBuffer));
 		private static readonly string KeyPath = string.Format(
 			InternalResources.SoftwareRecentFiles, InternalResources.ProgramName);
 
@@ -35,8 +37,11 @@ namespace DataTable.Net.Services.Common
 
 		public void AddItem(string item)
 		{
+			log.DebugFormat(InternalResources.AddingItem, item);
+
 			if (currentSize == 0)
 			{
+				log.Debug(InternalResources.ZeroBufferSize);
 				return;
 			}
 
@@ -44,13 +49,18 @@ namespace DataTable.Net.Services.Common
 			var items = GetItems(key);
 			if (items.Contains(item))
 			{
+				log.DebugFormat(InternalResources.ItemAlreadyExists, item);
+
 				var lastItem = items[items.Count - 1];
 				if (string.Equals(item, lastItem))
 				{
+					log.Debug(InternalResources.NewItemDuplicatesTheLastOne);
 					key.Close();
+
 					return;
 				}
 
+				log.Debug(InternalResources.RemovingDuplicatedItem);
 				items.Remove(item);
 				key.Close();
 				SetItems(items);
@@ -61,12 +71,15 @@ namespace DataTable.Net.Services.Common
 
 			if (count + 1 > currentSize)
 			{
+				log.DebugFormat(InternalResources.BufferWillExceedItsSize, count, currentSize);
+
 				count = currentSize - 1;
 				key.Close();
 				Shrink(count);
 				key = GetKey();
 			}
 
+			log.Debug(InternalResources.SavingItem);
 			var itemValueName = string.Format(InternalResources.ItemValueName, count);
 			count++;
 			RegistryHelper.SetValue(key, itemValueName, item);
@@ -77,13 +90,17 @@ namespace DataTable.Net.Services.Common
 
 		public void Clear()
 		{
+			log.Debug(InternalResources.ClearingBuffer);
 			RegistryHelper.DeleteTree(KeyPath);
 		}
 
 		public void SetSize(int size)
 		{
+			log.DebugFormat(InternalResources.ChangingBufferSize, currentSize, size);
+
 			if (size < currentSize)
 			{
+				log.Debug(InternalResources.NeedToShrunkBuffer);
 				Shrink(size);
 			}
 			currentSize = size;
@@ -95,13 +112,18 @@ namespace DataTable.Net.Services.Common
 
 		private static bool KeyExists()
 		{
+			log.DebugFormat(InternalResources.CheckingKeyExistance, KeyPath);
+
 			var key = RegistryHelper.OpenKey(KeyPath);
 			if (key == null)
 			{
+				log.Debug(InternalResources.NotExists);
 				return false;
 			}
 
 			key.Close();
+			log.Debug(InternalResources.Exists);
+
 			return true;
 		}
 
@@ -148,6 +170,8 @@ namespace DataTable.Net.Services.Common
 
 		private static void SetItems(IList<string> items)
 		{
+			log.Debug(InternalResources.SettingItems);
+
 			var key = GetKey();
 			for (var index = 0; index < items.Count; index++)
 			{
@@ -161,9 +185,12 @@ namespace DataTable.Net.Services.Common
 
 		private void Shrink(int newSize)
 		{
+			log.DebugFormat(InternalResources.ShrinkingBuffer, newSize);
+
 			var keyExists = KeyExists();
 			if (!keyExists)
 			{
+				log.Debug(InternalResources.NoBufferInRegistry);
 				return;
 			}
 

@@ -388,4 +388,60 @@
 			0 is key, 1 is value name, 2 is value itself
 		</comment>
   </data>
+  <data name="AddingItem" xml:space="preserve">
+    <value>Adding item '{0}'</value>
+  </data>
+  <data name="ZeroBufferSize" xml:space="preserve">
+    <value>Current buffer size is zero</value>
+  </data>
+  <data name="ItemAlreadyExists" xml:space="preserve">
+    <value>Item '{0}' already exists in the buffer</value>
+  </data>
+  <data name="NewItemDuplicatesTheLastOne" xml:space="preserve">
+    <value>New item duplicates the last one in the buffer</value>
+  </data>
+	<data name="RemovingDuplicatedItem">
+		<value xml:space="preserve">Removing duplicated item</value>
+	</data>
+	<data name="BufferWillExceedItsSize">
+		<value xml:space="preserve">Buffer will exceed its size (count: {0}, current size: {1})</value>
+		<comment>
+			0 is items count, 1 is buffer size
+		</comment>
+	</data>
+	<data name="SavingItem">
+		<value xml:space="preserve">Saving item</value>
+	</data>
+	<data name="ClearingBuffer">
+		<value xml:space="preserve">Clearing the buffer</value>
+	</data>
+	<data name="ChangingBufferSize">
+		<value xml:space="preserve">Changing buffer size from {0} to {1}</value>
+		<comment>
+			0 is current size, 1 is new size
+		</comment>
+	</data>
+	<data name="NeedToShrunkBuffer">
+		<value xml:space="preserve">Buffer needs to be shrunk</value>
+	</data>
+	<data name="CheckingKeyExistance">
+		<value xml:space="preserve">Checking existance of key '{0}'</value>
+		<comment>0 is key path</comment>
+	</data>
+	<data name="NotExists">
+		<value xml:space="preserve">Doesn't exist</value>
+	</data>
+	<data name="Exists">
+		<value xml:space="preserve">Exists</value>
+	</data>
+	<data name="SettingItems">
+		<value xml:space="preserve">Setting list of items</value>
+	</data>
+	<data name="ShrinkingBuffer">
+		<value xml:space="preserve">Shrinking buffer to {0} items</value>
+		<comment>0 is new buffer size</comment>
+	</data>
+	<data name="NoBufferInRegistry">
+		<value xml:space="preserve">Buffer doesn't exist in the registry</value>
+	</data>
 </root>
