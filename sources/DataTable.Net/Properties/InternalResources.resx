@@ -366,4 +366,26 @@
     <value>Не удалось очистить список последних файлов. {0}</value>
     <comment>0 is exception message</comment>
   </data>
+  <data name="CreatingOrOpeningKey" xml:space="preserve">
+    <value>Creating or opening key '{0}'</value>
+    <comment>0 is key path</comment>
+  </data>
+  <data name="OpeningKeyReadOnly" xml:space="preserve">
+    <value>Opening key '{0}' as read-only</value>
+    <comment>0 is key path</comment>
+  </data>
+  <data name="GettingKeyValue" xml:space="preserve">
+    <value>Getting value of key '{0}' with name '{1}'</value>
+    <comment>0 is key path, 1 is value name</comment>
+  </data>
+  <data name="GotValue" xml:space="preserve">
+    <value>Got value '{0}'</value>
+    <comment>0 is key value</comment>
+  </data>
+  <data name="SettingKeyValue" xml:space="preserve">
+    <value>Setting value of key '{0}' with name '{1}' to '{2}'</value>
+    <comment>
+			0 is key, 1 is value name, 2 is value itself
+		</comment>
+  </data>
 </root>

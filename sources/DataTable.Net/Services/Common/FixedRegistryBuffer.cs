@@ -69,15 +69,15 @@ namespace DataTable.Net.Services.Common
 
 			var itemValueName = string.Format(InternalResources.ItemValueName, count);
 			count++;
-			key.SetValue(itemValueName, item);
-			key.SetValue(InternalResources.CountValueName, count);
+			RegistryHelper.SetValue(key, itemValueName, item);
+			RegistryHelper.SetValue(key, InternalResources.CountValueName, count);
 
 			key.Close();
 		}
 
 		public void Clear()
 		{
-			Registry.CurrentUser.DeleteSubKeyTree(KeyPath);
+			RegistryHelper.DeleteTree(KeyPath);
 		}
 
 		public void SetSize(int size)
@@ -95,7 +95,7 @@ namespace DataTable.Net.Services.Common
 
 		private static bool KeyExists()
 		{
-			var key = Registry.CurrentUser.OpenSubKey(KeyPath);
+			var key = RegistryHelper.OpenKey(KeyPath);
 			if (key == null)
 			{
 				return false;
@@ -107,7 +107,7 @@ namespace DataTable.Net.Services.Common
 
 		private static RegistryKey GetKey()
 		{
-			var key = Registry.CurrentUser.CreateSubKey(KeyPath);
+			var key = RegistryHelper.CreateSubKey(KeyPath);
 			if (key == null)
 			{
 				throw new InvalidOperationException(string.Format(Resources.FailedToCreateOrOpenKey, KeyPath));
@@ -118,7 +118,7 @@ namespace DataTable.Net.Services.Common
 
 		private static int GetCount(RegistryKey key)
 		{
-			var countObject = key.GetValue(InternalResources.CountValueName);
+			var countObject = RegistryHelper.GetValue(key, InternalResources.CountValueName);
 			var count = countObject == null
 			            	? 0
 			            	: (int)countObject;
@@ -128,7 +128,7 @@ namespace DataTable.Net.Services.Common
 		private static string GetItem(RegistryKey key, int index)
 		{
 			var itemValueName = string.Format(InternalResources.ItemValueName, index);
-			var item = (string)key.GetValue(itemValueName);
+			var item = (string)RegistryHelper.GetValue(key, itemValueName);
 
 			return item;
 		}
@@ -153,9 +153,9 @@ namespace DataTable.Net.Services.Common
 			{
 				var item = items[index];
 				var itemValueName = string.Format(InternalResources.ItemValueName, index);
-				key.SetValue(itemValueName, item);
+				RegistryHelper.SetValue(key, itemValueName, item);
 			}
-			key.SetValue(InternalResources.CountValueName, items.Count);
+			RegistryHelper.SetValue(key, InternalResources.CountValueName, items.Count);
 			key.Close();
 		}
 

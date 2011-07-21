@@ -196,6 +196,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Creating or opening key &apos;{0}&apos;.
+        /// </summary>
+        internal static string CreatingOrOpeningKey {
+            get {
+                return ResourceManager.GetString("CreatingOrOpeningKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current row index {0} is too big for row count {1}.
         /// </summary>
         internal static string CurrentRowIndexIsTooBigForRowCount {
@@ -385,6 +394,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Getting value of key &apos;{0}&apos; with name &apos;{1}&apos;.
+        /// </summary>
+        internal static string GettingKeyValue {
+            get {
+                return ResourceManager.GetString("GettingKeyValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Got data properties: {0}.
         /// </summary>
         internal static string GotDataProperties {
@@ -399,6 +417,15 @@ namespace DataTable.Net.Properties {
         internal static string GotFileFromCommandLine {
             get {
                 return ResourceManager.GetString("GotFileFromCommandLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Got value &apos;{0}&apos;.
+        /// </summary>
+        internal static string GotValue {
+            get {
+                return ResourceManager.GetString("GotValue", resourceCulture);
             }
         }
         
@@ -574,6 +601,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Opening key &apos;{0}&apos; as read-only.
+        /// </summary>
+        internal static string OpeningKeyReadOnly {
+            get {
+                return ResourceManager.GetString("OpeningKeyReadOnly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DataTable.Net.
         /// </summary>
         internal static string ProgramName {
@@ -651,6 +687,15 @@ namespace DataTable.Net.Properties {
         internal static string ScaleDtoValueMember {
             get {
                 return ResourceManager.GetString("ScaleDtoValueMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Setting value of key &apos;{0}&apos; with name &apos;{1}&apos; to &apos;{2}&apos;.
+        /// </summary>
+        internal static string SettingKeyValue {
+            get {
+                return ResourceManager.GetString("SettingKeyValue", resourceCulture);
             }
         }
         
