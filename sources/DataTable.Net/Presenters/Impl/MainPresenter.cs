@@ -65,7 +65,7 @@ namespace DataTable.Net.Presenters.Impl
 			log.Info(InternalResources.LoadingSettings);
 			view.SetStatus(Resources.LoadingSettingsStatus);
 
-			var loadRecentFilesTask = Task<IEnumerable<RecentFileDto>>
+			var loadRecentFilesTask = Task<ICollection<RecentFileDto>>
 				.Create(() =>
 				        {
 				        	RecentFilesService.SetSize(SettingsService.CurrentSettings.RecentFilesCount);
@@ -100,8 +100,22 @@ namespace DataTable.Net.Presenters.Impl
 				return;
 			}
 
+			OnOpenFile(filePath);
+		}
+
+		public void OnOpenFile(string filePath)
+		{
 			log.InfoFormat(InternalResources.OpeningFile, filePath);
-			OpenFile(filePath);
+
+			var coreDataPropertiesDto = view.AskUserForDataPropertiesDto();
+			if (coreDataPropertiesDto == null)
+			{
+				log.Info(InternalResources.NoDataPropertiesOpeningCanceled);
+				return;
+			}
+
+			log.InfoFormat(InternalResources.GotDataProperties, coreDataPropertiesDto);
+			LoadFile(filePath, coreDataPropertiesDto);
 		}
 
 		public void OnReloadFile()
@@ -170,7 +184,7 @@ namespace DataTable.Net.Presenters.Impl
 			view.SetStatus(Resources.SavingSettingsStatus);
 			view.GoToWaitMode();
 
-			var loadRecentFilesTask = Task<IEnumerable<RecentFileDto>>
+			var loadRecentFilesTask = Task<ICollection<RecentFileDto>>
 				.Create(() =>
 				        {
 				        	RecentFilesService.SetSize(SettingsService.CurrentSettings.RecentFilesCount);
@@ -273,7 +287,6 @@ namespace DataTable.Net.Presenters.Impl
 			 * that was the source of drag-n-drop operation. So we do a dummy action
 			 * in a separate thread and open file in callback executed in the UI thread.
 			 */
-			log.InfoFormat(InternalResources.OpenningDrapDroppedFile, filePath);
 			Task.Create(delegate { }).RunOnSuccess(() => OpenDragDroppedFile(filePath)).Start();
 		}
 
@@ -290,7 +303,7 @@ namespace DataTable.Net.Presenters.Impl
 			// Application is loaded. Open file, if needed.
 			if (!string.IsNullOrEmpty(fileToOpen))
 			{
-				OpenFile(fileToOpen);
+				OnOpenFile(fileToOpen);
 			}
 		}
 
@@ -415,23 +428,10 @@ namespace DataTable.Net.Presenters.Impl
 			return dtos;
 		}
 
-		private void OpenFile(string filePath)
-		{
-			var coreDataPropertiesDto = view.AskUserForDataPropertiesDto();
-			if (coreDataPropertiesDto == null)
-			{
-				log.Info(InternalResources.NoDataPropertiesOpeningCanceled);
-				return;
-			}
-
-			log.InfoFormat(InternalResources.GotDataProperties, coreDataPropertiesDto);
-			LoadFile(filePath, coreDataPropertiesDto);
-		}
-
 		private void OpenDragDroppedFile(string filePath)
 		{
 			view.Activate();
-			OpenFile(filePath);
+			OnOpenFile(filePath);
 		}
 
 		private void ReloadFile()
@@ -455,17 +455,22 @@ namespace DataTable.Net.Presenters.Impl
 			view.SetStatus(Resources.LoadingFileStatus);
 			view.GoToWaitMode();
 
-			var addFileTask = Task
-				.Create(() => RecentFilesService.AddFile(filePath))
+			var updateRecentFilesTask = Task<ICollection<RecentFileDto>>
+				.Create(() =>
+				        {
+				        	RecentFilesService.AddFile(filePath);
+				        	return RecentFilesService.GetRecentFiles();
+				        })
+				.RunOnSuccess(recentFiles => view.SetRecentFiles(recentFiles))
 				.RunOnError(exception =>
 				            {
 				            	log.Error(exception);
-				            	var message = string.Format(Resources.FailedToSaveFileInRecentFilesList, exception.Message);
+				            	var message = string.Format(Resources.FailedToUpdateRecentFilesList, exception.Message);
 				            	view.ShowError(message);
 				            });
 			Task<DataModel>
 				.Create(() => DataService.LoadData(filePath, fullDataPropertiesDto))
-				.WithContinuation(addFileTask)
+				.WithContinuation(updateRecentFilesTask)
 				.RunOnSuccess(LoadDataSuccessCallback)
 				.RunOnError(LoadDataErrorCallback)
 				.Start();

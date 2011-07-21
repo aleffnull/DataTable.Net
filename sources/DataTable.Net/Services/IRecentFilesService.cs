@@ -5,7 +5,7 @@ namespace DataTable.Net.Services
 {
 	public interface IRecentFilesService
 	{
-		IEnumerable<RecentFileDto> GetRecentFiles();
+		ICollection<RecentFileDto> GetRecentFiles();
 		void AddFile(string filePath);
 
 		void SetSize(int size);

@@ -196,9 +196,27 @@ namespace DataTable.Net.Forms
 			DataGridView.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
 		}
 
-		void IMainView.SetRecentFiles(IEnumerable<RecentFileDto> recentFiles)
+		void IMainView.SetRecentFiles(ICollection<RecentFileDto> recentFiles)
 		{
-			//
+			foreach (ToolStripItem menuItem in RecentFilesToolStripMenuItem.DropDownItems)
+			{
+				menuItem.Click -= RecentFileToolStripMenuItem_Click;
+			}
+			RecentFilesToolStripMenuItem.DropDownItems.Clear();
+
+			if (recentFiles.Count == 0)
+			{
+				RecentFilesToolStripMenuItem.Enabled = false;
+				return;
+			}
+
+			RecentFilesToolStripMenuItem.Enabled = true;
+			foreach (var file in recentFiles)
+			{
+				var menuItem = new ToolStripMenuItem(file.ToString()) {Tag = file};
+				menuItem.Click += RecentFileToolStripMenuItem_Click;
+				RecentFilesToolStripMenuItem.DropDownItems.Add(menuItem);
+			}
 		}
 
 		void IMainView.Activate()
@@ -260,6 +278,14 @@ namespace DataTable.Net.Forms
 		private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			presenter.OnOpenFile();
+		}
+
+		private void RecentFileToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var menuItem = (ToolStripMenuItem)sender;
+			var recentFileDto = (RecentFileDto)menuItem.Tag;
+
+			presenter.OnOpenFile(recentFileDto.FullPath);
 		}
 
 		private void ReloadToolStripMenuItem_Click(object sender, EventArgs e)

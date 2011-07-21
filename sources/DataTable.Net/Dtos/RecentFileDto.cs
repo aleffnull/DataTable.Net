@@ -1,22 +1,32 @@
-﻿using DataTable.Net.Properties;
+﻿using System.IO;
+using DataTable.Net.Properties;
 
 namespace DataTable.Net.Dtos
 {
 	public class RecentFileDto
 	{
+		#region Fields
+
+		private readonly string fileName;
+		private readonly string fullPath;
+
+		#endregion Fields
+
 		#region Properties
 
-		public string FileName { get; private set; }
-		public string FullPath { get; private set; }
+		public string FullPath
+		{
+			get { return fullPath; }
+		}
 
 		#endregion Properties
 
 		#region Constructors
 
-		public RecentFileDto(string fileName, string fullPath)
+		public RecentFileDto(string fullFileName)
 		{
-			FileName = fileName;
-			FullPath = fullPath;
+			fullPath = fullFileName;
+			fileName = Path.GetFileName(fullFileName);
 		}
 
 		#endregion Constructors
@@ -25,7 +35,7 @@ namespace DataTable.Net.Dtos
 
 		public override string ToString()
 		{
-			return string.Format(InternalResources.RecentFileDtoToStringFormat, FileName, FullPath);
+			return string.Format(InternalResources.RecentFileDtoToStringFormat, fileName, fullPath);
 		}
 
 		#endregion Object overrides

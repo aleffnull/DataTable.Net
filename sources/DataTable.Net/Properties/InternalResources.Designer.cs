@@ -556,15 +556,6 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Opening drag-n-dropped file &apos;{0}&apos;..
-        /// </summary>
-        internal static string OpenningDrapDroppedFile {
-            get {
-                return ResourceManager.GetString("OpenningDrapDroppedFile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to DataTable.Net.
         /// </summary>
         internal static string ProgramName {

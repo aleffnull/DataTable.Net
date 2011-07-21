@@ -21,7 +21,7 @@ namespace DataTable.Net.Views
 			int argumentsCount, int functionsCount,
 			IEnumerable<ScaleDto> argumentScales, IEnumerable<ScaleDto> functionScales);
 		void SetDataRowsCount(int rowsCount);
-		void SetRecentFiles(IEnumerable<RecentFileDto> recentFiles);
+		void SetRecentFiles(ICollection<RecentFileDto> recentFiles);
 
 		void Activate();
 

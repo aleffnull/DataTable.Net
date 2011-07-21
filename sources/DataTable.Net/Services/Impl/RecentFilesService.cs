@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using DataTable.Net.Dtos;
 using DataTable.Net.Services.Common;
 
@@ -15,9 +14,10 @@ namespace DataTable.Net.Services.Impl
 
 		#region IRecentFilesService implementation
 
-		public IEnumerable<RecentFileDto> GetRecentFiles()
+		public ICollection<RecentFileDto> GetRecentFiles()
 		{
-			return new List<RecentFileDto>();
+			var dtos = GetRecentFileDtos(buffer.Items);
+			return dtos;
 		}
 
 		public void AddFile(string filePath)
@@ -34,18 +34,12 @@ namespace DataTable.Net.Services.Impl
 
 		#region Helpers
 
-		private static IEnumerable<RecentFileDto> GetRecentFileDtos(ICollection<string> files)
+		private static ICollection<RecentFileDto> GetRecentFileDtos(IEnumerable<string> files)
 		{
-			if (files.Count == 0)
-			{
-				return new List<RecentFileDto>();
-			}
-
 			var dtos = new List<RecentFileDto>();
 			foreach (var file in files)
 			{
-				var fileName = Path.GetFileName(file);
-				var dto = new RecentFileDto(fileName, file);
+				var dto = new RecentFileDto(file);
 				dtos.Add(dto);
 			}
 

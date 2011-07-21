@@ -169,7 +169,7 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Не удалось загрузить список последних файлов: {0}.
+        ///   Looks up a localized string similar to Не удалось загрузить список недавно открытых файлов. {0}.
         /// </summary>
         internal static string FailedToLoadRecentFiles {
             get {
@@ -178,11 +178,11 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Не удалось сохранить файл в списке недавно открытых. {0}.
+        ///   Looks up a localized string similar to Не удалось обновить список недавно открытых файлов. {0}.
         /// </summary>
-        internal static string FailedToSaveFileInRecentFilesList {
+        internal static string FailedToUpdateRecentFilesList {
             get {
-                return ResourceManager.GetString("FailedToSaveFileInRecentFilesList", resourceCulture);
+                return ResourceManager.GetString("FailedToUpdateRecentFilesList", resourceCulture);
             }
         }
         

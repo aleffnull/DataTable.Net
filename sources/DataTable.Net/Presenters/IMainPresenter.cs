@@ -7,6 +7,7 @@ namespace DataTable.Net.Presenters
 	{
 		void OnLoad();
 		void OnOpenFile();
+		void OnOpenFile(string filePath);
 		void OnReloadFile();
 		void OnExportToFile();
 		void OnExportToExcel();
