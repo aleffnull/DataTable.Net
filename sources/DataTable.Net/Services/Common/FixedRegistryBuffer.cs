@@ -35,16 +35,29 @@ namespace DataTable.Net.Services.Common
 
 		public void AddItem(string item)
 		{
-			var key = GetKey();
-			var count = GetCount(key);
-			var lastItem = count == 0
-			               	? null
-			               	: GetItem(key, count - 1);
-			if (lastItem != null && string.Equals(item, lastItem))
+			if (currentSize == 0)
 			{
-				key.Close();
 				return;
 			}
+
+			var key = GetKey();
+			var items = GetItems(key);
+			if (items.Contains(item))
+			{
+				var lastItem = items[items.Count - 1];
+				if (string.Equals(item, lastItem))
+				{
+					key.Close();
+					return;
+				}
+
+				items.Remove(item);
+				key.Close();
+				SetItems(items);
+			}
+
+			key = GetKey();
+			var count = GetCount(key);
 
 			if (count + 1 > currentSize)
 			{
@@ -128,6 +141,19 @@ namespace DataTable.Net.Services.Common
 			return items;
 		}
 
+		private static void SetItems(IList<string> items)
+		{
+			var key = GetKey();
+			for (var index = 0; index < items.Count; index++)
+			{
+				var item = items[index];
+				var itemValueName = string.Format(InternalResources.ItemValueName, index);
+				key.SetValue(itemValueName, item);
+			}
+			key.SetValue(InternalResources.CountValueName, items.Count);
+			key.Close();
+		}
+
 		private static void Shrink(int newSize)
 		{
 			var keyExists = KeyExists();
@@ -145,19 +171,13 @@ namespace DataTable.Net.Services.Common
 				throw new InvalidOperationException(Resources.ImpossibleToShrinkListToBiggerSize);
 			}
 
-			var shrinkedItems = new string[newSize];
-			items.CopyTo(items.Count - newSize, shrinkedItems, 0, newSize);
-
 			Registry.CurrentUser.DeleteSubKeyTree(KeyPath);
-			key = GetKey();
-			for (var index = 0; index < shrinkedItems.Length; index++)
+			if (newSize > 0)
 			{
-				var item = shrinkedItems[index];
-				var itemValueName = string.Format(InternalResources.ItemValueName, index);
-				key.SetValue(itemValueName, item);
+				var shrinkedItems = new string[newSize];
+				items.CopyTo(items.Count - newSize, shrinkedItems, 0, newSize);
+				SetItems(shrinkedItems);
 			}
-			key.SetValue(InternalResources.CountValueName, shrinkedItems.Length);
-			key.Close();
 		}
 
 		#endregion Helpers
