@@ -53,25 +53,25 @@ namespace DataTable.Net.Forms
 		void IMainView.DisableSettingsDependentControls()
 		{
 			OpenToolStripMenuItem.Enabled = false;
-			OpenToolStripButton.Enabled = false;
+			OpenToolStripSplitButton.Enabled = false;
 		}
 
 		void IMainView.EnableSettingsDependentControls()
 		{
 			OpenToolStripMenuItem.Enabled = true;
-			OpenToolStripButton.Enabled = true;
+			OpenToolStripSplitButton.Enabled = true;
 		}
 
 		void IMainView.DisableRecentFilesDependentControls()
 		{
 			OpenToolStripMenuItem.Enabled = false;
-			OpenToolStripButton.Enabled = false;
+			OpenToolStripSplitButton.Enabled = false;
 		}
 
 		void IMainView.EnableRecentFilesDependentControls()
 		{
 			OpenToolStripMenuItem.Enabled = true;
-			OpenToolStripButton.Enabled = true;
+			OpenToolStripSplitButton.Enabled = true;
 		}
 
 		string IMainView.AskUserForFileToOpen()
@@ -198,11 +198,7 @@ namespace DataTable.Net.Forms
 
 		void IMainView.SetRecentFiles(ICollection<RecentFileDto> recentFiles)
 		{
-			foreach (ToolStripItem menuItem in RecentFilesToolStripMenuItem.DropDownItems)
-			{
-				menuItem.Click -= RecentFileToolStripMenuItem_Click;
-			}
-			RecentFilesToolStripMenuItem.DropDownItems.Clear();
+			ClearRecentFilesMenu();
 
 			if (recentFiles.Count == 0)
 			{
@@ -211,12 +207,7 @@ namespace DataTable.Net.Forms
 			}
 
 			RecentFilesToolStripMenuItem.Enabled = true;
-			foreach (var file in recentFiles)
-			{
-				var menuItem = new ToolStripMenuItem(file.ToString()) {Tag = file};
-				menuItem.Click += RecentFileToolStripMenuItem_Click;
-				RecentFilesToolStripMenuItem.DropDownItems.Add(menuItem);
-			}
+			PopulateRecentFilesMenu(recentFiles);
 		}
 
 		void IMainView.Activate()
@@ -322,7 +313,7 @@ namespace DataTable.Net.Forms
 
 		#region Toolbar
 
-		private void OpenToolStripButton_Click(object sender, EventArgs e)
+		private void OpenToolStripSplitButton_Click(object sender, EventArgs e)
 		{
 			presenter.OnOpenFile();
 		}
@@ -460,5 +451,38 @@ namespace DataTable.Net.Forms
 		#endregion Grid
 
 		#endregion Event handlers
+
+		#region Helpers
+
+		private void ClearRecentFilesMenu()
+		{
+			foreach (ToolStripItem menuItem in RecentFilesToolStripMenuItem.DropDownItems)
+			{
+				menuItem.Click -= RecentFileToolStripMenuItem_Click;
+			}
+			RecentFilesToolStripMenuItem.DropDownItems.Clear();
+
+			foreach (ToolStripItem menuItem in OpenToolStripSplitButton.DropDownItems)
+			{
+				menuItem.Click -= RecentFileToolStripMenuItem_Click;
+			}
+			OpenToolStripSplitButton.DropDownItems.Clear();
+		}
+
+		private void PopulateRecentFilesMenu(IEnumerable<RecentFileDto> recentFiles)
+		{
+			foreach (var file in recentFiles)
+			{
+				var menuItem = new ToolStripMenuItem(file.ToString()) { Tag = file };
+				menuItem.Click += RecentFileToolStripMenuItem_Click;
+				RecentFilesToolStripMenuItem.DropDownItems.Add(menuItem);
+
+				menuItem = new ToolStripMenuItem(file.ToString()) {Tag = file};
+				menuItem.Click += RecentFileToolStripMenuItem_Click;
+				OpenToolStripSplitButton.DropDownItems.Add(menuItem);
+			}
+		}
+
+		#endregion Helpers
 	}
 }
