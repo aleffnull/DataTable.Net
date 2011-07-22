@@ -23,14 +23,14 @@ namespace DataTable.Net.Services.Common
 				log.Debug(InternalResources.CheckingIfAssociationExists);
 
 				var extensionKeyPath = GetExtensionKeyPath();
-				var extensionKey = Registry.CurrentUser.OpenSubKey(extensionKeyPath);
+				var extensionKey = RegistryHelper.OpenKey(extensionKeyPath);
 				if (extensionKey == null)
 				{
 					log.DebugFormat(InternalResources.KeyNotExists, extensionKeyPath);
 					return false;
 				}
 
-				var typeName = (string)extensionKey.GetValue(null);
+				var typeName = (string)RegistryHelper.GetValue(extensionKey, null);
 				if (string.IsNullOrEmpty(typeName))
 				{
 					log.DebugFormat(InternalResources.KeyValueIsNullOrEmpty, extensionKeyPath);
@@ -38,14 +38,14 @@ namespace DataTable.Net.Services.Common
 				}
 
 				var openCommandPath = GetOpenCommandPath(typeName);
-				var openCommandKey = Registry.CurrentUser.OpenSubKey(openCommandPath);
+				var openCommandKey = RegistryHelper.OpenKey(openCommandPath);
 				if (openCommandKey == null)
 				{
 					log.DebugFormat(InternalResources.KeyNotExists, openCommandPath);
 					return false;
 				}
 
-				var openCommand = (string)openCommandKey.GetValue(null);
+				var openCommand = (string)RegistryHelper.GetValue(openCommandKey, null);
 				if (string.IsNullOrEmpty(openCommand))
 				{
 					log.DebugFormat(InternalResources.KeyValueIsNullOrEmpty, openCommandPath);
@@ -85,7 +85,7 @@ namespace DataTable.Net.Services.Common
 
 			// Create extension key.
 			var extensionKeyPath = GetExtensionKeyPath();
-			var extensionKey = Registry.CurrentUser.CreateSubKey(extensionKeyPath);
+			var extensionKey = RegistryHelper.CreateSubKey(extensionKeyPath);
 			if (extensionKey == null)
 			{
 				throw new InvalidOperationException(string.Format(Resources.FailedToCreateOrOpenKey, extensionKeyPath));
@@ -93,12 +93,12 @@ namespace DataTable.Net.Services.Common
 
 			// Set extension key value (file type).
 			var typeName = GetTypeName();
-			extensionKey.SetValue(null, typeName);
+			RegistryHelper.SetValue(extensionKey, null, typeName);
 			extensionKey.Close();
 
 			// Create file type key.
 			var typeKeyPath = GetTypeKeyPath(typeName);
-			var typeKey = Registry.CurrentUser.CreateSubKey(typeKeyPath);
+			var typeKey = RegistryHelper.CreateSubKey(typeKeyPath);
 			if (typeKey == null)
 			{
 				throw new InvalidOperationException(string.Format(Resources.FailedToCreateOrOpenKey, typeKeyPath));
@@ -118,17 +118,17 @@ namespace DataTable.Net.Services.Common
 			openCommandKey.Close();
 
 			// Set file icon.
-			var defaultIconKey = typeKey.CreateSubKey(InternalResources.DefaultIcon);
+			var defaultIconKey = RegistryHelper.CreateSubKey(typeKey, InternalResources.DefaultIcon);
 			if (defaultIconKey == null)
 			{
 				throw new InvalidOperationException(
 					string.Format(Resources.FailedToCreateOrOpenKey, InternalResources.DefaultIcon));
 			}
-			defaultIconKey.SetValue(null, GetDefaultIconValue());
+			RegistryHelper.SetValue(defaultIconKey, null, GetDefaultIconValue());
 			defaultIconKey.Close();
-
 			typeKey.Close();
 
+			log.Debug(InternalResources.SendingShellNotification);
 			ShellNotification.NotifyOfChange();
 		}
 
@@ -137,14 +137,14 @@ namespace DataTable.Net.Services.Common
 			log.Debug(InternalResources.RemovingAssociation);
 
 			var extensionKeyPath = GetExtensionKeyPath();
-			var extensionKey = Registry.CurrentUser.OpenSubKey(extensionKeyPath);
+			var extensionKey = RegistryHelper.OpenKey(extensionKeyPath);
 			if (extensionKey == null)
 			{
 				log.DebugFormat(InternalResources.KeyNotExists, extensionKeyPath);
 				return;
 			}
 
-			var typeName = (string)extensionKey.GetValue(null);
+			var typeName = (string)RegistryHelper.GetValue(extensionKey, null);
 			if (string.IsNullOrEmpty(typeName))
 			{
 				log.DebugFormat(InternalResources.KeyValueIsNullOrEmpty, extensionKeyPath);
@@ -152,21 +152,19 @@ namespace DataTable.Net.Services.Common
 			else
 			{
 				var typeKeyPath = GetTypeKeyPath(typeName);
-				var typeKey = Registry.CurrentUser.OpenSubKey(typeKeyPath);
+				var typeKey = RegistryHelper.OpenKey(typeKeyPath);
 				if (typeKey == null)
 				{
 					log.DebugFormat(InternalResources.KeyNotExists, typeKeyPath);
 				}
 				else
 				{
-					log.DebugFormat(InternalResources.DeletingKey, typeKeyPath);
-					Registry.CurrentUser.DeleteSubKeyTree(typeKeyPath);
+					RegistryHelper.DeleteTree(typeKeyPath);
 				}
 			}
+			RegistryHelper.DeleteTree(extensionKeyPath);
 
-			log.DebugFormat(InternalResources.DeletingKey, extensionKeyPath);
-			Registry.CurrentUser.DeleteSubKey(extensionKeyPath);
-
+			log.Debug(InternalResources.SendingShellNotification);
 			ShellNotification.NotifyOfChange();
 		}
 

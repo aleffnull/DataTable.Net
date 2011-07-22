@@ -444,4 +444,13 @@
 	<data name="NoBufferInRegistry">
 		<value xml:space="preserve">Buffer doesn't exist in the registry</value>
 	</data>
+	<data name="CreatingOrOpeningSubkey">
+		<value xml:space="preserve">Creating and opening subkey '{0}' for key '{1}'</value>
+		<comment>
+			0 is subkey path, 1 is key itself
+		</comment>
+	</data>
+	<data name="SendingShellNotification">
+		<value xml:space="preserve">Sending shell notification</value>
+	</data>
 </root>

@@ -250,6 +250,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Creating and opening subkey &apos;{0}&apos; for key &apos;{1}&apos;.
+        /// </summary>
+        internal static string CreatingOrOpeningSubkey {
+            get {
+                return ResourceManager.GetString("CreatingOrOpeningSubkey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current row index {0} is too big for row count {1}.
         /// </summary>
         internal static string CurrentRowIndexIsTooBigForRowCount {
@@ -804,6 +813,15 @@ namespace DataTable.Net.Properties {
         internal static string ScaleDtoValueMember {
             get {
                 return ResourceManager.GetString("ScaleDtoValueMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sending shell notification.
+        /// </summary>
+        internal static string SendingShellNotification {
+            get {
+                return ResourceManager.GetString("SendingShellNotification", resourceCulture);
             }
         }
         

@@ -20,6 +20,12 @@ namespace DataTable.Net.Services.Common
 			return Registry.CurrentUser.CreateSubKey(path);
 		}
 
+		public static RegistryKey CreateSubKey(RegistryKey key, string path)
+		{
+			log.DebugFormat(InternalResources.CreatingOrOpeningSubkey, path, key);
+			return Registry.CurrentUser.CreateSubKey(path);
+		}
+
 		public static RegistryKey OpenKey(string path)
 		{
 			log.DebugFormat(InternalResources.OpeningKeyReadOnly, path);
