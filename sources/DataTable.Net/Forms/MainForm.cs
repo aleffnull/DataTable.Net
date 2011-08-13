@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Windows.Forms;
 using DataTable.Net.Dtos;
 using DataTable.Net.Models;
@@ -191,7 +192,7 @@ namespace DataTable.Net.Forms
 
 			for (var i = 1; i < rowsCount + 1; i++)
 			{
-				DataGridView.Rows[i].HeaderCell.Value = i.ToString();
+				DataGridView.Rows[i].HeaderCell.Value = i.ToString(CultureInfo.CurrentCulture);
 			}
 			DataGridView.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders);
 		}

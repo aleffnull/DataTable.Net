@@ -1,3 +1,4 @@
+using System.Globalization;
 using DataTable.Net.Models;
 using DataTable.Net.Properties;
 
@@ -57,14 +58,14 @@ namespace DataTable.Net.Dtos
 				var argumentScalesStringArray = new string[ArgumentScales.Length];
 				for (var i = 0; i < ArgumentScales.Length; i++ )
 				{
-					argumentScalesStringArray[i] = ArgumentScales[i].ToString();
+					argumentScalesStringArray[i] = ArgumentScales[i].ToString(CultureInfo.CurrentCulture);
 				}
 				var argumentScalesString = string.Join(", ", argumentScalesStringArray);
 
 				var functionScalesStringArray = new string[FunctionScales.Length];
 				for (var i = 0; i < FunctionScales.Length; i++)
 				{
-					functionScalesStringArray[i] = FunctionScales[i].ToString();
+					functionScalesStringArray[i] = FunctionScales[i].ToString(CultureInfo.CurrentCulture);
 				}
 				var fucntionScalesString = string.Join(", ", functionScalesStringArray);
 

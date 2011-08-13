@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using DataTable.Net.Dtos;
 using DataTable.Net.Exceptions;
@@ -245,12 +246,12 @@ namespace DataTable.Net.Services.Impl
 				}
 				for (var argumentIndex = 0; argumentIndex < dataModel.NumberOfArguments; argumentIndex++)
 				{
-					var value = dataModel.GetHumanArgument(argumentIndex, dataEntryIndex).ToString();
+					var value = dataModel.GetHumanArgument(argumentIndex, dataEntryIndex).ToString(CultureInfo.CurrentCulture);
 					lineList.Add(value);
 				}
 				for (var functionIndex = 0; functionIndex < dataModel.NumberOfFunctions; functionIndex++)
 				{
-					var value = dataModel.GetHumanFunction(functionIndex, dataEntryIndex).ToString();
+					var value = dataModel.GetHumanFunction(functionIndex, dataEntryIndex).ToString(CultureInfo.CurrentCulture);
 					lineList.Add(value);
 				}
 				dataLineAction(lineList);

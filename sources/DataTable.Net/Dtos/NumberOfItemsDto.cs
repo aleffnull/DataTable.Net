@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace DataTable.Net.Dtos
 {
 	public class NumberOfItemsDto
@@ -12,7 +14,7 @@ namespace DataTable.Net.Dtos
 
 		public override string ToString()
 		{
-			return Count.ToString();
+			return Count.ToString(CultureInfo.CurrentCulture);
 		}
 
 		#endregion Object overrides

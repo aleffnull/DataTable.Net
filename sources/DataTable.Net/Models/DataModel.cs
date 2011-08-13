@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using DataTable.Net.Dtos;
 using DataTable.Net.Properties;
@@ -163,7 +164,7 @@ namespace DataTable.Net.Models
 			var stringBuilder = new StringBuilder();
 			foreach (var oneByte in bytes)
 			{
-				stringBuilder.Insert(0, oneByte.ToString(InternalResources.ByteToHexFormat));
+				stringBuilder.Insert(0, oneByte.ToString(InternalResources.ByteToHexFormat, CultureInfo.CurrentCulture));
 			}
 
 			return stringBuilder.ToString();
