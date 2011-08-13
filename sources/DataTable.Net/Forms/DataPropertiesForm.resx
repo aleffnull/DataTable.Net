@@ -117,7 +117,219 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;ArithmeticTypeLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;NumberOfFunctionsLabel.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;ArgumentsTypeLabel.Name" xml:space="preserve">
+    <value>ArgumentsTypeLabel</value>
+  </data>
+  <data name="&gt;&gt;NumberOfFuntionsComboBox.Name" xml:space="preserve">
+    <value>NumberOfFuntionsComboBox</value>
+  </data>
+  <data name="&gt;&gt;FunctionsTypeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="OkButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="FunctionsTypeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="NumberOfArgumentsComboBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="FunctionsTypeComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>195, 89</value>
+  </data>
+  <data name="CancellationButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 173</value>
+  </data>
+  <data name="NumberOfArgumentsComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 21</value>
+  </data>
+  <data name="OkButton.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="NumberOfArgumentsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 9</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>DataPropertiesForm</value>
+  </data>
+  <data name="&gt;&gt;NumberOfFunctionsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FunctionsTypeComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="NumberOfFuntionsComboBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;FunctionsTypeComboBox.Name" xml:space="preserve">
+    <value>FunctionsTypeComboBox</value>
+  </data>
+  <data name="FunctionsTypeLabel.Text" xml:space="preserve">
+    <value>Тип значений функций:</value>
+  </data>
+  <data name="&gt;&gt;ArgumentsTypeComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="NumberOfArgumentsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 13</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="&gt;&gt;OkButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;NumberOfArgumentsLabel.Name" xml:space="preserve">
+    <value>NumberOfArgumentsLabel</value>
+  </data>
+  <data name="ArithmeticTypeComboBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="ArithmeticTypeComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 21</value>
+  </data>
+  <data name="FunctionsTypeComboBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;NumberOfFuntionsComboBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="OkButton.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="NumberOfArgumentsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="CancellationButton.Text" xml:space="preserve">
+    <value>О&amp;тмена</value>
+  </data>
+  <data name="NumberOfFunctionsLabel.Text" xml:space="preserve">
+    <value>Количество функций:</value>
+  </data>
+  <data name="&gt;&gt;ArithmeticTypeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ArgumentsTypeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 64</value>
+  </data>
+  <data name="&gt;&gt;FunctionsTypeComboBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;NumberOfArgumentsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ArithmeticTypeComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="NumberOfArgumentsComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>195, 6</value>
+  </data>
+  <data name="NumberOfArgumentsLabel.Text" xml:space="preserve">
+    <value>Количество аргументов функций:</value>
+  </data>
+  <data name="&gt;&gt;OkButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;NumberOfArgumentsComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="NumberOfFunctionsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 13</value>
+  </data>
+  <data name="OkButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="&gt;&gt;ArgumentsTypeLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="ArithmeticTypeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 13</value>
+  </data>
+  <data name="&gt;&gt;NumberOfFuntionsComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OkButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>191, 173</value>
+  </data>
+  <data name="FunctionsTypeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 92</value>
+  </data>
+  <data name="ArithmeticTypeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 119</value>
+  </data>
+  <data name="&gt;&gt;NumberOfArgumentsComboBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="NumberOfFunctionsLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="NumberOfArgumentsLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;CancellationButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ArgumentsTypeComboBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="FunctionsTypeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 13</value>
+  </data>
+  <data name="NumberOfFuntionsComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>195, 33</value>
+  </data>
+  <data name="ArithmeticTypeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="NumberOfFuntionsComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="NumberOfFunctionsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;ArithmeticTypeComboBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="NumberOfFuntionsComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 21</value>
+  </data>
+  <data name="&gt;&gt;OkButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;NumberOfArgumentsComboBox.Name" xml:space="preserve">
+    <value>NumberOfArgumentsComboBox</value>
+  </data>
+  <data name="&gt;&gt;ArithmeticTypeLabel.Name" xml:space="preserve">
+    <value>ArithmeticTypeLabel</value>
+  </data>
+  <data name="FunctionsTypeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;NumberOfFuntionsComboBox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="ArgumentsTypeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;NumberOfFunctionsLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CancellationButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="CancellationButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAEBAAAAAAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAA
@@ -142,4 +354,124 @@
         //8AAP//AAD//w==
 </value>
   </data>
+  <data name="&gt;&gt;OkButton.Name" xml:space="preserve">
+    <value>OkButton</value>
+  </data>
+  <data name="ArgumentsTypeComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 21</value>
+  </data>
+  <data name="&gt;&gt;ArithmeticTypeComboBox.Name" xml:space="preserve">
+    <value>ArithmeticTypeComboBox</value>
+  </data>
+  <data name="ArgumentsTypeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ArgumentsTypeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 13</value>
+  </data>
+  <data name="&gt;&gt;ArgumentsTypeComboBox.Name" xml:space="preserve">
+    <value>ArgumentsTypeComboBox</value>
+  </data>
+  <data name="&gt;&gt;FunctionsTypeLabel.Name" xml:space="preserve">
+    <value>FunctionsTypeLabel</value>
+  </data>
+  <data name="&gt;&gt;NumberOfArgumentsComboBox.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Свойства данных</value>
+  </data>
+  <data name="&gt;&gt;FunctionsTypeComboBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="FunctionsTypeComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 21</value>
+  </data>
+  <data name="&gt;&gt;ArithmeticTypeComboBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;CancellationButton.Name" xml:space="preserve">
+    <value>CancellationButton</value>
+  </data>
+  <data name="&gt;&gt;NumberOfArgumentsLabel.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="CancellationButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="&gt;&gt;ArithmeticTypeLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="ArithmeticTypeLabel.Text" xml:space="preserve">
+    <value>Тип арифметики:</value>
+  </data>
+  <data name="&gt;&gt;FunctionsTypeLabel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;ArgumentsTypeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ArithmeticTypeComboBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="CancellationButton.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;NumberOfFunctionsLabel.Name" xml:space="preserve">
+    <value>NumberOfFunctionsLabel</value>
+  </data>
+  <data name="ArgumentsTypeComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>195, 61</value>
+  </data>
+  <data name="FunctionsTypeComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="ArgumentsTypeComboBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;CancellationButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ArgumentsTypeComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;FunctionsTypeLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="ArithmeticTypeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>359, 208</value>
+  </data>
+  <data name="&gt;&gt;ArgumentsTypeLabel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="NumberOfArgumentsComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="NumberOfFunctionsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 36</value>
+  </data>
+  <data name="&gt;&gt;NumberOfArgumentsLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ArgumentsTypeComboBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="ArithmeticTypeComboBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>195, 116</value>
+  </data>
+  <data name="ArgumentsTypeLabel.Text" xml:space="preserve">
+    <value>Тип значений аргументов:</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en</value>
+  </metadata>
 </root>

@@ -41,51 +41,32 @@ namespace DataTable.Net.Forms
 			// 
 			// okButton
 			// 
-			this.okButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			resources.ApplyResources(this.okButton, "okButton");
 			this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.okButton.Location = new System.Drawing.Point(293, 322);
 			this.okButton.Name = "okButton";
-			this.okButton.Size = new System.Drawing.Size(75, 23);
-			this.okButton.TabIndex = 0;
-			this.okButton.Text = "Ok";
 			this.okButton.UseVisualStyleBackColor = true;
 			// 
 			// errorPictureBox
 			// 
-			this.errorPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("errorPictureBox.Image")));
-			this.errorPictureBox.Location = new System.Drawing.Point(12, 12);
+			resources.ApplyResources(this.errorPictureBox, "errorPictureBox");
 			this.errorPictureBox.Name = "errorPictureBox";
-			this.errorPictureBox.Size = new System.Drawing.Size(34, 35);
-			this.errorPictureBox.TabIndex = 3;
 			this.errorPictureBox.TabStop = false;
 			// 
 			// exceptionTextBox
 			// 
-			this.exceptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-									| System.Windows.Forms.AnchorStyles.Left)
-									| System.Windows.Forms.AnchorStyles.Right)));
-			this.exceptionTextBox.Location = new System.Drawing.Point(12, 53);
-			this.exceptionTextBox.Multiline = true;
+			resources.ApplyResources(this.exceptionTextBox, "exceptionTextBox");
 			this.exceptionTextBox.Name = "exceptionTextBox";
 			this.exceptionTextBox.ReadOnly = true;
-			this.exceptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.exceptionTextBox.Size = new System.Drawing.Size(636, 263);
-			this.exceptionTextBox.TabIndex = 4;
 			// 
 			// MessageLabel
 			// 
-			this.MessageLabel.AutoSize = true;
-			this.MessageLabel.Location = new System.Drawing.Point(52, 23);
+			resources.ApplyResources(this.MessageLabel, "MessageLabel");
 			this.MessageLabel.Name = "MessageLabel";
-			this.MessageLabel.Size = new System.Drawing.Size(254, 13);
-			this.MessageLabel.TabIndex = 5;
-			this.MessageLabel.Text = "Произошла ошибка, приложение будет закрыто.";
 			// 
 			// ExceptionForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(660, 357);
 			this.Controls.Add(this.MessageLabel);
 			this.Controls.Add(this.exceptionTextBox);
 			this.Controls.Add(this.errorPictureBox);
@@ -94,7 +75,6 @@ namespace DataTable.Net.Forms
 			this.MinimizeBox = false;
 			this.Name = "ExceptionForm";
 			this.ShowIcon = false;
-			this.Text = "Ошибка";
 			((System.ComponentModel.ISupportInitialize)(this.errorPictureBox)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

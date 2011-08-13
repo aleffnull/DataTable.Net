@@ -117,109 +117,59 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ArithmeticTypeFractional" xml:space="preserve">
-    <value>Дробная</value>
+  <data name="CopyInfoDataButton.Text" xml:space="preserve">
+    <value>&amp;Copy</value>
   </data>
-  <data name="ArithmeticTypeInteger" xml:space="preserve">
-    <value>Целочисленная</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="AuthorLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 13</value>
   </data>
-  <data name="DataErrorMessage" xml:space="preserve">
-    <value>Ошибка данных: {0}.</value>
-    <comment>0 is error message</comment>
+  <data name="AuthorLabel.Text" xml:space="preserve">
+    <value>Mikhail K. Savkin</value>
   </data>
-  <data name="DataLoadingFailedMessage" xml:space="preserve">
-    <value>Загрузка данных не удалась: {0}.</value>
-    <comment>0 is error message</comment>
+  <data name="OrganizationLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 13</value>
   </data>
-  <data name="ErrorMessageTitle" xml:space="preserve">
-    <value>Ошибка</value>
+  <data name="OrganizationLabel.Text" xml:space="preserve">
+    <value>Kaluga Branch of MSTU named after N.E. Bauman</value>
   </data>
-  <data name="FileNotExistsExceptionMessage" xml:space="preserve">
-    <value>Файл '{0}' не существует.</value>
-    <comment>0 is file path</comment>
+  <data name="DepartmentLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 13</value>
   </data>
-  <data name="LoadingSettingsStatus" xml:space="preserve">
-    <value>Загрузка настроек...</value>
+  <data name="DepartmentLabel.Text" xml:space="preserve">
+    <value>"Computer systems and networks" department</value>
   </data>
-  <data name="LoadingFileStatus" xml:space="preserve">
-    <value>Загрузка файла...</value>
+  <data name="YearLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 13</value>
   </data>
-  <data name="SettingsLoadingFailedMessage" xml:space="preserve">
-    <value>Загрузка настроек не удалась: {0}</value>
-    <comment>0 is error message</comment>
+  <data name="YearLabel.Text" xml:space="preserve">
+    <value>year of 2011</value>
   </data>
-  <data name="ReadFromFileExceptionMessage" xml:space="preserve">
-    <value>Ошибка при: прочитано {0} байт, когда ожидалось {1}.</value>
-    <comment>0 is read bytes count, 1 is expected bytes count</comment>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAAAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAA
+        AAD///8B////Af///wGUUSQDlFEkO5RRJJOUUSTPlFEk6ZRRJOmUUSTPlFEkk5RRJDuUUSQD////Af//
+        /wH///8B////Af///wGUUSQVlFEklZRRJPeUUST/lFEk/5RRJP+UUST/lFEk/5RRJP+UUST3lFEklZRR
+        JBX///8B////Af///wGUUSQXlFEks5RRJP+UUST/lFEk/5RRJP+UUST/lFEk/5RRJP+UUST/lFEk/5RR
+        JP+UUSSzlFEkF////wGUUSQDlFEkk5RRJP+UUST/lFEk/9fX1//z8/P////////////z8/P/19fX/5RR
+        JP+UUST/lFEk/5RRJJOUUSQDlFAjO5NQIvmUUST/lFEk/5RRJP+UUST/7+/v////////////7+/v/5RR
+        JP+UUST/lFEk/5RRJP+UUST5lFEkO5VTJ5OVUiX/kk4g/5RQI/+UUST/lFEk/+/v7////////////+/v
+        7/+UUST/lFEk/5RRJP+UUST/lFEk/5RRJJOdXzfPpm5J/5tcMv+UUCT/kk4g/5NPIv/v7+//////////
+        ///v7+//lFEk/5RRJP+UUST/lFEk/5RRJP+UUSTPo2lC6bB+XP+uelf/p3BN/59jO/+YVyv/8/Pz////
+        ////////7+/v/5NQI/+TUCP/lFAj/5RQI/+UUST/lFEk6aVrRemwgF7/sH5d/7GAX/+xgF//r3xa/+vr
+        6//v7+//7+/v/+Pj4/+WVCj/lFIl/5RRJP+TUCP/k1Aj/5RRJOmgZD3Ps4Nj/7KBYf+ygWH/soFi/83N
+        zf/Y2Nj/3d3d/93d3f/U1NT/qXVQ/6ZuSf+jaUL/oGU9/55jOv+XVyvPmlowk7KDY/+0hmb/tIZm/7SG
+        Zv+0hWb/soVk/7KCYv+ygWD/sYBe/69+XP+ufFn/rHhW/6p1Uv+ncUz/mFgsk5NQIzurd1T5uI1v/7eJ
+        av+3iWr/tolq/9K9sP/7+/v/+/v7/9C7rf+wf13/rntZ/6x5Vf+seFX/omhB+ZNQJDuQSx0Dm10zk7eK
+        bP+7kHX/uIxu/7iLbf/c3Nz/6+vr/+vr6//c3Nz/sYFg/69+XP+vfVv/q3VT/5hYLZOSTSAD////AZFO
+        HxehZj+zuY1w/72Vef+7kHP/wa6h/83Nzf/Nzc3/v6ud/7OEZP+0g2T/rXpZ/5xfNrOTTyEX////Af//
+        /wH///8BlFEkFZ1fN5Wwf133u5B1/72UeP+8kXX/uo5x/7eLbf+zg2P/qHJO95pbMZWUUSUV////Af//
+        /wH///8B////Af///wGTUCMDlFEjO5xdNJOlbEbPq3ZT6ap0UemjaELPm1sxk5NRIzuUUCMD////Af//
+        /wH///8BAAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA
+        //8AAP//AAD//w==
+</value>
   </data>
-  <data name="ReadyStatus" xml:space="preserve">
-    <value>Готово</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>About</value>
   </data>
-  <data name="ExportingToFileStatus" xml:space="preserve">
-    <value>Экспорт в файл...</value>
-  </data>
-  <data name="ExportToFileFailedMessage" xml:space="preserve">
-    <value>Экспорт в файл не удался: {0}.</value>
-    <comment>0 is error message</comment>
-  </data>
-  <data name="ExportToFileSucceededMessage" xml:space="preserve">
-    <value>Экспорт в файл успешно завершен.</value>
-  </data>
-  <data name="InformationMessageTitle" xml:space="preserve">
-    <value>Информация</value>
-  </data>
-  <data name="ExportingToExcelStatus" xml:space="preserve">
-    <value>Экспорт в Excel...</value>
-  </data>
-  <data name="ExportToExcelFailedMessage" xml:space="preserve">
-    <value>Экспорт в Excel не удался: {0}</value>
-    <comment>0 is error message</comment>
-  </data>
-  <data name="VersionInfoFormat" xml:space="preserve">
-    <value>Версия: {1}{0}Дата сборки: {2}</value>
-    <comment>0 is new line sequence, 1 is version, 2 is build date.</comment>
-  </data>
-  <data name="ArgumentScalesCountMismatch" xml:space="preserve">
-    <value>Количество масштабов аргументов не соответствует количеству аргументов</value>
-  </data>
-  <data name="FunctionScalesCountMismatch" xml:space="preserve">
-    <value>Количество масштабов функции не соответствует количеству функций</value>
-  </data>
-  <data name="SavingSettingsStatus" xml:space="preserve">
-    <value>Сохранение настроек</value>
-  </data>
-  <data name="SaveSettingsFailed" xml:space="preserve">
-    <value>Не удалось сохранить настройки: {0}</value>
-    <comment>0 is exception message</comment>
-  </data>
-  <data name="FailedToCreateOrOpenKey" xml:space="preserve">
-    <value>Не удалось создать или открыть ключ '{0}'</value>
-    <comment>0 is key path</comment>
-  </data>
-  <data name="FileTypeDescription" xml:space="preserve">
-    <value>Бинарный файл DataTable.Net</value>
-  </data>
-  <data name="NoReferencesToRelease" xml:space="preserve">
-    <value>Невозможно освободить ссылку, поскольку счетчик равен нулю</value>
-  </data>
-  <data name="FailedToUpdateRecentFilesList" xml:space="preserve">
-    <value>Не удалось обновить список недавно открытых файлов. {0}</value>
-    <comment>0 is error message</comment>
-  </data>
-  <data name="ImpossibleToShrinkListToBiggerSize" xml:space="preserve">
-    <value>Не возможно уменьшить список до большего размера</value>
-  </data>
-  <data name="FailedToLoadRecentFiles" xml:space="preserve">
-    <value>Не удалось загрузить список недавно открытых файлов. {0}</value>
-    <comment>0 is exception message</comment>
-  </data>
-	<data name="ClearList">
-		<value xml:space="preserve">Очистить список</value>
-	</data>
-	<data name="ClearingRecentFilesList">
-		<value xml:space="preserve">Очистка списка недавних файлов</value>
-	</data>
-	<data name="CurrentUICulture">
-		<value xml:space="preserve">Current UI culture is {0}</value>
-	</data>
 </root>

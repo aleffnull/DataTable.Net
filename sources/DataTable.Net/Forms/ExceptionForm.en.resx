@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,36 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="okButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom</value>
+  <data name="okButton.Text" xml:space="preserve">
+    <value>&amp;OK</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="okButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 322</value>
-  </data>
-  <data name="okButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="okButton.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="okButton.Text" xml:space="preserve">
-    <value>&amp;ОК</value>
-  </data>
-  <data name="&gt;&gt;okButton.Name" xml:space="preserve">
-    <value>okButton</value>
-  </data>
-  <data name="&gt;&gt;okButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;okButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;okButton.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="errorPictureBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         R0lGODlhIAAgAIcAAAMDAwoEAwwAAAkJCBECAhsUEhgYFh0cGh8eHCAAACIQDyYSESsaGTAAADcAADkB
@@ -179,103 +153,13 @@
         Bxp08IEIInzQAQYJDIDACbOEQ3lE9nyjSwwnWDDB6xacIEMu3thDUkAAOw==
 </value>
   </data>
-  <data name="errorPictureBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="errorPictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 35</value>
-  </data>
-  <data name="errorPictureBox.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;errorPictureBox.Name" xml:space="preserve">
-    <value>errorPictureBox</value>
-  </data>
-  <data name="&gt;&gt;errorPictureBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;errorPictureBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;errorPictureBox.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="exceptionTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="exceptionTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 53</value>
-  </data>
-  <data name="exceptionTextBox.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="exceptionTextBox.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
-    <value>Vertical</value>
-  </data>
-  <data name="exceptionTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>636, 263</value>
-  </data>
-  <data name="exceptionTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;exceptionTextBox.Name" xml:space="preserve">
-    <value>exceptionTextBox</value>
-  </data>
-  <data name="&gt;&gt;exceptionTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;exceptionTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;exceptionTextBox.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="MessageLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="MessageLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>52, 23</value>
-  </data>
   <data name="MessageLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>254, 13</value>
-  </data>
-  <data name="MessageLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>251, 13</value>
   </data>
   <data name="MessageLabel.Text" xml:space="preserve">
-    <value>Произошла ошибка, приложение будет закрыто.</value>
-  </data>
-  <data name="&gt;&gt;MessageLabel.Name" xml:space="preserve">
-    <value>MessageLabel</value>
-  </data>
-  <data name="&gt;&gt;MessageLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MessageLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;MessageLabel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>660, 357</value>
+    <value>An error occurred and the application will be closed.</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Ошибка</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>ExceptionForm</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>Error</value>
   </data>
 </root>

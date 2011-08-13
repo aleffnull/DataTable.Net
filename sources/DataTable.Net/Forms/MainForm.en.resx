@@ -117,33 +117,250 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;StatusLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="StatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 17</value>
+  <data name="OpenToolStripSplitButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKZSURBVDhPhZNtSFNRGMcvqKm9ETXTrRTCTEgXS3w3NEMz
+        bFCRZtQH6QXTwsJYxgzdZpGuDy7d1G1oIi6Z9kLJPmRNtAxnwsxpxCxlpmsGfajoQy/z3n9nW5vLVl74
+        8Zx7L+d3Hv7nHIpa5km7FXqS1xamzb2bMJraETWwRR1wfLk5zv+8Zr/sQh3/a4u5Be3mVuhmdeiZ68FV
+        owjR6mDJfyVF3exd0ZpNX1JbV5cf0YSl8zvYcVyV/9ljvfx56WQt9j5MgEOQ353v5xT1KDkpjRIWZBVB
+        TpTVG9EsCUrzXiVCvULJklGGUtMZ5A/uR/w99me2nGqklOKgAq2cC8xXAVN5hMNkXIEueSwaRIFZbkmy
+        JkQosAhw8d15lFhOI6OPh1Ndyesp1bVQwFoOxpQIZiyOwCPjJGC2DG3ScE9XChGbOXF7B11sK0Lpx2Lw
+        1MFSp9zRMswHwIxywbzkAeM7AROpE/HAJB+YJh05sJ6DRV+CKGXAo92GpE+i/gz/RcFrPmjjdvwYiYFK
+        EuxZ1Z2JuzaJ1+HCZao6R0hpZJUrZ2SVq2ZcHbzKAYzb8Fi1AT9tnWCsN0Bbawi1XtQA76+TfKSEOuDb
+        ABRVnGcugSkb9kEO+u4cBSwlYCaSwIyTTHxhSgDeFmB6SIB2eXj8b0Em9Iq1sM/dBG1KwYIxBgskk78w
+        xoIeJRl9qEX9FdbQYgYvEtGrPUhCKwRtiHIx7APDVhLyPrx5Xob7ck6KR9DfGonvU1IwBi7op5sJET4I
+        Bz0YSbZXjPqqkBHPIXNkoO/MJTnkwa4Pgf0Ji+CoS9CzwAynwmK4hAcyVrpHUCcMBGwdwNghYCSTsMcH
+        ju9Z5CzUQCHmGP+4SA2CNfTS/f7XexO5L7r60ExvwS/eTho60cLdRwAAAABJRU5ErkJggg==
+</value>
   </data>
-  <data name="StatusStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>617, 22</value>
+  <data name="ReloadToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMySURBVDhPhVN7SNNhFL1qq6nhevjIStfWEpPKiTV7uIZt
+        k6w1W1pulk6dmixTexjTymW2tGm1kl6UGlaaQaRkEQS9rExbEcrKcj0k2v6oBMuKCjr9nFAEgRcOfHDv
+        d+537rkf0UihIV/3DK87HurRJ0hBwSOVD+eN5E7ZxGJObqT2DuBl859aWqsRtWlxDy0h9f9JEsmTUtxT
+        JuVOagkzhFsjDKLH4YVzrbPzRZ2xJZqv9n4r2gcuQ3+4AG6xPmZaTR5/ibQkFGwRPNx1pQT19qOoc5pR
+        4zQx2IuTDhNOO6pw6P0mGD+r0PztGEobysGSTdnveiHpSDCneE5fk+0Mdr7LRO7bFShz5qDCkcdgIyqc
+        edjnKIC+Jx5xXTNh6S9E3fUGjJXzm0jCZdO4nAlNlhsHoXwUjYQOCY61HUF6ReZAQpn6dVJZap/SuOZN
+        YemOH2d6amB+vgNl9VXgyKe3ktg30CVBvFn8pbb7FBR3YlF7twbcVJ6NltI8SiQ/kjFTF1EYP0HwvPZa
+        A9RbtZ9pkV8RRQZ6/dEfpJ/2UVOl+ZJ+JGtwoUH6lVSj8lxJnXeAS6M8wJ+tnNHNUcy4RzG+i0nCGUei
+        CVNJxOGRZMpUojQKYrrxaBVxmclyKJ6EXlqfZs9Ujm3IQheJ1J9PEhrFXE4UZks/5ViKBrOMOYO8pOgP
+        /1oaTzqFUeFofHABszLC7RRBAhIyUkTkQyHEmyjmtrVar+ISzOjBXSjTtD+HCdaRN1vDrjGcK8LF/lPo
+        GLwBg8n4Y9lWVa9y+9qX8duSXyQXZzotLdW/TA49tgzEodF6Hv6Lom7T0EKwktnHK68cwIF32yF7HIr0
+        J8th7M3HTnuuCyX2jSh+tR5auwz6PgUuvmhCdFLaBwrlzh/q7+axxrOypLEUe54ZMPtmIFa1SbHNugEF
+        nZku5HfqsLlzPcrvl2L32YOIWLnyFYUGyf/qZ3bfTelZqdu3Aab23ajvqoNWr/8uTIrpitIquxekqGyR
+        apUtOFZ+a3RYiIFCAn3//x9iWMnzsqS95rNHwUsQvmSGONnleeR4DoX5jR1e3ZFCPIbnIQ2uZclCO0jO
+        9x+p/Dd9UlgK5bqHrwAAAABJRU5ErkJggg==
+</value>
   </data>
-  <data name="&gt;&gt;DataPropertiesToolStripButton.Name" xml:space="preserve">
-    <value>DataPropertiesToolStripButton</value>
+  <data name="ExportToFileToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH+SURBVDhPfVNLS1tBFJb+kG6660pqfVbrY+EjUVvoSrrs
+        UrtwIWpFKtwYdyoGwYVCKSYRzE1uGotoUOSCSnWhYLsoQus7udGaV69eE+PnnEluMC8PfMyZmTPfec0p
+        KkqJ2+MJipIEh9OJ+TRErosuF5ySFNBt865k9JgoigKHKNoKkpBnkj9/DxgOUzjgZ1+tVr76fT44XC57
+        XhIKleTo+ATHJ6ccpJPM2myIxeNcp0hYqo4cknlR5AZnzIvP7+c49Z3xs63tbU6iR0LpFiRQlAACgfM0
+        VPUqpzSS9K0wwfnFJS7+XSIYDEONXuNGvUVMTaRBbN7vq4UJgqEQQuEwtKsYhuyDKOt9gfK+lwylHJX9
+        5aj/XAPDcNNcRhp6DSKRKP5HVYDVjB6v/BrH0t4olvfG4f05wdYxyL8nYTA1ZUahE1DO2vUNz5s8enYE
+        rn+RP6Jj8gnXF3YFNAuN+Qk0TUM8lmxZRV8Z7D+6Yd/s5fsZuTPZ1s0uRpAdQeof3CYSuLtLFr6yvwLT
+        6x/QaX3KHvWkuzElv0eL0JwZAc1Btrz6VAWL/C7n3CK/ZTUwZBLY3O4IfRB9eBY9y6zatZhYb8fIagNM
+        3tcQvDUwr9TBsvEGbWZjTiuLWVtKHqJhoHq/ddgAo8nIPRJIbzO3omWgce3R6UxdPs8mfbB/Rjb3bSBA
+        bHRfU8EAAAAASUVORK5CYII=
+</value>
   </data>
-  <data name="&gt;&gt;DataPropertiesToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ExportToExcelToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJYSURBVDhPfZPvT5JRFMf5R3rTaG1NNwaaitqSH4LzTW9o
+        LjczW621tVIMU1vMAlyteusb02TBcPgIjBkDqrm2VjO23vaileUPeMBECYgA/XbvhefSavTdPrvnOc85
+        5zn3PPfKAsFgWvD7sbS8DC9HYLbg88Hr9SZkRCetUWjsURimGXPUx0SD/idRFOH3C/MkVEVpPDtxlRbh
+        BeiXqT5/WSd8rbLOfE6Xi61iIo7ngaWZ5jsRaGwR6O1hdDtoJy8go61SfdvYxMbmFoPaVM/cbhRLJWbv
+        pkQ4n8y4OqaiMK9mSZFXtAuVzCsILGA7Hkc8kWBsxbeZ730sBrdnkUEVWQmyJK3tbSWZSiogikkkkykG
+        tbPZHB/Np+RHZq+GXkt7ryT/WSC1s4ud7zXS6QwK2TJuu0ehGjuGlokT6LQqoL3bDP29Fhjsbeh1tL/h
+        HaT39iCxv0+S80VMukcw5OmB/d0VPFi7jkcxMx7GhnF/7RoefxiG3tZGhlidQSbzAxLZbB4gs2sYPcK3
+        YYn0Y/LlBVgi57iva6qpViCXy0Oi8PMXC1KOyTESMvGES4KR2zfDfdCRrfAOCoUCJErFyq9rGj+OG0ET
+        Bhe1PJEa9Nm80odum7p2DsoHByiVy4zDw0q88pYcFz0GnnxmVsnty95e0kErZPQe1JNyXP7PK9Osmvs0
+        5I/I3IFAhl0aepHIQCmCz49QMAq1tQHnF/Ton+sinMbAvA6DCwYMPNVjyGmAwUG2QKSQLsrfa6ulMWx0
+        tMPo6CBU1p7pTr7qrKcy/EDVMY7WK171K34D2Ny5RvXiQ4QAAAAASUVORK5CYII=
+</value>
   </data>
-  <data name="HelpToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Справка</value>
+  <data name="DataPropertiesToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF6SURBVDhPjVM9TwJBEOVX3O+hNWhlTWciicGSykolFtbG
+        EtSINFSUcBzcR0ho8QcQ4IADwkFNjpE3YdY9oLhNXm5ud997szuzqdT/uN6HlACXGicW0m63O4soimgw
+        GFCn0xEDmKlxJa4QkLhardJms1FwHIe22y1h/rBHZUIYmBSBMAz5v9VqUa/XY5FarUaFQoGy2Syl02kR
+        4SyUgLiLgGSwXq9pOBxSsVikTOaCDMM4FQBJgHQhZpom1et1Pj/WVqsVw/O8mIDKApuErBOEiO9yuSTX
+        dU8EYkeBa7/fZ/dms8nodruMxWKhTI7Lqe4CLgIQgPl8rqCVU2kwWT+Cbds0m80od/8UA+ba7XaySwyC
+        gMkvr9/08PzF8XQ6JcuykpVxMpkw6eezQu9vHxz7vs/9cSh5vA/QsliQPhCBXH5/jD1u8480Ho+5vLqA
+        amURwGKpVGI3EIDRaKTQaDTOlxEXB3WBlBAEHeVyGQK/x2W8S/CU9ed+A4E/ekArsA0G6dgAAAAASUVO
+        RK5CYII=
+</value>
   </data>
-  <data name="ToolsToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Иструменты</value>
+  <data name="SettingsToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFmSURBVDhPY2CgJujsbPPp6Gr9D6LxmItbDUjzm9cv/+Mx
+        BKz58eNHf0A0VktAEh8+vAMbgq4AIvcBJgdxJczZyOxfv35hGABT19XTDjIY4UWQqa9evfy3es1KsKbv
+        37//f/r40f+1a1f9f/v2dSOywVjDBmby8+fP/3348P7/o0cP/z14cO/frp3b4GFBMGBhhoAUwvClixf+
+        L1myGMpvAbuEJLBj+1aw5p07tiPHChNOQ+TcWyQVvNr/w3Btcys4HE6dPPF//769+KKWgQGmee3uM/9B
+        uGbyZrBBHV0tjSBXXLl8Gd0QhEvkvVoMQIr3nrjyv6J3CRhPWroPbAByDDwBxsyxI4cwwwSkEGQrSGNJ
+        16L/VVO3wF0A8y8skK9cvvT/yGGIIfCwgBlQO3E5UPPW/0Xd68C2K3q3uyAHGMyQBQvnYRoAcnLbnB1g
+        jE0zzCBwmHQ0XQbRSC7oCEMOfXSbCcU9AMAWWOuFm/p8AAAAAElFTkSuQmCC
+</value>
   </data>
-  <data name="&gt;&gt;HelpToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="AboutToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJlSURBVDhPjVPdS5NRHH6pv6GPy3QzAokkYkGroKAgSPfh
+        lmzOWW4KSvmBjtTMWWbQh6Xv+2pZftUgy49tbcNZNqI/YCNioBfzajeDXexiFw528XR+Z1tusqgDD+95
+        z/k9z3PO7/x+glA8nM4DlXpRfaZpVrra4YrU960kdH3LiUutrkiN+Y1EewKLKeEUfpSGyUNnrbOyrtez
+        65jYRL8cgmPyG3pefMWdZ0HYRv2o6/q4W9M4I1NsiUhF7cSRi20L/u7xLxiYCqGXCbxz/0A4HOaYW/kO
+        +yM/7KMBmAbXoGqe9RMnJ2JcPnja8la8/TQIcu58vsEcNxCLxZBMJjlofvPBZ1iGPWi870G9YwUnG6ZF
+        4gp0L8NdV6ZrfAMdT4J5rMMb+oVsNsuxtvkTTU4vTPfcMA6swti/CpXlfYbn5JR5RrSN+tD2OLCHsQDs
+        Yz60PPQxZx+sIzl305AbNxhZ71jG9Z4lVNMp1Pb5CCXoFgsktDDQvbe3t7Gzs8MRjUahdXzCtc4PuNzu
+        woXWRZyzzaPa+CoiXGlfTFhHvGga9qKZORHMQx5+91QqxRGPx3HCMI0qvQylToZCK3GweUI4zwQsjNww
+        6EZt9xLUtgV2tNdIp9MoDBIpkBRaEsgJcQFV81yEjsZeAkq2caxORKVG4s7FAnlCgci/FVo5Ihyvl8Uq
+        /RQnFin/lwAzFPkzHtZKmf0O/zrBUZ2ce0YqBlIqFtja2irJAeWD1kpMyJ0KiQaVpUIn+8vds9waxe6V
+        cr4rqEGUGllWal7u/lWI9ihmfzP96ax8Oyt1kkQZpmci5OZS2Xb+De2hI/f3jLoUAAAAAElFTkSuQmCC
+</value>
   </data>
-  <data name="&gt;&gt;MainToolStripContainer.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="OpenToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAKgSURBVDhPfZRtSFNhGIYP5HcYUdPpUvthJqSLafMryzIywwSLNKOgIvpQw8gwQ0udJun64ec0
+        T2omTVlUoKaRNckynAkzpxFaykyXBv2o6Ecf85y7Z9qm2ezHxfOew3nv9+Z+nvcwAJj/sbXe7XjALTdV
+        zL2g/vBGny5v1u7wwu+X3CxhbaOOqRO+1Q7XomG4Dm0TbWidbMUVbS58a5zyzCJWBU6qRFt8lV5fw286
+        ZxxQCiPiGtcEilmblEMdsdPykSLsagmi/WBiHgYtmxVovy4Kq8wToCTLYZbqfFew+Y7hC62urbGvdilh
+        NKm600jo3gPpfa8v7gqmkqmWOSSqKsTAdA4wGk/sp3UW7lT4oyzHbqdZJFTpmpmuT8f592eRrD+BbZ0S
+        HGmRrmLYAiFgyACvCwY/EEhIaB0CTKShXu5pcVVX4M6nNG7kkqZOIfVTEiQ3nOQmccZkGcNx4PvF4F9J
+        gMEAQEd1SAqMxAJj5MiE4Qz06mT4sraPtmtCP+e2b7KZF3gTC067AT/7/MDmOVpONWdirlWylTh3kcmP
+        vsQoS7Odxkuyl4/POXgdDWjX4zG7Gr+mmsAbroEzFBJFCygEPlylfMj5dDHwvQuVOaLncwK6KBi7Rei8
+        exDQJ4MfCgE/SJlYQ0ctfJeIsZ50NCg8pH8EIqFWrIBxshScLgwzWj/MUCb/oPUH108ZfSxC2WVBz3wG
+        L4PRodpLoR0Fp/GZo9cKmnUU8m68fZGGZoVHmEXgaZ03fozKwWvE4J55EF5W8ATX7U3tldF8CPsso2zK
+        QN0UQznEw6h2gfGJgDDVRagF4Hs3Q6+5gOYyQYRFoDjTHpi6DQzsA/oiiR1WML2noaTOKGQi7V+3sTzb
+        mVvc76Weq+i+PCgXktr8L+A3aC+g7GX9+P0AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="OpenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="OpenToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Open...</value>
+  </data>
+  <data name="RecentFilesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="RecentFilesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Recent files</value>
+  </data>
+  <data name="ReloadToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAOxSURBVDhPXZNrTNtVGMaff2kZlMpllGtgXWu5iVyd
+        FSYwWIHRCaUtTNpiucgKhDsusLIxGBvsUiZjW3aLAxY2QUwWZ2TGxAR1TCdYFwOpstFNiVn7wUmCYzPO
+        xNcDiYn64ZeTc3Le570DNQDMgKDaHbwKHlDJ7muUMkoY5QIx/02vm3yD+0WosAkqPqAOBPJCGWHsw78F
+        yphAGXszgceMBSjmON4u9yBpjez7wckzlNqasQAlp0eB+H8C1etePTkTzxTcEPphrCXBlmxR3ElqV9ji
+        mxWzmi7DU8eyjW6vfER1p1uIl+ttRW6QG1SbmGEtowKJEW2R3xy80UWjjnM04rLSkKuPcYTecfbRZecJ
+        OvVLK3U/1tL1389Tz9hRcs8JexuZ/hxQBXnCvsSlCfsVOvBwNzX8XECHXbV0zNnEaKRjriY67myhuoVC
+        Us3F0OByG418OkainOcn8KqvB/xqN04MTp0k9bdpVDSzjc5Pn6XKU+aV4l79jyVHypa0Bw0/tQ10Pruy
+        METWu510ePQE+e6QTyJNHILt4UB6d/qT4flLlH8zl4ZvDZGkTGZHHl5GIReATFZ1BV6QFUXdHf5kjPT7
+        zY+5tIAO5lmIrawT22RAeOvmXw1n3nhSeda8utWifAotvwl6llq5KAh6EYedwYGemoh53/yoL7lM/wxk
+        +fniFe8wbPGTIl3C+ljmFg4dpAwJdDwfqJEorPC+7lmx0Y5dXkHIC+GQEyRDynN8ZPoUJ1Yrf2sY7Fg1
+        W/esSvVZj5gnNhh61gkDQ4Oqgt5C5/jX79OL5gQHkiFnKQSw0xsxkPpnSKYnbR/TB2SlBbpF6sbaP1kE
+        TKCU8/IwegxZ3u2ga8uXaGZ1iiynu5/t3Ktd1HWW3i9sN94r7ap2DU1d/qvPWUd7VlQ0bnuPgtNTv1gb
+        VzeB0fNC/40BGni4n7LvRFPld69R92IzHXA0rNPlaKR9D2qo3JFNdUv5dO3eBGWZKh4hVpoCvO7GuZUI
+        +7vGe6j3BwvFfRZCumkltdvqqWV29zrNs1X01mwNHf2qhw5dPUlJGs0DRElykBS5tjReLIoNPJ5a2F91
+        vJ76bh+i0bkRKt9b/0eiMXsupVw9n2rS2hUGnV2yI+fzDbGRFkSGixEnB5KjmIBRyArI0HkD292NKebc
+        RevVcyQveuk+4vmhSPITIkHsg7gQEZLlHGJY5+IjgDhG0j8CeiZQ7Mc2TASkeUoFSsmwIDt6BpnSQCgC
+        gC3BzBubOkU0ECv5j8Df2otvRcsrlhEAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ReloadToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="ReloadToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Reload</value>
+  </data>
+  <data name="FileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 20</value>
+  </data>
+  <data name="FileToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;File</value>
+  </data>
+  <data name="ExportToFileToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAACDElEQVQ4T32Tz08TQRTHG/8Q
+        L9w8GUV+GUA5WGgBTTwZjxzBgwcDmBBMttabEhoSDpoYQ1sTut0txRhpIGYTJMpBE/RgTBTlR7sF6S8W
+        lpbydd6jrd2F8pJv5s1k5jPvvXnjAOAgRaLRlKyqCIXDmK5IZl9WFIRVNemwGZ3jwyTadJbpuk7wQDXD
+        AqCbyX7+WhX6XdIqr73y+3lMxOMIKUqwDLEAKFSyP2vrWFvfYJFPNhUIIF8osE+RiHRCBLECZJk3bIpb
+        4okEayO+yWuflpcZUo6E0q0J0PUkksmtigxj70RpVHWmNmBrewfbf3eQSmVg5PZxYBwibxQrIlrszUJt
+        QCqdRjqTgbmXx6PgCBoGL6FxqF7oCqt5uBHXR1vh9jpfn1qDbDaH3ZwBiJrR4flvY3i38hRzK2OIfR0X
+        4zNo3yfg8jgpmP99MF0qIuVs7h9w3nRj9LPE/kvtHu5MnGN/9ouETunG6QDTNFHIHz9Z01ADgh/vI7g0
+        yPMXWj+PU0sDAmCPoNQHh8Uijo6OC9883ITni33o958Xhx5UXmNSu4suqdMaAf0Du1192AKfdvvEuk+7
+        JWrgsgKUSCRLDVL+PG+jc6La7Rhf7MWThQ54Ym2QYq3wzl+D78NN9HjdVoDorItCl6vVMdr2o/uxC26P
+        m28kkd/j7UbXiPO95RXsX7U0v2CHVs3rCPAPFQ7P88qU1UYAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ExportToFileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 22</value>
+  </data>
+  <data name="ExportToFileToolStripMenuItem.Text" xml:space="preserve">
+    <value>To &amp;file...</value>
+  </data>
+  <data name="ExportToExcelToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAACZUlEQVQ4T32T70uTURTH7z/S
+        mzCC2GBMzZwu8secJkZvRpJgZhQRROnMn9GwtplSvfWNaYoOxZ7tWcOGW4UEUdigt72IsvyxPZs5Xdta
+        bvrt3rvtDgo98OGc5zznnOfcc59D3B5PVJJlPHc6MS+QuC25XJDdcsjn9ZCTFj+qbX4YhzjjFMIgLOgw
+        URQFsuycIIQUM9QX+m/kimQLsC8z+fpthfI9xwr3Tc3McK2Egnj5wjlaes+HaqsPBtsi6uysk1cgrFUm
+        P1bXsLq2zmE2k2mHA7vpNLe3Igqmn47OVA76YV6K0yJvwLualyQesBEMIhgKcdaDG9z3MRCAY3aOw8S3
+        4OFJNdb3XJ8bURNRQFHCCIcjHGbH4wkxmi/hz9xe8r5FrU1Fc0lx03ApaRqpKBSIbG5h82eBaDSGVDyD
+        u44uFPccQ1n/CegtGtTcL4XhQRmMtnI0PtS/Ex1Et7eRZ2eHJid3MeDoRPtsA2wfrmNk+RYeB8x4FOjA
+        8PJNPPnUAYO1nA4xN4NY7BfyxONJgM5O1XVEHKPb14KB15fR7bsofFWDJYUCiUQSeVK///AgbU8ROr0m
+        kXBVqhf2ncVm1NKjiA5SqRTypHezV1fSdxy3PSa0zdWIRGawZ/NCM+qsusJ/kNnbQzqT4ezvZ+O1vUW4
+        MmsUyefHtMK+Nt9IOzgFwvbgINH2Ff33yjSmE75qeiPE5XbH2D7wRaIDZUguGV6PHzqLCpcmDWgZr6Kc
+        QetELdomjWh9ZkD7lBFGOz0CFU1+Uf7Vul71Yr29AvX2SkpWNwzphT47dDrGChwmRw8qnvNr/gIhmMXb
+        joiS1QAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="ExportToExcelToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 22</value>
+  </data>
+  <data name="ExportToExcelToolStripMenuItem.Text" xml:space="preserve">
+    <value>To &amp;Excel...</value>
+  </data>
+  <data name="ExportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 22</value>
+  </data>
+  <data name="ExportToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Export</value>
+  </data>
+  <data name="ToolsToolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 6</value>
+  </data>
+  <data name="DataPropertiesToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAAZiS0dEAP8A/wD/oL2nkwAAAAd0SU1FB9IMBRQYJMQ7fZMAAAF6SURBVDhPjVM9
+        TwJBEOVX3O+hNWhlTWciicGSykolFtbGEtSINFSUcBzcR0ho8QcQ4IADwkFNjpE3YdY9oLhNXm5ud997
+        szuzqdT/uN6HlACXGicW0m63O4soimgwGFCn0xEDmKlxJa4QkLhardJms1FwHIe22y1h/rBHZUIYmBSB
+        MAz5v9VqUa/XY5FarUaFQoGy2Syl02kR4SyUgLiLgGSwXq9pOBxSsVikTOaCDMM4FQBJgHQhZpom1et1
+        Pj/WVqsVw/O8mIDKApuErBOEiO9yuSTXdU8EYkeBa7/fZ/dms8nodruMxWKhTI7Lqe4CLgIQgPl8rqCV
+        U2kwWT+Cbds0m80od/8UA+ba7XaySwyCgMkvr9/08PzF8XQ6JcuykpVxMpkw6eezQu9vHxz7vs/9cSh5
+        vA/QsliQPhCBXH5/jD1u8480Ho+5vLqAamURwGKpVGI3EIDRaKTQaDTOlxEXB3WBlBAEHeVyGQK/x2W8
+        S/CU9ed+A4E/ekArsA0G6dgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="DataPropertiesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 22</value>
+  </data>
+  <data name="DataPropertiesToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Data properties...</value>
   </data>
   <data name="SettingsToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -158,152 +375,77 @@
         Us5sAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="MainMenu.Text" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;ExportToExcelToolStripButton.Name" xml:space="preserve">
-    <value>ExportToExcelToolStripButton</value>
-  </data>
-  <data name="ExportToFileToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAH/SURBVDhPfVNJS1tRFBZ/SDfuXElrHerUunBI1AquikuX
-        6qKL4oS08GLcqRiELlqQYhLBvOTFKFKDUh5YURcKtotSaJ2TF62Z+vSZGD/vuckLZvLAxz333nO/M91T
-        VJQSt8cTFCUJDqcTC2mIXBddLjglKaDb5l3J6DFRFAUOUbQVJCHPJH/+HjAcpnDAz75YrXz1+3xwuFz2
-        vCQUKsnR8QmOT045SCeZs9kQi8e5TpGwVB05JAuiyA3OmBef389x6jvjZ9s7O5xEj4TSLUigKAEEAudp
-        qOpVTmkkabEwwfnFJS7+XSIYDEONXuNGvUVMTaRBbN7l9cIEwVAIoXAY2lUMH+yjqBh4isrBcobnHNVD
-        lXj1vg6Gseb5jDT0GkQiUfyPqgCrGT1e+zmFr/sTWN2fgvfHNFsnIf+agcHUnBmFTkA5a9c3PG/y6NkV
-        uD4r9+PNTDHXl/YEtAhN+Qk0TUM8lmxZ1WAF7FtvYd8c4PvPcm+yrZt9jCA7gtQ/uE0kcHeXLHz1UBU+
-        bfSg1/qEPXqX7sZHuRutQktmBDQH2VIz/AIWuSvn3CJ3shoYMgnm3e4IfRB9eFY8q6zaDZje6MD4eiNM
-        3noI3jqY117C8v012s3GnFaWsbY8e4jGkdrfbWMGGE1G7pFAeru5Da0jTd8enc7UZWk26YN9CdncA26U
-        QG5zqdfGAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="&gt;&gt;ExportFileDialog.Name" xml:space="preserve">
-    <value>ExportFileDialog</value>
-  </data>
-  <data name="ExportToFileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="SettingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 22</value>
   </data>
+  <data name="SettingsToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Settings...</value>
+  </data>
   <data name="ToolsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 20</value>
+    <value>48, 20</value>
   </data>
-  <data name="MainToolStripContainer.Text" xml:space="preserve">
-    <value>toolStripContainer1</value>
+  <data name="ToolsToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Tools</value>
   </data>
-  <data name="&gt;&gt;MainToolStripContainer.TopToolStripPanel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="MainToolStripContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="&gt;&gt;StatusLabel.Name" xml:space="preserve">
-    <value>StatusLabel</value>
-  </data>
-  <data name="ReloadToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="AboutToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAMzSURBVDhPhVN7SNNhFL1qq6nhevjIStfWEpPKiTV7uIZt
-        k6w1m1pulk6bmkxTe1jT1KWm5bSyQitKDSvNQCqyCIJe9tJWhLKyXA+Jtj8qwbKigk4/JxRB4IUDH9z7
-        nfude+5HNFpoyNN5g9ttF/XYY6Qg/9HKR/JGcqZ0YjEnJ1K7+/DS+U9r2g8jbPPSXlpG6v+TxJErJTon
-        TsmacjHIEGwOMYgeB+fNN8/NEXUtL9Z8tQ6YcX/wEvSHcuEU6WGiNeTyl0hLQsFWwcNdl4vRZK1Do92E
-        ens5gwoct5XjpK0aB99vhvGzChe+HUFJ8x6wZNP2OV5IOhLMK5jX32o5haJ3qch6uwpl9gzstWUz2IS9
-        9mxU2nKh741GVPds1AzkofFaM8bL+a0k4bJpQsak1prrB6B8FI7YTgmOdNQipTJ1MLZM/Tq+LKlfaVz7
-        Jq+i8Mep3nqYnheirKkaHPnMdhJ7+jokiHeIvzT0nIDidiQa7tSDm8Sz0HJaQHHkRTJm6iIK4scKnjdc
-        bYZ6m/YzLfHKp1Bftz/6/fQzPmqqNV9SatOGFhukX0k1JtuR1Ln7ODTKfbzZylk9HMWsuxThuZQknAkk
-        mjSdRBweSaZNJ0omP6Ybj2KIy0yWQ9EkdNN6XHBN4liGLXSQSL35JKExzOU4Ybr0U0ZN/lBaaeYQLz78
-        w7+WRpNOYVTYWh6cw5wNwVYKIQEJGSki8qAA4k0WczvazVdwHib04g6Uack/RwjWkztbw643nMlH28AJ
-        dA5dh8Fk/LFim6pPuXPdy+jtCS8SClLttVeO/iq36bF1MAot5rPwXhJ2i4YXgpXAPlp1eT/2v9sJ2eNA
-        pDxZCWNfDoqsWQ4UWzeh4NVGaK0y6PsVaHvRivD45A8UyF043N/JZa1rVXFLCXY/M2DuDV/EdEix3ZyJ
-        3K5UB3K6dNjStRF77pWg9PQBhKxe/YoC/eR/9TO776R0rdJVZqL8fimauhuhzdF/F8ZHdIdplT2LElWW
-        ULXK4h8pvzk2KMBAAb6e//8PEayEBWnSPtPpOvBihS+ZIU51eB46kUNBXuNHVne0EI/juUj9G1iywE6S
-        871HK/8N01FYPCqHhroAAAAASUVORK5CYII=
+        YQUAAAJoSURBVDhPjZPfS1NhGMcP7m8IryJzjoIKsqKgg0RCQZRz80c23Vy5JVZmWq3UzCwz6Ieh5xxL
+        nJYmZjnd1iZtZRL9AR4iBnrhrrwZeOHFLjbYxbfnfbfV2aDwhc85zznv+/0+7/P+EARN05vkAr1ZEY/Y
+        xuXTrTNq9R1PzHx7LlbeMq2WNrhlvVkW9SalQKv5E5eYlR3H7BOK7YE/4RpaQqeyDNfwN3S8/Irrz0Nw
+        9AdhvPkhUdowphhobI7JLuNw4YnmqWD74Bd0jSzjFhlMeX9gZWWFM+H5DufjIJz9i7B0L+CofTy4u1Iu
+        5CY7zw7pDtvcUuuzEFjmthdhyhjG+vo6Njc3OSy++PATrL0+NNz3odrlwYELo1JRhaQTqG6x5q4neWMw
+        jKtPQxk+w7/8C6lUirOw9BNUGiz3vKjtmkdt5zxOtrxLlpBWOFg/Jjn6A2h+sviXgUU4BwJoehSgzAE0
+        9qWzW3q8OE/iKtccznXMYj/NQihzTqpsgS7RQEYTwepeW1tDNBrlRCIRmFwfcabtPcqvTKPs8iSOO95g
+        X91rVTh1bSbW2OeHrdcPO2Vi1Pf4eO1bW1ucjY0N7K15BUOVAtotUNkcimMCOcasJK7r9qKifRai4y05
+        jyIejyPbmElWROeA4rQRN6C9V9nUDlndKKGOIqOE4kqZZ9YaZARZYfatCnuqRyRD1QgXapy3ayDRNipi
+        sUlO5mfYxgyYRhTooSMkrcHq6mrOGrD1YP/ykjCNjp9GCgqJ4D/qzBeybzY2fZSzjV0mQiES/zFifWxM
+        7mXSmBSwugiZUNk2ZWAx+8f6cq7zb/aFJQU0IpbHAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="&gt;&gt;DataGridView.Parent" xml:space="preserve">
-    <value>MainToolStripContainer.ContentPanel</value>
+  <data name="AboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 22</value>
   </data>
-  <data name="ReloadToolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
+  <data name="AboutToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;About...</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="MainToolBar.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="HelpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
   </data>
-  <data name="DataPropertiesToolStripButton.ToolTipText" xml:space="preserve">
-    <value>Свойства данных</value>
+  <data name="HelpToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Help</value>
   </data>
-  <data name="&gt;&gt;MainToolStripContainer.LeftToolStripPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="ExportToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Экспорт</value>
-  </data>
-  <data name="AboutToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+F1</value>
-  </data>
-  <data name="SettingsToolStripButton.ToolTipText" xml:space="preserve">
-    <value>Настройки</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>DataTable.Net</value>
-  </data>
-  <data name="FileToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+O</value>
-  </data>
-  <data name="&gt;&gt;DataGridView.Name" xml:space="preserve">
-    <value>DataGridView</value>
-  </data>
-  <data name="&gt;&gt;ReloadToolStripButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="StatusStrip.Text" xml:space="preserve">
-    <value>statusStrip1</value>
-  </data>
-  <data name="MainMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>617, 24</value>
-  </data>
-  <data name="&gt;&gt;ExportToFileToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.TopToolStripPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SettingsToolStripMenuItem.Name" xml:space="preserve">
-    <value>SettingsToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.BottomToolStripPanel.Parent" xml:space="preserve">
-    <value>MainToolStripContainer</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.ContentPanel.Parent" xml:space="preserve">
-    <value>MainToolStripContainer</value>
-  </data>
-  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 25</value>
-  </data>
-  <data name="OpenToolStripSplitButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ClearRecentFilesListToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        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
+        YII=
 </value>
   </data>
-  <data name="&gt;&gt;OpenToolStripSplitButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="OpenFileDialog.Filter" xml:space="preserve">
+    <value>Data files|*.dat;*.hex|All files|*.*</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="ExportFileDialog.Filter" xml:space="preserve">
+    <value>CSV files|*.csv|All files|*.*</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1971,647 +2113,4 @@
         AAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
-  <data name="DataPropertiesToolStripButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="ClearRecentFilesListToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.BottomToolStripPanel.Name" xml:space="preserve">
-    <value>MainToolStripContainer.BottomToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;DataPropertiesToolStripButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ExportToExcelToolStripButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="AboutToolStripButton.ToolTipText" xml:space="preserve">
-    <value>О программе</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.LeftToolStripPanel.Name" xml:space="preserve">
-    <value>MainToolStripContainer.LeftToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;FilePathStatusLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ExportToExcelToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MainToolBar.Name" xml:space="preserve">
-    <value>MainToolBar</value>
-  </data>
-  <data name="ExportToFileToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+T</value>
-  </data>
-  <data name="OpenToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAKgSURBVDhPfZRtSFNhGIYP5HcYUdPpUvthJqSLafMryzIywwSLNKOgIvpQw8gwQ0udJun64ec0
-        T2omTVlUoKaRNckynAkzpxFaykyXBv2o6Ecf85y7Z9qm2ezHxfOew3nv9+Z+nvcwAJj/sbXe7XjALTdV
-        zL2g/vBGny5v1u7wwu+X3CxhbaOOqRO+1Q7XomG4Dm0TbWidbMUVbS58a5zyzCJWBU6qRFt8lV5fw286
-        ZxxQCiPiGtcEilmblEMdsdPykSLsagmi/WBiHgYtmxVovy4Kq8wToCTLYZbqfFew+Y7hC62urbGvdilh
-        NKm600jo3gPpfa8v7gqmkqmWOSSqKsTAdA4wGk/sp3UW7lT4oyzHbqdZJFTpmpmuT8f592eRrD+BbZ0S
-        HGmRrmLYAiFgyACvCwY/EEhIaB0CTKShXu5pcVVX4M6nNG7kkqZOIfVTEiQ3nOQmccZkGcNx4PvF4F9J
-        gMEAQEd1SAqMxAJj5MiE4Qz06mT4sraPtmtCP+e2b7KZF3gTC067AT/7/MDmOVpONWdirlWylTh3kcmP
-        vsQoS7Odxkuyl4/POXgdDWjX4zG7Gr+mmsAbroEzFBJFCygEPlylfMj5dDHwvQuVOaLncwK6KBi7Rei8
-        exDQJ4MfCgE/SJlYQ0ctfJeIsZ50NCg8pH8EIqFWrIBxshScLgwzWj/MUCb/oPUH108ZfSxC2WVBz3wG
-        L4PRodpLoR0Fp/GZo9cKmnUU8m68fZGGZoVHmEXgaZ03fozKwWvE4J55EF5W8ATX7U3tldF8CPsso2zK
-        QN0UQznEw6h2gfGJgDDVRagF4Hs3Q6+5gOYyQYRFoDjTHpi6DQzsA/oiiR1WML2noaTOKGQi7V+3sTzb
-        mVvc76Weq+i+PCgXktr8L+A3aC+g7GX9+P0AAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="&gt;&gt;DataGridView.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="ToolsToolStripSeparator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 6</value>
-  </data>
-  <data name="DataPropertiesToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Свойства данных...</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.LeftToolStripPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="AboutToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAJoSURBVDhPjZPfS1NhGMcP7m8IryJzjoIKsqKgg0RCQZRz80c23Vy5JVZmWq3UzCwz6Ieh5xxL
-        nJYmZjnd1iZtZRL9AR4iBnrhrrwZeOHFLjbYxbfnfbfV2aDwhc85zznv+/0+7/P+EARN05vkAr1ZEY/Y
-        xuXTrTNq9R1PzHx7LlbeMq2WNrhlvVkW9SalQKv5E5eYlR3H7BOK7YE/4RpaQqeyDNfwN3S8/Irrz0Nw
-        9AdhvPkhUdowphhobI7JLuNw4YnmqWD74Bd0jSzjFhlMeX9gZWWFM+H5DufjIJz9i7B0L+CofTy4u1Iu
-        5CY7zw7pDtvcUuuzEFjmthdhyhjG+vo6Njc3OSy++PATrL0+NNz3odrlwYELo1JRhaQTqG6x5q4neWMw
-        jKtPQxk+w7/8C6lUirOw9BNUGiz3vKjtmkdt5zxOtrxLlpBWOFg/Jjn6A2h+sviXgUU4BwJoehSgzAE0
-        9qWzW3q8OE/iKtccznXMYj/NQihzTqpsgS7RQEYTwepeW1tDNBrlRCIRmFwfcabtPcqvTKPs8iSOO95g
-        X91rVTh1bSbW2OeHrdcPO2Vi1Pf4eO1bW1ucjY0N7K15BUOVAtotUNkcimMCOcasJK7r9qKifRai4y05
-        jyIejyPbmElWROeA4rQRN6C9V9nUDlndKKGOIqOE4kqZZ9YaZARZYfatCnuqRyRD1QgXapy3ayDRNipi
-        sUlO5mfYxgyYRhTooSMkrcHq6mrOGrD1YP/ykjCNjp9GCgqJ4D/qzBeybzY2fZSzjV0mQiES/zFifWxM
-        7mXSmBSwugiZUNk2ZWAx+8f6cq7zb/aFJQU0IpbHAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="AboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 22</value>
-  </data>
-  <data name="&gt;&gt;DummyMenuToolStripMenuItem.Name" xml:space="preserve">
-    <value>DummyMenuToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;MainMenu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="MainMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;FileToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;AboutToolStripMenuItem.Name" xml:space="preserve">
-    <value>AboutToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;ExportToFileToolStripMenuItem.Name" xml:space="preserve">
-    <value>ExportToFileToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.BottomToolStripPanel.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.ContentPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripContentPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>MainForm</value>
-  </data>
-  <data name="StatusStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 403</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
-    <value>toolStripSeparator2</value>
-  </data>
-  <data name="ReloadToolStripButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="&gt;&gt;ClearRecentFilesListToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="DummyMenuToolStripMenuItem.Text" xml:space="preserve">
-    <value>Dummy menu</value>
-  </data>
-  <data name="&gt;&gt;AboutToolStripButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolsToolStripSeparator.Name" xml:space="preserve">
-    <value>ToolsToolStripSeparator</value>
-  </data>
-  <data name="&gt;&gt;MainToolBar.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;AboutToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ReloadToolStripMenuItem.Name" xml:space="preserve">
-    <value>ReloadToolStripMenuItem</value>
-  </data>
-  <data name="ClearRecentFilesListToolStripMenuItem.Text" xml:space="preserve">
-    <value>Dummy item (clear recent files list)</value>
-  </data>
-  <data name="OpenToolStripSplitButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="&gt;&gt;MainMenu.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="FileToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Файл</value>
-  </data>
-  <data name="&gt;&gt;HelpToolStripMenuItem.Name" xml:space="preserve">
-    <value>HelpToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.RightToolStripPanel.Parent" xml:space="preserve">
-    <value>MainToolStripContainer</value>
-  </data>
-  <data name="&gt;&gt;ReloadToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ExportToExcelToolStripMenuItem.Name" xml:space="preserve">
-    <value>ExportToExcelToolStripMenuItem</value>
-  </data>
-  <data name="AboutToolStripButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="&gt;&gt;MainToolBar.Parent" xml:space="preserve">
-    <value>MainToolStripContainer.TopToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="HelpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 20</value>
-  </data>
-  <data name="MainToolBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="DataGridView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="&gt;&gt;RecentFilesToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="SettingsToolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="&gt;&gt;StatusStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="DataGridView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>617, 354</value>
-  </data>
-  <data name="ExportToExcelToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+E</value>
-  </data>
-  <data name="&gt;&gt;AboutToolStripButton.Name" xml:space="preserve">
-    <value>AboutToolStripButton</value>
-  </data>
-  <data name="&gt;&gt;FilePathStatusLabel.Name" xml:space="preserve">
-    <value>FilePathStatusLabel</value>
-  </data>
-  <data name="OpenToolStripSplitButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 22</value>
-  </data>
-  <data name="&gt;&gt;DataPropertiesToolStripMenuItem.Name" xml:space="preserve">
-    <value>DataPropertiesToolStripMenuItem</value>
-  </data>
-  <data name="MainToolBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 25</value>
-  </data>
-  <data name="&gt;&gt;MainToolBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ExportToExcelToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAJZSURBVDhPfZPvT5JRFMf5R3rTaG1NNwaaitqSH4LzTW9o
-        LjczW621tfJHmD8WWYCrVW99Y5osGA4fgTFjQDXX1mrG1ttetLL8AQ+YKAERoN/uvfBcWo2+22f3POc5
-        5zznnudemT8QSAk+H5aWl+HhCMwWvF54PJ64jOikJQKNLQLDNGOO+pho0P8kiiJ8PmGehKoo9WfHr9Ii
-        vAD9MtXnL+uErxXWmc/hdLJVjMfw3L8003g7DI01DL0thE477eQFZLRVqm8bm9jY3GJQm+qZy4VCscjs
-        3aQIx5MZZ9tUBMOrGVLkFe1CJfMIAgvYjsUQi8cZW7Ft5nsfjcLlXmRQhVcCLElrfVtOppIKiGICiUSS
-        Qe1MJstH8ynxkdmrwdfS3svJfxZI7uxi53uVVCqNfKaESdcIVKPH0DR+Au0WBbR3G6G/1wSDrQXd9tY3
-        vIPU3h4k9vdJcq6ACdcQBtxdsL27ggdr1/EoOoyH0UHcX7uGxx8Gobe2kCFWZpBO/4BEJpMDyOzqRo7w
-        bZjDvZh4eQHm8Dnu65hqqBbIZnOQyP/8xYKUo3IMBU084ZJg5PbNUA90ZCu8g3w+D4liofzrGsaO40bA
-        hP5FLU+kBn0eXulBp1VdPQelgwMUSyXG4WE5XnlLjotuA08+M6vk9mVPN+mgGTJ6D2pJOSb/55VpVs19
-        GvJHZG6/P80uDb1IZKAUwetDMBCB2lKH8wt69M51EE6jb16H/gUD+p7qMeAwwGAnWyBSSBfl77XZXB8y
-        2lthtLcRymvXdDtfdXdOpfmBqmEcrVW84lf8BtqkuUmMsZPTAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.RightToolStripPanel.Name" xml:space="preserve">
-    <value>MainToolStripContainer.RightToolStripPanel</value>
-  </data>
-  <data name="RecentFilesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 22</value>
-  </data>
-  <data name="OpenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 22</value>
-  </data>
-  <data name="AboutToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAJmSURBVDhPjVPdS5NRHH6pvyG6iCD1NQKJJMLAVVBQEKTu
-        U/FjW7opKOUHOVIztcygD0vf99Wy5kcZWU63tY22shH9AXuJGGwX88qbgRdeeDHBi6fzO9tyk0UdeHjP
-        e87veZ5zfuf3E4TcMTx8oFgvac6YnfKVjkXV0OtK6nqXkxdbF9Xyhlcy7QksJo+T/RGNk4fOWpxKbZ8n
-        5ZhYQ58ShmPyG3qefcXNJ0HYRv2o7vqQKm+cUSg2T6SoauLwhbZ5f/f4F/RPhXGLCbxx/0AkEuGYdX2H
-        /YEf9tEA6gdWUWF1+omTFjEtHzzd9Fq68TgIcu58GmKOISQSCWxubnLQ/Pq9T2ga8qDxrgcGhwsn66Yl
-        4gp0L+Ptdztd4yF0PApm8Bne8C/s7u5yrK79hHnYi/o7bpj6V2DqW0Fl89sdnpNTDTOSbdSHtoeBPYwF
-        YB/zoeW+jzn7YBlJu9cPulHLyHrHMq71LKGMTqGxz6mUoGYWSGhhoHvH43Gsr69zRKNRaB0fcbXzPS61
-        L+J86wIqbXMoM71QhcvtC0nLiBfmIS+szInQMOjhd9/a2uLY2NjACeM0SvUKRJ2CEq3MweZJ4RwTaGLk
-        ugE3qrqXoLHNs6O9xPb2NrKDRLKkEi0JpIW4QIV1VqWjsZeAyDaOVUsorpG5c65AhpAl8m+RVlGF4wZF
-        KtVPcWKO8n8JMEOJP+MRrbyz3+FfJziqU9LPSMVASrkCsVgsLweUD1rLMyF3KiQaVJYlOsVf6J6F1ih2
-        r5QzXUENItYoiljzPPVXIdqjmP3N9KezMu0s6mSZMkzPREjP5YLt/Bs6/iQVt1+loAAAAABJRU5ErkJg
-        gg==
-</value>
-  </data>
-  <data name="MainToolStripContainer.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="OpenToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+O</value>
-  </data>
-  <data name="ReloadToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAOxSURBVDhPXZNrTNtVGMaff2kZlMpllGtgXWu5iVyd
-        FSYwWIHRCaUtTNpiucgKhDsusLIxGBvsUiZjW3aLAxY2QUwWZ2TGxAR1TCdYFwOpstFNiVn7wUmCYzPO
-        xNcDiYn64ZeTc3Le570DNQDMgKDaHbwKHlDJ7muUMkoY5QIx/02vm3yD+0WosAkqPqAOBPJCGWHsw78F
-        yphAGXszgceMBSjmON4u9yBpjez7wckzlNqasQAlp0eB+H8C1etePTkTzxTcEPphrCXBlmxR3ElqV9ji
-        mxWzmi7DU8eyjW6vfER1p1uIl+ttRW6QG1SbmGEtowKJEW2R3xy80UWjjnM04rLSkKuPcYTecfbRZecJ
-        OvVLK3U/1tL1389Tz9hRcs8JexuZ/hxQBXnCvsSlCfsVOvBwNzX8XECHXbV0zNnEaKRjriY67myhuoVC
-        Us3F0OByG418OkainOcn8KqvB/xqN04MTp0k9bdpVDSzjc5Pn6XKU+aV4l79jyVHypa0Bw0/tQ10Pruy
-        METWu510ePQE+e6QTyJNHILt4UB6d/qT4flLlH8zl4ZvDZGkTGZHHl5GIReATFZ1BV6QFUXdHf5kjPT7
-        zY+5tIAO5lmIrawT22RAeOvmXw1n3nhSeda8utWifAotvwl6llq5KAh6EYedwYGemoh53/yoL7lM/wxk
-        +fniFe8wbPGTIl3C+ljmFg4dpAwJdDwfqJEorPC+7lmx0Y5dXkHIC+GQEyRDynN8ZPoUJ1Yrf2sY7Fg1
-        W/esSvVZj5gnNhh61gkDQ4Oqgt5C5/jX79OL5gQHkiFnKQSw0xsxkPpnSKYnbR/TB2SlBbpF6sbaP1kE
-        TKCU8/IwegxZ3u2ga8uXaGZ1iiynu5/t3Ktd1HWW3i9sN94r7ap2DU1d/qvPWUd7VlQ0bnuPgtNTv1gb
-        VzeB0fNC/40BGni4n7LvRFPld69R92IzHXA0rNPlaKR9D2qo3JFNdUv5dO3eBGWZKh4hVpoCvO7GuZUI
-        +7vGe6j3BwvFfRZCumkltdvqqWV29zrNs1X01mwNHf2qhw5dPUlJGs0DRElykBS5tjReLIoNPJ5a2F91
-        vJ76bh+i0bkRKt9b/0eiMXsupVw9n2rS2hUGnV2yI+fzDbGRFkSGixEnB5KjmIBRyArI0HkD292NKebc
-        RevVcyQveuk+4vmhSPITIkHsg7gQEZLlHGJY5+IjgDhG0j8CeiZQ7Mc2TASkeUoFSsmwIDt6BpnSQCgC
-        gC3BzBubOkU0ECv5j8Df2otvRcsrlhEAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="&gt;&gt;SettingsToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ExportToolStripMenuItem.Name" xml:space="preserve">
-    <value>ExportToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.BottomToolStripPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ExportToExcelToolStripMenuItem.Text" xml:space="preserve">
-    <value>В &amp;Excel...</value>
-  </data>
-  <data name="&gt;&gt;FileToolStripMenuItem.Name" xml:space="preserve">
-    <value>FileToolStripMenuItem</value>
-  </data>
-  <data name="AboutToolStripMenuItem.Text" xml:space="preserve">
-    <value>О &amp;программе...</value>
-  </data>
-  <data name="FilePathStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 17</value>
-  </data>
-  <data name="&gt;&gt;DummyMenuToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.RightToolStripPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;DataGridView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="SettingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 22</value>
-  </data>
-  <data name="DataPropertiesToolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.TopToolStripPanel.Parent" xml:space="preserve">
-    <value>MainToolStripContainer</value>
-  </data>
-  <data name="MainToolStripContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>617, 379</value>
-  </data>
-  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 25</value>
-  </data>
-  <data name="ExportToExcelToolStripButton.ToolTipText" xml:space="preserve">
-    <value>Экспорт в Excel</value>
-  </data>
-  <data name="RecentFilesToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="DataGridView.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="AboutToolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="ExportToFileToolStripButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="MainToolStripContainer.ContentPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>617, 354</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.RightToolStripPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.ContentPanel.Name" xml:space="preserve">
-    <value>MainToolStripContainer.ContentPanel</value>
-  </data>
-  <data name="&gt;&gt;SettingsToolStripButton.Name" xml:space="preserve">
-    <value>SettingsToolStripButton</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.ContentPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;OpenToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ExportToFileToolStripMenuItem.Text" xml:space="preserve">
-    <value>В &amp;файл...</value>
-  </data>
-  <data name="DataPropertiesToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAF6SURBVDhPjVM9TwJBEOVX3O+hNWhlTWciicGSykolFtbG
-        EtSINFSUcBzcR0ho8QcQ4IADwkFNjpE3YdY9oLhNXm5ud997szuzqdT/uN6HlACXGicW0m63O4soimgw
-        GFCn0xEDmKlxJa4QkLhardJms1FwHIe22y1h/rBHZUIYmBSBMAz5v9VqUa/XY5FarUaFQoGy2Syl02kR
-        4SyUgLiLgGSwXq9pOBxSsVikTOaCDMM4FQBJgHQhZpom1et1Pj/WVqsVw/O8mIDKApuErBOEiO9yuSTX
-        dU8EYkeBa7/fZ/dms8nodruMxWKhTI7Lqe4CLgIQgPl8rqCVU2kwWT+Cbds0m80od/8UA+ba7XaySwyC
-        gMkvr9/08PzF8XQ6JcuykpVxMpkw6eezQu9vHxz7vs/9cSh5vA/QsliQPhCBXH5/jD1u8480Ho+5vLqA
-        amURwGKpVGI3EIDRaKTQaDTOlxEXB3WBlBAEHeVyGQK/x2W8S/CU9ed+A4E/ekArsA0G6dgAAAAASUVO
-        RK5CYII=
-</value>
-  </data>
-  <data name="&gt;&gt;ToolsToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MainToolStripContainer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 24</value>
-  </data>
-  <data name="ClearRecentFilesListToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAGYktHRAD/AP8A/6C9p5MAAAAielRYdFNvZnR3YXJlAAB42isvL9fLzMsuTk4sSNXLL0oHADbY
-        BlgQU8pcAAAEWElEQVRIS72Ue1CUZRTG3/12uSaIXOSSXKJdGiBnIJgymChmwNIZG2kgAycnygjDxsJh
-        ptTFBZIsxTDIGS4LVkZrozEGTMZUy0U2rsr9tiwXF1Y2QJY767L79H609YeZIDJ9M88/73fO+T3nnHde
-        Qv6P7/NoZiPV4bMxXGXmXt7M2RjmxLpyM2OYTy5++ORisyQerUWxyIu3m6XAPesGyXrdbLzt0kHITgrQ
-        dC4EDYXRoF2oKMRkXSBssRbqvvaULyqFNuj8/i1IkgRzFHAwP5nsOp9mKsuJI2uHUUD6hUTP+c7LCWjM
-        Dkbt6a1oLnoT5xKYha/TreYLU021uSLiteZuqFMOC8l523ah+dtY3CjYhR8zBZCcccD0sBBXC32m846R
-        yDUD/k6koMisfabzRSdsUZrriglFHOaUiaiJ9EKJCWeplGGyHgpSICKe+cfJrfKvnA0jbS9huCIAUt9N
-        qHGwgcLVFVd4HF2ukOyjevB95AtJsFhENLJi/pKyJRQdBZ64amOCFqfNGPLwQJk5F5XverOdzYpTOCoK
-        ebCRUfdl4hQT3eUs+6mf4q11ZRZcKNzc0OHshBJLHlq/8Ia6K5zu5CMoW2PxQ7bzXGEqU09B/FWPLU9E
-        tuQlk/ASc2ayx8UFMruNKHE0R7vEDP0yS4w02eOPNndMD0RgXp0KeV20gd6y2fzjnKMUxFs1iC5TeMWE
-        o/8t7HFDdzkPvVXcfwBj7W6Y7BZgts8f2lv7MatKR3Vx2Pz5NDN2bO9Qma0KRDvRqroTIL9mbQRYLHcw
-        1u4OTY8/NN0+0A4FYkkVhqWJJNweFEF68Zk5sYjR0IsipCDz+4LEKUTR1/ga+uv5ywBFjTmGm+yWAdNy
-        b8wObIemcyt0yhDoVaHQj0ZAN5EKde8HyBMxiysCqIuM2pIg/XDrDgpg0FPBg7J+EwV4YbLLC9qbwZgb
-        jMRYix90Iy9SwG7oNWdQUxy0SJcvXnFM1EHQN59azqjlhyCvtkS3lIHimhVdsgDjHQHQdPlCr34VMwMx
-        GGnchjsTGeiojNIVpnJ7aa7FSgCGBjySm0waW6U7DEM3nv2rC6kllHUOmFJsx+h1H8z0BEB/+xgm5Emo
-        ueR3R5zCa89IJI73K84WtqZypuLv3UmiL3xmuzDa+x4UvzthoM4DPb9aYayNT5+QNzAoexqawaMozfde
-        zD5iUrXFkfgac9kanLtB7IGVMYB9OZ+iev70YdIglTyhG+2No5BHcbPBD31VfCyqU6BqiYHk1Aat6AC3
-        mOGQF4w5bC5rcMO9OmEP2Z8CKn+qEOoq6ssjRN30c6hB1bkH4/3vQyELR+V3Hks5QmZ6dyj5mMbtZGON
-        OWwuW+M/3yv2/rJzfIyKbTkw0Ie8kiPkTLVXRxiul28zFKRxF08e4vzibE9epv+fY2OMsWyODRX3Xu7v
-        PmP3wcLYhM37I0g4vR0ztJuKA1Ekip65U7lQ2RvHwTr+19xXA3qomD8BY3pQooK6FBcAAAAASUVORK5C
-        YII=
-</value>
-  </data>
-  <data name="SettingsToolStripButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="&gt;&gt;ToolsToolStripMenuItem.Name" xml:space="preserve">
-    <value>ToolsToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;ExportToFileToolStripButton.Name" xml:space="preserve">
-    <value>ExportToFileToolStripButton</value>
-  </data>
-  <data name="ExportFileDialog.Filter" xml:space="preserve">
-    <value>CSV файлы|*.csv|Все файлы|*.*</value>
-  </data>
-  <data name="ReloadToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 22</value>
-  </data>
-  <data name="&gt;&gt;ToolsToolStripSeparator.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SettingsToolStripButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ReloadToolStripButton.ToolTipText" xml:space="preserve">
-    <value>Перезагрузить</value>
-  </data>
-  <data name="&gt;&gt;OpenToolStripSplitButton.Name" xml:space="preserve">
-    <value>OpenToolStripSplitButton</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.TopToolStripPanel.Name" xml:space="preserve">
-    <value>MainToolStripContainer.TopToolStripPanel</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
-    <value>toolStripSeparator1</value>
-  </data>
-  <data name="SettingsToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Настройки...</value>
-  </data>
-  <data name="FileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 20</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.LeftToolStripPanel.Parent" xml:space="preserve">
-    <value>MainToolStripContainer</value>
-  </data>
-  <data name="&gt;&gt;MainMenu.Name" xml:space="preserve">
-    <value>MainMenu</value>
-  </data>
-  <data name="MainMenu.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="DataPropertiesToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAAZiS0dEAP8A/wD/oL2nkwAAAAd0SU1FB9IMBRQYJMQ7fZMAAAF6SURBVDhPjVM9
-        TwJBEOVX3O+hNWhlTWciicGSykolFtbGEtSINFSUcBzcR0ho8QcQ4IADwkFNjpE3YdY9oLhNXm5ud997
-        szuzqdT/uN6HlACXGicW0m63O4soimgwGFCn0xEDmKlxJa4QkLhardJms1FwHIe22y1h/rBHZUIYmBSB
-        MAz5v9VqUa/XY5FarUaFQoGy2Syl02kR4SyUgLiLgGSwXq9pOBxSsVikTOaCDMM4FQBJgHQhZpom1et1
-        Pj/WVqsVw/O8mIDKApuErBOEiO9yuSTXdU8EYkeBa7/fZ/dms8nodruMxWKhTI7Lqe4CLgIQgPl8rqCV
-        U2kwWT+Cbds0m80od/8UA+ba7XaySwyCgMkvr9/08PzF8XQ6JcuykpVxMpkw6eezQu9vHxz7vs/9cSh5
-        vA/QsliQPhCBXH5/jD1u8480Ho+5vLqAamURwGKpVGI3EIDRaKTQaDTOlxEXB3WBlBAEHeVyGQK/x2W8
-        S/CU9ed+A4E/ekArsA0G6dgAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="&gt;&gt;StatusStrip.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="ExportToFileToolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="ExportToExcelToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 22</value>
-  </data>
-  <data name="DummyMenuToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 20</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>617, 425</value>
-  </data>
-  <data name="&gt;&gt;ReloadToolStripButton.Name" xml:space="preserve">
-    <value>ReloadToolStripButton</value>
-  </data>
-  <data name="ExportToFileToolStripButton.ToolTipText" xml:space="preserve">
-    <value>Экспорт в файл</value>
-  </data>
-  <data name="DataPropertiesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 22</value>
-  </data>
-  <data name="ExportToFileToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAACDElEQVQ4T32Tz08TQRTHG/8Q
-        L9w8GUV+GUA5WGgBTTwZjxzBgwcDmBBMttabEhoSDpoYQ1sTut0txRhpIGYTJMpBE/RgTBTlR7sF6S8W
-        lpbydd6jrd2F8pJv5s1k5jPvvXnjAOAgRaLRlKyqCIXDmK5IZl9WFIRVNemwGZ3jwyTadJbpuk7wQDXD
-        AqCbyX7+WhX6XdIqr73y+3lMxOMIKUqwDLEAKFSyP2vrWFvfYJFPNhUIIF8osE+RiHRCBLECZJk3bIpb
-        4okEayO+yWuflpcZUo6E0q0J0PUkksmtigxj70RpVHWmNmBrewfbf3eQSmVg5PZxYBwibxQrIlrszUJt
-        QCqdRjqTgbmXx6PgCBoGL6FxqF7oCqt5uBHXR1vh9jpfn1qDbDaH3ZwBiJrR4flvY3i38hRzK2OIfR0X
-        4zNo3yfg8jgpmP99MF0qIuVs7h9w3nRj9LPE/kvtHu5MnGN/9ouETunG6QDTNFHIHz9Z01ADgh/vI7g0
-        yPMXWj+PU0sDAmCPoNQHh8Uijo6OC9883ITni33o958Xhx5UXmNSu4suqdMaAf0Du1192AKfdvvEuk+7
-        JWrgsgKUSCRLDVL+PG+jc6La7Rhf7MWThQ54Ym2QYq3wzl+D78NN9HjdVoDorItCl6vVMdr2o/uxC26P
-        m28kkd/j7UbXiPO95RXsX7U0v2CHVs3rCPAPFQ7P88qU1UYAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="ExportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 22</value>
-  </data>
-  <data name="RecentFilesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Недавние файлы</value>
-  </data>
-  <data name="OpenFileDialog.Filter" xml:space="preserve">
-    <value>Файлы данных|*.dat;*.hex|Все файлы|*.*</value>
-  </data>
-  <data name="&gt;&gt;OpenFileDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RecentFilesToolStripMenuItem.Name" xml:space="preserve">
-    <value>RecentFilesToolStripMenuItem</value>
-  </data>
-  <data name="DataGridView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="ExportToExcelToolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="&gt;&gt;ClearRecentFilesListToolStripMenuItem.Name" xml:space="preserve">
-    <value>ClearRecentFilesListToolStripMenuItem</value>
-  </data>
-  <data name="DummyMenuToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;ExportToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ExportFileDialog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;OpenFileDialog.Name" xml:space="preserve">
-    <value>OpenFileDialog</value>
-  </data>
-  <data name="&gt;&gt;ExportToFileToolStripButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ReloadToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Перезагрузить</value>
-  </data>
-  <data name="ExportToExcelToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAACZUlEQVQ4T32T70uTURTH7z/S
-        mzCC2GBMzZwu8secJkZvRpJgZhQRROnMn9GwtplSvfWNaYoOxZ7tWcOGW4UEUdigt72IsvyxPZs5Xdta
-        bvrt3rvtDgo98OGc5zznnOfcc59D3B5PVJJlPHc6MS+QuC25XJDdcsjn9ZCTFj+qbX4YhzjjFMIgLOgw
-        URQFsuycIIQUM9QX+m/kimQLsC8z+fpthfI9xwr3Tc3McK2Egnj5wjlaes+HaqsPBtsi6uysk1cgrFUm
-        P1bXsLq2zmE2k2mHA7vpNLe3Igqmn47OVA76YV6K0yJvwLualyQesBEMIhgKcdaDG9z3MRCAY3aOw8S3
-        4OFJNdb3XJ8bURNRQFHCCIcjHGbH4wkxmi/hz9xe8r5FrU1Fc0lx03ApaRqpKBSIbG5h82eBaDSGVDyD
-        u44uFPccQ1n/CegtGtTcL4XhQRmMtnI0PtS/Ex1Et7eRZ2eHJid3MeDoRPtsA2wfrmNk+RYeB8x4FOjA
-        8PJNPPnUAYO1nA4xN4NY7BfyxONJgM5O1XVEHKPb14KB15fR7bsofFWDJYUCiUQSeVK///AgbU8ROr0m
-        kXBVqhf2ncVm1NKjiA5SqRTypHezV1fSdxy3PSa0zdWIRGawZ/NCM+qsusJ/kNnbQzqT4ezvZ+O1vUW4
-        MmsUyefHtMK+Nt9IOzgFwvbgINH2Ff33yjSmE75qeiPE5XbH2D7wRaIDZUguGV6PHzqLCpcmDWgZr6Kc
-        QetELdomjWh9ZkD7lBFGOz0CFU1+Uf7Vul71Yr29AvX2SkpWNwzphT47dDrGChwmRw8qnvNr/gIhmMXb
-        joiS1QAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="OpenToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Открыть...</value>
-  </data>
-  <data name="&gt;&gt;MainMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ExportToExcelToolStripButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="&gt;&gt;OpenToolStripMenuItem.Name" xml:space="preserve">
-    <value>OpenToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;StatusStrip.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="StatusStrip.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;StatusStrip.Name" xml:space="preserve">
-    <value>StatusStrip</value>
-  </data>
-  <data name="ReloadToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+R</value>
-  </data>
-  <data name="MainToolBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 0</value>
-  </data>
-  <data name="&gt;&gt;MainToolStripContainer.Name" xml:space="preserve">
-    <value>MainToolStripContainer</value>
-  </data>
-  <data name="SettingsToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAFmSURBVDhPY2CgJujsbPPp6Gr9D6LxmItbDUjzm9cv/+Mx
-        BKz5xYvnf0A0VktAEh8+vAMbgq4AIvcBJgdxJczZyOxfv35hGABT19XTDjIY4UWQqe/fv/u3es1KsKbv
-        37//f/r40f+1a1f9f/v2dSOywVjDBmbymzdv/n348P7/8+fP/j19+vjfrp3b4GFBMGBhhoAUwvClixf+
-        L1myGMpvAbuEJLBj+1aw5p07tiPHChNOQ+TcWyQVvNr/w3Btcys4HE6dPPF//769+KKWgQGmee3uM/9B
-        uGbyZrBBHV0tjSBXXLl8Gd0QhEvkvVoMQIr3nrjyv6J3CRhPWroPbAByDDwBxsyxI4cwwwSkEGQrSGNJ
-        16L/VVO3wF0A8y8skK9cvvT/yGGIIfCwgBlQO3E5UPPW/0Xd68C2K3q3uyAHGMyQBQvnYRoAcnLbnB1g
-        jE0zzCBwmHQ0XQbRSC7oCEMOfXSbCcU9AIssWTZTML/LAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
-  </metadata>
-  <metadata name="OpenFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>132, 17</value>
-  </metadata>
-  <metadata name="StatusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>267, 17</value>
-  </metadata>
-  <metadata name="ExportFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>377, 17</value>
-  </metadata>
-  <metadata name="MainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="MainToolBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>517, 17</value>
-  </metadata>
 </root>
