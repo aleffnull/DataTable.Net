@@ -106,15 +106,6 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Current UI culture is {0}.
-        /// </summary>
-        internal static string CurrentUICulture {
-            get {
-                return ResourceManager.GetString("CurrentUICulture", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Ошибка данных: {0}..
         /// </summary>
         internal static string DataErrorMessage {
@@ -169,7 +160,7 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Экспорт в файл не удался: {0}..
+        ///   Looks up a localized string similar to Экспорт в файл не удался: {0}.
         /// </summary>
         internal static string ExportToFileFailedMessage {
             get {
@@ -196,7 +187,7 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Не удалось загрузить список недавно открытых файлов. {0}.
+        ///   Looks up a localized string similar to Не удалось загрузить список недавно открытых файлов: {0}.
         /// </summary>
         internal static string FailedToLoadRecentFiles {
             get {
@@ -205,7 +196,7 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Не удалось обновить список недавно открытых файлов. {0}.
+        ///   Looks up a localized string similar to Не удалось обновить список недавно открытых файлов: {0}.
         /// </summary>
         internal static string FailedToUpdateRecentFilesList {
             get {
@@ -286,7 +277,7 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ошибка при: прочитано {0} байт, когда ожидалось {1}..
+        ///   Looks up a localized string similar to Ошибка при чтение: прочитано {0} байт, когда ожидалось {1}..
         /// </summary>
         internal static string ReadFromFileExceptionMessage {
             get {

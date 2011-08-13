@@ -118,105 +118,105 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArithmeticTypeFractional" xml:space="preserve">
-    <value>Дробная</value>
+    <value>Fractional</value>
   </data>
   <data name="ArithmeticTypeInteger" xml:space="preserve">
-    <value>Целочисленная</value>
+    <value>Integer</value>
   </data>
   <data name="DataErrorMessage" xml:space="preserve">
-    <value>Ошибка данных: {0}.</value>
+    <value>Data error: {0}</value>
     <comment>0 is error message</comment>
   </data>
   <data name="DataLoadingFailedMessage" xml:space="preserve">
-    <value>Загрузка данных не удалась: {0}.</value>
+    <value>Failed to load data: {0}</value>
     <comment>0 is error message</comment>
   </data>
   <data name="ErrorMessageTitle" xml:space="preserve">
-    <value>Ошибка</value>
+    <value>Error</value>
   </data>
   <data name="FileNotExistsExceptionMessage" xml:space="preserve">
-    <value>Файл '{0}' не существует.</value>
+    <value>File '{0}' doesn't exist</value>
     <comment>0 is file path</comment>
   </data>
   <data name="LoadingSettingsStatus" xml:space="preserve">
-    <value>Загрузка настроек...</value>
+    <value>Loadding settings...</value>
   </data>
   <data name="LoadingFileStatus" xml:space="preserve">
-    <value>Загрузка файла...</value>
+    <value>Loading file...</value>
   </data>
   <data name="SettingsLoadingFailedMessage" xml:space="preserve">
-    <value>Загрузка настроек не удалась: {0}</value>
+    <value>Failed to load settings: {0}</value>
     <comment>0 is error message</comment>
   </data>
   <data name="ReadFromFileExceptionMessage" xml:space="preserve">
-    <value>Ошибка при чтение: прочитано {0} байт, когда ожидалось {1}.</value>
+    <value>Error while reading: read {0} bytes, while {1} was expected</value>
     <comment>0 is read bytes count, 1 is expected bytes count</comment>
   </data>
   <data name="ReadyStatus" xml:space="preserve">
-    <value>Готово</value>
+    <value>Ready</value>
   </data>
   <data name="ExportingToFileStatus" xml:space="preserve">
-    <value>Экспорт в файл...</value>
+    <value>Export to file...</value>
   </data>
   <data name="ExportToFileFailedMessage" xml:space="preserve">
-    <value>Экспорт в файл не удался: {0}</value>
+    <value>Failed to export to file: {0}</value>
     <comment>0 is error message</comment>
   </data>
   <data name="ExportToFileSucceededMessage" xml:space="preserve">
-    <value>Экспорт в файл успешно завершен.</value>
+    <value>Export to file finished successfully.</value>
   </data>
   <data name="InformationMessageTitle" xml:space="preserve">
-    <value>Информация</value>
+    <value>Information</value>
   </data>
   <data name="ExportingToExcelStatus" xml:space="preserve">
-    <value>Экспорт в Excel...</value>
+    <value>Export to Excel...</value>
   </data>
   <data name="ExportToExcelFailedMessage" xml:space="preserve">
-    <value>Экспорт в Excel не удался: {0}</value>
+    <value>Failed to export to Excel: {0}</value>
     <comment>0 is error message</comment>
   </data>
   <data name="VersionInfoFormat" xml:space="preserve">
-    <value>Версия: {1}{0}Дата сборки: {2}</value>
+    <value>Version: {1}{0}Build date: {2}</value>
     <comment>0 is new line sequence, 1 is version, 2 is build date.</comment>
   </data>
   <data name="ArgumentScalesCountMismatch" xml:space="preserve">
-    <value>Количество масштабов аргументов не соответствует количеству аргументов</value>
+    <value>Number of argument scales doesn't correspond to number of arguments</value>
   </data>
   <data name="FunctionScalesCountMismatch" xml:space="preserve">
     <value>Количество масштабов функции не соответствует количеству функций</value>
   </data>
   <data name="SavingSettingsStatus" xml:space="preserve">
-    <value>Сохранение настроек</value>
+    <value>Saving settings</value>
   </data>
   <data name="SaveSettingsFailed" xml:space="preserve">
-    <value>Не удалось сохранить настройки: {0}</value>
+    <value>Failed to save settings: {0}</value>
     <comment>0 is exception message</comment>
   </data>
   <data name="FailedToCreateOrOpenKey" xml:space="preserve">
-    <value>Не удалось создать или открыть ключ '{0}'</value>
+    <value>Failed to create or open key '{0}'</value>
     <comment>0 is key path</comment>
   </data>
   <data name="FileTypeDescription" xml:space="preserve">
-    <value>Бинарный файл DataTable.Net</value>
+    <value>DataTable.Net binary file</value>
   </data>
   <data name="NoReferencesToRelease" xml:space="preserve">
-    <value>Невозможно освободить ссылку, поскольку счетчик равен нулю</value>
+    <value>Failed to release the reference because the counter is equal to zero</value>
   </data>
   <data name="FailedToUpdateRecentFilesList" xml:space="preserve">
-    <value>Не удалось обновить список недавно открытых файлов: {0}</value>
+    <value>Failed to update recent files list: {0}</value>
     <comment>0 is error message</comment>
   </data>
   <data name="ImpossibleToShrinkListToBiggerSize" xml:space="preserve">
-    <value>Не возможно уменьшить список до большего размера</value>
+    <value>Impossible to shrink list to bigger size</value>
   </data>
   <data name="FailedToLoadRecentFiles" xml:space="preserve">
-    <value>Не удалось загрузить список недавно открытых файлов: {0}</value>
+    <value>Failed to load recent files list: {0}</value>
     <comment>0 is exception message</comment>
   </data>
   <data name="ClearList" xml:space="preserve">
-    <value>Очистить список</value>
+    <value>Clear list</value>
   </data>
   <data name="ClearingRecentFilesList" xml:space="preserve">
-    <value>Очистка списка недавних файлов</value>
+    <value>Clearing recent files list</value>
   </data>
 </root>

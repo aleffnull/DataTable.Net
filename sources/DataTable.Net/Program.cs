@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 using DataTable.Net.Forms;
 using DataTable.Net.Properties;
@@ -55,6 +57,9 @@ namespace DataTable.Net
 				fileToOpen = args[0];
 				log.InfoFormat(InternalResources.GotFileFromCommandLine, fileToOpen);
 			}
+
+			Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
+			log.DebugFormat(InternalResources.CurrentUICulture, Thread.CurrentThread.CurrentUICulture);
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);

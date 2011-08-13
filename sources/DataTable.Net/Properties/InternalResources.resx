@@ -453,4 +453,7 @@
 	<data name="SendingShellNotification">
 		<value xml:space="preserve">Sending shell notification</value>
 	</data>
+	<data name="CurrentUICulture">
+		<value xml:space="preserve">Current UI culture is {0}</value>
+	</data>
 </root>
