@@ -49,6 +49,7 @@
 		<copy todir="${delivery_build_dir_binaries}">
 			<fileset basedir="${binaries_dir}" failonempty="true">
 				<include name="*.*" />
+				<include name="**" />
 				<exclude name="*.pdb" />
 				<exclude name="*.xml" />
 				<exclude name="*vshost*.*" />

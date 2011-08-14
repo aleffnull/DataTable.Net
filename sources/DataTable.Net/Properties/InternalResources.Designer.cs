@@ -259,6 +259,15 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current culture is {0}.
+        /// </summary>
+        internal static string CurrentCulture {
+            get {
+                return ResourceManager.GetString("CurrentCulture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current row index {0} is too big for row count {1}.
         /// </summary>
         internal static string CurrentRowIndexIsTooBigForRowCount {
