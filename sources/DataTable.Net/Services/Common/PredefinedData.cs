@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Reflection;
+using DataTable.Net.Models;
 using DataTable.Net.Properties;
 
 namespace DataTable.Net.Services.Common
@@ -12,6 +14,7 @@ namespace DataTable.Net.Services.Common
 		private static readonly string programExecutable;
 		private static readonly string fileIcon;
 		private static readonly List<string> supportedExtensions = new List<string>();
+		private static readonly List<Language> supportedLanguages = new List<Language>();
 
 		#endregion Fields
 
@@ -44,6 +47,11 @@ namespace DataTable.Net.Services.Common
 			supportedExtensions.Add(InternalResources.BinExtension);
 			supportedExtensions.Add(InternalResources.DatExtension);
 			supportedExtensions.Add(InternalResources.HexExtension);
+
+			supportedLanguages.Add(
+				new Language(new CultureInfo(InternalResources.RussianCultureInfo), InternalResources.RussianLanguage));
+			supportedLanguages.Add(
+				new Language(new CultureInfo(InternalResources.EnglishCultureInfo), InternalResources.EnglishLanguage));
 		}
 
 		#endregion Constructors

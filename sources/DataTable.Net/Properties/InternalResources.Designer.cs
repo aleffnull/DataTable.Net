@@ -376,6 +376,24 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to en-US.
+        /// </summary>
+        internal static string EnglishCultureInfo {
+            get {
+                return ResourceManager.GetString("EnglishCultureInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        internal static string EnglishLanguage {
+            get {
+                return ResourceManager.GetString("EnglishLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exists.
         /// </summary>
         internal static string Exists {
@@ -795,6 +813,24 @@ namespace DataTable.Net.Properties {
         internal static string RemovingDuplicatedItem {
             get {
                 return ResourceManager.GetString("RemovingDuplicatedItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ru-RU.
+        /// </summary>
+        internal static string RussianCultureInfo {
+            get {
+                return ResourceManager.GetString("RussianCultureInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Русский.
+        /// </summary>
+        internal static string RussianLanguage {
+            get {
+                return ResourceManager.GetString("RussianLanguage", resourceCulture);
             }
         }
         

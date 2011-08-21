@@ -451,4 +451,16 @@
   <data name="CurrentCulture" xml:space="preserve">
     <value>Current culture is {0}</value>
   </data>
+	<data name="RussianCultureInfo">
+		<value xml:space="preserve">ru-RU</value>
+	</data>
+	<data name="EnglishCultureInfo">
+		<value xml:space="preserve">en-US</value>
+	</data>
+	<data name="RussianLanguage">
+		<value xml:space="preserve">Русский</value>
+	</data>
+	<data name="EnglishLanguage">
+		<value xml:space="preserve">English</value>
+	</data>
 </root>

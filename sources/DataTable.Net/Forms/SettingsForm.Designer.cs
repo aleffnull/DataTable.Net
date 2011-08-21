@@ -37,7 +37,9 @@
 			this.ExportValuesSeparatorTextBox = new System.Windows.Forms.TextBox();
 			this.SettingsTabControl = new System.Windows.Forms.TabControl();
 			this.GeneralTabPage = new System.Windows.Forms.TabPage();
-			this.RecentFileCountUpDown = new System.Windows.Forms.NumericUpDown();
+			this.LanguageComboBox = new System.Windows.Forms.ComboBox();
+			this.LanguageLabel = new System.Windows.Forms.Label();
+			this.RecentFilesCountUpDown = new System.Windows.Forms.NumericUpDown();
 			this.RecentFileCountLabel = new System.Windows.Forms.Label();
 			this.IntegrationTabPage = new System.Windows.Forms.TabPage();
 			this.FileTypeCheckBoxesLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -46,7 +48,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.MaxAbsoluteScalePowerUpDown)).BeginInit();
 			this.SettingsTabControl.SuspendLayout();
 			this.GeneralTabPage.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.RecentFileCountUpDown)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.RecentFilesCountUpDown)).BeginInit();
 			this.IntegrationTabPage.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -94,7 +96,9 @@
 			// 
 			// GeneralTabPage
 			// 
-			this.GeneralTabPage.Controls.Add(this.RecentFileCountUpDown);
+			this.GeneralTabPage.Controls.Add(this.LanguageComboBox);
+			this.GeneralTabPage.Controls.Add(this.LanguageLabel);
+			this.GeneralTabPage.Controls.Add(this.RecentFilesCountUpDown);
 			this.GeneralTabPage.Controls.Add(this.RecentFileCountLabel);
 			this.GeneralTabPage.Controls.Add(this.MaxAbsoluteScalePowerLabel);
 			this.GeneralTabPage.Controls.Add(this.ExportValuesSeparatorTextBox);
@@ -104,10 +108,22 @@
 			this.GeneralTabPage.Name = "GeneralTabPage";
 			this.GeneralTabPage.UseVisualStyleBackColor = true;
 			// 
-			// RecentFileCountUpDown
+			// LanguageComboBox
 			// 
-			resources.ApplyResources(this.RecentFileCountUpDown, "RecentFileCountUpDown");
-			this.RecentFileCountUpDown.Name = "RecentFileCountUpDown";
+			this.LanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.LanguageComboBox.FormattingEnabled = true;
+			resources.ApplyResources(this.LanguageComboBox, "LanguageComboBox");
+			this.LanguageComboBox.Name = "LanguageComboBox";
+			// 
+			// LanguageLabel
+			// 
+			resources.ApplyResources(this.LanguageLabel, "LanguageLabel");
+			this.LanguageLabel.Name = "LanguageLabel";
+			// 
+			// RecentFilesCountUpDown
+			// 
+			resources.ApplyResources(this.RecentFilesCountUpDown, "RecentFilesCountUpDown");
+			this.RecentFilesCountUpDown.Name = "RecentFilesCountUpDown";
 			// 
 			// RecentFileCountLabel
 			// 
@@ -151,11 +167,12 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "SettingsForm";
+			this.Load += new System.EventHandler(this.SettingsForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.MaxAbsoluteScalePowerUpDown)).EndInit();
 			this.SettingsTabControl.ResumeLayout(false);
 			this.GeneralTabPage.ResumeLayout(false);
 			this.GeneralTabPage.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.RecentFileCountUpDown)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.RecentFilesCountUpDown)).EndInit();
 			this.IntegrationTabPage.ResumeLayout(false);
 			this.IntegrationTabPage.PerformLayout();
 			this.ResumeLayout(false);
@@ -176,7 +193,9 @@
 		private System.Windows.Forms.Label FileTypesLabel;
 		private System.Windows.Forms.Button SelectAllFileTypesButton;
 		private System.Windows.Forms.FlowLayoutPanel FileTypeCheckBoxesLayoutPanel;
-		private System.Windows.Forms.NumericUpDown RecentFileCountUpDown;
+		private System.Windows.Forms.NumericUpDown RecentFilesCountUpDown;
 		private System.Windows.Forms.Label RecentFileCountLabel;
+		private System.Windows.Forms.ComboBox LanguageComboBox;
+		private System.Windows.Forms.Label LanguageLabel;
 	}
 }

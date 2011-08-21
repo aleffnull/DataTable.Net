@@ -112,8 +112,11 @@
     </Compile>
     <Compile Include="Models\CacheLine.cs" />
     <Compile Include="Models\CachingDataModel.cs" />
+    <Compile Include="Models\Language.cs" />
     <Compile Include="Presenters\IAboutPresenter.cs" />
     <Compile Include="Presenters\Impl\AboutPresenter.cs" />
+    <Compile Include="Presenters\Impl\SettingsPresenter.cs" />
+    <Compile Include="Presenters\ISettingsPresenter.cs" />
     <Compile Include="Properties\ProgramInfo.cs" />
     <Compile Include="Properties\InternalResources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -170,6 +173,7 @@
     <Compile Include="Views\IAboutView.cs" />
     <Compile Include="Views\IDataPropertiesView.cs" />
     <Compile Include="Views\IMainView.cs" />
+    <Compile Include="Views\ISettingsView.cs" />
     <EmbeddedResource Include="Forms\AboutForm.en.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>

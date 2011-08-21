@@ -130,6 +130,12 @@
   <data name="ExportValuesSeparatorLabel.Text" xml:space="preserve">
     <value>Export columns separator:</value>
   </data>
+  <data name="LanguageLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 13</value>
+  </data>
+  <data name="LanguageLabel.Text" xml:space="preserve">
+    <value>Language:</value>
+  </data>
   <data name="RecentFileCountLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 62</value>
   </data>
