@@ -13,7 +13,6 @@ namespace DataTable.Net.Forms
 		#region Fields
 
 		private readonly ISettingsPresenter presenter;
-		private readonly SettingsDto settingsToLoad;
 
 		#endregion Fields
 
@@ -22,8 +21,7 @@ namespace DataTable.Net.Forms
 		public SettingsForm(SettingsDto settings)
 		{
 			InitializeComponent();
-			settingsToLoad = settings;
-			presenter = new SettingsPresenter(this);
+			presenter = new SettingsPresenter(this, settings);
 		}
 
 		#endregion Constructors
@@ -88,6 +86,20 @@ namespace DataTable.Net.Forms
 			return extensions;
 		}
 
+		void ISettingsView.SelectAllExtensions()
+		{
+			foreach (var control in FileTypeCheckBoxesLayoutPanel.Controls)
+			{
+				if (!(control is CheckBox))
+				{
+					continue;
+				}
+
+				var checkBox = control as CheckBox;
+				checkBox.Checked = true;
+			}
+		}
+
 		#endregion ISettingsView implementation
 
 		#region Methods
@@ -103,21 +115,12 @@ namespace DataTable.Net.Forms
 
 		private void SettingsForm_Load(object sender, EventArgs e)
 		{
-			presenter.OnLoad(settingsToLoad);
+			presenter.OnLoad();
 		}
 
 		private void SelectAllFileTypesButton_Click(object sender, EventArgs e)
 		{
-			foreach (var control in FileTypeCheckBoxesLayoutPanel.Controls)
-			{
-				if (!(control is CheckBox))
-				{
-					continue;
-				}
-
-				var checkBox = control as CheckBox;
-				checkBox.Checked = true;
-			}
+			presenter.OnSelectAllExtensions();
 		}
 
 		#endregion Event handlers

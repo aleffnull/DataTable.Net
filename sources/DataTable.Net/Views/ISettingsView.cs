@@ -11,5 +11,6 @@ namespace DataTable.Net.Views
 		void AddExtension(string extension);
 		void ToogleExtension(string extension, bool selected);
 		IEnumerable<string> GetSelectedExtensions();
+		void SelectAllExtensions();
 	}
 }

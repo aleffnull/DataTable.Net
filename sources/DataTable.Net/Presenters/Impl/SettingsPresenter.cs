@@ -9,24 +9,26 @@ namespace DataTable.Net.Presenters.Impl
 		#region Fields
 
 		private readonly ISettingsView view;
+		private readonly SettingsDto settingsToLoad;
 
 		#endregion Fields
 
 		#region Constructors
 
-		public SettingsPresenter(ISettingsView view)
+		public SettingsPresenter(ISettingsView view, SettingsDto settingsToLoad)
 		{
 			this.view = view;
+			this.settingsToLoad = settingsToLoad;
 		}
 
 		#endregion Constructors
 
 		#region ISettingsPresenter implementation
 
-		public void OnLoad(SettingsDto settings)
+		public void OnLoad()
 		{
-			InitExtensions();
-			LoadSettings(settings);
+			InitPredefinedData();
+			LoadSettings(settingsToLoad);
 		}
 
 		public SettingsDto GetSettings()
@@ -36,11 +38,16 @@ namespace DataTable.Net.Presenters.Impl
 				view.RecentFilesCount, view.GetSelectedExtensions());
 		}
 
+		public void OnSelectAllExtensions()
+		{
+			view.SelectAllExtensions();
+		}
+
 		#endregion ISettingsPresenter implementation
 
 		#region Helpers
 
-		private void InitExtensions()
+		private void InitPredefinedData()
 		{
 			foreach (var extension in PredefinedData.SupportedExtensions)
 			{

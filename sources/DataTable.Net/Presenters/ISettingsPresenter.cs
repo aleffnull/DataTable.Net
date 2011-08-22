@@ -4,7 +4,8 @@ namespace DataTable.Net.Presenters
 {
 	internal interface ISettingsPresenter
 	{
-		void OnLoad(SettingsDto settings);
+		void OnLoad();
 		SettingsDto GetSettings();
+		void OnSelectAllExtensions();
 	}
 }
