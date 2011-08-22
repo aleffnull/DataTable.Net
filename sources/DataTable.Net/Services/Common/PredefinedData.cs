@@ -54,9 +54,9 @@ namespace DataTable.Net.Services.Common
 			supportedExtensions.Add(InternalResources.HexExtension);
 
 			supportedLanguages.Add(
-				new Language(new CultureInfo(InternalResources.RussianCultureInfo), InternalResources.RussianLanguage));
+				new Language(LanguageType.Russian, InternalResources.RussianLanguage, new CultureInfo(InternalResources.RussianCultureInfo)));
 			supportedLanguages.Add(
-				new Language(new CultureInfo(InternalResources.EnglishCultureInfo), InternalResources.EnglishLanguage));
+				new Language(LanguageType.English, InternalResources.EnglishLanguage, new CultureInfo(InternalResources.EnglishCultureInfo)));
 		}
 
 		#endregion Constructors

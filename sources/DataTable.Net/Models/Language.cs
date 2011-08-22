@@ -6,18 +6,19 @@ namespace DataTable.Net.Models
 	{
 		#region Properties
 
-		public CultureInfo Culture { get; private set; }
-
+		public LanguageType Type { get; private set; }
 		public string Name { get; private set; }
+		public CultureInfo Culture { get; private set; }
 
 		#endregion Properties
 
 		#region Constructors
 
-		public Language(CultureInfo culture, string name)
+		public Language(LanguageType type, string name, CultureInfo culture)
 		{
-			Culture = culture;
+			Type = type;
 			Name = name;
+			Culture = culture;
 		}
 
 		#endregion Constructors

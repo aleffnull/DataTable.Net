@@ -11,5 +11,8 @@
     <Setting Name="RecentFilesCount" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
+    <Setting Name="Language" Type="DataTable.Net.Models.LanguageType" Scope="User">
+      <Value Profile="(Default)">Russian</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

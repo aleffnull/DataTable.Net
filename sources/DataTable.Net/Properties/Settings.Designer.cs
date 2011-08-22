@@ -58,5 +58,17 @@ namespace DataTable.Net.Properties {
                 this["RecentFilesCount"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Russian")]
+        public global::DataTable.Net.Models.LanguageType Language {
+            get {
+                return ((global::DataTable.Net.Models.LanguageType)(this["Language"]));
+            }
+            set {
+                this["Language"] = value;
+            }
+        }
     }
 }

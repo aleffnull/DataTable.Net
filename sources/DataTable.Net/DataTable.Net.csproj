@@ -114,6 +114,7 @@
     <Compile Include="Models\CacheLine.cs" />
     <Compile Include="Models\CachingDataModel.cs" />
     <Compile Include="Models\Language.cs" />
+    <Compile Include="Models\LanguageType.cs" />
     <Compile Include="Presenters\IAboutPresenter.cs" />
     <Compile Include="Presenters\Impl\AboutPresenter.cs" />
     <Compile Include="Presenters\Impl\SettingsPresenter.cs" />
