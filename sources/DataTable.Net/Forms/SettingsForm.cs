@@ -100,6 +100,11 @@ namespace DataTable.Net.Forms
 			}
 		}
 
+		void ISettingsView.AddLanguage(LanguageDto language)
+		{
+			LanguageComboBox.Items.Add(language);
+		}
+
 		#endregion ISettingsView implementation
 
 		#region Methods

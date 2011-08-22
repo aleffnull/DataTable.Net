@@ -463,4 +463,10 @@
 	<data name="EnglishLanguage">
 		<value xml:space="preserve">English</value>
 	</data>
+	<data name="LanguageDtoToStringFormat">
+		<value xml:space="preserve">{0} ({1})</value>
+		<comment>
+			0 is language name, 1 is culture string representation.
+		</comment>
+	</data>
 </root>

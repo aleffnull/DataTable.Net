@@ -53,6 +53,11 @@ namespace DataTable.Net.Presenters.Impl
 			{
 				view.AddExtension(extension);
 			}
+
+			foreach (var language in PredefinedData.SupportedLanguages)
+			{
+				view.AddLanguage(new LanguageDto(language));
+			}
 		}
 
 		private void LoadSettings(SettingsDto settings)

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DataTable.Net.Dtos;
 
 namespace DataTable.Net.Views
 {
@@ -12,5 +13,7 @@ namespace DataTable.Net.Views
 		void ToogleExtension(string extension, bool selected);
 		IEnumerable<string> GetSelectedExtensions();
 		void SelectAllExtensions();
+
+		void AddLanguage(LanguageDto language);
 	}
 }

@@ -35,6 +35,11 @@ namespace DataTable.Net.Services.Common
 			get { return supportedExtensions; }
 		}
 
+		public static IEnumerable<Language> SupportedLanguages
+		{
+			get { return supportedLanguages; }
+		}
+
 		#endregion Properties
 
 		#region Constructors

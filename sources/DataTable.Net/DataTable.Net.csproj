@@ -74,6 +74,7 @@
     <Compile Include="Dtos\FullDataPropertiesDto.cs" />
     <Compile Include="Dtos\DataTypeDto.cs" />
     <Compile Include="Dtos\InitializationDto.cs" />
+    <Compile Include="Dtos\LanguageDto.cs" />
     <Compile Include="Dtos\NumberOfItemsDto.cs" />
     <Compile Include="Dtos\RecentFileDto.cs" />
     <Compile Include="Dtos\ScaleDto.cs" />
