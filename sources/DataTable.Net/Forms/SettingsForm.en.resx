@@ -130,11 +130,14 @@
   <data name="ExportValuesSeparatorLabel.Text" xml:space="preserve">
     <value>Export columns separator:</value>
   </data>
+  <data name="GeneralTabPage.Text" xml:space="preserve">
+    <value>General</value>
+  </data>
   <data name="LanguageLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 13</value>
+    <value>137, 13</value>
   </data>
   <data name="LanguageLabel.Text" xml:space="preserve">
-    <value>Language:</value>
+    <value>Language (restart required):</value>
   </data>
   <data name="RecentFileCountLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 62</value>
@@ -145,8 +148,8 @@
   <data name="RecentFileCountLabel.Text" xml:space="preserve">
     <value>Number of stored recent files:</value>
   </data>
-  <data name="GeneralTabPage.Text" xml:space="preserve">
-    <value>General</value>
+  <data name="IntegrationTabPage.Text" xml:space="preserve">
+    <value>Shell integration</value>
   </data>
   <data name="SelectAllFileTypesButton.Text" xml:space="preserve">
     <value>Select &amp;all</value>
@@ -156,9 +159,6 @@
   </data>
   <data name="FileTypesLabel.Text" xml:space="preserve">
     <value>Open files of following types:</value>
-  </data>
-  <data name="IntegrationTabPage.Text" xml:space="preserve">
-    <value>Shell integration</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

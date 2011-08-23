@@ -96,6 +96,7 @@
 			// 
 			// GeneralTabPage
 			// 
+			resources.ApplyResources(this.GeneralTabPage, "GeneralTabPage");
 			this.GeneralTabPage.Controls.Add(this.LanguageComboBox);
 			this.GeneralTabPage.Controls.Add(this.LanguageLabel);
 			this.GeneralTabPage.Controls.Add(this.RecentFilesCountUpDown);
@@ -104,15 +105,14 @@
 			this.GeneralTabPage.Controls.Add(this.ExportValuesSeparatorTextBox);
 			this.GeneralTabPage.Controls.Add(this.MaxAbsoluteScalePowerUpDown);
 			this.GeneralTabPage.Controls.Add(this.ExportValuesSeparatorLabel);
-			resources.ApplyResources(this.GeneralTabPage, "GeneralTabPage");
 			this.GeneralTabPage.Name = "GeneralTabPage";
 			this.GeneralTabPage.UseVisualStyleBackColor = true;
 			// 
 			// LanguageComboBox
 			// 
+			resources.ApplyResources(this.LanguageComboBox, "LanguageComboBox");
 			this.LanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.LanguageComboBox.FormattingEnabled = true;
-			resources.ApplyResources(this.LanguageComboBox, "LanguageComboBox");
 			this.LanguageComboBox.Name = "LanguageComboBox";
 			// 
 			// LanguageLabel
@@ -132,10 +132,10 @@
 			// 
 			// IntegrationTabPage
 			// 
+			resources.ApplyResources(this.IntegrationTabPage, "IntegrationTabPage");
 			this.IntegrationTabPage.Controls.Add(this.FileTypeCheckBoxesLayoutPanel);
 			this.IntegrationTabPage.Controls.Add(this.SelectAllFileTypesButton);
 			this.IntegrationTabPage.Controls.Add(this.FileTypesLabel);
-			resources.ApplyResources(this.IntegrationTabPage, "IntegrationTabPage");
 			this.IntegrationTabPage.Name = "IntegrationTabPage";
 			this.IntegrationTabPage.UseVisualStyleBackColor = true;
 			// 
