@@ -216,7 +216,7 @@
     <value>Failed to show exception window</value>
   </data>
   <data name="SettingsStorageToStringFormat" xml:space="preserve">
-    <value>MaxAbsoluteScalePower = {0}, ExportValuesSeparator = "{1}", RecentFilesCount = {2} RegisteredExtensions = {3}</value>
+    <value>MaxAbsoluteScalePower = {0}, ExportValuesSeparator = "{1}", RecentFilesCount = {2} RegisteredExtensions = {3}, Language = {4}</value>
   </data>
   <data name="DataPropertiesDtoToStringFormat" xml:space="preserve">
     <value>Number of arguments: {0}, number of functions: {1}, agruments type: {2}, functions type: {3}, arithmetic type: {4}</value>
@@ -445,28 +445,35 @@
   <data name="SendingShellNotification" xml:space="preserve">
     <value>Sending shell notification</value>
   </data>
-  <data name="CurrentUICulture" xml:space="preserve">
-    <value>Current UI culture is {0}</value>
+  <data name="RussianCultureInfo" xml:space="preserve">
+    <value>ru-RU</value>
   </data>
-  <data name="CurrentCulture" xml:space="preserve">
-    <value>Current culture is {0}</value>
+  <data name="EnglishCultureInfo" xml:space="preserve">
+    <value>en-US</value>
   </data>
-	<data name="RussianCultureInfo">
-		<value xml:space="preserve">ru-RU</value>
-	</data>
-	<data name="EnglishCultureInfo">
-		<value xml:space="preserve">en-US</value>
-	</data>
-	<data name="RussianLanguage">
-		<value xml:space="preserve">Русский</value>
-	</data>
-	<data name="EnglishLanguage">
-		<value xml:space="preserve">English</value>
-	</data>
-	<data name="LanguageDtoToStringFormat">
-		<value xml:space="preserve">{0} ({1})</value>
-		<comment>
+  <data name="RussianLanguage" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="EnglishLanguage" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="LanguageDtoToStringFormat" xml:space="preserve">
+    <value>{0} ({1})</value>
+    <comment>
 			0 is language name, 1 is culture string representation.
 		</comment>
-	</data>
+  </data>
+  <data name="LoadingRecentFiles" xml:space="preserve">
+    <value>Loading recent files list</value>
+  </data>
+  <data name="RecentFilesLoaded" xml:space="preserve">
+    <value>Recent files list was loaded</value>
+  </data>
+  <data name="UnknownLanguageType" xml:space="preserve">
+    <value>Unknown language type {0}</value>
+    <comment>0 is language type</comment>
+  </data>
+  <data name="SettingMainThreadCulture" xml:space="preserve">
+    <value>Setting main thread culture to {0}</value>
+  </data>
 </root>

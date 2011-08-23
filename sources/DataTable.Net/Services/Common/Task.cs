@@ -6,8 +6,10 @@ namespace DataTable.Net.Services.Common
 	{
 		#region Fields
 
+		private Action readyDelegate;
 		private Action completedDelegate;
 		private Action<Exception> errorDelegate;
+		private Action doneDelegate;
 
 		#endregion Fields
 
@@ -27,8 +29,10 @@ namespace DataTable.Net.Services.Common
 		private Task(Action action)
 		{
 			Action = new BackgroundAction(args => action());
+			Action.Ready += OnActionReady;
 			Action.Completed += OnActionCompleted;
 			Action.ErrorOccurred += OnActionErrorOccurred;
+			Action.Done += OnActionDone;
 		}
 
 		protected Task()
@@ -40,9 +44,21 @@ namespace DataTable.Net.Services.Common
 
 		#region Methods
 
+		public Task WithContinuation(Task task)
+		{
+			Action.AddContinuation(task.Action);
+			return this;
+		}
+
 		public virtual void Start()
 		{
 			Action.Perform();
+		}
+
+		public Task RunBefore(Action readyAction)
+		{
+			readyDelegate += readyAction;
+			return this;
 		}
 
 		public Task RunOnSuccess(Action successAction)
@@ -57,9 +73,23 @@ namespace DataTable.Net.Services.Common
 			return this;
 		}
 
+		public Task RunOnDone(Action doneAction)
+		{
+			doneDelegate += doneAction;
+			return this;
+		}
+
 		#endregion Methods
 
-		#region Helpers
+		#region Event handlers
+
+		protected void OnActionReady(object sender, EventArgs e)
+		{
+			if (readyDelegate != null)
+			{
+				readyDelegate();
+			}
+		}
 
 		private void OnActionCompleted(object sender, CompletedEventArgs args)
 		{
@@ -77,13 +107,15 @@ namespace DataTable.Net.Services.Common
 			}
 		}
 
-		#endregion Helpers
-
-		public Task WithContinuation(Task task)
+		protected void OnActionDone(object sender, EventArgs eventArgs)
 		{
-			Action.AddContinuation(task.Action);
-			return this;
+			if (doneDelegate != null)
+			{
+				doneDelegate();
+			}
 		}
+
+		#endregion Event handlers
 	}
 
 	internal class Task<T> : Task
@@ -104,8 +136,10 @@ namespace DataTable.Net.Services.Common
 		private Task(Func<T> func)
 		{
 			Action = new BackgroundAction(args => { args.Result = func(); });
+			Action.Ready += OnActionReady;
 			Action.Completed += OnActionCompleted;
 			Action.ErrorOccurred += OnActionErrorOccurred;
+			Action.Done += OnActionDone;
 		}
 
 		#endregion Constructors
@@ -123,6 +157,12 @@ namespace DataTable.Net.Services.Common
 			return this;
 		}
 
+		public new Task<T> RunBefore(Action readyAction)
+		{
+			base.RunBefore(readyAction);
+			return this;
+		}
+
 		public Task<T> RunOnSuccess(Action<T> successAction)
 		{
 			completedDelegate += successAction;
@@ -137,7 +177,7 @@ namespace DataTable.Net.Services.Common
 
 		#endregion Methods
 
-		#region Helpers
+		#region Event handlers
 
 		private void OnActionCompleted(object sender, CompletedEventArgs args)
 		{
@@ -150,6 +190,6 @@ namespace DataTable.Net.Services.Common
 			completedDelegate(result);
 		}
 
-		#endregion Helpers
+		#endregion Event handlers
 	}
 }

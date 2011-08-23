@@ -35,7 +35,7 @@ namespace DataTable.Net.Presenters.Impl
 		{
 			return new SettingsDto(
 				view.MaxAbsoluteScalePower, view.ExportValuesSeparator,
-				view.RecentFilesCount, view.GetSelectedExtensions());
+				view.RecentFilesCount, view.GetSelectedExtensions(), null);
 		}
 
 		public void OnSelectAllExtensions()

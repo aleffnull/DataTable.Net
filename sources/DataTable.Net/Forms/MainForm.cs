@@ -8,6 +8,7 @@ using DataTable.Net.Models;
 using DataTable.Net.Presenters;
 using DataTable.Net.Presenters.Impl;
 using DataTable.Net.Properties;
+using DataTable.Net.Services.Common;
 using DataTable.Net.Views;
 
 namespace DataTable.Net.Forms
@@ -23,10 +24,10 @@ namespace DataTable.Net.Forms
 
 		#region Constructors
 
-		public MainForm(string fileToOpen)
+		public MainForm(string fileToOpen, ServiceLocator serviceLocator)
 		{
 			InitializeComponent();
-			presenter = new MainPresenter(this, fileToOpen);
+			presenter = new MainPresenter(this, fileToOpen, serviceLocator);
 		}
 
 		#endregion Constructors
@@ -49,18 +50,6 @@ namespace DataTable.Net.Forms
 				ExportToFileToolStripButton.Enabled =
 				ExportToExcelToolStripButton.Enabled =
 				DataPropertiesToolStripButton.Enabled = true;
-		}
-
-		void IMainView.DisableSettingsDependentControls()
-		{
-			OpenToolStripMenuItem.Enabled = false;
-			OpenToolStripSplitButton.Enabled = false;
-		}
-
-		void IMainView.EnableSettingsDependentControls()
-		{
-			OpenToolStripMenuItem.Enabled = true;
-			OpenToolStripSplitButton.Enabled = true;
 		}
 
 		void IMainView.DisableRecentFilesDependentControls()

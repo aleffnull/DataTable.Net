@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DataTable.Net.Models;
 using DataTable.Net.Properties;
 
 namespace DataTable.Net.Services.Common
@@ -16,6 +17,7 @@ namespace DataTable.Net.Services.Common
 		public int MaxAbsoluteScalePower { get; set; }
 		public string ExportValuesSeparator { get; set; }
 		public int RecentFilesCount { get; set; }
+		public Language Language { get; set; }
 
 		public IEnumerable<string> RegisteredExtensions
 		{
@@ -33,11 +35,12 @@ namespace DataTable.Net.Services.Common
 
 		public SettingsStorage(
 			int maxAbsoluteScalePower, string exportValuesSeparator, int recentFilesCount,
-			IEnumerable<string> registeredExtensions)
+			IEnumerable<string> registeredExtensions, Language language)
 		{
 			MaxAbsoluteScalePower = maxAbsoluteScalePower;
 			ExportValuesSeparator = exportValuesSeparator;
 			RecentFilesCount = recentFilesCount;
+			Language = language;
 			this.registeredExtensions.AddRange(registeredExtensions);
 		}
 
@@ -58,7 +61,7 @@ namespace DataTable.Net.Services.Common
 		{
 			return string.Format(
 				InternalResources.SettingsStorageToStringFormat,
-				MaxAbsoluteScalePower, ExportValuesSeparator, RecentFilesCount, GetRegisteredExtensionsString());
+				MaxAbsoluteScalePower, ExportValuesSeparator, RecentFilesCount, GetRegisteredExtensionsString(), Language);
 		}
 
 		#endregion Object overrides

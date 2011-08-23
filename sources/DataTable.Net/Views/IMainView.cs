@@ -7,8 +7,6 @@ namespace DataTable.Net.Views
 	{
 		void DisableFileDependentControls();
 		void EnableFileDependentControls();
-		void DisableSettingsDependentControls();
-		void EnableSettingsDependentControls();
 		void DisableRecentFilesDependentControls();
 		void EnableRecentFilesDependentControls();
 

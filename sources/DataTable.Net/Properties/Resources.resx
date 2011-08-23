@@ -138,15 +138,8 @@
     <value>Файл '{0}' не существует.</value>
     <comment>0 is file path</comment>
   </data>
-  <data name="LoadingSettingsStatus" xml:space="preserve">
-    <value>Загрузка настроек...</value>
-  </data>
   <data name="LoadingFileStatus" xml:space="preserve">
     <value>Загрузка файла...</value>
-  </data>
-  <data name="SettingsLoadingFailedMessage" xml:space="preserve">
-    <value>Загрузка настроек не удалась: {0}</value>
-    <comment>0 is error message</comment>
   </data>
   <data name="ReadFromFileExceptionMessage" xml:space="preserve">
     <value>Ошибка при чтение: прочитано {0} байт, когда ожидалось {1}.</value>
@@ -218,5 +211,11 @@
   </data>
   <data name="ClearingRecentFilesList" xml:space="preserve">
     <value>Очистка списка недавних файлов</value>
+  </data>
+  <data name="LoadSettingsBeforeUsingExceptionMessage" xml:space="preserve">
+    <value>Настройки необходимо загрузить перед использованием</value>
+  </data>
+  <data name="LoadingRecentFilesStatus" xml:space="preserve">
+    <value>Загрузка списка недавно открытых файлов...</value>
   </data>
 </root>

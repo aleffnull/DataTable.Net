@@ -22,5 +22,14 @@ namespace DataTable.Net.Models
 		}
 
 		#endregion Constructors
+
+		#region Object overrides
+
+		public override string ToString()
+		{
+			return Culture.ToString();
+		}
+
+		#endregion Object overrides
 	}
 }

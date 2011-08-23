@@ -1,14 +1,35 @@
+using System;
 using System.Collections.Generic;
+using DataTable.Net.Models;
 using DataTable.Net.Properties;
 using DataTable.Net.Services.Common;
+using log4net;
 
 namespace DataTable.Net.Services.Impl
 {
 	public class SettingsService : ISettingsService
 	{
+		#region Fields
+
+		private static readonly ILog log = LogManager.GetLogger(typeof(SettingsService));
+		private SettingsStorage currentSettings;
+
+		#endregion Fields
+
 		#region ISettingsService implementation
 
-		public SettingsStorage CurrentSettings { get; private set; }
+		public SettingsStorage CurrentSettings
+		{
+			get
+			{
+				if (currentSettings == null)
+				{
+					throw new InvalidOperationException(Resources.LoadSettingsBeforeUsingExceptionMessage);
+				}
+
+				return currentSettings;
+			}
+		}
 
 		public void LoadSettings()
 		{
@@ -16,7 +37,7 @@ namespace DataTable.Net.Services.Impl
 			LoadConfigFileSettings(settings);
 			LoadRegistrySettings(settings);
 
-			CurrentSettings = settings;
+			currentSettings = settings;
 		}
 
 		public void SaveSettings(SettingsStorage newSettings)
@@ -24,7 +45,7 @@ namespace DataTable.Net.Services.Impl
 			SaveConfigFileSettings(newSettings);
 			SaveRegistrySettings(CurrentSettings, newSettings);
 
-			CurrentSettings = newSettings;
+			currentSettings = newSettings;
 		}
 
 		#endregion ISettingsService implementation
@@ -36,6 +57,7 @@ namespace DataTable.Net.Services.Impl
 			settings.MaxAbsoluteScalePower = Settings.Default.MaxAbsoluteScalePower;
 			settings.ExportValuesSeparator = Settings.Default.ExportValuesSeparator;
 			settings.RecentFilesCount = Settings.Default.RecentFilesCount;
+			settings.Language = GetLanguage(Settings.Default.Language);
 		}
 
 		private static void LoadRegistrySettings(SettingsStorage settings)
@@ -89,6 +111,20 @@ namespace DataTable.Net.Services.Impl
 		{
 			var fileAssociation = new FileAssociation(extension);
 			fileAssociation.Remove();
+		}
+
+		private static Language GetLanguage(LanguageType type)
+		{
+			foreach (var language in PredefinedData.SupportedLanguages)
+			{
+				if (language.Type == type)
+				{
+					return language;
+				}
+			}
+
+			log.WarnFormat(InternalResources.UnknownLanguageType, type);
+			return null;
 		}
 
 		#endregion Helpers

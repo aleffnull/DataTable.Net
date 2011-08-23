@@ -20,8 +20,10 @@ namespace DataTable.Net.Services.Common
 
 		#region Events
 
+		public event EventHandler Ready;
 		public event EventHandler<CompletedEventArgs> Completed;
 		public event EventHandler<ErrorOccurredEventArgs> ErrorOccurred;
+		public event EventHandler Done;
 
 		#endregion Events
 
@@ -55,6 +57,7 @@ namespace DataTable.Net.Services.Common
 		{
 			try
 			{
+				Send(state => OnReady());
 				var args = new ActionArgs();
 				actionPerformer(args);
 				RunContinuations();
@@ -66,6 +69,7 @@ namespace DataTable.Net.Services.Common
 			}
 			finally
 			{
+				Send(state => OnDone());
 				if (syncEvent != null)
 				{
 					syncEvent.Release();
@@ -130,6 +134,15 @@ namespace DataTable.Net.Services.Common
 			return true;
 		}
 
+		private void OnReady()
+		{
+			var eventHandler = Ready;
+			if (eventHandler != null)
+			{
+				eventHandler(this, EventArgs.Empty);
+			}
+		}
+
 		private void OnCompleted(object result)
 		{
 			var eventHandler = Completed;
@@ -147,6 +160,15 @@ namespace DataTable.Net.Services.Common
 			{
 				var eventArgs = new ErrorOccurredEventArgs(exception);
 				eventHandler(this, eventArgs);
+			}
+		}
+
+		private void OnDone()
+		{
+			var eventHandler = Done;
+			if (eventHandler != null)
+			{
+				eventHandler(this, EventArgs.Empty);
 			}
 		}
 

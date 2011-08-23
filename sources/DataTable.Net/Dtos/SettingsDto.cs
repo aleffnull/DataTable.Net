@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DataTable.Net.Models;
 
 namespace DataTable.Net.Dtos
 {
@@ -15,6 +16,7 @@ namespace DataTable.Net.Dtos
 		public int MaxAbsoluteScalePower { get; private set; }
 		public string ExportValuesSeparator { get; private set; }
 		public int RecentFilesCount { get; private set; }
+		public Language Language { get; private set; }
 
 		public IEnumerable<string> RegisteredExtensions
 		{
@@ -27,11 +29,12 @@ namespace DataTable.Net.Dtos
 
 		public SettingsDto(
 			int maxAbsoluteScalePower, string exportValuesSeparator, int recentFilesCount,
-			IEnumerable<string> registeredExtensions)
+			IEnumerable<string> registeredExtensions, Language language)
 		{
 			MaxAbsoluteScalePower = maxAbsoluteScalePower;
 			ExportValuesSeparator = exportValuesSeparator;
 			RecentFilesCount = recentFilesCount;
+			Language = language;
 			this.registeredExtensions.AddRange(registeredExtensions);
 		}
 

@@ -7,7 +7,6 @@ using DataTable.Net.Models;
 using DataTable.Net.Properties;
 using DataTable.Net.Services;
 using DataTable.Net.Services.Common;
-using DataTable.Net.Services.Impl;
 using DataTable.Net.Views;
 using log4net;
 
@@ -46,11 +45,11 @@ namespace DataTable.Net.Presenters.Impl
 
 		#region Constructors
 
-		public MainPresenter(IMainView view, string fileToOpen)
+		public MainPresenter(IMainView view, string fileToOpen, ServiceLocator serviceLocator)
 		{
 			this.view = view;
 			this.fileToOpen = fileToOpen;
-			serviceLocator = CreateServiceLocator();
+			this.serviceLocator = serviceLocator;
 		}
 
 		#endregion Constructors
@@ -59,36 +58,37 @@ namespace DataTable.Net.Presenters.Impl
 
 		public void OnLoad()
 		{
-			log.Info(InternalResources.LoadingSettings);
-
-			view.DisableSettingsDependentControls();
-			view.DisableFileDependentControls();
-			view.SetStatus(Resources.LoadingSettingsStatus);
-
-			var loadRecentFilesTask = Task<ICollection<RecentFileDto>>
+			Task<ICollection<RecentFileDto>>
 				.Create(() =>
 				        {
 				        	RecentFilesService.SetSize(SettingsService.CurrentSettings.RecentFilesCount);
 				        	return RecentFilesService.GetRecentFiles();
 				        })
-				.RunOnSuccess(recentFiles =>
-				              {
-				              	view.SetRecentFiles(recentFiles);
-				              	view.EnableRecentFilesDependentControls();
-				              })
+				.RunBefore(() =>
+				            {
+				            	log.Info(InternalResources.LoadingRecentFiles);
+				            	view.SetStatus(Resources.LoadingRecentFilesStatus);
+				            	view.DisableFileDependentControls();
+				            })
+				.RunOnSuccess(recentFiles => view.SetRecentFiles(recentFiles))
 				.RunOnError(exception =>
 				            {
 				            	log.Error(exception);
 				            	var message = string.Format(Resources.FailedToLoadRecentFiles, exception.Message);
 				            	view.ShowError(message);
-				            	view.SetStatus(Resources.ReadyStatus);
-				            	view.EnableRecentFilesDependentControls();
-				            });
-			Task
-				.Create(SettingsService.LoadSettings)
-				.WithContinuation(loadRecentFilesTask)
-				.RunOnSuccess(LoadSettingsSuccessCallback)
-				.RunOnError(LoadSettingsErrorCallback)
+				            })
+				.RunOnDone(() =>
+				           {
+				           	log.Info(InternalResources.RecentFilesLoaded);
+				           	view.EnableRecentFilesDependentControls();
+				           	view.SetStatus(Resources.ReadyStatus);
+
+				           	// Application is loaded. Open file, if needed.
+				           	if (!string.IsNullOrEmpty(fileToOpen))
+				           	{
+				           		OnOpenFile(fileToOpen);
+				           	}
+				           })
 				.Start();
 		}
 
@@ -308,29 +308,6 @@ namespace DataTable.Net.Presenters.Impl
 
 		#region Service callbacks
 
-		private void LoadSettingsSuccessCallback()
-		{
-			log.Info(InternalResources.SettingsLoadingFinished);
-			view.SetStatus(Resources.ReadyStatus);
-			view.EnableSettingsDependentControls();
-
-			// Application is loaded. Open file, if needed.
-			if (!string.IsNullOrEmpty(fileToOpen))
-			{
-				OnOpenFile(fileToOpen);
-			}
-		}
-
-		private void LoadSettingsErrorCallback(Exception exception)
-		{
-			log.Error(exception);
-
-			var message = string.Format(Resources.SettingsLoadingFailedMessage, exception.Message);
-			view.ShowError(message);
-			view.SetStatus(Resources.ReadyStatus);
-			view.EnableSettingsDependentControls();
-		}
-
 		private void SaveSettingsSuccessCallback()
 		{
 			view.SetStatus(Resources.ReadyStatus);
@@ -436,17 +413,6 @@ namespace DataTable.Net.Presenters.Impl
 
 		#region Helpers
 
-		private static ServiceLocator CreateServiceLocator()
-		{
-			var locator = new ServiceLocator();
-			locator.RegisterService<ISettingsService>(new SettingsService());
-			locator.RegisterService<IRecentFilesService>(new RecentFilesService());
-			locator.RegisterService<IMathService>(new MathService());
-			locator.RegisterService<IDataService>(new DataService(locator));
-
-			return locator;
-		}
-
 		private static IEnumerable<ScaleDto> GetScaleDtos(IEnumerable<int> scales)
 		{
 			var dtos = new List<ScaleDto>();
@@ -507,18 +473,18 @@ namespace DataTable.Net.Presenters.Impl
 				.Start();
 		}
 
-		private static SettingsDto GetSettingsDto(SettingsStorage settingsStorage)
+		private static SettingsDto GetSettingsDto(SettingsStorage storage)
 		{
 			return new SettingsDto(
-				settingsStorage.MaxAbsoluteScalePower, settingsStorage.ExportValuesSeparator,
-				settingsStorage.RecentFilesCount, settingsStorage.RegisteredExtensions);
+				storage.MaxAbsoluteScalePower, storage.ExportValuesSeparator,
+				storage.RecentFilesCount, storage.RegisteredExtensions, storage.Language);
 		}
 
-		private static SettingsStorage GetSettingsStorage(SettingsDto settingsDto)
+		private static SettingsStorage GetSettingsStorage(SettingsDto dto)
 		{
 			return new SettingsStorage(
-				settingsDto.MaxAbsoluteScalePower, settingsDto.ExportValuesSeparator,
-				settingsDto.RecentFilesCount, settingsDto.RegisteredExtensions);
+				dto.MaxAbsoluteScalePower, dto.ExportValuesSeparator,
+				dto.RecentFilesCount, dto.RegisteredExtensions, dto.Language);
 		}
 
 		#endregion Helpers

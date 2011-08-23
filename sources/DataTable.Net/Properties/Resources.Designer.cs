@@ -259,11 +259,20 @@ namespace DataTable.Net.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Загрузка настроек....
+        ///   Looks up a localized string similar to Загрузка списка недавно открытых файлов....
         /// </summary>
-        internal static string LoadingSettingsStatus {
+        internal static string LoadingRecentFilesStatus {
             get {
-                return ResourceManager.GetString("LoadingSettingsStatus", resourceCulture);
+                return ResourceManager.GetString("LoadingRecentFilesStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Настройки необходимо загрузить перед использованием.
+        /// </summary>
+        internal static string LoadSettingsBeforeUsingExceptionMessage {
+            get {
+                return ResourceManager.GetString("LoadSettingsBeforeUsingExceptionMessage", resourceCulture);
             }
         }
         
@@ -309,15 +318,6 @@ namespace DataTable.Net.Properties {
         internal static string SavingSettingsStatus {
             get {
                 return ResourceManager.GetString("SavingSettingsStatus", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Загрузка настроек не удалась: {0}.
-        /// </summary>
-        internal static string SettingsLoadingFailedMessage {
-            get {
-                return ResourceManager.GetString("SettingsLoadingFailedMessage", resourceCulture);
             }
         }
         

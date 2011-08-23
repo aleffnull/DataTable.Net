@@ -138,15 +138,8 @@
     <value>File '{0}' doesn't exist</value>
     <comment>0 is file path</comment>
   </data>
-  <data name="LoadingSettingsStatus" xml:space="preserve">
-    <value>Loadding settings...</value>
-  </data>
   <data name="LoadingFileStatus" xml:space="preserve">
     <value>Loading file...</value>
-  </data>
-  <data name="SettingsLoadingFailedMessage" xml:space="preserve">
-    <value>Failed to load settings: {0}</value>
-    <comment>0 is error message</comment>
   </data>
   <data name="ReadFromFileExceptionMessage" xml:space="preserve">
     <value>Error while reading: read {0} bytes, while {1} was expected</value>
@@ -218,5 +211,11 @@
   </data>
   <data name="ClearingRecentFilesList" xml:space="preserve">
     <value>Clearing recent files list</value>
+  </data>
+  <data name="LoadSettingsBeforeUsingExceptionMessage" xml:space="preserve">
+    <value>Settings should be loaded before using</value>
+  </data>
+  <data name="LoadingRecentFilesStatus" xml:space="preserve">
+    <value>Loading recent files list...</value>
   </data>
 </root>
