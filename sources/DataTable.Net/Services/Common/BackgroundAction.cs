@@ -29,10 +29,12 @@ namespace DataTable.Net.Services.Common
 
 		#region Constructors
 
-		public BackgroundAction(ActionPerformer actionPerformer)
+		public BackgroundAction(ActionPerformer actionPerformer, ServiceLocator serviceLocator)
 		{
 			syncContext = SynchronizationContext.Current;
-			thread = new Thread(state => RunWorker(actionPerformer)) {IsBackground = true};
+			var culture = serviceLocator.Resolve<ISettingsService>().CurrentSettings.Language.Culture;
+			thread = new Thread(state => RunWorker(actionPerformer))
+			         {IsBackground = true, CurrentCulture = culture, CurrentUICulture = culture};
 		}
 
 		#endregion Constructors

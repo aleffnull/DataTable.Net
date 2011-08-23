@@ -21,14 +21,14 @@ namespace DataTable.Net.Services.Common
 
 		#region Constructors
 
-		public static Task Create(Action action)
+		public static Task Create(Action action, ServiceLocator serviceLocator)
 		{
-			return new Task(action);
+			return new Task(action, serviceLocator);
 		}
 
-		private Task(Action action)
+		private Task(Action action, ServiceLocator serviceLocator)
 		{
-			Action = new BackgroundAction(args => action());
+			Action = new BackgroundAction(args => action(), serviceLocator);
 			Action.Ready += OnActionReady;
 			Action.Completed += OnActionCompleted;
 			Action.ErrorOccurred += OnActionErrorOccurred;
@@ -128,14 +128,14 @@ namespace DataTable.Net.Services.Common
 
 		#region Constructors
 
-		public static Task<T> Create(Func<T> func)
+		public static Task<T> Create(Func<T> func, ServiceLocator serviceLocator)
 		{
-			return new Task<T>(func);
+			return new Task<T>(func, serviceLocator);
 		}
 
-		private Task(Func<T> func)
+		private Task(Func<T> func, ServiceLocator serviceLocator)
 		{
-			Action = new BackgroundAction(args => { args.Result = func(); });
+			Action = new BackgroundAction(args => { args.Result = func(); }, serviceLocator);
 			Action.Ready += OnActionReady;
 			Action.Completed += OnActionCompleted;
 			Action.ErrorOccurred += OnActionErrorOccurred;

@@ -63,13 +63,14 @@ namespace DataTable.Net.Presenters.Impl
 				        {
 				        	RecentFilesService.SetSize(SettingsService.CurrentSettings.RecentFilesCount);
 				        	return RecentFilesService.GetRecentFiles();
-				        })
+				        },
+				        serviceLocator)
 				.RunBefore(() =>
-				            {
-				            	log.Info(InternalResources.LoadingRecentFiles);
-				            	view.SetStatus(Resources.LoadingRecentFilesStatus);
-				            	view.DisableFileDependentControls();
-				            })
+				           {
+				           	log.Info(InternalResources.LoadingRecentFiles);
+				           	view.SetStatus(Resources.LoadingRecentFilesStatus);
+				           	view.DisableFileDependentControls();
+				           })
 				.RunOnSuccess(recentFiles => view.SetRecentFiles(recentFiles))
 				.RunOnError(exception =>
 				            {
@@ -126,7 +127,7 @@ namespace DataTable.Net.Presenters.Impl
 			view.SetStatus(Resources.ClearingRecentFilesList);
 
 			Task
-				.Create(() => RecentFilesService.Clear())
+				.Create(() => RecentFilesService.Clear(), serviceLocator)
 				.RunOnSuccess(ClearRecentFilesSuccessCallback)
 				.RunOnError(ClearRecentFilesErrorCallback)
 				.Start();
@@ -150,7 +151,7 @@ namespace DataTable.Net.Presenters.Impl
 			view.GoToWaitMode();
 			Task
 				.Create(() => DataService.ExportDataToFile(
-					filePath, currentDataModel, SettingsService.CurrentSettings.ExportValuesSeparator))
+					filePath, currentDataModel, SettingsService.CurrentSettings.ExportValuesSeparator), serviceLocator)
 				.RunOnSuccess(ExportDataToFileSuccessCallback)
 				.RunOnError(ExportDataToFileErrorCallback)
 				.Start();
@@ -163,7 +164,7 @@ namespace DataTable.Net.Presenters.Impl
 
 			view.GoToWaitMode();
 			Task
-				.Create(() => DataService.ExportToExcel(currentDataModel))
+				.Create(() => DataService.ExportToExcel(currentDataModel), serviceLocator)
 				.RunOnSuccess(ExportToExcelSuccessCallback)
 				.RunOnError(ExportToExcelErrorCallback)
 				.Start();
@@ -203,7 +204,8 @@ namespace DataTable.Net.Presenters.Impl
 				        {
 				        	RecentFilesService.SetSize(SettingsService.CurrentSettings.RecentFilesCount);
 				        	return RecentFilesService.GetRecentFiles();
-				        })
+				        },
+				        serviceLocator)
 				.RunOnSuccess(recentFiles => view.SetRecentFiles(recentFiles))
 				.RunOnError(exception =>
 				            {
@@ -212,7 +214,7 @@ namespace DataTable.Net.Presenters.Impl
 				            	view.ShowError(message);
 				            });
 			Task
-				.Create(() => SettingsService.SaveSettings(newSettings))
+				.Create(() => SettingsService.SaveSettings(newSettings), serviceLocator)
 				.WithContinuation(loadRecentFilesTask)
 				.RunOnSuccess(SaveSettingsSuccessCallback).RunOnError(SaveSettingErrorCallback)
 				.Start();
@@ -301,7 +303,7 @@ namespace DataTable.Net.Presenters.Impl
 			 * that was the source of drag-n-drop operation. So we do a dummy action
 			 * in a separate thread and open file in callback executed in the UI thread.
 			 */
-			Task.Create(delegate { }).RunOnSuccess(() => OpenDragDroppedFile(filePath)).Start();
+			Task.Create(delegate { }, serviceLocator).RunOnSuccess(() => OpenDragDroppedFile(filePath)).Start();
 		}
 
 		#endregion IMainPresenter implementation
@@ -457,7 +459,8 @@ namespace DataTable.Net.Presenters.Impl
 				        {
 				        	RecentFilesService.AddFile(filePath);
 				        	return RecentFilesService.GetRecentFiles();
-				        })
+				        },
+				        serviceLocator)
 				.RunOnSuccess(recentFiles => view.SetRecentFiles(recentFiles))
 				.RunOnError(exception =>
 				            {
@@ -466,7 +469,7 @@ namespace DataTable.Net.Presenters.Impl
 				            	view.ShowError(message);
 				            });
 			Task<DataModel>
-				.Create(() => DataService.LoadData(filePath, fullDataPropertiesDto))
+				.Create(() => DataService.LoadData(filePath, fullDataPropertiesDto), serviceLocator)
 				.WithContinuation(updateRecentFilesTask)
 				.RunOnSuccess(LoadDataSuccessCallback)
 				.RunOnError(LoadDataErrorCallback)
