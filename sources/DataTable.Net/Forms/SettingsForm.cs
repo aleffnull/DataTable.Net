@@ -46,6 +46,23 @@ namespace DataTable.Net.Forms
 			set { RecentFilesCountUpDown.Value = value; }
 		}
 
+		LanguageDto ISettingsView.Language
+		{
+			get { return (LanguageDto)LanguageComboBox.SelectedItem; }
+			set
+			{
+				foreach (var item in LanguageComboBox.Items)
+				{
+					var dto = (LanguageDto)item;
+					if (dto.Equals(value))
+					{
+						LanguageComboBox.SelectedItem = item;
+						break;
+					}
+				}
+			}
+		}
+
 		void ISettingsView.AddExtension(string extension)
 		{
 			var checkBox = new CheckBox

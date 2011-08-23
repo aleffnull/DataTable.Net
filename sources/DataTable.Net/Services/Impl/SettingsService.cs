@@ -77,6 +77,7 @@ namespace DataTable.Net.Services.Impl
 			Settings.Default.MaxAbsoluteScalePower = settings.MaxAbsoluteScalePower;
 			Settings.Default.ExportValuesSeparator = settings.ExportValuesSeparator;
 			Settings.Default.RecentFilesCount = settings.RecentFilesCount;
+			Settings.Default.Language = settings.Language.Type;
 			Settings.Default.Save();
 		}
 

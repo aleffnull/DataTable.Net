@@ -8,6 +8,7 @@ namespace DataTable.Net.Views
 		int MaxAbsoluteScalePower { get; set; }
 		string ExportValuesSeparator { get; set; }
 		int RecentFilesCount { get; set; }
+		LanguageDto Language { get; set; }
 
 		void AddExtension(string extension);
 		void ToogleExtension(string extension, bool selected);

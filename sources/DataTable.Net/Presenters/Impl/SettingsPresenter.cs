@@ -35,7 +35,7 @@ namespace DataTable.Net.Presenters.Impl
 		{
 			return new SettingsDto(
 				view.MaxAbsoluteScalePower, view.ExportValuesSeparator,
-				view.RecentFilesCount, view.GetSelectedExtensions(), null);
+				view.RecentFilesCount, view.GetSelectedExtensions(), view.Language.Language);
 		}
 
 		public void OnSelectAllExtensions()
@@ -65,6 +65,7 @@ namespace DataTable.Net.Presenters.Impl
 			view.MaxAbsoluteScalePower = settings.MaxAbsoluteScalePower;
 			view.ExportValuesSeparator = settings.ExportValuesSeparator;
 			view.RecentFilesCount = settings.RecentFilesCount;
+			view.Language = new LanguageDto(settings.Language);
 
 			foreach (var extension in settings.RegisteredExtensions)
 			{
