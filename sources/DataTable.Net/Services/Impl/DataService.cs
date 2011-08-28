@@ -53,10 +53,24 @@ namespace DataTable.Net.Services.Impl
 		{
 			using (var streamWriter = File.CreateText(filePath))
 			{
-				Action<List<string>> dataLineAction =
+				Action<List<object>> dataLineAction =
 					lineList =>
 					{
-						var line = string.Join(valuesSeparator, lineList.ToArray());
+						var lineStringList = new List<string>(lineList.Count);
+						foreach (var obj in lineList)
+						{
+							if (obj is decimal)
+							{
+								var number = (decimal)obj;
+								lineStringList.Add(number.ToString(CultureInfo.InstalledUICulture));
+							}
+							else
+							{
+								lineStringList.Add(obj.ToString());
+							}
+						}
+
+						var line = string.Join(valuesSeparator, lineStringList.ToArray());
 						streamWriter.WriteLine(line);
 					};
 
@@ -193,9 +207,9 @@ namespace DataTable.Net.Services.Impl
 			}
 		}
 
-		private static void DoHeader(DataModel dataModel, Action<List<string>> dataLineAction)
+		private static void DoHeader(DataModel dataModel, Action<List<object>> dataLineAction)
 		{
-			var lineList = new List<string>();
+			var lineList = new List<object>();
 
 			for (var argumentIndex = 0; argumentIndex < dataModel.NumberOfArguments; argumentIndex++)
 			{
@@ -229,9 +243,9 @@ namespace DataTable.Net.Services.Impl
 			dataLineAction(lineList);
 		}
 
-		private static void DoBody(DataModel dataModel, Action<List<string>> dataLineAction)
+		private static void DoBody(DataModel dataModel, Action<List<object>> dataLineAction)
 		{
-			var lineList = new List<string>();
+			var lineList = new List<object>();
 			for (var dataEntryIndex = 0; dataEntryIndex < dataModel.DataEntriesCount; dataEntryIndex++)
 			{
 				for (var argumentIndex = 0; argumentIndex < dataModel.NumberOfArguments; argumentIndex++)
@@ -246,12 +260,12 @@ namespace DataTable.Net.Services.Impl
 				}
 				for (var argumentIndex = 0; argumentIndex < dataModel.NumberOfArguments; argumentIndex++)
 				{
-					var value = dataModel.GetHumanArgument(argumentIndex, dataEntryIndex).ToString(CultureInfo.CurrentCulture);
+					var value = dataModel.GetHumanArgument(argumentIndex, dataEntryIndex);
 					lineList.Add(value);
 				}
 				for (var functionIndex = 0; functionIndex < dataModel.NumberOfFunctions; functionIndex++)
 				{
-					var value = dataModel.GetHumanFunction(functionIndex, dataEntryIndex).ToString(CultureInfo.CurrentCulture);
+					var value = dataModel.GetHumanFunction(functionIndex, dataEntryIndex);
 					lineList.Add(value);
 				}
 				dataLineAction(lineList);
@@ -266,7 +280,7 @@ namespace DataTable.Net.Services.Impl
 			var rowCount = dataModel.DataEntriesCount + 1;
 			var data = new object[rowCount, columnCount];
 			var currentRowIndex = 0;
-			Action<List<string>> dataLineAction =
+			Action<List<object>> dataLineAction =
 				lineList =>
 				{
 					if (lineList.Count != columnCount)
