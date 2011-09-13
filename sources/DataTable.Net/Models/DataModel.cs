@@ -4,17 +4,17 @@ using System.Text;
 using DataTable.Net.Dtos;
 using DataTable.Net.Properties;
 using DataTable.Net.Services;
-using DataTable.Net.Services.Common;
 
 namespace DataTable.Net.Models
 {
 	public class DataModel
 	{
+		private readonly IMathService mathService;
+
 		#region Fields
 
 		private readonly List<DataEntry> dataEntries = new List<DataEntry>();
 		private readonly DataPropertiesModel dataPropertiesModel;
-		private readonly ServiceLocator serviceLocator;
 
 		#endregion Fields
 
@@ -47,20 +47,15 @@ namespace DataTable.Net.Models
 			get { return dataEntries.Count; }
 		}
 
-		private IMathService MathService
-		{
-			get { return serviceLocator.Resolve<IMathService>(); }
-		}
-
 		#endregion Properties
 
 		#region Constructors
 
-		public DataModel(string filePath, FullDataPropertiesDto fullDataPropertiesDto, ServiceLocator serviceLocator)
+		public DataModel(string filePath, FullDataPropertiesDto fullDataPropertiesDto, IMathService mathService)
 		{
 			FilePath = filePath;
 			dataPropertiesModel = GetDataPropertiesModel(fullDataPropertiesDto);
-			this.serviceLocator = serviceLocator;
+			this.mathService = mathService;
 		}
 
 		#endregion Constructors
@@ -121,7 +116,7 @@ namespace DataTable.Net.Models
 		public virtual decimal GetHumanArgument(int index, int dataEntryIndex)
 		{
 			var rawArgumentValue = dataEntries[dataEntryIndex].Arguments[index];
-			var argument = MathService.GetValue(
+			var argument = mathService.GetValue(
 				rawArgumentValue, dataPropertiesModel.ArithmeticType, dataPropertiesModel.GetArgumentScale(index));
 
 			return argument;
@@ -130,7 +125,7 @@ namespace DataTable.Net.Models
 		public virtual decimal GetHumanFunction(int index, int dataEntryIndex)
 		{
 			var rawFunctionValue = dataEntries[dataEntryIndex].Functions[index];
-			var function = MathService.GetValue(
+			var function = mathService.GetValue(
 				rawFunctionValue, dataPropertiesModel.ArithmeticType, dataPropertiesModel.GetFunctionScale(index));
 
 			return function;

@@ -1,10 +1,14 @@
 using System;
 using System.Windows.Forms;
+using DataTable.Net.Views;
 
 namespace DataTable.Net.Presenters
 {
 	public interface IMainPresenter
 	{
+		void SetView(IMainView mainView);
+		void SetFileToOpen(string filePath);
+
 		void OnLoad();
 		void OnOpenFile();
 		void OnOpenFile(string filePath);

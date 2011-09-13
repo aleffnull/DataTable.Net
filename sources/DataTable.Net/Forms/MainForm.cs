@@ -6,9 +6,7 @@ using System.Windows.Forms;
 using DataTable.Net.Dtos;
 using DataTable.Net.Models;
 using DataTable.Net.Presenters;
-using DataTable.Net.Presenters.Impl;
 using DataTable.Net.Properties;
-using DataTable.Net.Services.Common;
 using DataTable.Net.Views;
 
 namespace DataTable.Net.Forms
@@ -24,13 +22,23 @@ namespace DataTable.Net.Forms
 
 		#region Constructors
 
-		public MainForm(string fileToOpen, ServiceLocator serviceLocator)
+		public MainForm(IMainPresenter presenter)
 		{
 			InitializeComponent();
-			presenter = new MainPresenter(this, fileToOpen, serviceLocator);
+			presenter.SetView(this);
+			this.presenter = presenter;
 		}
 
 		#endregion Constructors
+
+		#region Methods
+
+		public void SetFileToOpen(string filePath)
+		{
+			presenter.SetFileToOpen(filePath);
+		}
+
+		#endregion Methods
 
 		#region IMainView implementation
 

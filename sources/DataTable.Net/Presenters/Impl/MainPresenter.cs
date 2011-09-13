@@ -12,59 +12,54 @@ using log4net;
 
 namespace DataTable.Net.Presenters.Impl
 {
-	public class MainPresenter : IMainPresenter
+	internal class MainPresenter : IMainPresenter
 	{
 		#region Fields
 
 		private readonly ILog log = LogManager.GetLogger(typeof(MainPresenter));
-		private readonly IMainView view;
-		private readonly string fileToOpen;
-		private readonly ServiceLocator serviceLocator;
+		private readonly ISettingsService settingsService;
+		private readonly IRecentFilesService recentFilesService;
+		private readonly IDataService dataService;
+		private readonly ITaskService taskService;
+		private IMainView view;
+		private string fileToOpen;
 		private DataModel currentDataModel;
 
 		#endregion Fields
 
-		#region Properties
-
-		private ISettingsService SettingsService
-		{
-			get { return serviceLocator.Resolve<ISettingsService>(); }
-		}
-
-		private IRecentFilesService RecentFilesService
-		{
-			get { return serviceLocator.Resolve<IRecentFilesService>(); }
-		}
-
-		private IDataService DataService
-		{
-			get { return serviceLocator.Resolve<IDataService>(); }
-		}
-
-		#endregion Properties
-
 		#region Constructors
 
-		public MainPresenter(IMainView view, string fileToOpen, ServiceLocator serviceLocator)
+		public MainPresenter(
+			ISettingsService settingsService, IRecentFilesService recentFilesService,
+			IDataService dataService, ITaskService taskService)
 		{
-			this.view = view;
-			this.fileToOpen = fileToOpen;
-			this.serviceLocator = serviceLocator;
+			this.settingsService = settingsService;
+			this.recentFilesService = recentFilesService;
+			this.dataService = dataService;
+			this.taskService = taskService;
 		}
 
 		#endregion Constructors
 
 		#region IMainPresenter implementation
 
+		public void SetView(IMainView mainView)
+		{
+			view = mainView;
+		}
+
+		public void SetFileToOpen(string filePath)
+		{
+			fileToOpen = filePath;
+		}
+
 		public void OnLoad()
 		{
-			Task<ICollection<RecentFileDto>>
-				.Create(() =>
-				        {
-				        	RecentFilesService.SetSize(SettingsService.CurrentSettings.RecentFilesCount);
-				        	return RecentFilesService.GetRecentFiles();
-				        },
-				        serviceLocator)
+			taskService.CreateTask(() =>
+			                       {
+			                       	recentFilesService.SetSize(settingsService.CurrentSettings.RecentFilesCount);
+			                       	return recentFilesService.GetRecentFiles();
+			                       })
 				.RunBefore(() =>
 				           {
 				           	log.Info(InternalResources.LoadingRecentFiles);
@@ -126,8 +121,7 @@ namespace DataTable.Net.Presenters.Impl
 			view.GoToWaitMode();
 			view.SetStatus(Resources.ClearingRecentFilesList);
 
-			Task
-				.Create(() => RecentFilesService.Clear(), serviceLocator)
+			taskService.CreateTask(() => recentFilesService.Clear())
 				.RunOnSuccess(ClearRecentFilesSuccessCallback)
 				.RunOnError(ClearRecentFilesErrorCallback)
 				.Start();
@@ -149,9 +143,9 @@ namespace DataTable.Net.Presenters.Impl
 			log.InfoFormat(InternalResources.ExportingToFile, filePath);
 			view.SetStatus(Resources.ExportingToFileStatus);
 			view.GoToWaitMode();
-			Task
-				.Create(() => DataService.ExportDataToFile(
-					filePath, currentDataModel, SettingsService.CurrentSettings.ExportValuesSeparator), serviceLocator)
+			taskService.CreateTask(
+				() =>
+				dataService.ExportDataToFile(filePath, currentDataModel, settingsService.CurrentSettings.ExportValuesSeparator))
 				.RunOnSuccess(ExportDataToFileSuccessCallback)
 				.RunOnError(ExportDataToFileErrorCallback)
 				.Start();
@@ -163,8 +157,7 @@ namespace DataTable.Net.Presenters.Impl
 			view.SetStatus(Resources.ExportingToExcelStatus);
 
 			view.GoToWaitMode();
-			Task
-				.Create(() => DataService.ExportToExcel(currentDataModel), serviceLocator)
+			taskService.CreateTask(() => dataService.ExportToExcel(currentDataModel))
 				.RunOnSuccess(ExportToExcelSuccessCallback)
 				.RunOnError(ExportToExcelErrorCallback)
 				.Start();
@@ -186,7 +179,7 @@ namespace DataTable.Net.Presenters.Impl
 
 		public void OnChangeSettings()
 		{
-			var currentSettingsDto = GetSettingsDto(SettingsService.CurrentSettings);
+			var currentSettingsDto = GetSettingsDto(settingsService.CurrentSettings);
 			var newSettingsDto = view.AskUserForSettings(currentSettingsDto);
 			if (newSettingsDto == null)
 			{
@@ -195,17 +188,16 @@ namespace DataTable.Net.Presenters.Impl
 
 			var newSettings = GetSettingsStorage(newSettingsDto);
 
-			log.InfoFormat(InternalResources.ChangingSettingsFromTo, SettingsService.CurrentSettings, newSettings);
+			log.InfoFormat(InternalResources.ChangingSettingsFromTo, settingsService.CurrentSettings, newSettings);
 			view.SetStatus(Resources.SavingSettingsStatus);
 			view.GoToWaitMode();
 
-			var loadRecentFilesTask = Task<ICollection<RecentFileDto>>
-				.Create(() =>
-				        {
-				        	RecentFilesService.SetSize(SettingsService.CurrentSettings.RecentFilesCount);
-				        	return RecentFilesService.GetRecentFiles();
-				        },
-				        serviceLocator)
+			var loadRecentFilesTask = taskService.CreateTask(
+				() =>
+				{
+					recentFilesService.SetSize(settingsService.CurrentSettings.RecentFilesCount);
+					return recentFilesService.GetRecentFiles();
+				})
 				.RunOnSuccess(recentFiles => view.SetRecentFiles(recentFiles))
 				.RunOnError(exception =>
 				            {
@@ -213,8 +205,7 @@ namespace DataTable.Net.Presenters.Impl
 				            	var message = string.Format(Resources.FailedToLoadRecentFiles, exception.Message);
 				            	view.ShowError(message);
 				            });
-			Task
-				.Create(() => SettingsService.SaveSettings(newSettings), serviceLocator)
+			taskService.CreateTask(() => settingsService.SaveSettings(newSettings))
 				.WithContinuation(loadRecentFilesTask)
 				.RunOnSuccess(SaveSettingsSuccessCallback).RunOnError(SaveSettingErrorCallback)
 				.Start();
@@ -303,7 +294,7 @@ namespace DataTable.Net.Presenters.Impl
 			 * that was the source of drag-n-drop operation. So we do a dummy action
 			 * in a separate thread and open file in callback executed in the UI thread.
 			 */
-			Task.Create(delegate { }, serviceLocator).RunOnSuccess(() => OpenDragDroppedFile(filePath)).Start();
+			taskService.CreateTask(delegate { }).RunOnSuccess(() => OpenDragDroppedFile(filePath)).Start();
 		}
 
 		#endregion IMainPresenter implementation
@@ -338,8 +329,8 @@ namespace DataTable.Net.Presenters.Impl
 
 			view.CreateColumns(
 				model.NumberOfArguments, model.NumberOfFunctions,
-				GetScaleDtos(model.CreateArgumentScales(SettingsService.CurrentSettings.MaxAbsoluteScalePower)),
-				GetScaleDtos(model.CreateFunctionScales(SettingsService.CurrentSettings.MaxAbsoluteScalePower)));
+				GetScaleDtos(model.CreateArgumentScales(settingsService.CurrentSettings.MaxAbsoluteScalePower)),
+				GetScaleDtos(model.CreateFunctionScales(settingsService.CurrentSettings.MaxAbsoluteScalePower)));
 			view.SetDataRowsCount(model.DataEntriesCount);
 			view.ShowFilePath(model.FilePath);
 			view.SetStatus(Resources.ReadyStatus);
@@ -454,13 +445,12 @@ namespace DataTable.Net.Presenters.Impl
 			view.SetStatus(Resources.LoadingFileStatus);
 			view.GoToWaitMode();
 
-			var updateRecentFilesTask = Task<ICollection<RecentFileDto>>
-				.Create(() =>
-				        {
-				        	RecentFilesService.AddFile(filePath);
-				        	return RecentFilesService.GetRecentFiles();
-				        },
-				        serviceLocator)
+			var updateRecentFilesTask = taskService.CreateTask(
+				() =>
+				{
+					recentFilesService.AddFile(filePath);
+					return recentFilesService.GetRecentFiles();
+				})
 				.RunOnSuccess(recentFiles => view.SetRecentFiles(recentFiles))
 				.RunOnError(exception =>
 				            {
@@ -468,8 +458,8 @@ namespace DataTable.Net.Presenters.Impl
 				            	var message = string.Format(Resources.FailedToUpdateRecentFilesList, exception.Message);
 				            	view.ShowError(message);
 				            });
-			Task<DataModel>
-				.Create(() => DataService.LoadData(filePath, fullDataPropertiesDto), serviceLocator)
+			taskService.CreateTask(
+				() => dataService.LoadData(filePath, fullDataPropertiesDto))
 				.WithContinuation(updateRecentFilesTask)
 				.RunOnSuccess(LoadDataSuccessCallback)
 				.RunOnError(LoadDataErrorCallback)

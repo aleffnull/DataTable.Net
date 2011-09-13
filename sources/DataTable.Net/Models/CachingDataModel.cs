@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using DataTable.Net.Dtos;
-using DataTable.Net.Services.Common;
+using DataTable.Net.Services;
 
 namespace DataTable.Net.Models
 {
@@ -14,8 +14,8 @@ namespace DataTable.Net.Models
 
 		#region Constructors
 
-		public CachingDataModel(string filePath, FullDataPropertiesDto fullDataPropertiesDto, ServiceLocator serviceLocator)
-			: base(filePath, fullDataPropertiesDto, serviceLocator)
+		public CachingDataModel(string filePath, FullDataPropertiesDto fullDataPropertiesDto, IMathService mathService)
+			: base(filePath, fullDataPropertiesDto, mathService)
 		{
 			//
 		}

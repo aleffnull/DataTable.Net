@@ -6,7 +6,6 @@ using DataTable.Net.Dtos;
 using DataTable.Net.Exceptions;
 using DataTable.Net.Models;
 using DataTable.Net.Properties;
-using DataTable.Net.Services.Common;
 using log4net;
 using Microsoft.Office.Interop.Excel;
 
@@ -17,15 +16,15 @@ namespace DataTable.Net.Services.Impl
 		#region Fields
 
 		private readonly ILog log = LogManager.GetLogger(typeof(DataService));
-		private readonly ServiceLocator serviceLocator;
+		private readonly IMathService mathService;
 
 		#endregion Fields
 
 		#region Constructors
 
-		public DataService(ServiceLocator serviceLocator)
+		public DataService(IMathService mathService)
 		{
-			this.serviceLocator = serviceLocator;
+			this.mathService = mathService;
 		}
 
 		#endregion Constructors
@@ -40,7 +39,7 @@ namespace DataTable.Net.Services.Impl
 				throw new FileNotExistsException(filePath);
 			}
 
-			var dataModel = new CachingDataModel(filePath, fullDataPropertiesDto, serviceLocator);
+			var dataModel = new CachingDataModel(filePath, fullDataPropertiesDto, mathService);
 			using (var stream = File.OpenRead(filePath))
 			{
 				LoadDataImpl(stream, dataModel);

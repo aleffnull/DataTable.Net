@@ -4,10 +4,13 @@ using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
 using DataTable.Net.Forms;
+using DataTable.Net.Presenters;
+using DataTable.Net.Presenters.Impl;
 using DataTable.Net.Properties;
 using DataTable.Net.Services;
 using DataTable.Net.Services.Common;
 using DataTable.Net.Services.Impl;
+using Parmezan.Container;
 using log4net;
 using log4net.Config;
 
@@ -19,7 +22,7 @@ namespace DataTable.Net
 
 		private static readonly ILog log = LogManager.GetLogger(typeof(Program));
 		private static readonly UnhandledExceptionManager exceptionManager = new UnhandledExceptionManager();
-		private static readonly ServiceLocator serviceLocator;
+		private static readonly Box box;
 
 		#endregion Fields
 
@@ -27,7 +30,7 @@ namespace DataTable.Net
 
 		private static ISettingsService SettingsService
 		{
-			get { return serviceLocator.Resolve<ISettingsService>(); }
+			get { return box.Resolve<ISettingsService>(); }
 		}
 
 		#endregion Properties
@@ -36,7 +39,7 @@ namespace DataTable.Net
 
 		static Program()
 		{
-			serviceLocator = CreateServiceLocator();
+			box = CreateBox();
 		}
 
 		#endregion Constructors
@@ -69,15 +72,18 @@ namespace DataTable.Net
 			AppDomain.CurrentDomain.UnhandledException += exceptionManager.CurrentDomain_UnhandledException;
 		}
 
-		private static ServiceLocator CreateServiceLocator()
+		private static Box CreateBox()
 		{
-			var locator = new ServiceLocator();
-			locator.RegisterService<ISettingsService>(new SettingsService());
-			locator.RegisterService<IRecentFilesService>(new RecentFilesService());
-			locator.RegisterService<IMathService>(new MathService());
-			locator.RegisterService<IDataService>(new DataService(locator));
+			var result = new Box();
+			result.Register<ISettingsService, SettingsService>();
+			result.Register<IRecentFilesService, RecentFilesService>();
+			result.Register<IMathService, MathService>();
+			result.Register<IDataService, DataService>();
+			result.Register<ITaskService, TaskService>();
+			result.Register<MainForm>();
+			result.Register<IMainPresenter, MainPresenter>();
 
-			return locator;
+			return result;
 		}
 
 		private static void RunApplication(IList<string> args)
@@ -97,9 +103,12 @@ namespace DataTable.Net
 			log.DebugFormat(InternalResources.SettingMainThreadCulture, culture);
 			Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture = culture;
 
+			var mainForm = box.Resolve<MainForm>();
+			mainForm.SetFileToOpen(fileToOpen);
+
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MainForm(fileToOpen, serviceLocator));
+			Application.Run(mainForm);
 		}
 
 		#endregion Helpers
