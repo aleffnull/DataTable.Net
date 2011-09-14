@@ -80,8 +80,8 @@ namespace DataTable.Net
 			result.Register<IMathService, MathService>();
 			result.Register<IDataService, DataService>();
 			result.Register<ITaskService, TaskService>();
-			result.Register<MainForm>();
-			result.Register<IMainPresenter, MainPresenter>();
+			result.Register<MainForm>(LifeStyle.NewPerResolve);
+			result.Register<IMainPresenter, MainPresenter>(LifeStyle.NewPerResolve);
 
 			return result;
 		}
@@ -103,11 +103,11 @@ namespace DataTable.Net
 			log.DebugFormat(InternalResources.SettingMainThreadCulture, culture);
 			Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture = culture;
 
-			var mainForm = box.Resolve<MainForm>();
-			mainForm.SetFileToOpen(fileToOpen);
-
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+
+			var mainForm = box.Resolve<MainForm>();
+			mainForm.SetFileToOpen(fileToOpen);
 			Application.Run(mainForm);
 		}
 
