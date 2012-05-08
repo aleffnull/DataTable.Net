@@ -80,8 +80,8 @@ namespace DataTable.Net
 			result.Register<IMathService, MathService>();
 			result.Register<IDataService, DataService>();
 			result.Register<ITaskService, TaskService>();
-			result.Register<MainForm>(LifeStyle.NewPerResolve);
-			result.Register<IMainPresenter, MainPresenter>(LifeStyle.NewPerResolve);
+			result.Register<MainForm>();
+			result.Register<IMainPresenter, MainPresenter>();
 
 			return result;
 		}
